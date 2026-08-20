@@ -25,6 +25,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/ai-box.html" />
   </url>
   <url>
+    <loc>https://w3.magne.ai/cookie-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/cookie-policy.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/cookie-policy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/cookie-policy.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/cookie-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/cookie-policy.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/cookie-policy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/cookie-policy.html" />
+  </url>
+  <url>
     <loc>https://w3.magne.ai/developers.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/developers.html" />
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/developers.html" />
