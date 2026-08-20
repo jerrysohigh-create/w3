@@ -35,7 +35,8 @@
   }
 
   .nav-actions .locale-control {
-    min-height: 32px;
-    padding-inline: 8px;
+    min-width: 44px;
+    min-height: 44px;
+    padding-inline: 10px;
   }
 }

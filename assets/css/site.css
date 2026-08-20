@@ -13,8 +13,8 @@
   --lime: #00ff88;
   --amber: #ff9500;
   --danger: #ff5656;
-  --display: "Space Grotesk", "Noto Sans SC", sans-serif;
-  --body: "Inter Tight", "Noto Sans SC", sans-serif;
+  --display: "Space Grotesk", "Noto Sans TC", "Noto Sans HK", sans-serif;
+  --body: "Inter Tight", "Noto Sans TC", "Noto Sans HK", sans-serif;
   --mono: "JetBrains Mono", monospace;
   --gutter: clamp(20px, 4vw, 56px);
   --max: 1400px;
@@ -1506,6 +1506,8 @@ body[data-page="newsroom"] { --nr-silver: #d9dcdf; --nr-paper: #0c0d0f; }
 .nr-evidence-search input:focus { border-color: var(--cyan); outline: 1px solid var(--cyan); outline-offset: 2px; }
 .nr-evidence-toolbar output { display: grid; min-height: 44px; place-items: center; padding: 0 14px; border: 1px solid var(--line); color: var(--cyan); font: 11px var(--mono); letter-spacing: .08em; white-space: nowrap; }
 .nr-evidence-ledger { border-top: 1px solid var(--line); }
+.nr-evidence-more { display: flex; width: max-content; margin: 24px auto 0; }
+.nr-evidence-more[hidden] { display: none; }
 .nr-evidence-row { display: grid; grid-template-columns: 120px minmax(170px,1fr) minmax(170px,.8fr) minmax(150px,.65fr) 88px; gap: 22px; align-items: center; min-height: 96px; padding: 16px 0; border-bottom: 1px solid var(--line); }
 .nr-evidence-row[hidden] { display: none; }
 .nr-evidence-row > time { color: var(--dim); font: 11px var(--mono); letter-spacing: .08em; }
@@ -1623,6 +1625,7 @@ body[data-page="newsroom"] { --nr-silver: #d9dcdf; --nr-paper: #0c0d0f; }
   .nr-registry-stats > div:last-child { grid-column: 1 / -1; }
   .nr-evidence-toolbar { grid-template-columns: 1fr; gap: 10px; margin-bottom: 14px; }
   .nr-evidence-filters { display: flex; flex-wrap: nowrap; overflow-x: auto; border: 1px solid var(--line); scrollbar-width: none; overscroll-behavior-inline: contain; }
+  .nr-evidence-filters { padding-right: 38px; background: linear-gradient(90deg, transparent calc(100% - 40px), rgba(126,207,213,.12)); }
   .nr-evidence-filters::-webkit-scrollbar { display: none; }
   .nr-evidence-filters button { flex: 0 0 auto; min-height: 40px; padding: 0 12px; border-right: 1px solid var(--line); border-bottom: 0; }
   .nr-evidence-filters button:last-child { border-right: 0; }

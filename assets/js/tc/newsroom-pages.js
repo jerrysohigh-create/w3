@@ -220,22 +220,37 @@
   function applyEvidenceFilter(container) {
     var active = container.dataset.activeFilter || "all";
     var query = (container.dataset.searchQuery || "").trim().toLowerCase();
+    var limit = Number(container.dataset.visibleLimit || 20);
+    var matches = 0;
     var visible = 0;
     container.querySelectorAll(".nr-evidence-row").forEach(function (row) {
       var sourceMatch = active === "all" || row.dataset.evidenceSource === active;
       var searchMatch = !query || row.dataset.evidenceSearch.indexOf(query) !== -1;
-      row.hidden = !(sourceMatch && searchMatch);
+      var matched = sourceMatch && searchMatch;
+      if (matched) matches += 1;
+      row.hidden = !matched || matches > limit;
       if (!row.hidden) visible += 1;
     });
     var counter = document.querySelector("[data-evidence-count]");
-    if (counter) counter.textContent = String(visible).padStart(2, "0") + " RECORDS SHOWN";
+    if (counter) counter.textContent = String(visible).padStart(2, "0") + " / " + String(matches).padStart(2, "0") + " 筆記錄";
+    var more = document.querySelector("[data-evidence-more]");
+    if (more) {
+      more.hidden = visible >= matches;
+      more.textContent = "$ 再顯示 20 筆 →";
+    }
   }
 
   function renderEvidenceLedger(container) {
     var items = unifiedTimeline();
     if (!items.length) return;
     container.dataset.activeFilter = "all";
+    container.dataset.visibleLimit = "20";
     container.innerHTML = items.map(evidenceRow).join("");
+    var more = document.createElement("button");
+    more.type = "button";
+    more.className = "btn nr-evidence-more";
+    more.setAttribute("data-evidence-more", "");
+    container.insertAdjacentElement("afterend", more);
     applyEvidenceFilter(container);
   }
 
@@ -292,12 +307,21 @@
       var ledger = document.querySelector("[data-ecosystem-ledger]");
       if (!ledger) return;
       ledger.dataset.activeFilter = evidenceFilter.dataset.evidenceFilter;
+      ledger.dataset.visibleLimit = "20";
       document.querySelectorAll("[data-evidence-filter]").forEach(function (button) {
         var selected = button === evidenceFilter;
         button.classList.toggle("is-active", selected);
         button.setAttribute("aria-pressed", String(selected));
       });
       applyEvidenceFilter(ledger);
+      return;
+    }
+    var evidenceMore = event.target.closest("[data-evidence-more]");
+    if (evidenceMore) {
+      var evidenceLedger = document.querySelector("[data-ecosystem-ledger]");
+      if (!evidenceLedger) return;
+      evidenceLedger.dataset.visibleLimit = String(Number(evidenceLedger.dataset.visibleLimit || 20) + 20);
+      applyEvidenceFilter(evidenceLedger);
       return;
     }
     var sourceFilter = event.target.closest("[data-source-filter]");
@@ -359,6 +383,7 @@
     var ledger = document.querySelector("[data-ecosystem-ledger]");
     if (!ledger) return;
     ledger.dataset.searchQuery = event.target.value;
+    ledger.dataset.visibleLimit = "20";
     applyEvidenceFilter(ledger);
   });
 

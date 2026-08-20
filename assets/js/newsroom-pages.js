@@ -125,19 +125,19 @@
 
   function verificationStatus(item) {
     var type = item.verification;
-    if (type === "dual-post") return { group: "bilateral", label: "BILATERAL / DUAL POST", detail: "Both parties X The original post has been locked", className: "is-dual" };
+    if (type === "dual-post") return { group: "bilateral", label: "BILATERAL / DUAL POST", detail: "Original X posts from both parties are indexed", className: "is-dual" };
     if (type === "dual-capital") return { group: "bilateral", label: "BILATERAL / CAPITAL", detail: "Official posts from both parties confirm the capital relationship", className: "is-dual" };
     if (type === "reply-confirmed") return { group: "bilateral", label: "BILATERAL / REPLY", detail: "Unilateral announcement + official confirmation from the other party", className: "is-dual" };
     if (type === "repost-confirmed") return { group: "bilateral", label: "BILATERAL / REPOST", detail: "Unilateral post + other party’s official forwarding", className: "is-dual" };
     if (type === "partner-quote-confirmed") return { group: "bilateral", label: "BILATERAL / PARTNER QUOTE", detail: "The official post of the partner quoted MAGNE’s original post", className: "is-dual" };
     if (type === "quote-confirmed") return { group: "bilateral", label: "BILATERAL / QUOTE · ACTIVATION", detail: "Partner’s original post + MAGNE official quote", className: "is-dual" };
-    if (type === "bilateral-confirmed-pending") return { group: "bilateral", label: "BILATERAL / OFFICIAL CONFIRMATION", detail: "Both parties officially confirmed the establishment; some status IDs are to be recycled", className: "is-dual" };
+    if (type === "bilateral-confirmed-pending") return { group: "bilateral", label: "BILATERAL / OFFICIAL CONFIRMATION", detail: "Both parties confirmed the relationship; some supporting X IDs remain unrecovered", className: "is-dual" };
     if (type === "reply-confirmed-pending") return { group: "bilateral", label: "BILATERAL / OFFICIAL RESPONSE", detail: "Cooperation statement + official response from the other party; status ID to be recycled", className: "is-dual" };
     if (type === "repost-confirmed-pending") return { group: "bilateral", label: "BILATERAL / OFFICIAL REPOST", detail: "Cooperation announcement + official forwarding by the other party; status ID to be recycled", className: "is-dual" };
     if (type === "joint-activation-confirmed") return { group: "bilateral", label: "BILATERAL / JOINT ACTIVATION", detail: "Joint activities and valid official accounts of both parties have been confirmed", className: "is-dual" };
     if (type === "platform-listing-confirmed") return { group: "bilateral", label: "BILATERAL / PLATFORM LISTING", detail: "MAGNE original post + official platform project included", className: "is-dual" };
     if (type === "capital-magne") return { group: "single", label: "ONE X URL / CAPITAL", detail: "Strategic investment relationship announced by MAGNE", className: "is-magne" };
-    if (type === "single-magne") return { group: "single", label: "ONE X URL / MAGNE", detail: "MAGNE The original post has been locked; the other party's actions are not indexed", className: "is-magne" };
+    if (type === "single-magne") return { group: "single", label: "ONE X URL / MAGNE", detail: "MAGNE's original post is indexed; no partner-side action is linked", className: "is-magne" };
     if (type === "single-partner") return { group: "single", label: "ONE X URL / PARTNER", detail: "The original post of the partner is locked; the MAGNE action is not indexed", className: "is-partner" };
     if (type === "source-conflict") return { group: "coverage", label: "SOURCE CONFLICT", detail: "The original link is inconsistent with the object", className: "is-conflict" };
     if (type === "source-inaccessible") return { group: "pending", label: "SOURCE INACCESSIBLE / RECHECK", detail: "Historical address has been retained; X is currently unavailable for explicit return", className: "is-mirror" };
@@ -171,11 +171,11 @@
       return result;
     }, {});
     var stats = [
-      [String(items.length).padStart(2, "0"), "TIMELINE RECORDS", "Historical baseline + public supplementary recording"],
-      [String(counts.bilateral || 0).padStart(2, "0"), "BILATERAL CONFIRMED", "Official interaction between the two parties confirmed; some IDs need to be recycled"],
-      [String(counts.single || 0).padStart(2, "0"), "ONE X URL", "has locked an original post; it does not mean that the fact is unilateral"],
-      [String(counts.pending || 0).padStart(2, "0"), "X ID PENDING", "Found, original post to be recycled"],
-      [String(counts.coverage || 0).padStart(2, "0"), "COVERAGE / CONFLICT", "Regardless of mutual confirmation\nOriginal post by X by"]
+      [String(items.length).padStart(2, "0"), "TIMELINE RECORDS", "Historical baseline plus public-source additions"],
+      [String(counts.bilateral || 0).padStart(2, "0"), "BILATERAL CONFIRMED", "Partner-side official interaction is recorded; any missing X ID is disclosed"],
+      [String(counts.single || 0).padStart(2, "0"), "ONE X URL", "One original post is indexed; this does not prove the relationship was unilateral"],
+      [String(counts.pending || 0).padStart(2, "0"), "X ID PENDING", "An official action was identified, but its exact X status URL is not yet recovered"],
+      [String(counts.coverage || 0).padStart(2, "0"), "COVERAGE / CONFLICT", "Coverage-only or conflicting records are separated from bilateral confirmation"]
     ];
     container.innerHTML = stats.map(function (item) {
       return '<div><strong>' + item[0] + '</strong><span>' + item[1] + '</span><small>' + item[2] + '</small></div>';
@@ -220,22 +220,37 @@
   function applyEvidenceFilter(container) {
     var active = container.dataset.activeFilter || "all";
     var query = (container.dataset.searchQuery || "").trim().toLowerCase();
+    var limit = Number(container.dataset.visibleLimit || 20);
+    var matches = 0;
     var visible = 0;
     container.querySelectorAll(".nr-evidence-row").forEach(function (row) {
       var sourceMatch = active === "all" || row.dataset.evidenceSource === active;
       var searchMatch = !query || row.dataset.evidenceSearch.indexOf(query) !== -1;
-      row.hidden = !(sourceMatch && searchMatch);
+      var matched = sourceMatch && searchMatch;
+      if (matched) matches += 1;
+      row.hidden = !matched || matches > limit;
       if (!row.hidden) visible += 1;
     });
     var counter = document.querySelector("[data-evidence-count]");
-    if (counter) counter.textContent = String(visible).padStart(2, "0") + " RECORDS SHOWN";
+    if (counter) counter.textContent = String(visible).padStart(2, "0") + " OF " + String(matches).padStart(2, "0") + " RECORDS";
+    var more = document.querySelector("[data-evidence-more]");
+    if (more) {
+      more.hidden = visible >= matches;
+      more.textContent = "$ SHOW 20 MORE →";
+    }
   }
 
   function renderEvidenceLedger(container) {
     var items = unifiedTimeline();
     if (!items.length) return;
     container.dataset.activeFilter = "all";
+    container.dataset.visibleLimit = "20";
     container.innerHTML = items.map(evidenceRow).join("");
+    var more = document.createElement("button");
+    more.type = "button";
+    more.className = "btn nr-evidence-more";
+    more.setAttribute("data-evidence-more", "");
+    container.insertAdjacentElement("afterend", more);
     applyEvidenceFilter(container);
   }
 
@@ -292,12 +307,21 @@
       var ledger = document.querySelector("[data-ecosystem-ledger]");
       if (!ledger) return;
       ledger.dataset.activeFilter = evidenceFilter.dataset.evidenceFilter;
+      ledger.dataset.visibleLimit = "20";
       document.querySelectorAll("[data-evidence-filter]").forEach(function (button) {
         var selected = button === evidenceFilter;
         button.classList.toggle("is-active", selected);
         button.setAttribute("aria-pressed", String(selected));
       });
       applyEvidenceFilter(ledger);
+      return;
+    }
+    var evidenceMore = event.target.closest("[data-evidence-more]");
+    if (evidenceMore) {
+      var evidenceLedger = document.querySelector("[data-ecosystem-ledger]");
+      if (!evidenceLedger) return;
+      evidenceLedger.dataset.visibleLimit = String(Number(evidenceLedger.dataset.visibleLimit || 20) + 20);
+      applyEvidenceFilter(evidenceLedger);
       return;
     }
     var sourceFilter = event.target.closest("[data-source-filter]");
@@ -359,6 +383,7 @@
     var ledger = document.querySelector("[data-ecosystem-ledger]");
     if (!ledger) return;
     ledger.dataset.searchQuery = event.target.value;
+    ledger.dataset.visibleLimit = "20";
     applyEvidenceFilter(ledger);
   });
 

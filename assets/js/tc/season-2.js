@@ -1,9 +1,9 @@
 (function () {
   var assetRoot = document.body.dataset.assetRoot || "";
   var snapshotSources = [
-    { url: assetRoot + "assets/data/season-2-snapshot.json", label: "W3 VERIFIED SNAPSHOT" },
-    { url: "/api/v1/season-2/dashboard", label: "W3 AUTHENTICATED COLLECTOR" },
-    { url: "https://jerrysohigh-create.github.io/magne-web/assets/data/lottery2-dashboard.json", label: "LEGACY SNAPSHOT" }
+    { url: assetRoot + "assets/data/season-2-snapshot.json", label: "W3 VERIFIED SNAPSHOT", mode: "snapshot" },
+    { url: "/api/v1/season-2/dashboard", label: "W3 AUTHENTICATED COLLECTOR", mode: "collector" },
+    { url: "https://jerrysohigh-create.github.io/magne-web/assets/data/lottery2-dashboard.json", label: "LEGACY SNAPSHOT", mode: "snapshot" }
   ];
   var listSource = "https://payment.magne.ai/api/v1/lottery2/list";
   var winnersSource = "https://payment.magne.ai/api/v1/lottery2/winners";
@@ -151,7 +151,7 @@
         var status = snapshotStatus(payload);
         var fetchedAt = payload._meta && payload._meta.fetchedAt;
         var timeLabel = fetchedAt ? new Date(fetchedAt).toLocaleString("zh-Hant", { hour12: false }) : "UNKNOWN TIME";
-        var mode = index === 0 ? "collector" : "snapshot";
+        var mode = source.mode || "snapshot";
         var suffix = status === "verified"
           ? (mode === "collector" ? "· 即時擷取器已驗證。" : "· 已驗證快照；即時擷取器目前無法使用。")
           : "· 快照已過期，等待重新收集。";

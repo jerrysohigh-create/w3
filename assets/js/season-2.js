@@ -1,9 +1,9 @@
 (function () {
   var assetRoot = document.body.dataset.assetRoot || "";
   var snapshotSources = [
-    { url: assetRoot + "assets/data/season-2-snapshot.json", label: "W3 VERIFIED SNAPSHOT" },
-    { url: "/api/v1/season-2/dashboard", label: "W3 AUTHENTICATED COLLECTOR" },
-    { url: "https://jerrysohigh-create.github.io/magne-web/assets/data/lottery2-dashboard.json", label: "LEGACY SNAPSHOT" }
+    { url: assetRoot + "assets/data/season-2-snapshot.json", label: "W3 VERIFIED SNAPSHOT", mode: "snapshot" },
+    { url: "/api/v1/season-2/dashboard", label: "W3 AUTHENTICATED COLLECTOR", mode: "collector" },
+    { url: "https://jerrysohigh-create.github.io/magne-web/assets/data/lottery2-dashboard.json", label: "LEGACY SNAPSHOT", mode: "snapshot" }
   ];
   var listSource = "https://payment.magne.ai/api/v1/lottery2/list";
   var winnersSource = "https://payment.magne.ai/api/v1/lottery2/winners";
@@ -135,7 +135,7 @@
     }
 
     var fetchedAt = payload._meta && (payload._meta.onchainFetchedAt || payload._meta.fetchedAt);
-    if (fetchedAt) setText("s2-fetched-at", new Date(fetchedAt).toLocaleString("zh-Hant", { hour12: false }));
+    if (fetchedAt) setText("s2-fetched-at", new Date(fetchedAt).toLocaleString("en-GB", { hour12: false }));
   }
 
   async function loadSnapshot() {
@@ -150,8 +150,8 @@
         applySnapshot(payload);
         var status = snapshotStatus(payload);
         var fetchedAt = payload._meta && payload._meta.fetchedAt;
-        var timeLabel = fetchedAt ? new Date(fetchedAt).toLocaleString("zh-Hant", { hour12: false }) : "UNKNOWN TIME";
-        var mode = index === 0 ? "collector" : "snapshot";
+    var timeLabel = fetchedAt ? new Date(fetchedAt).toLocaleString("en-GB", { hour12: false }) : "UNKNOWN TIME";
+        var mode = source.mode || "snapshot";
         var suffix = status === "verified"
           ? (mode === "collector" ? "· Real-time collector verified." : "· Snapshot verified; live collector is currently unavailable.")
           : "· The snapshot has expired and is waiting to be collected again.";
@@ -192,7 +192,7 @@
       var tx = row.txHash || row.tx || "";
       var result = row.result || row.winner || row.prize || "—";
       var time = row.time || row.timestamp || row.blockTime;
-      container.innerHTML = '<dl class="record-ledger"><div><dt>RESULT</dt><dd>' + escapeHtml(result) + '</dd></div><div><dt>TIME</dt><dd>' + escapeHtml(time ? new Date(time).toLocaleString("zh-Hant", { hour12: false }) : "—") + '</dd></div><div><dt>TX</dt><dd>' + (tx ? '<a class="cyan mono" href="https://bscscan.com/tx/' + encodeURIComponent(tx) + '" target="_blank" rel="noopener">' + escapeHtml(shortAddress(tx)) + ' ↗</a>' : "—") + '</dd></div></dl>';
+    container.innerHTML = '<dl class="record-ledger"><div><dt>RESULT</dt><dd>' + escapeHtml(result) + '</dd></div><div><dt>TIME</dt><dd>' + escapeHtml(time ? new Date(time).toLocaleString("en-GB", { hour12: false }) : "—") + '</dd></div><div><dt>TX</dt><dd>' + (tx ? '<a class="cyan mono" href="https://bscscan.com/tx/' + encodeURIComponent(tx) + '" target="_blank" rel="noopener">' + escapeHtml(shortAddress(tx)) + ' ↗</a>' : "—") + '</dd></div></dl>';
       return true;
     }).catch(function () {
       var container = get("s2-latest-draw");
