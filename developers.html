@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Developers — W3.MAGNE.AI</title>
+    <meta name="description" content="W3 developer surfaces, public testnet configuration and release gates." />
+    <link rel="stylesheet" href="assets/css/site.css?v=20260821-19" />
+    <link rel="canonical" href="https://w3.magne.ai/developers.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Developers — W3.MAGNE.AI" />
+  <meta property="og:description" content="W3 developer surfaces, public testnet configuration and release gates." />
+  <meta property="og:image" content="https://w3.magne.ai/assets/images/og/w3-system-card.svg" />
+  <meta property="og:url" content="https://w3.magne.ai/developers.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0a0a0c" />
+  <link rel="icon" href="assets/images/brand/w3-mark.svg" type="image/svg+xml" />
+  <link rel="manifest" href="manifest.webmanifest" />
+</head>
+  <body data-page="developers" class="system-page developers-page">
+    <header id="site-header"></header>
+    <main>
+      <section class="system-hero">
+        <div class="wrap">
+          <div class="system-hero-grid">
+            <div class="system-hero-copy">
+              <p class="eyebrow"><span class="index">05</span> DEVELOPER SURFACE / PUBLIC TESTNET</p>
+              <div class="system-state live"><span></span> PUBLIC CONFIG AVAILABLE · W3 SDK NOT RELEASED</div>
+              <h1 class="system-title">BUILD AGAINST<br /><span>EVIDENCE.</span></h1>
+              <p class="system-lede">先用公开网络参数验证连接、区块与合约行为。身份委托、AgentPay API 与生产凭证只有在安全边界、版本策略和可观测性完成后才会开放。</p>
+            </div>
+            <aside class="system-hero-aside" aria-label="Developer file identity">
+              <span>W3 / BUILD SURFACE</span><strong>05</strong><p>TESTNET FIRST<br />CLAIM-BOUND DOCS</p><small>FILE: DEV-001<br />REV: 2026.08</small>
+            </aside>
+          </div>
+          <dl class="system-ledger">
+            <div><dt>L1 CHAIN ID</dt><dd>20250810</dd></div>
+            <div><dt>L2 CHAIN ID</dt><dd>20250827</dd></div>
+            <div><dt>W3 SDK</dt><dd>NOT RELEASED</dd></div>
+            <div><dt>PUBLIC RPC</dt><dd>NO CREDENTIAL REQUIRED</dd></div>
+          </dl>
+          <div class="hero-actions">
+            <a class="btn primary" href="#quickstart">$ start with rpc →</a>
+            <a class="btn" href="terminal.html">$ open sandbox →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section network-stack" id="networks">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">05.1</span> NETWORK REGISTER</p><h2 class="section-title">两层网络，<br />分别验证。</h2></div>
+            <p class="section-copy">L1 与 M Hash L2 都是公开测试网。参数来自 W3 Network 当前公开配置；进入生产环境前必须重新核验。</p>
+          </div>
+          <div class="table-scroll reveal">
+            <table class="data-table developer-config-table">
+              <thead><tr><th>Layer</th><th>Network</th><th>Chain ID</th><th>RPC</th><th>Explorer</th><th>State</th></tr></thead>
+              <tbody>
+                <tr><td>L1</td><td>MAGNE Testnet</td><td class="mono cyan">20250810</td><td class="mono">https://rpc.testnet.magicalhash.com</td><td><a class="cyan" href="https://explorer.testnet.magicalhash.com/" target="_blank" rel="noopener">OPEN ↗</a></td><td><span class="lime">RESPONDING</span></td></tr>
+                <tr><td>L2</td><td>M Hash L2 Testnet</td><td class="mono cyan">20250827</td><td class="mono">https://l2-rpc.testnet.magicalhash.com</td><td><a class="cyan" href="https://l2-explorer.testnet.magicalhash.com/" target="_blank" rel="noopener">OPEN ↗</a></td><td><span class="lime">RESPONDING</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="network-live-note reveal"><span>● VERIFIED</span> · 两个 RPC 与浏览器入口已于本地整合阶段验证可响应；这不构成主网、稳定性或持续可用性承诺。</p>
+        </div>
+      </section>
+
+      <section class="content-section system-protocol" id="quickstart">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">05.2</span> MINIMUM CONNECTION</p><h2 class="section-title">四行代码，<br />先读取链。</h2></div>
+            <p class="section-copy">这是公开 RPC 的最小只读连接示例。它不包含钱包、私钥、签名或生产授权，也不代表 W3 SDK。</p>
+          </div>
+          <div class="protocol-console code-console reveal">
+            <div class="protocol-topline"><span>READONLY / ETHERS.JS</span><span>NO WALLET · NO SECRET · TESTNET</span></div>
+            <pre><code><span class="code-dim">01</span>  <span class="code-key">import</span> { JsonRpcProvider } <span class="code-key">from</span> <span class="code-string">"ethers"</span>;
+<span class="code-dim">02</span>
+<span class="code-dim">03</span>  <span class="code-key">const</span> l1 = <span class="code-key">new</span> JsonRpcProvider(<span class="code-string">"https://rpc.testnet.magicalhash.com"</span>);
+<span class="code-dim">04</span>  <span class="code-key">const</span> l2 = <span class="code-key">new</span> JsonRpcProvider(<span class="code-string">"https://l2-rpc.testnet.magicalhash.com"</span>);
+<span class="code-dim">05</span>
+<span class="code-dim">06</span>  console.log(<span class="code-key">await</span> l1.getNetwork(), <span class="code-key">await</span> l2.getBlockNumber());</code></pre>
+            <div class="protocol-rule"><span>RULE / 01</span><strong>VERIFY CHAIN ID BEFORE WRITE</strong><small>Do not infer production readiness from a successful read.</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">05.3</span> BUILD SURFACE</p><h2 class="section-title">旧内容归档，<br />新接口分阶段开放。</h2></div>
+            <p class="section-copy">原 Web3 开发资料被整理为能力索引；W3 只把当前可验证的部分标成 OPEN，避免将方向性设计写成已发布产品。</p>
+          </div>
+          <div class="surface-register reveal">
+            <article><span>01 / NETWORK</span><h3>连接 L1 / L2</h3><p>公开 RPC、Chain ID 与浏览器配置。</p><b class="lime">OPEN</b></article>
+            <article><span>02 / CONTRACT</span><h3>部署与读取合约</h3><p>沿用 EVM 工具链；具体合约需逐项核验。</p><b>REFERENCE</b></article>
+            <article><span>03 / DAPP</span><h3>钱包与 DApp</h3><p>连接流程可测试，生产体验尚未定版。</p><b>TESTNET</b></article>
+            <article><span>04 / AGENTPAY</span><h3>代理支付协议</h3><p>授权、策略、执行与收据接口正在定义。</p><b class="amber">DESIGN</b></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section developer-gates">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">05.4</span> RELEASE GATES</p><h2 class="section-title">能调用之前，<br />先定义责任。</h2></div>
+            <p class="section-copy">W3 开发接口的发布门槛是可审计、安全、可撤销且不会混淆 sandbox、testnet 与 production。</p>
+          </div>
+          <div class="table-scroll reveal"><table class="data-table system-status-table"><thead><tr><th>Gate</th><th>Required control</th><th>Public state</th></tr></thead><tbody>
+            <tr><td>IDENTITY / DELEGATION</td><td>代理代表谁、授权范围、有效期与撤销路径</td><td><span class="amber">DESIGNING</span></td></tr>
+            <tr><td>POLICY / LIMITS</td><td>金额、频率、对象与地域限制绑定策略上下文</td><td><span class="amber">DESIGNING</span></td></tr>
+            <tr><td>OBSERVABILITY</td><td>决策、执行、失败原因与可验证收据</td><td><span class="amber">DESIGNING</span></td></tr>
+            <tr><td>VERSION / ENVIRONMENT</td><td>Sandbox、testnet、production 明确隔离</td><td>REQUIRED</td></tr>
+            <tr><td>SECRET HANDLING</td><td>密钥不进入前端、日志与公开仓库</td><td>REQUIRED</td></tr>
+          </tbody></table></div>
+          <div class="system-next reveal"><div><span>NEXT / CONTROLLED EXECUTION</span><h2>读链之后，<br />理解 AgentPay。</h2></div><div><p>从网络连接进入代理授权、策略控制、支付执行与可验证收据的完整边界。</p><a class="btn primary" href="agentpay.html">$ inspect agentpay →</a></div></div>
+        </div>
+      </section>
+    </main>
+    <footer id="site-footer"></footer>
+    <script src="assets/js/site.js?v=20260821-11"></script>
+  <script src="assets/js/season-status.js?v=20260821-1"></script>
+<script src="assets/js/analytics.js?v=20260821-1"></script>
+</body>
+</html>

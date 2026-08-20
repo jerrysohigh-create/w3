@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Season 1 累计参与钱包地址增长</title>
+  <desc id="desc">从 2026 年 4 月 17 日至 7 月 6 日，累计参与钱包地址由 2 增长至 76,650。数据来自 Dune Query 7913639 的归档快照。</desc>
+  <defs>
+    <pattern id="grid" width="96" height="96" patternUnits="userSpaceOnUse">
+      <path d="M 96 0 L 0 0 0 96" fill="none" stroke="#16191d" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0f12"/>
+      <stop offset="1" stop-color="#070809"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#wash)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <rect x="36" y="36" width="1528" height="828" fill="none" stroke="#2d3238" stroke-width="2"/>
+  <text x="82" y="96" fill="#71e3e3" font-family="JetBrains Mono, Consolas, monospace" font-size="22" letter-spacing="5">SEASON 01 / ON-CHAIN RECORD</text>
+  <text x="82" y="164" fill="#f2f3f3" font-family="Arial, Noto Sans TC, sans-serif" font-size="54" font-weight="700">累计参与钱包地址增长</text>
+  <text x="82" y="208" fill="#96969e" font-family="JetBrains Mono, Consolas, monospace" font-size="18" letter-spacing="2">2026-04-17 — 2026-07-06 · 75 DAILY OBSERVATIONS</text>
+  <text x="1518" y="124" text-anchor="end" fill="#f2f3f3" font-family="JetBrains Mono, Consolas, monospace" font-size="60" font-weight="700">76,650</text>
+  <text x="1518" y="164" text-anchor="end" fill="#71e3e3" font-family="JetBrains Mono, Consolas, monospace" font-size="17" letter-spacing="3">CUMULATIVE WALLETS</text>
+  <svg x="78" y="248" width="1444" height="546" viewBox="0 0 900 340" aria-hidden="true">
+    <g stroke="#1f252a" stroke-width="1">
+      <line x1="62" y1="288" x2="880" y2="288"/><line x1="62" y1="225.5" x2="880" y2="225.5"/><line x1="62" y1="163" x2="880" y2="163"/><line x1="62" y1="100.5" x2="880" y2="100.5"/><line x1="62" y1="38" x2="880" y2="38"/>
+    </g>
+    <g fill="#6d6e77" font-family="JetBrains Mono, Consolas, monospace" font-size="10" text-anchor="end">
+      <text x="54" y="292">0</text><text x="54" y="229.5">20k</text><text x="54" y="167">40k</text><text x="54" y="104.5">60k</text><text x="54" y="42">80k</text>
+    </g>
+    <g fill="#00d4d4" fill-opacity=".38">
+      <rect x="63.7" y="288" width="7.4" height="0"/><rect x="74.7" y="283.8" width="7.4" height="4.2"/><rect x="85.6" y="283.2" width="7.4" height="4.8"/><rect x="96.5" y="282.8" width="7.4" height="5.2"/><rect x="107.4" y="282.5" width="7.4" height="5.5"/><rect x="118.3" y="282.1" width="7.4" height="5.9"/><rect x="129.2" y="281.7" width="7.4" height="6.3"/><rect x="140.1" y="281.3" width="7.4" height="6.7"/>
+      <rect x="161.9" y="281" width="7.4" height="7"/><rect x="172.8" y="280.9" width="7.4" height="7.1"/><rect x="183.7" y="280.8" width="7.4" height="7.2"/><rect x="194.6" y="280.6" width="7.4" height="7.4"/><rect x="205.5" y="280.5" width="7.4" height="7.5"/><rect x="216.4" y="280.4" width="7.4" height="7.6"/><rect x="227.3" y="280.4" width="7.4" height="7.6"/><rect x="238.3" y="280.4" width="7.4" height="7.6"/><rect x="249.2" y="280.3" width="7.4" height="7.7"/><rect x="260.1" y="280.2" width="7.4" height="7.8"/><rect x="271" y="280.1" width="7.4" height="7.9"/><rect x="281.9" y="280.1" width="7.4" height="7.9"/><rect x="292.8" y="280" width="7.4" height="8"/><rect x="303.7" y="279.9" width="7.4" height="8.1"/><rect x="314.6" y="279.9" width="7.4" height="8.1"/><rect x="325.5" y="279.9" width="7.4" height="8.1"/><rect x="336.4" y="279.3" width="7.4" height="8.7"/><rect x="347.3" y="278.1" width="7.4" height="9.9"/><rect x="358.2" y="277.9" width="7.4" height="10.1"/><rect x="369.1" y="270" width="7.4" height="18"/><rect x="380" y="263.5" width="7.4" height="24.5"/>
+      <rect x="401.9" y="256.7" width="7.4" height="31.3"/><rect x="412.8" y="256.6" width="7.4" height="31.4"/><rect x="423.7" y="256.6" width="7.4" height="31.4"/><rect x="434.6" y="256.5" width="7.4" height="31.5"/><rect x="445.5" y="256.5" width="7.4" height="31.5"/><rect x="456.4" y="256.5" width="7.4" height="31.5"/><rect x="467.3" y="256.4" width="7.4" height="31.6"/><rect x="478.2" y="256.4" width="7.4" height="31.6"/><rect x="489.1" y="256.4" width="7.4" height="31.6"/><rect x="500" y="256.4" width="7.4" height="31.6"/><rect x="510.9" y="256.4" width="7.4" height="31.6"/><rect x="521.8" y="256.4" width="7.4" height="31.6"/><rect x="532.7" y="256.4" width="7.4" height="31.6"/><rect x="543.6" y="256.4" width="7.4" height="31.6"/><rect x="554.5" y="256.3" width="7.4" height="31.7"/><rect x="565.5" y="249.1" width="7.4" height="38.9"/><rect x="576.4" y="249.1" width="7.4" height="38.9"/><rect x="587.3" y="241.6" width="7.4" height="46.4"/><rect x="598.2" y="225.7" width="7.4" height="62.3"/><rect x="609.1" y="225.6" width="7.4" height="62.4"/><rect x="620" y="206.9" width="7.4" height="81.1"/><rect x="630.9" y="206.8" width="7.4" height="81.2"/>
+      <rect x="652.7" y="162.4" width="7.4" height="125.6"/><rect x="663.6" y="147.5" width="7.4" height="140.5"/><rect x="674.5" y="128" width="7.4" height="160"/><rect x="685.4" y="119.3" width="7.4" height="168.7"/><rect x="696.3" y="114.8" width="7.4" height="173.2"/><rect x="707.2" y="114.8" width="7.4" height="173.2"/><rect x="718.1" y="110.8" width="7.4" height="177.2"/><rect x="729.1" y="104.4" width="7.4" height="183.6"/><rect x="740" y="93" width="7.4" height="195"/><rect x="750.9" y="92.9" width="7.4" height="195.1"/><rect x="761.8" y="82.1" width="7.4" height="205.9"/>
+      <rect x="783.6" y="54.3" width="7.4" height="233.7"/><rect x="794.5" y="53.5" width="7.4" height="234.5"/><rect x="805.4" y="53.5" width="7.4" height="234.5"/><rect x="816.3" y="53.5" width="7.4" height="234.5"/><rect x="827.2" y="53.5" width="7.4" height="234.5"/><rect x="838.1" y="49.5" width="7.4" height="238.5"/><rect x="849" y="49.5" width="7.4" height="238.5"/><rect x="859.9" y="49.5" width="7.4" height="238.5"/>
+    </g>
+    <g fill="#00d4d4">
+      <rect x="151" y="281.2" width="7.4" height="6.8"/><rect x="390.9" y="256.7" width="7.4" height="31.3"/><rect x="641.8" y="173.1" width="7.4" height="114.9"/><rect x="772.7" y="55.9" width="7.4" height="232.1"/><rect x="870.8" y="48.5" width="7.4" height="239.5"/>
+    </g>
+    <g fill="#f2f3f3" font-family="JetBrains Mono, Consolas, monospace" font-size="10" font-weight="600" text-anchor="middle">
+      <text x="154.7" y="274.2">2,185</text><text x="394.7" y="249.7">10,028</text><text x="645.5" y="166.1">36,767</text><text x="776.4" y="48.9">74,270</text><text x="874.5" y="41.5">76,650</text>
+    </g>
+    <line x1="62" y1="288" x2="880" y2="288" stroke="#5f6068" stroke-width="1"/>
+    <g fill="#96969e" font-family="JetBrains Mono, Consolas, monospace" font-size="9" text-anchor="middle">
+      <text x="67.5" y="310">04-17</text><text x="154.7" y="310">04-25</text><text x="394.7" y="310">05-17</text><text x="645.5" y="310">06-13</text><text x="776.4" y="310">06-25</text><text x="874.5" y="310">07-06</text>
+    </g>
+  </svg>
+  <line x1="82" y1="814" x2="1518" y2="814" stroke="#2d3238" stroke-width="1"/>
+  <text x="82" y="846" fill="#6d6e77" font-family="JetBrains Mono, Consolas, monospace" font-size="15" letter-spacing="2">DUNE QUERY 7913639 · ARCHIVED SNAPSHOT · WALLETS ≠ VERIFIED UNIQUE INDIVIDUALS</text>
+</svg>

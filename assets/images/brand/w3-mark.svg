@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">W3.MAGNE.AI</title>
+  <rect width="64" height="64" rx="8" fill="#0a0a0c"/>
+  <rect x="4.5" y="4.5" width="55" height="55" rx="5" fill="none" stroke="#00d4d4"/>
+  <path d="M14 17l7 30h7l4-18 4 18h7l7-30h-7l-4 19-4-19h-6l-4 19-4-19z" fill="#f2f3f3"/>
+</svg>

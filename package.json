@@ -1,0 +1,23 @@
+{
+  "name": "magne-w3-os",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server/index.mjs",
+    "dev": "node --watch server/index.mjs",
+    "sync:s2-chain": "node scripts/backfill-season-2-history.mjs && node scripts/materialize-season-2-history.mjs && node scripts/audit-season-2-usdt-flows.mjs",
+    "backfill:s2": "node scripts/backfill-season-2-history.mjs && node scripts/audit-season-2-usdt-flows.mjs && node scripts/materialize-season-2-history.mjs",
+    "audit:s2-flows": "node scripts/audit-season-2-usdt-flows.mjs",
+    "fetch:s2-dune": "node scripts/fetch-season-2-dune.mjs",
+    "materialize:s2": "node scripts/materialize-season-2-history.mjs",
+    "check": "node --check server/index.mjs && node --check server/config.mjs && node --check server/payment-client.mjs && node --check server/chain-client.mjs && node --check server/snapshot.mjs && node --check server/history.mjs && node --check scripts/backfill-season-2-history.mjs && node --check scripts/materialize-season-2-history.mjs && node --check scripts/fetch-season-2-dune.mjs && node --check scripts/audit-season-2-usdt-flows.mjs && node --check scripts/normalize-site-meta.mjs && node --check scripts/enforce-readable-type.mjs && node --check assets/js/site.js && node --check assets/js/season-status.js && node --check assets/js/analytics.js && node --check assets/js/seasons.js && node --check assets/js/season-2.js && node --check assets/js/season-2-trend.js && node --check assets/js/newsroom.js && node --check assets/js/newsroom-content.js && node --check assets/js/newsroom-sources.js && node --check assets/js/ecosystem-evidence.js && node --check assets/js/newsroom-pages.js && node --check assets/js/newsroom-article.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "ethers": "^6.17.0"
+  }
+}

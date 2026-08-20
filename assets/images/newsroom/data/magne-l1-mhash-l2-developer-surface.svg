@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">MAGNE L1 与 M Hash L2 公共开发者表面</title>
+  <desc id="desc">W3.MAGNE.AI 冷银终端风格的网络开发资源图。MAGNE L1 测试网与 M Hash L2 测试网通过公共开发者表面关联，并列出 GitHub、RPC、区块浏览器和文档入口。不包含主网状态或未经核实的性能数据。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1013"/>
+      <stop offset="0.52" stop-color="#08090b"/>
+      <stop offset="1" stop-color="#0b0d10"/>
+    </linearGradient>
+    <linearGradient id="layer" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#13171b"/>
+      <stop offset="0.58" stop-color="#0f1114"/>
+      <stop offset="1" stop-color="#0b0d0f"/>
+    </linearGradient>
+    <linearGradient id="cyanFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00d4d4" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#00d4d4" stop-opacity="0.62"/>
+      <stop offset="1" stop-color="#00d4d4" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="grid" width="72" height="72" patternUnits="userSpaceOnUse">
+      <path d="M72 0H0V72" fill="none" stroke="#1b1e22" stroke-width="1"/>
+    </pattern>
+    <pattern id="microGrid" width="18" height="18" patternUnits="userSpaceOnUse">
+      <path d="M18 0H0V18" fill="none" stroke="#15181b" stroke-width="0.7"/>
+    </pattern>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .display { font-family: "Space Grotesk", "Noto Sans SC", sans-serif; }
+      .mono { font-family: "JetBrains Mono", "IBM Plex Mono", monospace; }
+      .ink { fill: #f2f3f3; }
+      .muted { fill: #96969e; }
+      .dim { fill: #5f6068; }
+      .cyan { fill: #00d4d4; }
+      .rule { stroke: #29292e; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)" opacity="0.86"/>
+  <rect x="36" y="36" width="1528" height="828" fill="none" stroke="#2d3238" stroke-width="2"/>
+  <path d="M36 116H1564M36 790H1564" fill="none" stroke="#29292e"/>
+
+  <g class="mono" font-size="18" letter-spacing="4">
+    <text x="78" y="87" class="cyan">W3 / NETWORK EVIDENCE FILE</text>
+    <text x="1522" y="87" text-anchor="end" class="dim">REF 05.02 · PUBLIC SURFACE</text>
+  </g>
+
+  <g transform="translate(78 146)">
+    <text class="display ink" font-size="64" font-weight="700" letter-spacing="-2.5">MAGNE L1 <tspan class="cyan">↔</tspan> M HASH L2</text>
+    <text y="48" class="mono muted" font-size="18" letter-spacing="3">OPEN DEVELOPMENT RESOURCES / TESTNET ACCESS MAP</text>
+  </g>
+
+  <g transform="translate(78 250)">
+    <rect width="1444" height="194" fill="url(#layer)" stroke="#343940" stroke-width="2"/>
+    <rect width="12" height="194" fill="#00d4d4"/>
+    <rect x="14" y="2" width="1428" height="190" fill="url(#microGrid)" opacity="0.52"/>
+    <path d="M232 0V194M1070 0V194" fill="none" stroke="#29292e"/>
+
+    <g transform="translate(44 35)">
+      <text class="mono dim" font-size="15" letter-spacing="3">LAYER / 01</text>
+      <text y="96" class="display ink" font-size="88" font-weight="700" letter-spacing="-5">L1</text>
+    </g>
+
+    <g transform="translate(282 44)">
+      <text class="mono cyan" font-size="15" letter-spacing="4">FOUNDATION NETWORK</text>
+      <text y="64" class="display ink" font-size="52" font-weight="700" letter-spacing="-2">MAGNE L1</text>
+      <text y="112" class="mono muted" font-size="17" letter-spacing="2">IDENTITY · OWNERSHIP · AUTHORIZATION</text>
+    </g>
+
+    <g transform="translate(1114 38)">
+      <rect width="272" height="42" fill="none" stroke="#00d4d4" stroke-opacity="0.6"/>
+      <circle cx="22" cy="21" r="5" fill="#00d4d4" filter="url(#softGlow)"/>
+      <text x="42" y="27" class="mono cyan" font-size="15" letter-spacing="3">TESTNET</text>
+      <text y="95" class="mono dim" font-size="13" letter-spacing="2">PUBLIC DOCS</text>
+      <text y="129" class="mono ink" font-size="18" letter-spacing="2">SOURCE INDEX / L1</text>
+    </g>
+  </g>
+
+  <g aria-hidden="true">
+    <path d="M230 468H690L738 492H862L910 468H1370" fill="none" stroke="#29292e" stroke-width="2"/>
+    <path d="M742 468V500M858 468V500" fill="none" stroke="#00d4d4" stroke-width="2"/>
+    <path d="M770 484H830" fill="none" stroke="#00d4d4" stroke-width="3"/>
+    <path d="M770 484l14-9v18zm60 0l-14-9v18z" fill="#00d4d4"/>
+    <rect x="500" y="482" width="600" height="2" fill="url(#cyanFade)"/>
+    <text x="800" y="474" text-anchor="middle" class="mono dim" font-size="12" letter-spacing="3">PUBLIC TESTNET ACCESS</text>
+  </g>
+
+  <g transform="translate(78 512)">
+    <rect width="1444" height="194" fill="url(#layer)" stroke="#343940" stroke-width="2"/>
+    <rect width="12" height="194" fill="#73777d"/>
+    <rect x="14" y="2" width="1428" height="190" fill="url(#microGrid)" opacity="0.52"/>
+    <path d="M232 0V194M1070 0V194" fill="none" stroke="#29292e"/>
+
+    <g transform="translate(44 35)">
+      <text class="mono dim" font-size="15" letter-spacing="3">LAYER / 02</text>
+      <text y="96" class="display ink" font-size="88" font-weight="700" letter-spacing="-5">L2</text>
+    </g>
+
+    <g transform="translate(282 44)">
+      <text class="mono cyan" font-size="15" letter-spacing="4">EXECUTION NETWORK</text>
+      <text y="64" class="display ink" font-size="52" font-weight="700" letter-spacing="-2">M HASH L2</text>
+      <text y="112" class="mono muted" font-size="17" letter-spacing="2">AGENT WORKFLOWS · TASK RECEIPTS · EXECUTION</text>
+    </g>
+
+    <g transform="translate(1114 38)">
+      <rect width="272" height="42" fill="none" stroke="#00d4d4" stroke-opacity="0.6"/>
+      <circle cx="22" cy="21" r="5" fill="#00d4d4" filter="url(#softGlow)"/>
+      <text x="42" y="27" class="mono cyan" font-size="15" letter-spacing="3">TESTNET</text>
+      <text y="95" class="mono dim" font-size="13" letter-spacing="2">PUBLIC DOCS</text>
+      <text y="129" class="mono ink" font-size="18" letter-spacing="2">SOURCE INDEX / L2</text>
+    </g>
+  </g>
+
+  <g transform="translate(78 742)">
+    <text class="mono cyan" font-size="14" letter-spacing="4">PUBLIC DEVELOPER SURFACE</text>
+    <g transform="translate(396 -27)">
+      <rect width="242" height="55" fill="#101216" stroke="#343940"/>
+      <path d="M0 0H54V55H0" fill="#14181c" stroke="#343940"/>
+      <text x="27" y="34" text-anchor="middle" class="mono cyan" font-size="15">01</text>
+      <text x="76" y="34" class="mono ink" font-size="16" letter-spacing="3">GITHUB</text>
+    </g>
+    <g transform="translate(650 -27)">
+      <rect width="242" height="55" fill="#101216" stroke="#343940"/>
+      <path d="M0 0H54V55H0" fill="#14181c" stroke="#343940"/>
+      <text x="27" y="34" text-anchor="middle" class="mono cyan" font-size="15">02</text>
+      <text x="76" y="34" class="mono ink" font-size="16" letter-spacing="3">RPC</text>
+    </g>
+    <g transform="translate(904 -27)">
+      <rect width="242" height="55" fill="#101216" stroke="#343940"/>
+      <path d="M0 0H54V55H0" fill="#14181c" stroke="#343940"/>
+      <text x="27" y="34" text-anchor="middle" class="mono cyan" font-size="15">03</text>
+      <text x="76" y="34" class="mono ink" font-size="16" letter-spacing="3">EXPLORER</text>
+    </g>
+    <g transform="translate(1158 -27)">
+      <rect width="208" height="55" fill="#101216" stroke="#343940"/>
+      <path d="M0 0H54V55H0" fill="#14181c" stroke="#343940"/>
+      <text x="27" y="34" text-anchor="middle" class="mono cyan" font-size="15">04</text>
+      <text x="76" y="34" class="mono ink" font-size="16" letter-spacing="3">DOCS</text>
+    </g>
+  </g>
+
+  <g class="mono" font-size="13" letter-spacing="2">
+    <text x="78" y="837" class="dim">TESTNET ≠ MAINNET · STATUS MUST BE VERIFIED AT SOURCE</text>
+    <text x="1522" y="837" text-anchor="end" class="muted">W3.MAGNE.AI / ECOSYSTEM ARCHIVE</text>
+  </g>
+
+  <g fill="#00d4d4" aria-hidden="true">
+    <rect x="36" y="36" width="22" height="2"/><rect x="36" y="36" width="2" height="22"/>
+    <rect x="1542" y="36" width="22" height="2"/><rect x="1562" y="36" width="2" height="22"/>
+    <rect x="36" y="862" width="22" height="2"/><rect x="36" y="842" width="2" height="22"/>
+    <rect x="1542" y="862" width="22" height="2"/><rect x="1562" y="842" width="2" height="22"/>
+  </g>
+</svg>

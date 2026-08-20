@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "source": "payment.magne.ai public Season 1 dashboard",
+    "fetchedAt": "2026-08-18T09:24:33.1877975Z",
+    "status": "verified_snapshot",
+    "metricDefinitions": {
+      "totalParticipants": "Cumulative participant wallet addresses",
+      "derivedEntries": "totalMobile × 100 + current round entries",
+      "totalMobile": "Selected phone units"
+    }
+  },
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "totalParticipants": 76650,
+    "totalMobile": 1004,
+    "currRound": 1005,
+    "nextDrawNeed": 93,
+    "derivedEntries": 100407
+  }
+}

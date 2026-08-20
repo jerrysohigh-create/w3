@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>MS2 Icon</title>
+  <desc>Vector MS2 geometric monogram icon with transparent background.</desc>
+  <defs>
+    <linearGradient id="blackTop" x1="150" y1="160" x2="650" y2="330" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B0D0F"/>
+      <stop offset="0.52" stop-color="#222426"/>
+      <stop offset="1" stop-color="#070809"/>
+    </linearGradient>
+    <linearGradient id="blackFace" x1="220" y1="330" x2="470" y2="790" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1B1D20"/>
+      <stop offset="1" stop-color="#050607"/>
+    </linearGradient>
+    <linearGradient id="blackSide" x1="400" y1="320" x2="610" y2="830" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2A2C2E"/>
+      <stop offset="1" stop-color="#0A0B0C"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="600" y1="300" x2="835" y2="760" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFD348"/>
+      <stop offset="0.45" stop-color="#F4B51A"/>
+      <stop offset="1" stop-color="#E39B00"/>
+    </linearGradient>
+    <linearGradient id="goldDark" x1="612" y1="420" x2="770" y2="690" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E9A70A"/>
+      <stop offset="1" stop-color="#F5C028"/>
+    </linearGradient>
+  </defs>
+
+  <!-- transparent background intentionally omitted -->
+
+  <!-- black geometric M / cube structure -->
+  <path d="M175 295 L415 160 L650 296 L565 350 L415 263 L270 345 Z" fill="url(#blackTop)"/>
+  <path d="M175 295 L270 345 L270 708 L175 655 Z" fill="url(#blackFace)"/>
+  <path d="M327 380 L414 430 L414 815 L327 765 Z" fill="url(#blackFace)"/>
+  <path d="M474 330 L565 350 L565 850 L474 798 Z" fill="url(#blackSide)"/>
+
+  <!-- inner negative-space cuts drawn as transparent-looking white shapes only for display on light backgrounds are omitted; paths are separated to preserve actual transparency between pieces -->
+
+  <!-- gold stylized S face -->
+  <path d="M622 318 L814 430 L814 532 L728 482 L728 447 L644 399 L548 454 L548 557 L635 607 L728 553 L814 603 L814 705 L622 815 L526 760 L526 658 L612 708 L612 742 L696 693 L526 596 L526 402 Z" fill="url(#gold)"/>
+  <path d="M644 399 L728 447 L612 514 L548 557 L548 454 Z" fill="#F8C22A" opacity="0.88"/>
+  <path d="M612 708 L526 658 L644 590 L728 553 L814 603 Z" fill="url(#goldDark)" opacity="0.92"/>
+</svg>

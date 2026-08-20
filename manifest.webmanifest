@@ -1,0 +1,11 @@
+{
+  "name": "W3.MAGNE.AI",
+  "short_name": "W3",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0c",
+  "theme_color": "#0a0a0c",
+  "icons": [
+    { "src": "/assets/images/brand/w3-mark.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

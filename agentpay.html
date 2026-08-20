@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AgentPay — Controlled Agent Transactions | W3.MAGNE.AI</title>
+  <meta name="description" content="AgentPay 是 W3 面向 AI Agent 的受控授权、支付、结算与可验证任务收据层。">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260821-19">
+  <link rel="canonical" href="https://w3.magne.ai/agentpay.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AgentPay — Controlled Agent Transactions | W3.MAGNE.AI" />
+  <meta property="og:description" content="AgentPay 是 W3 面向 AI Agent 的受控授权、支付、结算与可验证任务收据层。" />
+  <meta property="og:image" content="https://w3.magne.ai/assets/images/og/w3-system-card.svg" />
+  <meta property="og:url" content="https://w3.magne.ai/agentpay.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0a0a0c" />
+  <link rel="icon" href="assets/images/brand/w3-mark.svg" type="image/svg+xml" />
+  <link rel="manifest" href="manifest.webmanifest" />
+</head>
+<body data-page="agentpay" class="system-page">
+  <header id="site-header"></header>
+  <main>
+    <section class="system-hero system-hero-agentpay">
+      <div class="wrap system-hero-grid">
+        <div class="system-hero-copy">
+          <p class="eyebrow"><span class="index">02</span> AGENT AUTHORIZATION / PAYMENT / RECEIPT</p>
+          <div class="system-state"><span></span> TESTNET EVIDENCE · PRODUCTION CONTROLS IN DEVELOPMENT</div>
+          <h1 class="system-title">LET AGENTS<br><span>TRANSACT.</span></h1>
+          <p class="system-lede">AgentPay 讓 AI Agent 可以提出支付與服務請求，但不直接取得錢包控制權。每一次價值移動都經過身份、策略、限額、人工批准與可驗證收據。</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#protocol">$ inspect protocol →</a>
+            <a class="btn" href="terminal.html">$ open sandbox</a>
+          </div>
+        </div>
+        <aside class="system-hero-aside" aria-label="AgentPay 核心原则">
+          <span>W3 / TRANSACTION CONTROL</span>
+          <strong>0</strong>
+          <p>DEFAULT<br>SPEND AUTHORITY</p>
+          <small>POLICY + HUMAN<br>BEFORE EXECUTION</small>
+        </aside>
+      </div>
+      <div class="wrap">
+        <dl class="system-ledger">
+          <div><dt>DEFAULT AUTHORITY</dt><dd>DENIED <span class="tag verified">POLICY</span></dd></div>
+          <div><dt>PUBLIC EVIDENCE</dt><dd>M HASH L2 <span class="tag verified">TESTNET</span></dd></div>
+          <div><dt>OUTPUT</dt><dd>TASK RECEIPT <span class="tag target">SCHEMA</span></dd></div>
+          <div><dt>PRODUCTION PAYMENT</dt><dd>NOT OPEN <span class="tag pending">GATED</span></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="content-section system-problem">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><p class="section-label"><span class="index">02.1</span> THE PAYMENT BARRIER</p><h2 class="section-title">代理會思考。<br>支付仍需邊界。</h2></div>
+          <p class="section-copy">普通支付接口只回答交易是否完成；AgentPay 还必须回答代理代表谁、为何有权行动、采用哪一版策略，以及谁最终批准。</p>
+        </div>
+        <div class="problem-register reveal">
+          <article><span>01 / AUTHORITY</span><h3>代理可以觸發。<br>使用者無法驗證。</h3><p>缺少身份、委託與限額時，自动化会把一次授权误解为永久权限。</p></article>
+          <article><span>02 / SETTLEMENT</span><h3>服務已存在。<br>代理無法安全支付。</h3><p>Agent 需要可拒绝、可暂停、可升级人工处理的受控结算轨道。</p></article>
+          <article><span>03 / EVIDENCE</span><h3>任務已執行。<br>結果無法被證明。</h3><p>交易哈希只能证明网络动作，不能独立解释完整授权与决策过程。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section system-protocol" id="protocol">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><p class="section-label"><span class="index">02.2</span> CONTROLLED TRANSACTION PROTOCOL</p><h2 class="section-title">先判斷。<br>再移動價值。</h2></div>
+          <p class="section-copy">Agent 只提交结构化意图。授权、报价、风险、人工确认、链上执行和收据各自保留独立状态，任何一步都可以拒绝或停止。</p>
+        </div>
+        <div class="protocol-console reveal">
+          <div class="protocol-topline"><span>AGENTPAY / EXECUTION STATE MACHINE</span><span>FAIL CLOSED · RECEIPT REQUIRED</span></div>
+          <ol class="protocol-flow">
+            <li><span>01</span><b>INTENT</b><small>Amount · asset<br>recipient · purpose</small></li>
+            <li><span>02</span><b>QUOTE</b><small>Price · fee<br>expiry · route</small></li>
+            <li><span>03</span><b>POLICY</b><small>Budget · allowlist<br>frequency · risk</small></li>
+            <li><span>04</span><b>APPROVAL</b><small>Phone · wallet<br>human signature</small></li>
+            <li><span>05</span><b>EXECUTE</b><small>Approved route<br>testnet / future rail</small></li>
+            <li><span>06</span><b>RECEIPT</b><small>Decision · result<br>signature · anchor</small></li>
+          </ol>
+          <div class="protocol-rule"><span>AUTHORITY RULE</span><strong>NO APPROVAL → NO EXECUTION</strong><small>Private key remains outside the agent and model context.</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section receipt-layer" id="receipts">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><p class="section-label"><span class="index">02.3</span> AI TASK RECEIPT</p><h2 class="section-title">交易哈希之外，<br>保留決策證據。</h2></div>
+          <p class="section-copy">收据层将任务上下文与链上动作绑定。公开链只承载必要摘要和参照，敏感提示词、企业数据、私钥与完整输出继续留在受控环境。</p>
+        </div>
+        <div class="receipt-schema reveal">
+          <div class="receipt-schema-head"><span>RECEIPT / PROPOSED PUBLIC SCHEMA</span><span class="tag target">ARCHITECTURE TARGET</span></div>
+          <dl>
+            <div><dt>AGENT ID</dt><dd>Who requested</dd></div>
+            <div><dt>SUBJECT ID</dt><dd>Who delegated</dd></div>
+            <div><dt>INTENT HASH</dt><dd>What was requested</dd></div>
+            <div><dt>POLICY HASH</dt><dd>Which rules applied</dd></div>
+            <div><dt>APPROVAL REF</dt><dd>Who approved</dd></div>
+            <div><dt>EXECUTION REF</dt><dd>What happened</dd></div>
+            <div><dt>NETWORK</dt><dd>Where it settled</dd></div>
+            <div><dt>STATUS</dt><dd>Final state</dd></div>
+          </dl>
+          <p><span>PRIVACY BOUNDARY</span> No raw document · no full prompt · no private key · no unrestricted wallet session.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section evidence-register">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><p class="section-label"><span class="index">02.4</span> DELIVERY STATUS</p><h2 class="section-title">已證明的，<br>與仍在形成的。</h2></div>
+          <p class="section-copy">旧 Web3 Portal 的技术内容已重组为状态登记表。测试网演示不等于生产支付服务；每项能力必须完成安全、合规和运行验证后才能升级状态。</p>
+        </div>
+        <div class="table-scroll reveal">
+          <table class="data-table system-status-table">
+            <thead><tr><th>Capability</th><th>Current evidence</th><th>Status</th><th>Production gate</th></tr></thead>
+            <tbody>
+              <tr><td>LOCAL CONTRACT DEMO</td><td>AI 任务收据与本地合约工作流演示</td><td><span class="tag verified">VERIFIED DEMO</span></td><td>版本固化与可复现实验记录</td></tr>
+              <tr><td>M HASH L2 RECEIPT</td><td>测试网合约部署与公开记录路径</td><td><span class="tag verified">TESTNET</span></td><td>合约地址登记、Schema 与独立验证</td></tr>
+              <tr><td>HTTP 402 FLOW</td><td>支付请求、浏览器钱包授权与 Facilitator 研究</td><td><span class="tag target">IN DEVELOPMENT</span></td><td>端到端实现、失败恢复与安全测试</td></tr>
+              <tr><td>X402 COMPATIBILITY</td><td>x402 与 B402 服务模式研究方向</td><td><span class="tag target">RESEARCH</span></td><td>兼容性矩阵与互操作测试</td></tr>
+              <tr><td>STABLECOIN SETTLEMENT</td><td>受控稳定币结算产品方向</td><td><span class="tag pending">NOT OPEN</span></td><td>合规、审计、限额与资金安全控制</td></tr>
+              <tr><td>PHONE AUTHORIZATION</td><td>安全行动端授权架构方向</td><td><span class="tag target">ARCHITECTURE TARGET</span></td><td>eSE/TEE 签名链、交互与攻击测试</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section aapp-section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><p class="section-label"><span class="index">02.5</span> AAPP / AGENT APPLICATION</p><h2 class="section-title">代碼加技能，<br>仍需策略與收據。</h2></div>
+          <p class="section-copy">Aapp 不是一个拥有无限钱包权限的脚本。它由应用代码、SKILL.md、身份委托、策略边界和可验证收据共同组成。</p>
+        </div>
+        <div class="aapp-formula reveal" aria-label="Aapp 组成公式">
+          <b>YOUR CODE</b><i>+</i><b>SKILL.MD</b><i>+</i><b>POLICY</b><i>+</i><b>RECEIPTS</b><i>=</i><strong>AAPP</strong>
+        </div>
+        <div class="system-next reveal">
+          <div><span>NEXT / BUILD SURFACE</span><h2>从测试网证据，走向受控代理支付。</h2></div>
+          <div><p>查看双测试网状态、开发者参数和公开证据边界。</p><a class="btn primary" href="network.html">$ inspect network →</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="assets/js/site.js?v=20260821-11"></script>
+<script src="assets/js/season-status.js?v=20260821-1"></script>
+<script src="assets/js/analytics.js?v=20260821-1"></script>
+</body>
+</html>
