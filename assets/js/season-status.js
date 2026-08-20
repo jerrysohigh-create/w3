@@ -18,7 +18,6 @@
 
   function render(state, payload) {
     var statusText = state === "checking" ? "S2: CHECKING" : state === "live" ? "S2: LIVE" : state === "snapshot" ? "S2: SNAPSHOT" : state === "stale" ? "S2: STALE" : "S2: UNAVAILABLE";
-    var actionText = state === "checking" ? "$ season 2 data" : state === "live" ? "$ season 2 live" : state === "snapshot" ? "$ season 2 snapshot" : state === "stale" ? "$ season 2 · stale" : "$ season 2 data";
     var fetchedAt = payload && payload._meta && payload._meta.fetchedAt;
     var detail = state === "checking"
       ? "Checking Season 2 data freshness."
@@ -38,10 +37,13 @@
       element.title = detail;
     });
     document.querySelectorAll("[data-s2-global-action]").forEach(function (element) {
-      element.textContent = actionText;
+      element.textContent = "$ join season 2 ↗";
+      element.href = "https://payment.magne.ai/lottery";
+      element.target = "_blank";
+      element.rel = "noopener noreferrer";
       element.classList.remove("is-checking", "is-live", "is-snapshot", "is-stale", "is-unavailable");
       element.classList.add("is-" + state);
-      element.title = detail;
+      element.title = "Join Season 2 on payment.magne.ai";
     });
     document.documentElement.dataset.s2State = state;
   }
