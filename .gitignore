@@ -5,3 +5,4 @@ server-data/
 !.env.example
 *.log
 assets/data/*.tmp
+_site/

@@ -1,0 +1,132 @@
+name: Sync Season 2 and deploy Pages
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "7,17,27,37,47,57 * * * *"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: w3-season-2-pages
+  cancel-in-progress: false
+
+jobs:
+  sync-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Preserve previous public values for change detection
+        shell: bash
+        run: |
+          mkdir -p /tmp/w3-data-before
+          cp assets/data/season-2-snapshot.json /tmp/w3-data-before/snapshot.json
+          cp assets/data/season-2-history.json /tmp/w3-data-before/history.json
+          cp assets/data/season-2-dune-participants.json /tmp/w3-data-before/dune.json
+
+      - name: Collect authenticated Payment and BSC snapshot
+        env:
+          W3_ALLOW_EPHEMERAL_WALLET: "true"
+          W3_SERVICE_WALLET_PRIVATE_KEY: ${{ secrets.W3_SERVICE_WALLET_PRIVATE_KEY }}
+          W3_REFRESH_SECONDS: "600"
+          W3_STALE_AFTER_SECONDS: "1200"
+        run: pnpm collect:s2
+
+      - name: Refresh Dune participant series when configured
+        env:
+          DUNE_API_KEY: ${{ secrets.DUNE_API_KEY }}
+        shell: bash
+        run: |
+          if [[ -n "$DUNE_API_KEY" ]]; then
+            pnpm fetch:s2-dune
+          else
+            echo "DUNE_API_KEY is not configured; retaining the last verified Dune snapshot."
+          fi
+
+      - name: Validate code and data
+        run: |
+          pnpm check
+          pnpm test
+
+      - name: Commit verified public snapshots
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          snapshot_changed=false
+          history_changed=false
+          dune_changed=false
+          diff -q \
+            <(jq -S '{data,contracts:(.contracts | del(.fetchedAt))}' /tmp/w3-data-before/snapshot.json) \
+            <(jq -S '{data,contracts:(.contracts | del(.fetchedAt))}' assets/data/season-2-snapshot.json) \
+            >/dev/null || snapshot_changed=true
+          diff -q \
+            <(jq -S '.points' /tmp/w3-data-before/history.json) \
+            <(jq -S '.points' assets/data/season-2-history.json) \
+            >/dev/null || history_changed=true
+          diff -q \
+            <(jq -S '.rows' /tmp/w3-data-before/dune.json) \
+            <(jq -S '.rows' assets/data/season-2-dune-participants.json) \
+            >/dev/null || dune_changed=true
+          if [[ "$snapshot_changed" == true || "$history_changed" == true || "$dune_changed" == true ]]; then
+            git add -- assets/data/season-2-snapshot.json assets/data/season-2-history.json assets/data/season-2-dune-participants.json
+            git commit -m "data: refresh Season 2 verified snapshot"
+            git push origin HEAD:main
+          else
+            echo "Public values are unchanged; deploying a fresh verified snapshot without creating a commit."
+          fi
+
+      - name: Build static Pages artifact
+        shell: bash
+        run: |
+          mkdir -p _site
+          rsync -a ./ _site/ \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            --exclude 'node_modules/' \
+            --exclude '_site/' \
+            --exclude 'server/' \
+            --exclude 'server-data/' \
+            --exclude 'scripts/' \
+            --exclude 'test/' \
+            --exclude '.env*' \
+            --exclude 'package.json' \
+            --exclude 'pnpm-lock.yaml' \
+            --exclude 'DEPLOYMENT.md'
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

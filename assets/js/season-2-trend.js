@@ -154,8 +154,12 @@
     if (coverage) coverage.textContent = format(backfill.eventCount || Math.max(0, historyPoints.length - 1))
       + " EVENTS · FROM BLOCK " + format(backfill.firstEventBlock || backfill.fromBlock || 0)
       + (hasDelta ? " · " + format(Math.abs(delta)) + " ENTRY PENDING RECONCILIATION" : "");
-    if (refreshed) refreshed.textContent = shortTime(historyMeta.lastCheckedAt || historyMeta.updatedAt, true);
-    if (source) source.textContent = "BSC EVENTS · INDEXED BOOTSTRAP + FINALIZED-BLOCK INCREMENT";
+    if (refreshed) refreshed.textContent = shortTime(activeMetric === "onchainPayers"
+      ? (historyMeta.lastCheckedAt || historyMeta.updatedAt)
+      : (historyMeta.automatedSnapshotAt || historyMeta.updatedAt), true);
+    if (source) source.textContent = activeMetric === "onchainPayers"
+      ? "BSC EVENTS · INDEXED BOOTSTRAP + FINALIZED-BLOCK INCREMENT"
+      : "PAYMENT AUTHENTICATED SNAPSHOTS · BSC CONTRACT STATE";
   }
 
   function setMetric(metric) {

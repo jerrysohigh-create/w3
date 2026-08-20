@@ -1,16 +1,16 @@
 {
   "_meta": {
-    "source": "BSC participation events",
+    "source": "BSC participation events + Payment authenticated snapshots",
     "grain": "one cumulative point per verified participation event",
     "metricDefinitions": {
       "totalEntries": "Cumulative sum of entries decoded from the participation event",
       "onchainPayers": "Distinct participant addresses observed in the participation event"
     },
     "startedAt": "2026-07-10T07:04:14.999Z",
-    "updatedAt": "2026-08-20T13:08:14.000Z",
-    "lastCheckedAt": "2026-08-20T14:20:53.823Z",
-    "refreshSeconds": 300,
-    "pointCount": 138,
+    "updatedAt": "2026-08-20T21:01:48.682Z",
+    "lastCheckedAt": "2026-08-20T14:20:20.407Z",
+    "refreshSeconds": 600,
+    "pointCount": 139,
     "chartMetric": "totalEntries",
     "chainBackfill": {
       "contract": "0x6DE61D8438176741fc8150Aef53256830a6Dd635",
@@ -40,7 +40,8 @@
           "totalMobile": 37
         }
       }
-    }
+    },
+    "automatedSnapshotAt": "2026-08-20T21:03:06.014Z"
   },
   "code": 200,
   "msg": "ok",
@@ -1560,6 +1561,15 @@
       "source": "BSC_PARTICIPATION_EVENT",
       "blockNumber": 117045516,
       "transactionHash": "0x6b6beb62c7793b9308f746d44dc81c68542092b58d33548b7a141e4fe48732a1"
+    },
+    {
+      "observedAt": "2026-08-20T21:01:48.682Z",
+      "totalEntries": 3752,
+      "totalMobile": 37,
+      "currRound": 38,
+      "nextDrawNeed": 48,
+      "onchainPayers": 80,
+      "source": "PAYMENT_AUTHENTICATED_OBSERVATION"
     }
   ]
 }
