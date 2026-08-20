@@ -79,13 +79,13 @@
     });
 
     if (!winners.length) {
-      list.innerHTML = '<div class="winner-row"><span class="winner-round">[ UNAVAILABLE ]</span><span class="winner-address">公开中选记录暂时无法读取。</span><span class="winner-state pending">NO FALLBACK DATA</span></div>';
+      list.innerHTML = '<div class="winner-row"><span class="winner-round">[ UNAVAILABLE ]</span><span class="winner-address">Public selection records are temporarily unavailable.</span><span class="winner-state pending">NO FALLBACK DATA</span></div>';
     }
 
     if (previous) previous.disabled = currentPage <= 1;
     if (next) next.disabled = currentPage >= totalPages || !winners.length;
     setText("s1-page-indicator", "PAGE " + currentPage + " / " + totalPages);
-    setText("s1-winners-count", winners.length ? winners.length.toLocaleString("en-US") + " 条公开中选记录。" : "公开中选记录暂时不可用。");
+    setText("s1-winners-count", winners.length ? winners.length.toLocaleString("en-US") + "public winning records." : "Public winning records are temporarily unavailable.");
   }
 
   function applyDashboard(payload) {
@@ -101,7 +101,7 @@
     setNumber("s1dash-units", totalMobile);
     setNumber("s1dash-pool", completedRounds * 1000 + currentEntries * 10, "$");
     setNumber("s1dash-mha", completedRounds * 99 * 100);
-    setText("s1dash-remaining", "剩余 " + (1000 - totalMobile).toLocaleString("en-US") + " 名额");
+    setText("s1dash-remaining", "remaining" + (1000 - totalMobile).toLocaleString("en-US") + "Quota");
     setText("s1dash-ms2-airdrop", formatNumber(totalMobile * 100));
     setText("s1dash-round", currentRound.toLocaleString("en-US"));
     setText("s1dash-current-entries", currentEntries.toLocaleString("en-US"));
@@ -167,7 +167,7 @@
     if (results[2].status === "rejected" && window.W3SeasonChart) {
       window.W3SeasonChart.fallback(get("s1-dashboard-growth-chart"));
     }
-    setSourceState(available === 3 ? "三组公开来源读取成功。" : "部分公开来源暂时不可用；页面未使用示例数据。", available === 3);
+    setSourceState(available === 3 ? "Three groups of public sources were read successfully." : "Some public sources are temporarily unavailable; the page does not use sample data.", available === 3);
   });
 
   window.setInterval(function () {

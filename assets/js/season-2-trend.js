@@ -1,18 +1,19 @@
 (function () {
+  var assetRoot = document.body.dataset.assetRoot || "";
   var sources = [
     "/api/v1/season-2/history",
-    "assets/data/season-2-history.json",
+    assetRoot + "assets/data/season-2-history.json",
   ];
   var activeMetric = "totalEntries";
   var historyPayload = null;
   var metrics = {
     totalEntries: {
-      title: "Season 2 累计有效参与名额",
-      aria: "Season 2 累计有效参与名额从零增长图",
+      title: "Season 2 Accumulated valid participation quota",
+      aria: "Season 2 Cumulative effective participation quota increases from zero",
     },
     onchainPayers: {
-      title: "Season 2 唯一直接参与 / 付款地址增长",
-      aria: "Season 2 链上唯一直接参与付款地址从零增长图",
+      title: "Season 2 is the only direct participant/payment address growth",
+      aria: "Season 2 The only direct payment address on the chain growing from zero",
     },
   };
 
@@ -197,7 +198,7 @@
 
   async function loadFlowAudit() {
     try {
-      var response = await fetch("assets/data/season-2-flow-audit.json?t=" + Date.now(), { cache: "no-store" });
+      var response = await fetch(assetRoot + "assets/data/season-2-flow-audit.json?t=" + Date.now(), { cache: "no-store" });
       if (!response.ok) throw new Error("Flow audit HTTP " + response.status);
       var payload = await response.json();
       if (payload.code !== 200 || !payload._meta?.matched) throw new Error("Flow audit payload");

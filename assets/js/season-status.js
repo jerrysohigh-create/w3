@@ -2,9 +2,10 @@
   "use strict";
 
   var root = document.body.dataset.root || "";
+  var assetRoot = document.body.dataset.assetRoot || root;
   var sources = [
-    { url: "/api/v1/season-2/dashboard", mode: "collector" },
-    { url: root + "assets/data/season-2-snapshot.json", mode: "snapshot" }
+    { url: assetRoot + "assets/data/season-2-snapshot.json", mode: "snapshot" },
+    { url: "/api/v1/season-2/dashboard", mode: "collector" }
   ];
 
   function freshness(payload) {

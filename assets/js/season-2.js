@@ -1,7 +1,8 @@
 (function () {
+  var assetRoot = document.body.dataset.assetRoot || "";
   var snapshotSources = [
+    { url: assetRoot + "assets/data/season-2-snapshot.json", label: "W3 VERIFIED SNAPSHOT" },
     { url: "/api/v1/season-2/dashboard", label: "W3 AUTHENTICATED COLLECTOR" },
-    { url: "assets/data/season-2-snapshot.json", label: "W3 VERIFIED SNAPSHOT" },
     { url: "https://jerrysohigh-create.github.io/magne-web/assets/data/lottery2-dashboard.json", label: "LEGACY SNAPSHOT" }
   ];
   var listSource = "https://payment.magne.ai/api/v1/lottery2/list";
@@ -152,15 +153,15 @@
         var timeLabel = fetchedAt ? new Date(fetchedAt).toLocaleString("zh-Hant", { hour12: false }) : "UNKNOWN TIME";
         var mode = index === 0 ? "collector" : "snapshot";
         var suffix = status === "verified"
-          ? (mode === "collector" ? " · 实时采集器已验证。" : " · 已验证快照；实时采集器当前不可用。")
-          : " · 快照已过期，等待重新采集。";
+          ? (mode === "collector" ? "· Real-time collector verified." : "· Snapshot verified; live collector is currently unavailable.")
+          : "· The snapshot has expired and is waiting to be collected again.";
         setSourceState(source.label + " · " + timeLabel + suffix, status, mode);
         return true;
       } catch (error) {
         continue;
       }
     }
-    setSourceState("Season 2 已验证数据暂时不可用；页面不使用示例数据。", "unavailable", "none");
+    setSourceState("Season 2 Verified data is temporarily unavailable; the page does not use sample data.", "unavailable", "none");
     return false;
   }
 
@@ -184,7 +185,7 @@
       var container = get("s2-latest-draw");
       if (!container) return false;
       if (payload.code !== 200 || !rows.length) {
-        container.innerHTML = '<p class="empty-copy">暂无公开中选记录；原接口当前未返回可展示数据。</p>';
+        container.innerHTML = '<p class="empty-copy">No public selection records are available; the source API returned no displayable data.</p>';
         return false;
       }
       var row = rows[0];
@@ -195,7 +196,7 @@
       return true;
     }).catch(function () {
       var container = get("s2-latest-draw");
-      if (container) container.innerHTML = '<p class="empty-copy">最近中选接口需要有效访问状态，当前没有公开记录可显示。</p>';
+      if (container) container.innerHTML = '<p class="empty-copy">The recent-selection endpoint requires a valid access state; no public record can be displayed.</p>';
       return false;
     });
   }
@@ -205,8 +206,8 @@
     if (!list) return;
     list.innerHTML = "";
     if (!Array.isArray(rows) || !rows.length) {
-      list.innerHTML = '<div class="winner-row"><span class="winner-round">[ UNAVAILABLE ]</span><span class="winner-address">公开中选记录暂时不可用。</span><span class="winner-state pending">NO FALLBACK DATA</span></div>';
-      setText("s2-winners-count", "公开接口当前没有返回中选记录。");
+      list.innerHTML = '<div class="winner-row"><span class="winner-round">[ UNAVAILABLE ]</span><span class="winner-address">Public selection records are temporarily unavailable.</span><span class="winner-state pending">NO FALLBACK DATA</span></div>';
+      setText("s2-winners-count", "The public interface currently does not return the selected record.");
       return;
     }
     rows.forEach(function (winner) {
@@ -236,7 +237,7 @@
       row.appendChild(status);
       list.appendChild(row);
     });
-    setText("s2-winners-count", rows.length.toLocaleString("en-US") + " 条公开中选记录；页面脱敏显示，链接保留完整地址。");
+    setText("s2-winners-count", rows.length.toLocaleString("en-US") + "public winning records; the page is desensitized and the link retains its complete address.");
   }
 
   function loadWinners() {
@@ -286,7 +287,7 @@
 
   renderLeaderboard([]);
   Promise.all([loadWinners(), loadLatestDraw(), loadLeaderboard()]).then(function (results) {
-    setText("s2-record-state", results[0] ? "完整中选地址接口读取成功；页面以脱敏地址展示并链接至 BscScan。" : "中选地址接口暂时不可用；页面未使用示例记录。");
+    setText("s2-record-state", results[0] ? "The complete selected address interface is read successfully; the page is displayed with the desensitized address and linked to BscScan." : "The selected address interface is temporarily unavailable; the sample record is not used on the page.");
   });
   loadSnapshot();
 

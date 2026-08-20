@@ -1,23 +1,27 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>MAGNE.AI BOX — Private Edge Intelligence | W3.MAGNE.AI</title>
-  <meta name="description" content="MAGNE.AI BOX 是部署在組織現場的可管理私有 AI 工作空間，承載本地知識、合同智能、權限控制與可驗證輸出。">
+  <meta name="description" content="MAGNE.AI BOX is a manageable private AI workspace deployed on the organizational site, carrying local knowledge, contract intelligence, permission control and verifiable output.">
   <link rel="stylesheet" href="assets/css/site.css?v=20260821-19">
   <link rel="canonical" href="https://w3.magne.ai/ai-box.html" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="MAGNE.AI BOX — Private Edge Intelligence | W3.MAGNE.AI" />
-  <meta property="og:description" content="MAGNE.AI BOX 是部署在組織現場的可管理私有 AI 工作空間，承載本地知識、合同智能、權限控制與可驗證輸出。" />
+  <meta property="og:description" content="MAGNE.AI BOX is a manageable private AI workspace deployed on the organizational site, carrying local knowledge, contract intelligence, permission control and verifiable output." />
   <meta property="og:image" content="https://w3.magne.ai/assets/images/og/w3-system-card.svg" />
   <meta property="og:url" content="https://w3.magne.ai/ai-box.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0c" />
   <link rel="icon" href="assets/images/brand/w3-mark.svg" type="image/svg+xml" />
   <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="alternate" hreflang="en" href="https://w3.magne.ai/ai-box.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/ai-box.html" />
+  <link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/ai-box.html" />
+  <link rel="stylesheet" href="assets/css/locale.css?v=20260821-2" />
 </head>
-<body data-page="ai-box">
+<body data-page="ai-box" data-lang="en" data-locale-peer="tc/ai-box.html">
   <header id="site-header"></header>
   <main>
     <section class="ai-box-hero" aria-labelledby="ai-box-title">
@@ -30,7 +34,7 @@
           <p class="eyebrow"><span class="index">03</span> EDGE INTELLIGENCE / PRODUCT FILE</p>
           <div class="ai-box-state"><span></span> CONDITIONAL POC · SPECIFICATION CONTROLLED</div>
           <h1 class="ai-box-title" id="ai-box-title">PRIVATE AI.<br><span>ON YOUR SIDE.</span></h1>
-          <p class="ai-box-deck">讓企業文件、合同與知識留在本地。MAGNE.AI BOX 在客戶現場完成解析、檢索、推理與帶引用輸出——把 AI 從遠端服務，變成組織可以掌握的基礎設施。</p>
+          <p class="ai-box-deck">Keep corporate documents, contracts and knowledge local. MAGNE.AI BOX completes parsing, retrieval, reasoning and reference output at the customer site - turning AI from a remote service into an infrastructure that organizations can control.</p>
           <div class="hero-actions">
             <a class="btn ai-box-primary" href="#runtime">$ inspect edge runtime →</a>
             <a class="btn" href="#hardware">$ inspect hardware</a>
@@ -57,14 +61,14 @@
         <div class="section-head reveal">
           <div>
             <p class="section-label"><span class="index">03.1</span> PRODUCT THESIS</p>
-            <h2 class="section-title">不是縮小的雲。<br>是你的 AI 邊界。</h2>
+            <h2 class="section-title">Not a smaller cloud.<br>Your own AI boundary.</h2>
           </div>
-          <p class="section-copy">普通 AI Box 售賣算力；MAGNE.AI BOX 將本地模型、企業知識、權限、引用與審批組成一個可管理閉環。硬件會被替代，可信工作流不會。</p>
+          <p class="section-copy">Ordinary AI Box sells computing power; MAGNE.AI BOX combines local models, enterprise knowledge, permissions, references and approvals into a manageable closed loop. Hardware will be replaced, trusted workflows will not.</p>
         </div>
         <div class="ai-box-principles reveal">
-          <article><span>01 / LOCAL-FIRST</span><h3>資料不必先離開組織</h3><p>文件解析、索引和核心推理在現場執行。雲增強預設關閉，只有獲得明確授權後才啟用。</p></article>
-          <article><span>02 / SOURCE-BOUND</span><h3>每個結論回到原文</h3><p>答案附帶頁碼或段落級引用，讓合同、盡調與知識任務可以被人工復核。</p></article>
-          <article><span>03 / HUMAN-GATED</span><h3>AI 不替人作出高風險決定</h3><p>私鑰不進模型；簽名、支付與高風險工具調用必須經過使用者確認。</p></article>
+          <article><span>01 / LOCAL-FIRST</span><h3>Data does not have to leave the organization first</h3><p>File parsing, indexing, and core inference are performed on-site. Cloud enhancement is turned off by default and will only be enabled with explicit authorization.</p></article>
+          <article><span>02 / SOURCE-BOUND</span><h3>Each conclusion returns to the original text</h3><p>Answers come with page or paragraph-level references, allowing contracts, due diligence, and knowledge tasks to be reviewed manually.</p></article>
+          <article><span>03 / HUMAN-GATED</span><h3>AI does not make high-risk decisions for people</h3><p>Private keys are not included in the model; signatures, payments, and high-risk tool calls must be confirmed by the user.</p></article>
         </div>
       </div>
     </section>
@@ -74,9 +78,9 @@
         <div class="section-head reveal">
           <div>
             <p class="section-label"><span class="index">03.2</span> HARDWARE BASELINE</p>
-            <h2 class="section-title">八核主控。<br>三層內存。</h2>
+            <h2 class="section-title">Eight-core controller.<br>Three-tier memory.</h2>
           </div>
-          <p class="section-copy">ABX-001 由 UIS 7885 主控與 MAGNE 定制 NPU 組成。內存不是一個 10–16GB 區間，而是主機 LPDDR4X、NPU 內置 3D DRAM 與 NPU 擴展 LPDDR5X 三個層級。</p>
+          <p class="section-copy">ABX-001 consists of UIS 7885 master control and MAGNE custom NPU. The memory is not a 10–16GB range, but three levels: host LPDDR4X, NPU built-in 3D DRAM, and NPU extended LPDDR5X.</p>
         </div>
 
         <div class="ai-box-hardware-console reveal">
@@ -88,7 +92,7 @@
             <article class="hardware-cpu">
               <div class="hardware-panel-head"><span>HOST CPU / UIS 7885</span><span class="tag verified">PLATFORM VERIFIED</span></div>
               <div class="cpu-total"><strong>8</strong><span>ARM<br>CORES</span></div>
-              <div class="cpu-clusters" aria-label="UIS 7885 CPU 核心與頻率">
+              <div class="cpu-clusters" aria-label="UIS 7885 CPU core and frequency">
                 <div class="cpu-cluster prime"><span>CORE 0</span><b>1× CORTEX-A76</b><em>2.7 GHz</em></div>
                 <div class="cpu-cluster performance"><span>CORE 1–3</span><b>3× CORTEX-A76</b><em>2.3 GHz</em></div>
                 <div class="cpu-cluster efficiency"><span>CORE 4–7</span><b>4× CORTEX-A55</b><em>2.1 GHz</em></div>
@@ -99,12 +103,12 @@
             <article class="hardware-memory">
               <div class="hardware-panel-head"><span>MEMORY / THREE LAYERS</span><span class="tag pending">TOPOLOGY REQUIRED</span></div>
               <div class="memory-total"><span>DERIVED INVENTORY*</span><strong>34 / 38<small>GB</small></strong><em>8 / 12 + 10 + 16</em></div>
-              <div class="memory-map" aria-label="主机 8 或 12GB、MAGNE 定制 NPU 10GB 3D DRAM 与 16GB LPDDR5X 扩展内存的容量清单">
+              <div class="memory-map" aria-label="Capacity list of host 8 or 12GB, MAGNE custom NPU 10GB 3D DRAM and 16GB LPDDR5X extended memory">
                 <div class="memory-soc"><span>HOST SYSTEM DRAM</span><b>8 / 12GB</b><small>LPDDR4X · UP TO 2133MHz</small></div>
                 <div class="memory-npu"><span>MAGNE NPU NEAR MEMORY</span><b>10GB</b><small>3D DRAM · SUPPLIER CLAIM</small></div>
                 <div class="memory-expand"><span>MAGNE NPU EXPANSION</span><b>16GB</b><small>LPDDR5X · SUPPLIER CLAIM</small></div>
               </div>
-              <p class="memory-rule"><span>* DERIVATION RULE</span> 34 / 38GB 僅為假設 16GB 擴展與 10GB 3D DRAM 同時存在時的容量清單推導；PDF 未說明統一尋址、共享方式、可用容量或模型分配，不能作為正式總內存承諾。</p>
+              <p class="memory-rule"><span>* DERIVATION RULE</span> 34 / 38GB is only a capacity inventory derivation assuming 16GB expansion and 10GB 3D DRAM; the PDF does not describe unified addressing, sharing methods, available capacity, or model allocation and cannot be used as a formal total memory commitment.</p>
             </article>
           </div>
           <dl class="hardware-spec-strip">
@@ -122,7 +126,7 @@
             <div><dt>OPERATING SYSTEM</dt><dd>Ubuntu / Android</dd><small>PDF support statement</small></div>
           </dl>
         </div>
-        <p class="ai-box-hardware-note reveal"><span>SPEC NOTE /</span> CPU 拓撲與頻率可由平台官方資料交叉確認；MAGNE 定制 NPU 的 56 TOPS、10GB 3D DRAM、16GB LPDDR5X、&gt;600GB/s 與 8–15W 均來自 FIH PDF，尚需供應方 Datasheet、內存拓撲、功耗測試邊界及 MAGNE 樣機原始日誌確認。</p>
+        <p class="ai-box-hardware-note reveal"><span>SPEC NOTE /</span> CPU topology and frequency can be cross-confirmed by the platform's official data; MAGNE's customized NPU's 56 TOPS, 10GB 3D DRAM, 16GB LPDDR5X, &gt;600GB/s and 8–15W are all from the FIH PDF, which still needs to be confirmed by the supplier's Datasheet, memory topology, power consumption test boundaries and MAGNE prototype original logs.</p>
       </div>
     </section>
 
@@ -131,12 +135,12 @@
         <div class="section-head reveal">
           <div>
             <p class="section-label"><span class="index">03.3</span> EDGE AI RUNTIME</p>
-            <h2 class="section-title">一個運行時。<br>持續擴展的模型世界。</h2>
+            <h2 class="section-title">One runtime.<br>An expanding model universe.</h2>
           </div>
-          <p class="section-copy">首個模型只是起點。MAGNE 以私有維護的 llama.cpp-compatible runtime、MAGNE GGML backend 與定制 NPU 建立可持續擴展的端側模型路徑，而不是把產品鎖死在單一模型上。</p>
+          <p class="section-copy">The first model is just the starting point. MAGNE uses the privately maintained llama.cpp-compatible runtime, MAGNE GGML backend and customized NPU to establish a sustainably scalable end-side model path, rather than locking the product into a single model.</p>
         </div>
 
-        <div class="runtime-console reveal" aria-label="MAGNE Edge AI Runtime 执行链">
+        <div class="runtime-console reveal" aria-label="MAGNE Edge AI Runtime execution chain">
           <div class="runtime-topline">
             <span>MAGNE / EDGE AI FOUNDATION</span>
             <span>MODEL PORTABILITY → NPU EXECUTION</span>
@@ -156,7 +160,7 @@
             <span>API / OPENAI-COMPATIBLE</span><span>ROUTE / LOCAL-FIRST</span><span>SESSION / MEMORY</span><span>MCP / SKILLS</span><span>MONITOR / AUDIT</span>
           </div>
         </div>
-        <p class="runtime-note reveal"><span>SCOPE /</span> 「llama.cpp-compatible」描述 MAGNE 的運行時基線；模型是否完整由 NPU 加速，以公開的驗證矩陣、算子覆蓋與回退記錄為準。</p>
+        <p class="runtime-note reveal"><span>SCOPE /</span> "llama.cpp-compatible" describes the runtime baseline of MAGNE; whether the model is completely accelerated by NPU is subject to the public verification matrix, operator coverage and rollback records.</p>
       </div>
     </section>
 
@@ -165,9 +169,9 @@
         <div class="section-head reveal">
           <div>
             <p class="section-label"><span class="index">03.4</span> FIRST VALIDATED LARGE MODEL</p>
-            <h2 class="section-title">35B 模型容量。<br>3B 激活計算。</h2>
+            <h2 class="section-title">35B total parameters.<br>3B active parameters.</h2>
           </div>
-          <p class="section-copy">光羽優化的 Qwen3.6-35B-A3B 是目前首個完成測試驗證的大模型。它通過面向 MAGNE Custom NPU 定制的 Q4_K_M GGUF 部署制品運行；GAMMA 與其他 LLM/VLM 仍在持續驗證。</p>
+          <p class="section-copy">The light-feather optimized Qwen3.6-35B-A3B is currently the first large model to complete testing and verification. It runs via Q4_K_M GGUF deployment artifacts customized for MAGNE Custom NPU; GAMMA continues to be validated with other LLMs/VLMs.</p>
         </div>
 
         <div class="moe-dossier reveal">
@@ -175,7 +179,7 @@
             <div class="moe-head"><span>MODEL / QWEN3.6-35B-A3B</span><span class="tag verified">TEST OK</span></div>
             <p class="moe-kicker">SPARSE MIXTURE-OF-EXPERTS</p>
             <h3>CAPACITY WITHOUT<br><span>FULL ACTIVATION.</span></h3>
-            <p>總參數影響模型容量與權重駐留；每個 token 僅啟用部分專家路徑。MoE 降低活躍計算量，不消除完整權重的存儲與內存需求。</p>
+            <p>The total parameters affect model capacity and weight retention; each token only enables part of the expert path. MoE reduces the amount of active computation without eliminating the storage and memory requirements of full weights.</p>
           </div>
           <dl class="moe-metrics">
             <div><dt>TOTAL PARAMETERS</dt><dd>35B</dd><small>MODEL CAPACITY</small></div>
@@ -201,12 +205,12 @@
         <div class="section-head reveal">
           <div>
             <p class="section-label"><span class="index">03.5</span> WEB3 TRUST &amp; AGENT ECONOMY</p>
-            <h2 class="section-title">私有計算留在本地。<br>信任證明進入鏈上。</h2>
+            <h2 class="section-title">Private computation remains local.<br>The proof of trust goes on-chain.</h2>
           </div>
-          <p class="section-copy">Web3 不是另一個界面裝飾，而是 AI BOX 的身份、授權、審計與結算層。原始文件、提示詞和完整推理內容不進入鏈上；設備簽名、模型版本、任務摘要與授權狀態構成可驗證的協作證據。</p>
+          <p class="section-copy">Web3 is not another interface decoration, but the identity, authorization, auditing and settlement layer of AI BOX. Original files, prompt words and complete reasoning content do not enter the chain; device signature, model version, task summary and authorization status constitute verifiable evidence of collaboration.</p>
         </div>
 
-        <div class="web3-trust-fabric reveal" role="img" aria-label="AI BOX 私有计算通过签名证明、钱包授权连接 MAGNE L1、MHash L2 与 Agent Pay 的信任架构">
+        <div class="web3-trust-fabric reveal" role="img" aria-label="AI BOX private computing connects the trust architecture of MAGNE L1, MHash L2 and Agent Pay through signature certification and wallet authorization.">
           <div class="web3-topline">
             <span>W3 / TRUST COORDINATION FABRIC</span>
             <span class="tag target">ARCHITECTURE TARGET</span>
@@ -248,14 +252,14 @@
         </div>
 
         <div class="web3-function-ledger reveal">
-          <div><span>01</span><b>DEVICE IDENTITY</b><p>每台 AI BOX 以設備公鑰、硬件型號與受控固件狀態建立可驗證節點身份。</p><em>ARCHITECTURE TARGET</em></div>
-          <div><span>02</span><b>AGENT AUTHORIZATION</b><p>錢包與手機批准高風險工具、合約操作、支付和權限變更。</p><em>ARCHITECTURE TARGET</em></div>
-          <div><span>03</span><b>AUDIT ANCHOR</b><p>只把任務摘要或 Merkle Root 寫入鏈上，保留本地資料邊界。</p><em>ARCHITECTURE TARGET</em></div>
-          <div><span>04</span><b>NODE REGISTRY</b><p>由所有者選擇是否公開節點能力、在線狀態與可驗證服務記錄。</p><em>OPT-IN TARGET</em></div>
-          <div><span>05</span><b>AGENT PAY</b><p>Agent 只能在授權策略與人工批准邊界內請求服務支付和結算。</p><em>ARCHITECTURE TARGET</em></div>
-          <div><span>06</span><b>MODEL PROVENANCE</b><p>用模型雜湊、量化版本與 runtime/backend 版本證明實際執行環境。</p><em>ARCHITECTURE TARGET</em></div>
+          <div><span>01</span><b>DEVICE IDENTITY</b><p>Each AI BOX establishes a verifiable node identity based on the device public key, hardware model and controlled firmware status.</p><em>ARCHITECTURE TARGET</em></div>
+          <div><span>02</span><b>AGENT AUTHORIZATION</b><p>Wallet and mobile approve high-risk tools, contract operations, payments, and permission changes.</p><em>ARCHITECTURE TARGET</em></div>
+          <div><span>03</span><b>AUDIT ANCHOR</b><p>Only writes the task summary or Merkle Root to the chain, preserving local data boundaries.</p><em>ARCHITECTURE TARGET</em></div>
+          <div><span>04</span><b>NODE REGISTRY</b><p>It is the owner's choice whether to disclose node capabilities, online status and verifiable service records.</p><em>OPT-IN TARGET</em></div>
+          <div><span>05</span><b>AGENT PAY</b><p>Agent can only request service payment and settlement within the boundaries of authorization policy and manual approval.</p><em>ARCHITECTURE TARGET</em></div>
+          <div><span>06</span><b>MODEL PROVENANCE</b><p>Demonstrate the actual execution environment using model hashes, quantized versions, and runtime/backend versions.</p><em>ARCHITECTURE TARGET</em></div>
         </div>
-        <p class="web3-scope-note reveal"><span>TRUST RULE /</span> 鏈上只承載身份、摘要、授權與結算證據；企業文件、提示詞、完整輸入輸出與私鑰不離開本地信任區。所有網絡參與能力預設為可選，並以正式安全審計與產品驗證為上線條件。</p>
+        <p class="web3-scope-note reveal"><span>TRUST RULE /</span> Only identity, digest, authorization and settlement evidence are carried on the chain; enterprise files, prompt words, complete input and output and private keys do not leave the local trust zone. All network participation capabilities are optional by default, and formal security audits and product verification are required to go online.</p>
       </div>
     </section>
 
@@ -264,11 +268,11 @@
         <div class="section-head reveal">
           <div>
             <p class="section-label"><span class="index">03.6</span> COMPUTE ARCHITECTURE</p>
-            <h2 class="section-title">從私有資料，<br>到可驗證結果。</h2>
+            <h2 class="section-title">From private data<br>to verifiable results.</h2>
           </div>
-          <p class="section-copy">UIS 7885 主控負責系統、網絡、存儲與任務調度，並整合 8–10 TOPS INT8 NPU；MAGNE 定制 NPU 承擔大模型推理。主控鏈路採用 PCIe 3.0 ×1，定制 NPU 內部互聯為 PCIe 4.0 ×4。</p>
+          <p class="section-copy">The UIS 7885 main control is responsible for system, network, storage and task scheduling, and integrates 8–10 TOPS INT8 NPU; MAGNE customized NPU is responsible for large model reasoning. The main control link uses PCIe 3.0 ×1, and the internal interconnection of the customized NPU is PCIe 4.0 ×4.</p>
         </div>
-        <div class="ai-box-architecture reveal" role="img" aria-label="企業資料經由 UIS 7885 主控、待確認的高速互聯、MAGNE 定制 NPU，輸出帶引用結果並由手機審批">
+        <div class="ai-box-architecture reveal" role="img" aria-label="Enterprise information is controlled by UIS 7885, high-speed interconnection to be confirmed, MAGNE customized NPU, output with reference results and approved by the mobile phone">
           <div class="architecture-topline"><span>ABX / COMPUTE FABRIC</span><span>REV 0.1 · NOT FOR PROCUREMENT</span></div>
           <div class="architecture-flow">
             <article class="architecture-node source"><span>INPUT / 01</span><strong>PRIVATE DATA</strong><small>PDF · DOCX · XLSX<br>NAS · USB · LAN</small></article>
@@ -295,16 +299,16 @@
         <div class="section-head reveal">
           <div>
             <p class="section-label"><span class="index">03.7</span> FIRST RELEASE LOOP</p>
-            <h2 class="section-title">一條先做深的<br>企業工作流。</h2>
+            <h2 class="section-title">Start with one deep<br>enterprise workflow.</h2>
           </div>
-          <p class="section-copy">首版聚焦 Private Knowledge Workspace 與 Contract Intelligence，不同時承諾 AI NAS、工業視覺、機器人控制等彼此分散的產品線。</p>
+          <p class="section-copy">The first edition focuses on Private Knowledge Workspace and Contract Intelligence, but does not simultaneously commit to discrete product lines such as AI NAS, industrial vision, and robot control.</p>
         </div>
         <div class="flow reveal">
-          <article class="flow-step"><span class="step-no">01 / INGEST</span><h3>本地導入</h3><p>企業文件、掃描件、NAS、USB 與局域網資料。</p></article>
-          <article class="flow-step"><span class="step-no">02 / PARSE</span><h3>OCR 與解析</h3><p>繁簡中文、英文、表格和版面結構化處理。</p></article>
-          <article class="flow-step"><span class="step-no">03 / RETRIEVE</span><h3>權限化檢索</h3><p>索引結果繼承來源文件的工作區與 ACL。</p></article>
-          <article class="flow-step"><span class="step-no">04 / REASON</span><h3>引用式回答</h3><p>結論連回原始頁碼與段落，保留拒答邊界。</p></article>
-          <article class="flow-step"><span class="step-no">05 / APPROVE</span><h3>手機確認</h3><p>通知、審批與結果查看，不在手機長期存放明文。</p></article>
+          <article class="flow-step"><span class="step-no">01 / INGEST</span><h3>Local import</h3><p>Enterprise files, scans, NAS, USB and LAN data.</p></article>
+          <article class="flow-step"><span class="step-no">02 / PARSE</span><h3>OCR and parsing</h3><p>Traditional and simplified Chinese, English, tables and layout structuring.</p></article>
+          <article class="flow-step"><span class="step-no">03 / RETRIEVE</span><h3>Permission-based search</h3><p>Index results inherit the workspace and ACL of the source file.</p></article>
+          <article class="flow-step"><span class="step-no">04 / REASON</span><h3>Quote answer</h3><p>The conclusion links back to the original page numbers and paragraphs, retaining rejection boundaries.</p></article>
+          <article class="flow-step"><span class="step-no">05 / APPROVE</span><h3>Mobile phone confirmation</h3><p>Notification, approval and result viewing, do not store clear text on the phone for a long time.</p></article>
         </div>
       </div>
     </section>
@@ -314,38 +318,38 @@
         <div class="section-head reveal">
           <div>
             <p class="section-label"><span class="index">03.8</span> SPECIFICATION CONTROL</p>
-            <h2 class="section-title">數字有狀態，<br>承諾有邊界。</h2>
+            <h2 class="section-title">Specifications have status.<br>Commitments have boundaries.</h2>
           </div>
-          <p class="section-copy">所有規格按照 VERIFIED、TARGET、FIH CONFIRMATION REQUIRED 分層。未完成書面確認和 MAGNE 樣機復測的數字，不轉為客戶承諾。</p>
+          <p class="section-copy">All specifications are layered as VERIFIED, TARGET, FIH CONFIRMATION REQUIRED. Figures without written confirmation and MAGNE prototype retest will not be converted into customer commitment.</p>
         </div>
         <div class="table-scroll reveal">
           <table class="data-table ai-box-spec-table">
             <thead><tr><th>Domain</th><th>Planning baseline</th><th>Status</th><th>Release evidence</th></tr></thead>
             <tbody>
-              <tr><td>HOST PLATFORM</td><td>UIS 7885 · Host + 8–10 TOPS INT8 NPU</td><td><span class="tag verified">CONTROLLED BASELINE</span></td><td>UIS 7885 平台、主控 NPU 與正式 BOM 對應記錄</td></tr>
-              <tr><td>HOST CPU</td><td>8 核 Arm · 1×A76 2.7GHz + 3×A76 2.3GHz + 4×A55 2.1GHz</td><td><span class="tag verified">CROSS-VERIFIED</span></td><td>FIH PDF 與平台官方資料一致</td></tr>
-              <tr><td>GPU</td><td>Mali-G57 · 4 核 · 850MHz</td><td><span class="tag verified">CONTROLLED BASELINE</span></td><td>BOM、驅動識別與實機系統信息</td></tr>
-              <tr><td>HOST DRAM</td><td>8GB / 12GB LPDDR4X · up to 2133MHz</td><td><span class="tag pending">PDF CONFIG</span></td><td>正式容量 SKU、顆粒與可用容量</td></tr>
-              <tr><td>MAGNE NPU NEAR MEMORY</td><td>10GB 3D DRAM</td><td><span class="tag pending">SUPPLIER CLAIM</span></td><td>供應方 Datasheet、內存映射與可用容量</td></tr>
-              <tr><td>MAGNE NPU EXPANSION</td><td>16GB LPDDR5X</td><td><span class="tag pending">SUPPLIER CLAIM</span></td><td>是否必配、共享方式、帶寬與容量實測</td></tr>
-              <tr><td>DRAM INVENTORY</td><td>34GB / 38GB* · Host 8/12 + NPU 10 + expansion 16</td><td><span class="tag target">DERIVED</span></td><td>僅容量清單推導；不等同統一可用內存</td></tr>
-              <tr><td>STORAGE</td><td>128GB / 256GB UFS 3.1</td><td><span class="tag pending">PDF CONFIG</span></td><td>量產 SKU 與實機讀寫、壽命測試</td></tr>
-              <tr><td>ACCELERATOR</td><td>MAGNE 定制 NPU · 56 TOPS INT8 · &gt;600GB/s · INT4/8/16/FP16</td><td><span class="tag pending">SUPPLIER CLAIM</span></td><td>Datasheet、原始 Benchmark 與持續負載測試</td></tr>
-              <tr><td>PCIE TOPOLOGY</td><td>Host：PCIe 3.0 ×1；MAGNE 定制 NPU 內部：PCIe 4.0 ×4</td><td><span class="tag policy">LAYERED BASELINE</span></td><td>板級框圖、lane 協商與主控／NPU 內部吞吐實測</td></tr>
-              <tr><td>DEVICE I/O</td><td>USB 2.0×2 · USB 3.2×2 · USB-C 3.2 · HDMI 1.4 · DP 1.4 · Audio · DC</td><td><span class="tag pending">PDF CONFIG</span></td><td>工程樣機接口盤點與功能測試</td></tr>
-              <tr><td>NETWORK</td><td>Wi-Fi 5 2×2 · BT 5.0 · 2×2.5GbE RJ45</td><td><span class="tag pending">PDF CONFIG</span></td><td>模組料號、吞吐與穩定性測試</td></tr>
-              <tr><td>MEDIA / OS</td><td>4K@30fps · Ubuntu / Android</td><td><span class="tag pending">PDF CONFIG</span></td><td>Codec 實測、OS 版本與維護週期</td></tr>
-              <tr><td>AI POWER</td><td>8–15W</td><td><span class="tag pending">SCOPE UNDEFINED</span></td><td>需確認是定制 NPU、算力板或整機，並做插座功耗測試</td></tr>
-              <tr><td>EDGE RUNTIME</td><td>私有維護的 llama.cpp-compatible runtime + MAGNE GGML backend</td><td><span class="tag verified">IMPLEMENTED</span></td><td>版本追蹤、上游同步與安全修補記錄</td></tr>
-              <tr><td>FIRST VALIDATED MODEL</td><td>Qwen3.6-35B-A3B · Q4_K_M · NPU 定制 GGUF</td><td><span class="tag verified">TEST OK</span></td><td>固化模型雜湊、轉換工具、輸出一致性與回歸日誌</td></tr>
-              <tr><td>MODEL EXPANSION</td><td>GAMMA 與其他 LLM / VLM</td><td><span class="tag target">IN VALIDATION</span></td><td>算子覆蓋、CPU fallback、TTFT、decode、長上下文、功耗與質量回歸</td></tr>
-              <tr><td>SECURITY</td><td>Secure Boot · 加密 · 簽名升級 · 回滾</td><td><span class="tag pending">FIH CONFIRMATION</span></td><td>啟動鏈、攻擊測試與恢復記錄</td></tr>
-              <tr><td>WEB3 TRUST LAYER</td><td>設備／Agent 身份 · 簽名推理收據 · 審計摘要錨定</td><td><span class="tag target">ARCHITECTURE TARGET</span></td><td>威脅模型、簽名格式、鏈上 Schema、隱私審查與安全審計</td></tr>
-              <tr><td>AGENT AUTHORIZATION &amp; PAY</td><td>手機／錢包批准 · 策略檢查 · 支付與結算收據</td><td><span class="tag target">ARCHITECTURE TARGET</span></td><td>權限策略、交易限額、人工確認、失敗恢復與合規審查</td></tr>
+              <tr><td>HOST PLATFORM</td><td>UIS 7885 · Host + 8–10 TOPS INT8 NPU</td><td><span class="tag verified">CONTROLLED BASELINE</span></td><td>UIS 7885 platform, main control NPU and official BOM corresponding records</td></tr>
+              <tr><td>HOST CPU</td><td>8-core Arm · 1×A76 2.7GHz + 3×A76 2.3GHz + 4×A55 2.1GHz</td><td><span class="tag verified">CROSS-VERIFIED</span></td><td>FIH PDF is consistent with the official platform information</td></tr>
+              <tr><td>GPU</td><td>Mali-G57 · 4 cores · 850MHz</td><td><span class="tag verified">CONTROLLED BASELINE</span></td><td>BOM, driver identification and real machine system information</td></tr>
+              <tr><td>HOST DRAM</td><td>8GB / 12GB LPDDR4X · up to 2133MHz</td><td><span class="tag pending">PDF CONFIG</span></td><td>Formal capacity SKU, particles and available capacity</td></tr>
+              <tr><td>MAGNE NPU NEAR MEMORY</td><td>10GB 3D DRAM</td><td><span class="tag pending">SUPPLIER CLAIM</span></td><td>Supplier Datasheet, Memory Map and Available Capacity</td></tr>
+              <tr><td>MAGNE NPU EXPANSION</td><td>16GB LPDDR5X</td><td><span class="tag pending">SUPPLIER CLAIM</span></td><td>Whether it is required, sharing method, bandwidth and capacity measurement</td></tr>
+              <tr><td>DRAM INVENTORY</td><td>34GB / 38GB* · Host 8/12 + NPU 10 + expansion 16</td><td><span class="tag target">DERIVED</span></td><td>Capacity list derivation only; not equivalent to unified available memory</td></tr>
+              <tr><td>STORAGE</td><td>128GB / 256GB UFS 3.1</td><td><span class="tag pending">PDF CONFIG</span></td><td>Mass production SKU and real machine reading and writing, life test</td></tr>
+              <tr><td>ACCELERATOR</td><td>MAGNE Customized NPU · 56 TOPS INT8 · &gt;600GB/s · INT4/8/16/FP16</td><td><span class="tag pending">SUPPLIER CLAIM</span></td><td>Datasheet, original Benchmark and continuous load testing</td></tr>
+              <tr><td>PCIE TOPOLOGY</td><td>Host: PCIe 3.0 ×1; MAGNE customized NPU Internal: PCIe 4.0 ×4</td><td><span class="tag policy">LAYERED BASELINE</span></td><td>Board level block diagram, lane negotiation and main control/NPU internal throughput measurement</td></tr>
+              <tr><td>DEVICE I/O</td><td>USB 2.0×2 · USB 3.2×2 · USB-C 3.2 · HDMI 1.4 · DP 1.4 · Audio · DC</td><td><span class="tag pending">PDF CONFIG</span></td><td>Engineering prototype interface inventory and functional testing</td></tr>
+              <tr><td>NETWORK</td><td>Wi-Fi 5 2×2 · BT 5.0 · 2×2.5GbE RJ45</td><td><span class="tag pending">PDF CONFIG</span></td><td>Module material number, throughput and stability test</td></tr>
+              <tr><td>MEDIA / OS</td><td>4K@30fps · Ubuntu / Android</td><td><span class="tag pending">PDF CONFIG</span></td><td>Codec actual measurement, OS version and maintenance cycle</td></tr>
+              <tr><td>AI POWER</td><td>8–15W</td><td><span class="tag pending">SCOPE UNDEFINED</span></td><td>It is necessary to confirm whether it is a customized NPU, computing board or complete machine, and do a socket power consumption test</td></tr>
+              <tr><td>EDGE RUNTIME</td><td>Privately maintained llama.cpp-compatible runtime + MAGNE GGML backend</td><td><span class="tag verified">IMPLEMENTED</span></td><td>Version tracking, upstream synchronization and security patch records</td></tr>
+              <tr><td>FIRST VALIDATED MODEL</td><td>Qwen3.6-35B-A3B · Q4_K_M · NPU customization GGUF</td><td><span class="tag verified">TEST OK</span></td><td>Solidified model hash, conversion tools, output consistency and regression logs</td></tr>
+              <tr><td>MODEL EXPANSION</td><td>GAMMA and other LLM / VLM</td><td><span class="tag target">IN VALIDATION</span></td><td>Operator coverage, CPU fallback, TTFT, decode, long context, power consumption and quality regression</td></tr>
+              <tr><td>SECURITY</td><td>Secure Boot · Encryption · Signature Upgrade · Rollback</td><td><span class="tag pending">FIH CONFIRMATION</span></td><td>Startup chain, attack testing and recovery records</td></tr>
+              <tr><td>WEB3 TRUST LAYER</td><td>Device/Agent identity · Signature inference receipt · Audit summary anchoring</td><td><span class="tag target">ARCHITECTURE TARGET</span></td><td>Threat model, signature format, on-chain Schema, privacy review and security audit</td></tr>
+              <tr><td>AGENT AUTHORIZATION &amp; PAY</td><td>Mobile/Wallet Approval · Policy Check · Payment and Settlement Receipt</td><td><span class="tag target">ARCHITECTURE TARGET</span></td><td>Permission policy, transaction limits, manual confirmation, failure recovery and compliance review</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="ai-box-disclaimer reveal"><span>CONTROL NOTE</span> Qwen3.6-35B-A3B / Q4_K_M / NPU 定制 GGUF 已標記為首個 TEST OK 模型；這不等於任意社區 GGUF 皆可無轉換完整加速。&gt;600GB/s、56 TOPS 與 8–15W 仍保留為供應方聲明，待測試邊界和原始證據完成後再轉為產品承諾。</p>
+        <p class="ai-box-disclaimer reveal"><span>CONTROL NOTE</span> Qwen3.6-35B-A3B / Q4_K_M / NPU customized GGUF has been marked as the first TEST OK model; this does not mean that any community GGUF can be fully accelerated without conversion. &gt;600GB/s, 56 TOPS and 8–15W remain as supplier claims and will be converted to product commitments after testing boundaries and original evidence are completed.</p>
       </div>
     </section>
 
@@ -354,9 +358,9 @@
         <div class="section-head reveal">
           <div>
             <p class="section-label"><span class="index">03.9</span> TRUST BOUNDARY</p>
-            <h2 class="section-title">本地不是口號。<br>是可以測試的邊界。</h2>
+            <h2 class="section-title">Local is not a slogan.<br>It is a testable boundary.</h2>
           </div>
-          <p class="section-copy">在沒有啟用雲增強時，未授權外聯的驗收目標是零。每一次工具調用、審批與結果都進入可追蹤的證據鏈。</p>
+          <p class="section-copy">The acceptance goal for unauthorized outreach is zero when Cloud Enhancement is not enabled. Every tool call, approval and result enters a traceable chain of evidence.</p>
         </div>
         <div class="ai-box-boundary reveal">
           <div class="boundary-core"><span>LOCAL TRUST ZONE</span><strong>MODEL + KNOWLEDGE<br>+ POLICY + AUDIT</strong><small>Customer-controlled environment</small></div>
@@ -375,26 +379,27 @@
         <div class="section-head reveal">
           <div>
             <p class="section-label"><span class="index">03.10</span> RELEASE GATES</p>
-            <h2 class="section-title">先證明，<br>再量產。</h2>
+            <h2 class="section-title">Prove it first.<br>Scale production second.</h2>
           </div>
-          <p class="section-copy">MAGNE.AI BOX 目前允許進入有條件 POC，不進入無證據的量產承諾。每一道 Gate 都需要明確交付物和放行條件。</p>
+          <p class="section-copy">MAGNE.AI BOX is currently allowed to enter conditional POC and does not enter unproven mass production commitments. Each Gate needs to clearly define the deliverables and release conditions.</p>
         </div>
         <ol class="ai-box-gate-list reveal">
-          <li><span>GATE 0</span><strong>規格凍結</strong><p>受控規格、BOM、框圖、NPU 原始資料與軟件完成度。</p><em>NOW</em></li>
-          <li><span>GATE 1</span><strong>三台樣機</strong><p>性能、功耗、熱、離線、安全、升級與恢復復測。</p><em>NEXT</em></li>
-          <li><span>GATE 2</span><strong>設計伙伴</strong><p>3–5 家伙伴，6–8 周真實合同和知識任務驗證。</p><em>PLANNED</em></li>
-          <li><span>GATE 3</span><strong>小批量</strong><p>約 50 台，完成認證、SLA、供貨與單位經濟驗證。</p><em>PLANNED</em></li>
+          <li><span>GATE 0</span><strong>Specification frozen</strong><p>Controlled specifications, BOM, block diagram, NPU source material and software completion.</p><em>NOW</em></li>
+          <li><span>GATE 1</span><strong>Three prototypes</strong><p>Performance, power consumption, thermal, offline, security, upgrade and recovery retest.</p><em>NEXT</em></li>
+          <li><span>GATE 2</span><strong>Design Partner</strong><p>3–5 partners, 6–8 weeks real contract and knowledge task validation.</p><em>PLANNED</em></li>
+          <li><span>GATE 3</span><strong>Small batch</strong><p>About 50 units, complete certification, SLA, supply and unit economic verification.</p><em>PLANNED</em></li>
         </ol>
         <div class="ai-box-cta reveal">
-          <div><span>DESIGN PARTNER PROGRAM / 2026</span><h2>把第一個私有 AI 工作流，<br>部署在你的現場。</h2></div>
-          <div><p>適合數字資產、Web3、金融科技與需要本地文件邊界的團隊。</p><a class="btn ai-box-primary" href="due-diligence.html">$ review institutional evidence →</a></div>
+          <div><span>DESIGN PARTNER PROGRAM / 2026</span><h2>Bringing the first private AI workflow,<br>Deployed at your site.</h2></div>
+          <div><p>Suitable for digital assets, Web3, financial technology and teams that require local file boundaries.</p><a class="btn ai-box-primary" href="due-diligence.html">$ review institutional evidence →</a></div>
         </div>
       </div>
     </section>
   </main>
   <footer id="site-footer"></footer>
-  <script src="assets/js/site.js?v=20260821-12"></script>
-<script src="assets/js/season-status.js?v=20260821-2"></script>
-<script src="assets/js/analytics.js?v=20260821-1"></script>
+  <script src="assets/js/site.js?v=20260821-13"></script>
+<script src="assets/js/season-status.js?v=20260821-4"></script>
+<script src="assets/js/analytics.js?v=20260821-2"></script>
+<script src="assets/js/locale-switch.js?v=20260821-3"></script>
 </body>
 </html>

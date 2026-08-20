@@ -43,7 +43,7 @@
   function renderVideos(container, limit) {
     var items = limit ? data.videos.slice(0, limit) : data.videos;
     container.innerHTML = items.map(function (item) {
-      return '<article class="nr-video-item"><button class="nr-video-poster" type="button" data-youtube-id="' + item.id + '" data-video-title="' + item.title + '"><img src="' + item.poster + '" alt="' + item.title + ' 影片封面" loading="lazy" width="1280" height="720"><span aria-hidden="true">▶</span><b class="sr-only">播放：' + item.title + '</b></button><div class="nr-video-copy"><span>' + item.relation + ' / ' + item.date + '</span><h2>' + item.title + '</h2><dl><div><dt>DURATION</dt><dd>' + item.duration + '</dd></div><div><dt>CAPTIONS</dt><dd>' + item.captions + '</dd></div><div><dt>SOURCE</dt><dd>' + item.source + '</dd></div></dl></div></article>';
+      return '<article class="nr-video-item"><button class="nr-video-poster" type="button" data-youtube-id="' + item.id + '" data-video-title="' + item.title + '"><img src="' + item.poster + '" alt="' + item.title + ' video poster" loading="lazy" width="1280" height="720"><span aria-hidden="true">▶</span><b class="sr-only">Play: ' + item.title + '</b></button><div class="nr-video-copy"><span>' + item.relation + ' / ' + item.date + '</span><h2>' + item.title + '</h2><dl><div><dt>DURATION</dt><dd>' + item.duration + '</dd></div><div><dt>CAPTIONS</dt><dd>' + item.captions + '</dd></div><div><dt>SOURCE</dt><dd>' + item.source + '</dd></div></dl></div></article>';
     }).join("");
   }
 
@@ -57,7 +57,7 @@
       var datePrecision = dateParts.length === 1 ? "MONTH ONLY" : "FULL DATE";
       var isoDate = item.date.replace(/\./g, "-");
       var images = item.images.map(function (path, imageIndex) {
-        return '<a href="' + assetBase + path + '" target="_blank" rel="noopener noreferrer" aria-label="查看 ' + item.title + ' 照片 ' + (imageIndex + 1) + '"><img src="' + assetBase + path + '" alt="' + item.title + ' 照片 ' + (imageIndex + 1) + '" loading="lazy"></a>';
+        return '<a href="' + assetBase + path + "\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"View" + item.title + "Photos" + (imageIndex + 1) + '"><img src="' + assetBase + path + '" alt="' + item.title + "Photos" + (imageIndex + 1) + '" loading="lazy"></a>';
       }).join("");
       var duplicateImages = item.images.map(function (path) {
         return '<a href="' + assetBase + path + '" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="' + assetBase + path + '" alt="" loading="lazy"></a>';
@@ -65,11 +65,11 @@
       var action = item.article
         ? '<a href="' + item.article + '">OPEN EVENT FILE ↗</a>'
         : (item.source
-          ? '<a href="' + item.source + '" target="_blank" rel="noopener noreferrer" aria-label="在新窗口打开 ' + item.title + ' 的官方来源">SOURCE RECORD ↗</a>'
+          ? '<a href="' + item.source + '" target="_blank" rel="noopener noreferrer" aria-label="Open the official source for ' + item.title + ' in a new window">SOURCE RECORD ↗</a>'
           : '<span>DETAIL SOURCE PENDING</span>');
       return '<article class="nr-event-row" id="' + escapeHtml(item.slug) + '"><header><time class="nr-event-date" datetime="' + isoDate + '"><span>0' + (index + 1) + '</span><b>' + year + '</b><em>' + monthDay + '</em><small>' + datePrecision + '</small></time><div><p>LOCATION / ' + item.place + '</p><h2>' + item.title + '</h2><small>' + item.note + '</small></div>' + action + '</header>' +
         '<div class="nr-event-motion-meta"><span>ALL ' + String(item.images.length).padStart(2, "0") + ' PUBLIC IMAGES / AUTO LOOP</span><button type="button" class="nr-event-motion-control" aria-pressed="false">PAUSE LOOP</button></div>' +
-        '<div class="nr-event-strip" tabindex="0" aria-label="' + item.title + ' 自动滚动照片，可手动横向滚动" style="--nr-scroll-duration:' + Math.max(18, item.images.length * 6) + 's"><div class="nr-event-track"><div class="nr-event-group">' + images + '</div><div class="nr-event-group" aria-hidden="true">' + duplicateImages + '</div></div></div></article>';
+        '<div class="nr-event-strip" tabindex="0" aria-label="' + item.title + "Automatically scroll photos, with manual horizontal scrolling\" style=\"--nr-scroll-duration:" + Math.max(18, item.images.length * 6) + 's"><div class="nr-event-track"><div class="nr-event-group">' + images + '</div><div class="nr-event-group" aria-hidden="true">' + duplicateImages + '</div></div></div></article>';
     }).join("");
   }
 
@@ -97,7 +97,7 @@
       '<div class="nr-source-title"><span>' + escapeHtml(record.cluster.replace(/_/g, " / ")) + '</span><strong>' + escapeHtml(record.title) + '</strong><small>' + escapeHtml(record.editorial_note) + '</small></div>' +
       '<div class="nr-source-outlet"><span>' + escapeHtml(sourceClass(record)) + '</span><strong>' + escapeHtml(record.outlet) + '</strong><small>' + escapeHtml(record.source_label) + '</small></div>' +
       '<div class="nr-source-status"><span>' + status.label + '</span><small>RISK / ' + escapeHtml(record.factual_risk || "UNSET") + '</small></div>' +
-      '<a href="' + escapeHtml(record.url) + '" target="_blank" rel="noopener noreferrer" aria-label="在新窗口打开来源：' + escapeHtml(record.title) + '">SOURCE ↗</a>' +
+      '<a href="' + escapeHtml(record.url) + "\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"Open source in new window:" + escapeHtml(record.title) + '">SOURCE ↗</a>' +
       '</article>';
   }
 
@@ -125,27 +125,27 @@
 
   function verificationStatus(item) {
     var type = item.verification;
-    if (type === "dual-post") return { group: "bilateral", label: "BILATERAL / DUAL POST", detail: "双方各自 X 原帖已锁定", className: "is-dual" };
-    if (type === "dual-capital") return { group: "bilateral", label: "BILATERAL / CAPITAL", detail: "双方官方帖确认资本关系", className: "is-dual" };
-    if (type === "reply-confirmed") return { group: "bilateral", label: "BILATERAL / REPLY", detail: "单方发文 + 对方官方确认", className: "is-dual" };
-    if (type === "repost-confirmed") return { group: "bilateral", label: "BILATERAL / REPOST", detail: "单方发文 + 对方官方转发", className: "is-dual" };
-    if (type === "partner-quote-confirmed") return { group: "bilateral", label: "BILATERAL / PARTNER QUOTE", detail: "合作方官方帖引用 MAGNE 原帖", className: "is-dual" };
-    if (type === "quote-confirmed") return { group: "bilateral", label: "BILATERAL / QUOTE · ACTIVATION", detail: "合作方原帖 + MAGNE 官方引用", className: "is-dual" };
-    if (type === "bilateral-confirmed-pending") return { group: "bilateral", label: "BILATERAL / OFFICIAL CONFIRMATION", detail: "双方官方确认成立；部分 status ID 待回收", className: "is-dual" };
-    if (type === "reply-confirmed-pending") return { group: "bilateral", label: "BILATERAL / OFFICIAL RESPONSE", detail: "合作声明 + 对方官方回应；status ID 待回收", className: "is-dual" };
-    if (type === "repost-confirmed-pending") return { group: "bilateral", label: "BILATERAL / OFFICIAL REPOST", detail: "合作公告 + 对方官方转发；status ID 待回收", className: "is-dual" };
-    if (type === "joint-activation-confirmed") return { group: "bilateral", label: "BILATERAL / JOINT ACTIVATION", detail: "双方联合活动与有效官方账号已确认", className: "is-dual" };
-    if (type === "platform-listing-confirmed") return { group: "bilateral", label: "BILATERAL / PLATFORM LISTING", detail: "MAGNE 原帖 + 官方平台项目收录", className: "is-dual" };
-    if (type === "capital-magne") return { group: "single", label: "ONE X URL / CAPITAL", detail: "MAGNE 公告的战略投资关系", className: "is-magne" };
-    if (type === "single-magne") return { group: "single", label: "ONE X URL / MAGNE", detail: "MAGNE 原帖已锁定；对方动作未索引", className: "is-magne" };
-    if (type === "single-partner") return { group: "single", label: "ONE X URL / PARTNER", detail: "合作方原帖已锁定；MAGNE 动作未索引", className: "is-partner" };
-    if (type === "source-conflict") return { group: "coverage", label: "SOURCE CONFLICT", detail: "原始链接与对象不一致", className: "is-conflict" };
-    if (type === "source-inaccessible") return { group: "pending", label: "SOURCE INACCESSIBLE / RECHECK", detail: "历史地址已保留；X 当前明确返回不可用", className: "is-mirror" };
-    if (type === "coverage-only") return { group: "coverage", label: "COVERAGE ONLY", detail: "仅作发现线索，不计双方确认", className: "is-coverage" };
-    if (type === "repost-pending") return { group: "pending", label: "REPOST OBSERVED / X PENDING", detail: "官方账号已列出，原帖 ID 待回收", className: "is-mirror" };
-    if (type === "reply-pending") return { group: "pending", label: "REPLY OBSERVED / X PENDING", detail: "官方账号已列出，确认帖 ID 待回收", className: "is-mirror" };
-    if (type === "dual-pending") return { group: "pending", label: "DUAL POSTS / X PENDING", detail: "双方账号已列出，原帖 ID 待回收", className: "is-mirror" };
-    return { group: "pending", label: "POST ID PENDING", detail: "官方 X 地址已列出，原始贴文 status ID 待回收", className: "is-mirror" };
+    if (type === "dual-post") return { group: "bilateral", label: "BILATERAL / DUAL POST", detail: "Both parties X The original post has been locked", className: "is-dual" };
+    if (type === "dual-capital") return { group: "bilateral", label: "BILATERAL / CAPITAL", detail: "Official posts from both parties confirm the capital relationship", className: "is-dual" };
+    if (type === "reply-confirmed") return { group: "bilateral", label: "BILATERAL / REPLY", detail: "Unilateral announcement + official confirmation from the other party", className: "is-dual" };
+    if (type === "repost-confirmed") return { group: "bilateral", label: "BILATERAL / REPOST", detail: "Unilateral post + other party’s official forwarding", className: "is-dual" };
+    if (type === "partner-quote-confirmed") return { group: "bilateral", label: "BILATERAL / PARTNER QUOTE", detail: "The official post of the partner quoted MAGNE’s original post", className: "is-dual" };
+    if (type === "quote-confirmed") return { group: "bilateral", label: "BILATERAL / QUOTE · ACTIVATION", detail: "Partner’s original post + MAGNE official quote", className: "is-dual" };
+    if (type === "bilateral-confirmed-pending") return { group: "bilateral", label: "BILATERAL / OFFICIAL CONFIRMATION", detail: "Both parties officially confirmed the establishment; some status IDs are to be recycled", className: "is-dual" };
+    if (type === "reply-confirmed-pending") return { group: "bilateral", label: "BILATERAL / OFFICIAL RESPONSE", detail: "Cooperation statement + official response from the other party; status ID to be recycled", className: "is-dual" };
+    if (type === "repost-confirmed-pending") return { group: "bilateral", label: "BILATERAL / OFFICIAL REPOST", detail: "Cooperation announcement + official forwarding by the other party; status ID to be recycled", className: "is-dual" };
+    if (type === "joint-activation-confirmed") return { group: "bilateral", label: "BILATERAL / JOINT ACTIVATION", detail: "Joint activities and valid official accounts of both parties have been confirmed", className: "is-dual" };
+    if (type === "platform-listing-confirmed") return { group: "bilateral", label: "BILATERAL / PLATFORM LISTING", detail: "MAGNE original post + official platform project included", className: "is-dual" };
+    if (type === "capital-magne") return { group: "single", label: "ONE X URL / CAPITAL", detail: "Strategic investment relationship announced by MAGNE", className: "is-magne" };
+    if (type === "single-magne") return { group: "single", label: "ONE X URL / MAGNE", detail: "MAGNE The original post has been locked; the other party's actions are not indexed", className: "is-magne" };
+    if (type === "single-partner") return { group: "single", label: "ONE X URL / PARTNER", detail: "The original post of the partner is locked; the MAGNE action is not indexed", className: "is-partner" };
+    if (type === "source-conflict") return { group: "coverage", label: "SOURCE CONFLICT", detail: "The original link is inconsistent with the object", className: "is-conflict" };
+    if (type === "source-inaccessible") return { group: "pending", label: "SOURCE INACCESSIBLE / RECHECK", detail: "Historical address has been retained; X is currently unavailable for explicit return", className: "is-mirror" };
+    if (type === "coverage-only") return { group: "coverage", label: "COVERAGE ONLY", detail: "is only for discovery clues and does not count for confirmation by both parties.", className: "is-coverage" };
+    if (type === "repost-pending") return { group: "pending", label: "REPOST OBSERVED / X PENDING", detail: "The official account has been listed, the original post ID needs to be recycled", className: "is-mirror" };
+    if (type === "reply-pending") return { group: "pending", label: "REPLY OBSERVED / X PENDING", detail: "The official account has been listed, and the confirmation post ID needs to be recycled", className: "is-mirror" };
+    if (type === "dual-pending") return { group: "pending", label: "DUAL POSTS / X PENDING", detail: "The accounts of both parties have been listed, and the original post ID needs to be recycled.", className: "is-mirror" };
+    return { group: "pending", label: "POST ID PENDING", detail: "Official X address has been listed, the original post status ID is to be recycled", className: "is-mirror" };
   }
 
   function unifiedTimeline() {
@@ -171,11 +171,11 @@
       return result;
     }, {});
     var stats = [
-      [String(items.length).padStart(2, "0"), "TIMELINE RECORDS", "历史基线 + 公开补录"],
-      [String(counts.bilateral || 0).padStart(2, "0"), "BILATERAL CONFIRMED", "双方官方互动确认；部分 ID 待回收"],
-      [String(counts.single || 0).padStart(2, "0"), "ONE X URL", "已锁定一条原帖；不等于事实单边"],
-      [String(counts.pending || 0).padStart(2, "0"), "X ID PENDING", "已发现，待回收原帖"],
-      [String(counts.coverage || 0).padStart(2, "0"), "COVERAGE / CONFLICT", "不计双方确认"]
+      [String(items.length).padStart(2, "0"), "TIMELINE RECORDS", "Historical baseline + public supplementary recording"],
+      [String(counts.bilateral || 0).padStart(2, "0"), "BILATERAL CONFIRMED", "Official interaction between the two parties confirmed; some IDs need to be recycled"],
+      [String(counts.single || 0).padStart(2, "0"), "ONE X URL", "has locked an original post; it does not mean that the fact is unilateral"],
+      [String(counts.pending || 0).padStart(2, "0"), "X ID PENDING", "Found, original post to be recycled"],
+      [String(counts.coverage || 0).padStart(2, "0"), "COVERAGE / CONFLICT", "Regardless of mutual confirmation\nOriginal post by X by"]
     ];
     container.innerHTML = stats.map(function (item) {
       return '<div><strong>' + item[0] + '</strong><span>' + item[1] + '</span><small>' + item[2] + '</small></div>';
@@ -199,8 +199,8 @@
       var isPlatform = candidate[2] === "platform" && /^https:\/\//.test(url);
       if (!isXStatus && !isXProfile && !isCoverage && !isPlatform) return;
       var label = candidate[1] || (isXStatus ? (links.length ? "SECOND X ↗" : "X SOURCE ↗") : (isXProfile ? "OFFICIAL X ↗" : (isPlatform ? "PLATFORM RECORD ↗" : "REPORT ↗")));
-      var ariaType = isXStatus ? " 的 X 原帖" : (isXProfile ? " 的官方 X 账号" : (isPlatform ? " 的官方平台项目页" : " 的独立报道"));
-      links.push('<a href="' + escapeHtml(url) + '" target="_blank" rel="noopener noreferrer" aria-label="在新窗口打开 ' + escapeHtml(item.partner) + ariaType + '">' + escapeHtml(label) + '</a>');
+      var ariaType = isXStatus ? " original X post" : (isXProfile ? " official X account" : (isPlatform ? " official platform project page" : " independent coverage"));
+      links.push('<a href="' + escapeHtml(url) + "\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"Open in new window" + escapeHtml(item.partner) + ariaType + '">' + escapeHtml(label) + '</a>');
     });
     return links.length ? links.join("") : '<span class="nr-source-pending">OFFICIAL X ADDRESS PENDING</span>';
   }
@@ -242,12 +242,12 @@
   function renderEvidenceActivities(container) {
     if (!evidence) return;
     container.innerHTML = evidence.activities.map(function (item, index) {
-      var replay = item.replayUrl ? '<a href="' + escapeHtml(item.replayUrl) + '" target="_blank" rel="noopener noreferrer" aria-label="在新窗口打开 ' + escapeHtml(item.title) + ' 的 X Space">SPACE ↗</a>' : '';
+      var replay = item.replayUrl ? '<a href="' + escapeHtml(item.replayUrl) + '" target="_blank" rel="noopener noreferrer" aria-label="Open the X Space for ' + escapeHtml(item.title) + ' in a new window">SPACE ↗</a>' : '';
       return '<article data-activity-format="' + escapeHtml(item.format) + '" data-activity-status="' + escapeHtml(item.status) + '" data-activity-search="' + escapeHtml((item.title + " " + item.publisher + " " + item.handle).toLowerCase()) + '">' +
         '<b>' + String(index + 1).padStart(2, "0") + '</b>' +
         '<time datetime="' + escapeHtml(item.date) + '">' + escapeHtml(item.date) + '<small>' + escapeHtml(item.dateNote) + '</small></time>' +
         '<div><strong>' + escapeHtml(item.title) + '</strong><small>' + escapeHtml(item.publisher) + ' · ' + escapeHtml(item.handle) + '</small><span class="nr-activity-status">' + escapeHtml(item.statusLabel) + '</span></div>' +
-        '<div class="nr-activity-links"><a href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer" aria-label="在新窗口打开 ' + escapeHtml(item.title) + ' 的原始 X 记录">SOURCE ↗</a>' + replay + '</div>' +
+        '<div class="nr-activity-links"><a href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer" aria-label="Open the original X record for ' + escapeHtml(item.title) + ' in a new window">SOURCE ↗</a>' + replay + '</div>' +
       '</article>';
     }).join("");
     applyActivityFilter(container);

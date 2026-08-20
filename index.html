@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>W3.MAGNE.AI — Agent Infrastructure Control Layer</title>
     <meta
       name="description"
-      content="W3 是 MAGNE.AI 在 Phone Gen 1 之外的新一层基礎設施。為 AI Agent 提供身份、策略、受控執行、支付與可驗證收據。"
+      content="W3 is a new layer of infrastructure for MAGNE.AI beyond Phone Gen 1. Provide AI Agents with identity, policy, controlled execution, payments and verifiable receipts."
     />
     <meta
       property="og:title"
@@ -14,7 +14,7 @@
     />
     <meta
       property="og:description"
-      content="代理可以行動。W3 讓每次行動都有證據。"
+      content="Agents can act. W3 makes every action provable."
     />
     <meta property="og:type" content="website" />
     <link
@@ -2051,8 +2051,12 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0c" />
   <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="alternate" hreflang="en" href="https://w3.magne.ai/" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/" />
+  <link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/" />
+  <link rel="stylesheet" href="assets/css/locale.css?v=20260821-2" />
 </head>
-  <body>
+  <body data-lang="en" data-locale-peer="tc/index.html">
     <!-- ============================== STATUS BAR ============================== -->
     <div class="status-bar">
       <div class="left">
@@ -2065,7 +2069,7 @@
       <div class="right">
         <a href="https://www.magne.ai/" target="_blank" rel="noopener noreferrer">MAGNE.AI ↗</a>
         <a href="https://web3.magne.ai/" target="_blank" rel="noopener noreferrer">WHITEPAPER ↗</a>
-        <a class="status-s2 is-checking" data-s2-global-status href="season-2.html" aria-label="正在检查 Season 2 数据状态">S2: CHECKING</a>
+        <a class="status-s2 is-checking" data-s2-global-status href="season-2.html" aria-label="Checking Season 2 data status">S2: CHECKING</a>
         <span id="status-clock">--:--:--</span>
       </div>
     </div>
@@ -2120,12 +2124,12 @@
                 AGENT EXECUTION &amp; TRANSACTION LAYER
               </p>
               <h1 class="hero-h">
-                <span class="line">代理可以<br />行動。</span>
-                <span class="line alt">W3 讓每次<br />行動都有證據。</span>
+                <span class="line">Agents can<br />act.</span>
+                <span class="line alt">W3 makes every<br />action provable.</span>
               </h1>
               <p class="hero-sub">
-                W3 為 AI Agent 提供身份、策略、受控執行、支付與可驗證收據。 W3
-                不是一個 Agent — 而是 Agent 可以安全使用的基礎設施。
+                W3 gives AI agents identity, policy, controlled execution, payments and verifiable receipts.
+                W3 is not an agent — it is infrastructure agents can use safely.
               </p>
               <div class="hero-ctas">
                 <a class="btn primary" href="agentpay.html"
@@ -2195,36 +2199,35 @@
           <div class="why-grid">
             <div class="why-cell feature reveal">
               <div class="step">// 02 · WHY W3</div>
-              <h2>W3 是 MAGNE.AI 在 Phone Gen 1 之外的一層新基礎設施。</h2>
+              <h2>W3 is MAGNE.AI’s infrastructure layer beyond Phone Gen1.</h2>
               <p>
-                它給 AI Agent 身份、策略、受控支付、收據 — 跟 Phone
-                一樣，在矽上發生，但這次不是手機，是整個 Agent 經濟的執行層。
+                It gives AI agents identity, policy, controlled payments and receipts. What Phone Gen1 anchors in silicon,
+                W3 extends into the execution layer for the agent economy.
               </p>
             </div>
             <div class="why-cell reveal">
-              <div class="step">// 不是</div>
-              <h3>W3 不是 Agent。</h3>
+              <div class="step">// WHAT IT IS NOT</div>
+              <h3>W3 is not an agent.</h3>
               <p>
-                它不替你做決定，也不替你跑服務。它是一條
-                <em>受控的、可驗證的</em> 路 — Agent
-                經過這條路，產生可被引用、可被質押、可被審計的證據。
+                It does not decide or run services on your behalf. It is a
+                <em>controlled, verifiable</em> path through which agents generate evidence that can be cited,
+                pledged and audited.
               </p>
             </div>
             <div class="why-cell reveal">
-              <div class="step">// 為何需要</div>
-              <h3>Agent 之間需要契約。</h3>
+              <div class="step">// WHY IT IS NEEDED</div>
+              <h3>Agents need enforceable contracts.</h3>
               <p>
-                當 Agent A 替 Agent B 買了 0.42 USDC 的推論，誰簽、誰付、誰負責
-                — 沒有 W3，這些問題在鏈上沒有答案。
+                When Agent A spends 0.42 USDC on a service from Agent B, who signs, who pays and who is accountable?
+                Without W3, those questions have no on-chain answer.
               </p>
             </div>
             <div class="why-cell reveal">
-              <div class="step">// 現在</div>
-              <h3>測試網 + 沙盒支付。</h3>
+              <div class="step">// CURRENT STATE</div>
+              <h3>Testnet + sandbox payment.</h3>
               <p>
-                W3 已在 M Hash L2 測試網上線（Chain ID
-                20250827），支付走沙盒協議 — 每筆交易都會產生可被引用的
-                receipt，但沒有真實資產流動。
+                W3 currently operates on the M Hash L2 testnet (Chain ID 20250827) with a payment sandbox.
+                Each sandbox transaction produces a referenceable receipt without moving real assets.
               </p>
             </div>
           </div>
@@ -2240,30 +2243,30 @@
               ><span>AGENTPAY</span>
             </div>
             <h2 class="sec-h">
-              受控支付，<br /><span class="accent">不是無限授權。</span>
+              Controlled payments,<br /><span class="accent">not unlimited authority.</span>
             </h2>
             <p class="sec-sub">
-              把每筆支付置於身份、預算、策略與人工確認的邊界內。下例是 W3
-              AgentPay 的一次完整路由，從報價到 receipt 公開，全程 6
-              步可被引用。
+              Every payment remains within identity, budget, policy and human-approval boundaries.
+              This example shows a complete AgentPay route from quote to receipt across six referenceable stages.
             </p>
           </div>
           <div class="agentpay-wrap">
             <div class="agentpay-side reveal">
               <span class="badge">// 06-STEP · ROUTED PAYMENT</span>
               <h3 class="title">
-                六步簽核。<br />一個<span style="color: var(--lime)"
+                Six-stage sign-off.<br />One <span style="color: var(--lime)"
                   >receipt</span
-                >落盤。
+                > issued.
               </h3>
               <p>
-                AgentPay 不是「卡 + 一次性授權」 — 它是
-                <em>一個有限狀態機</em
-                >。每一步都驗證上一步的產出，沒有人工確認的步驟會停在
-                [HOLD]；沙盒只展示控制與收據結構，不宣稱已完成鏈上結算。
+                AgentPay is not a “card + one-time authorization” flow. It is a
+                <em>finite-state machine</em
+                >. Each stage verifies the output of the previous one; any stage that requires human approval stops at
+                [HOLD]. The sandbox demonstrates control and receipt structures without claiming completed on-chain settlement.
               </p>
               <p>
-                當前為 <em>沙盒協議</em>，沒有真實資產流動。主網與正式商用時間尚未公告。
+                The current implementation is a <em>sandbox protocol</em> with no real asset movement.
+                Mainnet and commercial launch dates have not been announced.
               </p>
             </div>
             <div>
@@ -2342,10 +2345,11 @@
               ><span>SYSTEM MODULES</span>
             </div>
             <h2 class="sec-h">
-              一個動作，<br />需要<span class="accent">六層證明。</span>
+              Every action needs<br /><span class="accent">six layers of proof.</span>
             </h2>
             <p class="sec-sub">
-              每一次代理行動都必須回答：<em>它是誰、代表誰、獲得什麼權限、執行什麼、支付多少、如何驗證結果</em>。六個模組，六個答案。
+              Every agent action must answer: <em>who is acting, whom it represents, what it may do,
+              what it did, what it paid and how the result is verified</em>. Six modules, six answers.
             </p>
           </div>
           <div class="modules">
@@ -2355,8 +2359,8 @@
               <h3>IDENTITY</h3>
               <div class="meta">// agent-principal</div>
               <p>
-                辨識 Agent、擁有者、會話與執行環境。所有私鑰操作走 HyperSeed N60
-                安全元件。
+                Identifies the agent, owner, session and execution environment. Private-key operations are routed through
+                the HyperSeed N60 secure element.
               </p>
               <div class="spec">
                 <span>PROOF</span><span class="v">WHO</span>
@@ -2368,7 +2372,7 @@
               <h3>POLICY</h3>
               <div class="meta">// permission-boundary</div>
               <p>
-                控制工具、資產、限額與人工確認門檻。每一條策略可在鏈上被引用、被審計。
+                Controls tools, assets, limits and human-approval thresholds. Each policy can be referenced and audited.
               </p>
               <div class="spec">
                 <span>DECISION</span><span class="v">ALLOWED</span>
@@ -2380,8 +2384,8 @@
               <h3>EXECUTION</h3>
               <div class="meta">// controlled-action</div>
               <p>
-                路由服務、限制動作並記錄任務狀態。失敗的執行也會留下 receipt —
-                不消失。
+                Routes services, constrains actions and records task state. Failed execution also leaves a receipt;
+                it does not simply disappear.
               </p>
               <div class="spec">
                 <span>OUTPUT</span><span class="v">ACTION</span>
@@ -2392,7 +2396,7 @@
               <div class="status build"><span class="led"></span>BUILDING</div>
               <h3>AGENTPAY</h3>
               <div class="meta">// programmable-payment</div>
-              <p>處理報價、授權、支付、退款與結算。詳見 § 01。</p>
+              <p>Handles quotes, authorizations, payments, refunds and settlement routing. See § 01 for details.</p>
               <div class="spec">
                 <span>CONTROL</span><span class="v">VALUE</span>
               </div>
@@ -2403,7 +2407,7 @@
               <h3>RECEIPT</h3>
               <div class="meta">// verifiable-record</div>
               <p>
-                生成可追蹤、可驗證的任務與支付證據；鏈上參照只在可公開查驗時標示。
+                Generates traceable, verifiable evidence for tasks and payments. On-chain references appear only when publicly verifiable.
               </p>
               <div class="spec">
                 <span>EVIDENCE</span><span class="v">PROOF</span>
@@ -2415,8 +2419,8 @@
               <h3>SETTLEMENT</h3>
               <div class="meta">// network-finality</div>
               <p>
-                連接 M Hash L2 測試網（Chain ID
-                20250827）與外部結算環境。最終性來自 L2 共識。
+                Connects to the M Hash L2 testnet (Chain ID 20250827) and external settlement environments.
+                Network finality is determined by L2 consensus.
               </p>
               <div class="spec">
                 <span>NETWORK</span><span class="v">FINALITY</span>
@@ -2435,11 +2439,12 @@
               ><span>AI BOX / EDGE NODE</span>
             </div>
             <h2 class="sec-h">
-              私有智能。<br /><span class="accent">留在現場。</span>
+              Private intelligence.<br /><span class="accent">On your premises.</span>
             </h2>
             <p class="sec-sub">
-              MAGNE.AI BOX 是 W3 的私有 AI 工作空間與邊緣智能節點 —
-              在客戶現場完成企業文件解析、檢索、推理與帶引用輸出。現處於有條件 POC；規格按 VERIFIED、TARGET 與 FIH CONFIRMATION 分層發布。
+              MAGNE.AI BOX is W3’s private AI workspace and edge node. It performs enterprise document analysis,
+              retrieval, reasoning and source-bound output on the customer’s premises. It is currently in conditional POC;
+              specifications are disclosed by VERIFIED, TARGET and FIH CONFIRMATION status.
             </p>
           </div>
           <div class="aibox-wrap">
@@ -2449,7 +2454,7 @@
                 <span class="right">CONDITIONAL POC</span>
               </div>
               <div class="aibox-product-media">
-                <img src="assets/images/magne-ai-box-hero.png?v=abx-002" width="1672" height="941" loading="lazy" alt="MAGNE.AI BOX 銀色邊緣智能設備">
+                <img src="assets/images/magne-ai-box-hero.png?v=abx-002" width="1672" height="941" loading="lazy" alt="MAGNE.AI BOX Silver Edge Smart Device">
                 <div class="aibox-product-stamp">
                   <span>PRIVATE AI WORKSPACE</span>
                   <span>LOCAL-FIRST / SOURCE-BOUND</span>
@@ -2513,11 +2518,11 @@
               ><span>NETWORK + EVIDENCE</span>
             </div>
             <h2 class="sec-h">
-              公開證據，<br /><span class="accent">明確環境。</span>
+              Public evidence.<br /><span class="accent">Explicit boundaries.</span>
             </h2>
             <p class="sec-sub">
-              W3 不自建公鏈 — 當前以 M Hash L2 測試網作為公開證據參照。
-              Chain ID 20250827；收據是否錨定，以可公開查驗的記錄為準。
+              W3 does not claim a standalone public chain. M Hash L2 testnet currently provides a reference layer for public evidence.
+              Chain ID 20250827; receipt anchoring is stated only when a public record can be verified.
             </p>
           </div>
           <div class="topo-wrap reveal">
@@ -2534,8 +2539,8 @@
                 <div class="layer">// edge</div>
                 <h3>MAGNE HARDWARE</h3>
                 <p>
-                  Phone Gen 1 與未來 AI Box 上的安全元件與 TEE — 為 Agent
-                  授權端點提供硬體方向支持。
+                  Secure Element and TEE capabilities on Phone Gen1 and future AI BOX devices provide
+                  a hardware-backed direction for agent authorization endpoints.
                 </p>
                 <div class="tags">
                   <span>SE EAL6+</span>
@@ -2549,7 +2554,8 @@
                 <div class="big">M HASH L2</div>
                 <div class="big-sub">Receipt &amp; Settlement</div>
                 <p style="margin-top: 16px">
-                  公開測試網瀏覽器與網路配置可查；AI 任務 receipt 的公開狀態以實際來源為準。
+                  Public testnet explorer and network configuration are inspectable. AI task receipts are shown
+                  only when supported by an available public source.
                 </p>
                 <div
                   class="tags"
@@ -2565,8 +2571,8 @@
                 <div class="layer">// execution</div>
                 <h3>AGENT SERVICES</h3>
                 <p>
-                  開發者介面、AgentPay 工作流研究、未來應用接入 — W3
-                  之上跑的服務集合。
+                  Developer interfaces, AgentPay workflow research and future application access form the
+                  service surface built on W3.
                 </p>
                 <div class="tags">
                   <span>API</span>
@@ -2588,11 +2594,11 @@
               ><span>LIVE ACTIVITY</span>
             </div>
             <h2 class="sec-h">
-              商業動能，<br /><span class="accent">不是概念宣稱。</span>
+              Operating momentum,<br /><span class="accent">not a concept claim.</span>
             </h2>
             <p class="sec-sub">
-              兩季活動接力。SEASON 1 已結束，SEASON 2 進行中 — 下列數字直接讀取原活動 API
-              與公開資料快照；來源不可用時不顯示示例數字。
+              Two campaign seasons form a continuous public record. Season 1 has ended and Season 2 is active.
+              The figures below come from public campaign API snapshots; no sample values appear when a source is unavailable.
             </p>
           </div>
           <div class="season-grid">
@@ -2601,10 +2607,10 @@
                 <span class="name">SEASON 01 / ENDED</span>
                 <span class="badge closed">CLOSED</span>
               </div>
-              <h3>SEASON 1 抽籤活動</h3>
+              <h3>SEASON 1 Lottery</h3>
               <p class="sub">
-                首批 MAGNE.AI Phone Gen1 8GB + 256GB
-                活動已結束。參與記錄、輪次與中選地址保留為可驗證歷史檔案。
+                The first MAGNE.AI Phone Gen1 8GB + 256GB campaign has ended.
+                Participation, round and selected-address records remain available as a verifiable historical archive.
               </p>
               <div class="stats">
                 <div class="stat">
@@ -2628,7 +2634,7 @@
                 >
               </div>
               <p class="footnote" id="s1-home-source">
-                * 正在同步 Season 1 公開 Dashboard；歷史結果以活動規則與資格驗證為準。
+                * Synchronizing the public Season 1 Dashboard. Historical results remain subject to campaign rules and eligibility review.
               </p>
             </div>
             <div class="season s2 reveal">
@@ -2636,10 +2642,10 @@
                 <span class="name">SEASON 02 / LIVE</span>
                 <span class="badge live">LIVE</span>
               </div>
-              <h3>SEASON 2 活動中心</h3>
+              <h3>SEASON 2 Activity Center</h3>
               <p class="sub">
-                Phone Gen1、MS2
-                活動點數、質押權重與團隊獎勵。當前摘要使用可公開查驗快照，詳細頁顯示來源與更新時間。
+                Phone Gen1, MS2 activity points, staking weight and team rewards.
+                This summary uses a publicly verifiable snapshot; the detail page identifies its sources and update time.
               </p>
               <div class="stats">
                 <div class="stat">
@@ -2671,7 +2677,7 @@
                 >
               </div>
               <p class="footnote" id="s2-home-source">
-                * 正在同步 W3 驗證快照、Dune 唯一直接付款地址與 BSC 資金流分類。
+                * Synchronizing the W3 verification snapshot, Dune unique direct-payer addresses and BSC fund-flow classification.
               </p>
             </div>
           </div>
@@ -2687,21 +2693,21 @@
               ><span>OFFICIAL CHANGE RECORD</span>
             </div>
             <h2 class="sec-h">
-              不是新聞流，<br /><span class="accent">是運營記錄。</span>
+              Not a news feed.<br /><span class="accent">An operating record.</span>
             </h2>
             <p class="sec-sub">
-              首頁顯示最近三條公開里程碑；從 2025 年 7 月 MYBW 到 2026 年 7 月
-              WebX Tokyo 的完整運營記錄，統一收錄於 Newsroom。
+              The home page surfaces the latest public milestones. The Newsroom preserves the full operating record,
+              from MYBW in July 2025 through WebX Tokyo in July 2026.
             </p>
           </div>
           <div class="records-grid reveal">
             <div class="record">
               <div class="date">2026-07-12<small>EVENT</small></div>
               <div class="body">
-                <h3><a href="newsroom/events/#webx-tokyo-2026">東京 WebX Japan 2026 · GAEA Ventures 邊會 ↗</a></h3>
+                <h3><a href="newsroom/events/#webx-tokyo-2026">WebX Tokyo 2026 · GAEA Ventures Side Event ↗</a></h3>
                 <p>
-                  團隊抵達東京成為 WebX Japan 2026 冠名贊助商。BAGUS PLACE 舉行
-                  MAGNE AI Agents Night 前置活動。
+                  The team arrived in Tokyo as title sponsor of the MAGNE AI Agents Night side event,
+                  held at BAGUS PLACE during WebX 2026.
                 </p>
               </div>
               <div class="tag live">EVENT</div>
@@ -2709,10 +2715,10 @@
             <div class="record">
               <div class="date">2026-07-06<small>CAMPAIGN</small></div>
               <div class="body">
-                <h3><a href="season-1.html#sources">SEASON 1 抽籤成功收官 ↗</a></h3>
+                <h3><a href="season-1.html#sources">Season 1 campaign concluded ↗</a></h3>
                 <p>
-                  1,600 支 MAG1
-                  在二十八天內全數登記完畢，零付費推廣。第一份信任被寫在這裡。
+                  The Season 1 record closed with 1,004 selected Phone Gen1 units and a public participation archive.
+                  Final figures remain subject to the published campaign rules and eligibility checks.
                 </p>
               </div>
               <div class="tag">CLOSED</div>
@@ -2720,9 +2726,9 @@
             <div class="record">
               <div class="date">2026-05-24<small>CERT</small></div>
               <div class="body">
-                <h3><a href="trust.html#evidence">MAG1 FCC 認證公開 ↗</a></h3>
+                <h3><a href="trust.html#evidence">MAG1 FCC certification published ↗</a></h3>
                 <p>
-                  美國聯邦通信委員會的 RF 認證 — 訊號可在北美頻段內合法發射。
+                  The U.S. Federal Communications Commission added MAG1 radio-frequency certification to its public record.
                 </p>
               </div>
               <div class="tag cert">CERT</div>
@@ -2730,10 +2736,10 @@
             <div class="record">
               <div class="date">2026-04-20<small>LAUNCH</small></div>
               <div class="body">
-                <h3><a href="season-1.html">Season 1 Lottery + 儀表板上線 ↗</a></h3>
+                <h3><a href="season-1.html">Season 1 Lottery + Dashboard online ↗</a></h3>
                 <p>
-                  Phone Gen1 抽籤活動啟動 + 鏈上資料公開儀表板上線 —
-                  從這天起，數字對所有人可見。
+                  The Phone Gen1 Lottery launched together with a public data dashboard,
+                  making campaign participation records openly inspectable.
                 </p>
               </div>
               <div class="tag live">LAUNCH</div>
@@ -2741,10 +2747,9 @@
             <div class="record">
               <div class="date">2026-04-07<small>CERT</small></div>
               <div class="body">
-                <h3><a href="trust.html#evidence">MAG1 加州 CP65 認證通過 ↗</a></h3>
+                <h3><a href="trust.html#evidence">MAG1 California CP65 certified ↗</a></h3>
                 <p>
-                  北美市場准入的化學安全門檻。通過 = 進入加州與其他採用 CP65
-                  的州。
+                  MAG1 documentation entered the public California Proposition 65 compliance record for North American market access.
                 </p>
               </div>
               <div class="tag cert">CERT</div>
@@ -2752,10 +2757,9 @@
             <div class="record">
               <div class="date">2026-01-22<small>EVENT</small></div>
               <div class="body">
-                <h3><a href="newsroom/events/#philadelphia-2026">費城 · RWA 大學巡迴 ↗</a></h3>
+                <h3><a href="newsroom/events/#philadelphia-2026">Philadelphia · RWA College Tour ↗</a></h3>
                 <p>
-                  在 Penn Museum 完成第一場公開活動 — RWA
-                  大學巡迴費城站，MAGNE.AI 第一次站在國際學術場合。
+                  MAGNE.AI completed its first public event at the Penn Museum as part of the RWA University Tour in Philadelphia.
                 </p>
               </div>
               <div class="tag live">EVENT</div>
@@ -2763,9 +2767,9 @@
             <div class="record">
               <div class="date">2025-12-11<small>CERT</small></div>
               <div class="body">
-                <h3><a href="trust.html#evidence">MAG1 CB 認證通過 (IEC 62133-2) ↗</a></h3>
+                <h3><a href="trust.html#evidence">MAG1 CB certified (IEC 62133-2) ↗</a></h3>
                 <p>
-                  電池安全的國際通行證。一顆電池要能上飛機，才能到使用者手裡。
+                  The CB record under IEC 62133-2 added an internationally recognized battery-safety reference for MAG1.
                 </p>
               </div>
               <div class="tag cert">CERT</div>
@@ -2773,10 +2777,9 @@
             <div class="record">
               <div class="date">2025-12-03<small>CERT</small></div>
               <div class="body">
-                <h3><a href="trust.html#evidence">MAG1 GSMA TAC 頒發 ↗</a></h3>
+                <h3><a href="trust.html#evidence">GSMA TAC issued for MAG1 ↗</a></h3>
                 <p>
-                  Type Allocation Code 01681300 — 從這一刻起，MAG1
-                  是一台被全球蜂窩網路承認的手機。
+                  Type Allocation Code 01681300 identifies MAG1 within the global cellular-device numbering system.
                 </p>
               </div>
               <div class="tag cert">CERT</div>
@@ -2784,18 +2787,17 @@
             <div class="record">
               <div class="date">2025-12-01<small>CERT</small></div>
               <div class="body">
-                <h3><a href="trust.html#evidence">MAG1 UN38.3 認證通過 ↗</a></h3>
-                <p>電池航空運輸認證。一顆電池要能上飛機，才能到使用者手裡。</p>
+                <h3><a href="trust.html#evidence">MAG1 UN38.3 certified ↗</a></h3>
+                <p>UN38.3 documentation records the battery transport testing required for air shipment.</p>
               </div>
               <div class="tag cert">CERT</div>
             </div>
             <div class="record">
               <div class="date">2025-11-04<small>CERT</small></div>
               <div class="body">
-                <h3><a href="trust.html#evidence">MAG1 Google GMS 認證完成 ↗</a></h3>
+                <h3><a href="trust.html#evidence">MAG1 Google GMS certification completed ↗</a></h3>
                 <p>
-                  Android 生態的最後一道門打開了 —
-                  出貨之後，使用者第一個下午就能用上所有主流應用。
+                  Google Mobile Services certification confirmed access to the standard Android application ecosystem.
                 </p>
               </div>
               <div class="tag cert">CERT</div>
@@ -2803,10 +2805,9 @@
             <div class="record">
               <div class="date">2025-10-20<small>NETWORK</small></div>
               <div class="body">
-                <h3><a href="network.html#networks">MAGNE.AI 測試網上線（第二次迭代）↗</a></h3>
+                <h3><a href="network.html#networks">MAGNE.AI testnet online · second iteration ↗</a></h3>
                 <p>
-                  兩週內兩次迭代 — 測試網從一張草圖長成可被點擊的頁面。Chain ID
-                  20250827 固定。
+                  A second public iteration added an inspectable interface while retaining Chain ID 20250827.
                 </p>
               </div>
               <div class="tag">TESTNET</div>
@@ -2814,18 +2815,17 @@
             <div class="record">
               <div class="date">2025-10-12<small>NETWORK</small></div>
               <div class="body">
-                <h3><a href="network.html#networks">MAGNE.AI 測試網上線（第一次）↗</a></h3>
-                <p>鏈上節點首次對外可見 — 公開 RPC、瀏覽器、SDK 同步發布。</p>
+                <h3><a href="network.html#networks">MAGNE.AI testnet online · first iteration ↗</a></h3>
+                <p>Public RPC, explorer and SDK access made the initial testnet endpoints externally inspectable.</p>
               </div>
               <div class="tag">TESTNET</div>
             </div>
             <div class="record">
               <div class="date">2025-09-09<small>CODE</small></div>
               <div class="body">
-                <h3><a href="newsroom/article/magne-l1-mhash-l2-open-source/">MAGNE L1 與 MHash L2 代碼開源 ↗</a></h3>
+                <h3><a href="newsroom/article/magne-l1-mhash-l2-open-source/">MAGNE L1 and M Hash L2 code released ↗</a></h3>
                 <p>
-                  把鏈的源碼交給世界檢查 —
-                  在公開帳本上寫下名字之前，必須先讓別人也能寫下名字。
+                  Public repositories opened the network code, RPC, explorer and developer documentation to inspection.
                 </p>
               </div>
               <div class="tag cert">OPEN</div>
@@ -2833,11 +2833,10 @@
             <div class="record">
               <div class="date">2025-08-26<small>FUND</small></div>
               <div class="body">
-                <h3><a href="newsroom/article/strategic-financing-10m/">公司披露 1,000 萬美元戰略融資 · 累計披露 US$ 12.64M ↗</a></h3>
+                <h3><a href="newsroom/article/strategic-financing-10m/">Company discloses US$10M strategic financing · US$12.64M cumulative ↗</a></h3>
                 <p>
-                  Becker Ventures、TBV、DuckDAO、Castrum Capital —
-                  資本結構表的第一行被寫下。2026 Q3 第二輪 264 萬由 Gaea /
-                  Titans / Go2Mars 共同參與。
+                  The company named Becker Ventures, TBV, DuckDAO and Castrum Capital in the initial release,
+                  followed by a US$2.64M company-disclosed round involving GAEA Ventures, Titans Ventures and Go2Mars.
                 </p>
               </div>
               <div class="tag fund">FUND</div>
@@ -2845,10 +2844,9 @@
             <div class="record">
               <div class="date">2025-08-24<small>EVENT</small></div>
               <div class="body">
-                <h3><a href="newsroom/events/#new-york-2025">紐約 · AI Meets the RWA 邊會 ↗</a></h3>
+                <h3><a href="newsroom/events/#new-york-2025">New York · AI Meets RWA side event ↗</a></h3>
                 <p>
-                  在紐約主辦 RWA 圓桌 — AI 與 RWA
-                  在這裡被放在同一張桌上對話，這是後續所有場景的母題。
+                  The New York roundtable placed AI and RWA within one public discussion and established a theme for later events.
                 </p>
               </div>
               <div class="tag live">EVENT</div>
@@ -2858,8 +2856,7 @@
               <div class="body">
                 <h3><a href="newsroom/article/launch-night-mybw-2025/">MAGNE.AI Launch Night · MYBW 2025 ↗</a></h3>
                 <p>
-                  團隊於 MYBW 2025 期間正式亮相，與全球新創同台。第一次見到 MAG1
-                  的人，記得的不是規格，是它被放在桌面上的姿態。
+                  MAGNE.AI made its public debut during MYBW 2025, presenting MAG1, NFC capabilities and its broader product direction.
                 </p>
               </div>
               <div class="tag live">LAUNCH</div>
@@ -2881,11 +2878,11 @@
               ><span>TRUST CENTER / INSTITUTIONAL DD</span>
             </div>
             <h2 class="sec-h">
-              資料室，<br /><span class="accent">必須有邊界。</span>
+              Data rooms need<br /><span class="accent">clear boundaries.</span>
             </h2>
             <p class="sec-sub">
-              公開資料、機構資料與 NDA 資料嚴格分層。W3
-              不會把敏感文件放進公開靜態目錄或公開 GitHub 倉庫。
+              Public, institution-access and NDA-restricted information are strictly separated.
+              W3 does not place sensitive files in public static directories or public GitHub repositories.
             </p>
           </div>
           <div class="trust-grid">
@@ -2893,60 +2890,60 @@
               <div class="level">// LEVEL 01</div>
               <h3>PUBLIC</h3>
               <span class="access public">● OPEN</span>
-              <p>任何人都能直接看見。適合投資人、媒體、社區。</p>
-              <div class="label">// 包含</div>
+              <p>Visible to anyone. Intended for investors, media, developers and communities.</p>
+              <div class="label">// INCLUDES</div>
               <ul class="contains">
-                <li>認證索引（GSMA / FCC / CC EAL / UN38.3 / CP65）</li>
-                <li>公開摘要、合約地址、區塊瀏覽器</li>
-                <li>狀態頁與最後更新時間戳</li>
-                <li>本季 receipt 公開快照</li>
-                <li>W3 路線圖、技術白皮書公開版本</li>
+                <li>Certification index (GSMA / FCC / CC EAL / UN38.3 / CP65)</li>
+                <li>Public summaries, contract addresses and explorers</li>
+                <li>Status page with last updated timestamp</li>
+                <li>Public campaign and receipt snapshots</li>
+                <li>Public W3 roadmap and technical documentation</li>
               </ul>
-              <div class="label">// 不包含</div>
+              <div class="label">// EXCLUDES</div>
               <ul class="excludes">
-                <li>未公開財務模型</li>
-                <li>客戶合約細節</li>
-                <li>未公開審計附件</li>
+                <li>Undisclosed financial model</li>
+                <li>Customer contract details</li>
+                <li>Undisclosed audit attachment</li>
               </ul>
             </div>
             <div class="trust reveal">
               <div class="level">// LEVEL 02</div>
               <h3>VERIFIED</h3>
               <span class="access verified">● REQUEST</span>
-              <p>完成身份與用途驗證後開放。適合機構合作方、盡調團隊。</p>
-              <div class="label">// 包含</div>
+              <p>Available after identity and purpose verification. Intended for institutional partners and due-diligence teams.</p>
+              <div class="label">// INCLUDES</div>
               <ul class="contains">
-                <li>機構級盡調包（公司架構、股權）</li>
-                <li>已審計財務摘要（Big-4 簽字版本）</li>
-                <li>技術架構詳解（手機硬體 + L1 + L2）</li>
-                <li>W3 商業模式細節與定價策略</li>
-                <li>已合作客戶的匿名化案例研究</li>
+                <li>Institutional due-diligence package (company structure and equity)</li>
+                <li>Audited financial summary, where available and authorized</li>
+                <li>Detailed technical architecture (device hardware + L1 + L2)</li>
+                <li>W3 business-model and pricing materials</li>
+                <li>Anonymized design-partner case studies</li>
               </ul>
-              <div class="label">// 不包含</div>
+              <div class="label">// EXCLUDES</div>
               <ul class="excludes">
-                <li>未簽 NDA 的個人 ID 文件</li>
-                <li>未公開源碼內部 API</li>
+                <li>Personal identity files before an NDA is executed</li>
+                <li>Non-public source code and internal APIs</li>
               </ul>
             </div>
             <div class="trust reveal">
               <div class="level">// LEVEL 03</div>
               <h3>NDA REQUIRED</h3>
               <span class="access nda">● NDA</span>
-              <p>簽署雙邊 NDA 後開放。適合戰略投資人、政府機構、頂級交易所。</p>
-              <div class="label">// 包含</div>
+              <p>Available after a bilateral NDA is executed. Intended for strategic investors, government agencies and exchanges.</p>
+              <div class="label">// INCLUDES</div>
               <ul class="contains">
-                <li>新加坡 GS Legal LLC 為 $MHA 出具的法律意見書</li>
-                <li>UBO / KYB 完整文件</li>
-                <li>未公開審計附件（季度財務、未披露風險）</li>
-                <li>合資夥伴的具體合作條款</li>
-                <li>W3 主網的源碼內部 API 與白皮書完整版</li>
-                <li>對接主要交易所的技術對接文件</li>
+                <li>Legal opinion issued by Singapore GS Legal LLC for $MHA</li>
+                <li>UBO / KYB full file</li>
+                <li>Restricted audit attachments, financial records and risk disclosures</li>
+                <li>Authorized commercial and joint-venture terms</li>
+                <li>Authorized source code, internal APIs and technical materials</li>
+                <li>Technical integration documents for exchanges</li>
               </ul>
-              <div class="label">// 流程</div>
+              <div class="label">// PROCESS</div>
               <ul class="excludes">
-                <li>走 partners@magne.ai 申請</li>
-                <li>SLA 48 小時內回覆</li>
-                <li>不接觸即不計算</li>
+                <li>Apply at partners@magne.ai</li>
+                <li>Target response within 48 hours</li>
+                <li>No access is granted until verification is complete</li>
               </ul>
             </div>
           </div>
@@ -2965,7 +2962,8 @@
               >
             </div>
             <p class="foot-tagline">
-              AI Agent 的身份、策略、受控執行、支付與可驗證收據層。公開資訊與受控盡調資料在同一證據架構下分層呈現。
+              Identity, policy, controlled execution, payment and verifiable-receipt layers for AI agents.
+              Public information and controlled due-diligence material are presented under one evidence architecture.
             </p>
             <div class="foot-socials">
               <a
@@ -2995,7 +2993,7 @@
                 aria-label="Discord"
                 ><svg viewBox="0 0 24 24" fill="currentColor">
                   <path
-                    d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157 1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-1.083 1.226-2.157-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"
+                    d="M5 5h14v10H9l-4 4V5zm4 4h2v2H9V9zm4 0h2v2h-2V9z"
                   /></svg
               ></a>
               <a
@@ -3202,8 +3200,8 @@
         { url: "assets/data/season-1-summary.json", label: "W3 VERIFIED S1 SNAPSHOT" },
       ];
       var S2_SOURCES = [
-        { url: "/api/v1/season-2/dashboard", label: "W3 AUTHENTICATED COLLECTOR" },
         { url: "assets/data/season-2-snapshot.json", label: "W3 VERIFIED SNAPSHOT" },
+        { url: "/api/v1/season-2/dashboard", label: "W3 AUTHENTICATED COLLECTOR" },
         { url: "https://jerrysohigh-create.github.io/magne-web/assets/data/lottery2-dashboard.json", label: "LEGACY SNAPSHOT" },
       ];
       var S2_PAYERS = "assets/data/season-2-dune-participants.json";
@@ -3260,7 +3258,7 @@
           setHomeText("s1-home-source", "* " + s1Result.source.label + " · 76,650 addresses / 100,407 derived entries / 1,004 selected units.");
         } else {
           ["s1-participants", "s1-entries", "s1-units"].forEach(function (id) { setMetric(id, null); });
-          setHomeText("s1-home-source", "* SEASON 1 SOURCE TEMPORARILY UNAVAILABLE · 未使用示例數字。");
+          setHomeText("s1-home-source", "* SEASON 1 SOURCE TEMPORARILY UNAVAILABLE · Sample number not used.");
         }
 
         if (results[1].status === "fulfilled") {
@@ -3270,10 +3268,10 @@
           setMetric("s2-entries", s2.totalEntries);
           setMetric("s2-units-left", 1600 - Number(s2.totalMobile || 0));
           var s2FetchedAt = s2Result.payload._meta && s2Result.payload._meta.fetchedAt;
-          setHomeText("s2-home-source", "* " + s2Result.source.label + (s2FetchedAt ? " · " + new Date(s2FetchedAt).toLocaleString("zh-Hant", { hour12: false }) : "") + " · 詳細來源與刷新狀態見完整面板。");
+          setHomeText("s2-home-source", "* " + s2Result.source.label + (s2FetchedAt ? " · " + new Date(s2FetchedAt).toLocaleString("zh-Hant", { hour12: false }) : "") + "· See the full panel for detailed sources and refresh status.");
         } else {
           ["s2-entries", "s2-units-left"].forEach(function (id) { setMetric(id, null); });
-          setHomeText("s2-home-source", "* SEASON 2 SNAPSHOT TEMPORARILY UNAVAILABLE · 未使用示例數字。");
+          setHomeText("s2-home-source", "* SEASON 2 SNAPSHOT TEMPORARILY UNAVAILABLE · Sample numbers not used.");
         }
 
         if (results[2].status === "fulfilled") {
@@ -3319,7 +3317,8 @@
           termBody.removeChild(termBody.firstChild);
       }, 3200);
     </script>
-  <script src="assets/js/season-status.js?v=20260821-2"></script>
-<script src="assets/js/analytics.js?v=20260821-1"></script>
+  <script src="assets/js/season-status.js?v=20260821-4"></script>
+<script src="assets/js/analytics.js?v=20260821-2"></script>
+<script src="assets/js/locale-switch.js?v=20260821-3"></script>
 </body>
 </html>

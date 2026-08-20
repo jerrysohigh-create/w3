@@ -1,0 +1,41 @@
+.locale-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border: 1px solid rgba(126, 207, 213, 0.28);
+  color: #7ecfd5 !important;
+  font: 500 10px/1 "JetBrains Mono", monospace;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.locale-control:hover,
+.locale-control:focus-visible {
+  border-color: #7ecfd5;
+  background: rgba(126, 207, 213, 0.1);
+  color: #e9fbfc !important;
+  outline: none;
+}
+
+.nav-actions .locale-control {
+  min-height: 36px;
+}
+
+@media (max-width: 760px) {
+  .status-meta .locale-control {
+    display: inline-flex !important;
+    min-height: 24px;
+    padding-inline: 7px;
+    letter-spacing: 0.08em;
+  }
+
+  .nav-actions .locale-control {
+    min-height: 32px;
+    padding-inline: 8px;
+  }
+}

@@ -184,7 +184,7 @@
     svg.dataset.chartMode = mobile ? "mobile-line" : "desktop-bars";
     svg.setAttribute(
       "aria-label",
-      mobile ? "Season 1 累计参与钱包地址增长折线图" : "Season 1 累计参与钱包地址增长柱状图",
+      mobile ? "Season 1 Cumulative participating wallet address growth line chart" : "Season 1 Cumulative participating wallet address growth histogram",
     );
     if (mobile) renderMobile(svg, rows, payload);
     else renderDesktop(svg, rows, payload);

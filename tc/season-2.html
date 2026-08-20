@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>MAGNE.AI Season 2 活動中心 — W3 版</title>
+    <meta name="description" content="MAGNE.AI Season 2 campaign data, round progress, MS2 records and public source references in the W3 visual system." />
+    <link rel="stylesheet" href="../assets/css/site.css?v=20260821-19" />
+    <link rel="canonical" href="https://w3.magne.ai/tc/season-2.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MAGNE.AI Season 2 Campaign Hub — W3 Edition" />
+  <meta property="og:description" content="MAGNE.AI Season 2 campaign data, round progress, MS2 records and public source references in the W3 visual system." />
+  <meta property="og:image" content="https://w3.magne.ai/assets/images/og/w3-system-card.svg" />
+  <meta property="og:url" content="https://w3.magne.ai/tc/season-2.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0a0a0c" />
+  <link rel="icon" href="../assets/images/brand/w3-mark.svg" type="image/svg+xml" />
+  <link rel="manifest" href="../manifest.webmanifest" />
+  <link rel="alternate" hreflang="en" href="https://w3.magne.ai/season-2.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/season-2.html" />
+  <link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/season-2.html" />
+  <link rel="stylesheet" href="../assets/css/locale.css?v=20260821-2" />
+</head>
+  <body data-page="seasons" data-lang="zh-Hant" data-locale-peer="../season-2.html" data-asset-root="../">
+    <header id="site-header"></header>
+    <main>
+      <section class="page-hero">
+        <div class="wrap">
+          <p class="eyebrow"><span class="index">06.2</span> MAGNE.AI SEASON 2 CAMPAIGN HUB</p>
+          <span class="campaign-live is-checking" id="s2-page-state">CHECKING SOURCE</span>
+          <h1 class="page-title" style="margin-top:24px">Season 2<span class="accent">活動控制台。</span></h1>
+          <p class="page-lede">Phone Gen1 Lottery · MS2 Campaign Credits · Staking Weight · Team Rewards。資料與計算口徑來自原 Season 2 Dashboard。</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#live-data">$ inspect live data →</a>
+            <a class="btn" href="#contract-intelligence">$ contract intelligence →</a>
+            <a class="btn" href="https://payment.magne.ai/lottery" target="_blank" rel="noopener noreferrer">$ join season 2 ↗</a>
+            <a class="btn" href="seasons.html">$ all seasons →</a>
+          </div>
+          <dl class="hero-ledger">
+            <div><dt>Direct Payers</dt><dd data-s2-field="direct-payers">—</dd></div>
+            <div><dt>Total Entries</dt><dd data-s2-field="entries">—</dd></div>
+            <div><dt>Phone Winners</dt><dd data-s2-field="phones">—</dd></div>
+            <div><dt>Source</dt><dd id="s2-source-badge">LOADING</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="content-section" id="campaign-rules">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">S2.01</span> CAMPAIGN RULES</p><h2 class="section-title">關鍵規則，<br />來自原頁。</h2></div>
+            <p class="section-copy">以下為原 Dashboard 已公開的 Season 2 核心參數；正式執行仍以官方公告、資格審查與適用地區規則為準。</p>
+          </div>
+          <div class="rules-grid reveal">
+            <article class="rule-item"><span class="rule-no">[01]</span><h3>1,600 臺配置</h3><p>MAGNE.AI Phone Gen1 8GB + 256GB 活動配置。</p></article>
+            <article class="rule-item"><span class="rule-no">[02]</span><h3>17 USDT / Entry</h3><p>每錢包最多 100 個參與名額，每個有效名額記錄 10 MS2。</p></article>
+            <article class="rule-item"><span class="rule-no">[03]</span><h3>100 Entries / Round</h3><p>每 100 個有效名額觸發一次 Phone Gen1 中選。</p></article>
+            <article class="rule-item"><span class="rule-no">[04]</span><h3>35,000,000 MHA</h3><p>後續合資格分配池；時間與資格受 TGE 安排及活動規則約束。</p></article>
+          </div>
+          <div class="disclosure reveal"><strong>未中選名額記錄：</strong>當每回合達到 100 個名額後觸發一次 Phone Gen1 中選；未中選的每個有效名額可記錄未來合資格分配的 100 MHA，預計於 TGE 後一個月內依活動規則完成。</div>
+          <div class="disclosure reveal"><strong>MS2 與最終分配：</strong>MS2 不等同於 MHA，也不代表固定收益或上市承諾。活動結束後，質押合約內全部 MS2（包括尚未領取的 MS2）將依據最終合資格質押記錄，按比例參與後續 35,000,000 MHA 分配；具體比例、時間與領取條件以正式規則為準。</div>
+        </div>
+      </section>
+
+      <section class="content-section" id="live-data">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">S2.02</span> LIVE METRICS</p><h2 class="section-title">原始資料，<br />W3 方式呈現。</h2></div>
+            <p class="section-copy" id="s2-source-state">正在讀取原 Dashboard 的公開快照。</p>
+          </div>
+          <div class="dashboard-grid s2-dashboard reveal">
+            <article class="dashboard-kpi"><span class="icon">[ UNIQUE DIRECT PAYERS ]</span><span class="value" data-s2-field="direct-payers">—</span><span class="label">BSC PARTICIPATION EVENT · DISTINCT</span></article>
+            <article class="dashboard-kpi"><span class="icon">[ PHONE WINNERS ]</span><span class="value" data-s2-field="phones">—</span><span class="label" id="s2-phones-remaining">— REMAINING</span></article>
+            <article class="dashboard-kpi"><span class="icon">[ CAMPAIGN ASSETS ]</span><span class="value" id="s2-usdt-pool">—</span><span class="label">TOTAL ENTRIES × 17 USDT</span></article>
+            <article class="dashboard-kpi"><span class="icon">[ TOTAL ENTRIES ]</span><span class="value" data-s2-field="entries">—</span><span class="label">CUMULATIVE ENTRIES</span></article>
+            <article class="dashboard-kpi"><span class="icon">[ UNIQUE REFERRERS ]</span><span class="value" data-s2-field="referrer-addresses">—</span><span class="label">4 USDT REFERRAL RECIPIENTS</span></article>
+            <article class="dashboard-kpi"><span class="icon">[ MS2 CREDIT RECORD ]</span><span class="value" id="s2-ms2-credits">—</span><span class="label">TOTAL ENTRIES × 10 MS2</span></article>
+          </div>
+          <div class="campaign-spec reveal">
+            <div><strong>Device</strong><span>Phone Gen1 · 8GB + 256GB</span></div>
+            <div><strong>Shipping</strong><span>首批預計 2026 年 8–10 月</span></div>
+            <div><strong>MHA Reward</strong><span>TGE 後 30 天內，須符合規則與資格驗證</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="growth">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">S2.02A</span> VERIFIED GROWTH</p><h2 class="section-title">Season 2 從零開始的成長。</h2></div>
+            <p class="section-copy">Entries 與唯一直接參與 / 付款地址均由 BSC 參與事件從首個事件區塊開始重建；Dune Query 7914122 只保留為歷史交叉校驗，不再控制圖表更新。</p>
+          </div>
+          <div class="chart-panel reveal">
+            <div class="chart-panel-head trend-panel-head">
+              <div><h3 id="s2-growth-title">Season 2 累計有效參與名額</h3><p id="s2-growth-coverage">正在讀取歷史觀測。</p></div>
+              <div class="trend-toolbar">
+                <div class="trend-toggle" role="group" aria-label="選擇 Season 2 成長圖指標">
+                  <button class="trend-button is-active" type="button" data-trend-metric="totalEntries" aria-pressed="true">ENTRIES</button>
+                  <button class="trend-button" type="button" data-trend-metric="onchainPayers" aria-pressed="false">UNIQUE DIRECT PAYERS</button>
+                </div>
+                <span class="chart-status" id="s2-growth-status" aria-live="polite">LOADING</span>
+              </div>
+            </div>
+            <div class="chart-scroll trend-chart-scroll"><svg id="s2-growth-chart" viewBox="0 0 900 340" role="img" aria-label="Season 2 累計有效參與名額由零成長圖"></svg></div>
+            <div class="chart-source"><span id="s2-growth-source">BSC PARTICIPATION EVENTS · W3 AUTHENTICATED COLLECTOR</span><span>LAST CHECKED: <span id="s2-growth-refreshed">—</span></span></div>
+          </div>
+          <div class="disclosure reveal"><strong>W3 位址口徑：</strong>唯一直接參與 / 付款地址由 Lottery 參與事件中的 <span class="mono">participant</span> 去重；推薦人地址來自每筆參與交易的 4 USDT 推薦獎勵收款方去重。同步從已驗證的首個事件區塊開始，並以已確認區塊增量更新；Payment Dashboard 與鏈上事件若有短暫差額，將保留雙方數值並標記待對賬，不以聚合值反推地址數量。</div>
+          <div class="address-taxonomy reveal" aria-labelledby="s2-flow-taxonomy-title">
+            <div class="flow-taxonomy" aria-labelledby="s2-flow-taxonomy-title">
+              <div class="flow-taxonomy-head">
+                <div><span class="taxonomy-kicker">4 USDT FLOW / RECIPIENT ROLES</span><h4 id="s2-flow-taxonomy-title">每個 Entry 的兩條 4 USDT 路徑。</h4></div>
+                <span class="flow-audit-state" id="s2-flow-audit-state">VERIFYING RECEIPTS</span>
+              </div>
+              <div class="flow-role-grid">
+                <article>
+                  <div class="flow-role-code">01 / REFERRER</div>
+                  <strong><span id="s2-flow-referrer-addresses" data-s2-field="referrer-addresses">—</span><small> UNIQUE ADDRESSES</small></strong>
+                  <h5>推薦人收款地址</h5>
+                  <p><span id="s2-flow-referrer-transfers">—</span> 筆轉帳 · 累計 <span id="s2-flow-referrer-usdt">—</span> USDT</p>
+                </article>
+                <article>
+                  <div class="flow-role-code">02 / POOL</div>
+                  <strong><span id="s2-flow-pool-addresses">—</span><small> UNIQUE ADDRESS</small></strong>
+                  <h5>資金池收款地址</h5>
+                  <p><span id="s2-flow-pool-transfers">—</span> 筆轉帳 · 累計 <span id="s2-flow-pool-usdt">—</span> USDT</p>
+                </article>
+              </div>
+              <div class="flow-proof"><span><b id="s2-flow-events">—</b> PARTICIPATION EVENTS</span><span><b id="s2-flow-transfers">—</b> VERIFIED 4×ENTRIES TRANSFERS</span><span><b>2</b> TRANSFERS PER EVENT</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">S2.03</span> CURRENT ROUND</p><h2 class="section-title">下次中選，<br />距離多少名額。</h2></div>
+            <p class="section-copy">優先讀取 <span class="mono">nextDrawNeed</span>，並以 <span class="mono">currRound</span> 標記目前輪次；與原 Dashboard 邏輯一致。</p>
+          </div>
+          <div class="round-grid reveal">
+            <div class="round-state"><span class="round-no">CURRENT ROUND</span><span class="round-value" id="s2-round">—</span><p>1 部 MAGNE.AI Phone Gen1 等待中選</p></div>
+            <div class="round-control">
+              <div class="progress-readout"><strong><span id="s2-current-entries">—</span>/100</strong><span>ENTRIES TOWARD NEXT SELECTION</span></div>
+              <div class="progress-track" aria-label="Season 2 current round progress"><div class="progress-fill" id="s2-progress"></div></div>
+              <p class="round-needed">NEXT SELECTION NEEDS <span class="cyan" id="s2-needed">—</span> MORE ENTRIES · 100 ENTRIES = 1,700 USDT</p>
+            </div>
+          </div>
+
+          <div class="section-head reveal" style="margin-top:70px">
+            <div><p class="section-label"><span class="index">S2.04</span> ENTRY PACKAGES</p><h2 class="section-title">原參與檔位。</h2></div>
+            <p class="section-copy">每個有效名額為 17 USDT，並記錄 10 MS2 活動積分；參與入口繼續使用原站。</p>
+          </div>
+          <div class="option-grid s2-options reveal">
+            <article class="entry-option"><span class="price">17</span><h3>Standard Entry</h3><p>1 ENTRY · 10 MS2</p></article>
+            <article class="entry-option"><span class="price">34</span><h3>Double Entry</h3><p>2 ENTRIES · 20 MS2</p></article>
+            <article class="entry-option"><span class="price">85</span><h3>Multi Entry</h3><p>5 ENTRIES · 50 MS2</p></article>
+            <article class="entry-option"><span class="price">170</span><h3>Team Entry</h3><p>10 ENTRIES · 100 MS2</p></article>
+            <article class="entry-option featured"><span class="price">1,700</span><h3>Full Round</h3><p>100 ENTRIES · 1,000 MS2 · TRIGGERS DRAW</p></article>
+          </div>
+          <div class="hero-actions reveal"><a class="btn primary" href="https://payment.magne.ai/lottery" target="_blank" rel="noopener noreferrer">$ join season 2 ↗</a></div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">S2.05</span> CAPITAL FLOW</p><h2 class="section-title">17 USDT，<br />如何分配。</h2></div>
+            <p class="section-copy">每回合 100 個名額，對應 1,700 USDT。以下為原 Dashboard 公佈的單份參與名額分配結構。</p>
+          </div>
+          <div class="allocation-grid reveal">
+            <article><strong>4.0</strong><span>USDT</span><p>Trading Liquidity Reserve</p></article>
+            <article><strong>4.0</strong><span>USDT</span><p>Operations, Marketing & Eligible Referral Rewards</p></article>
+            <article><strong>1.5</strong><span>USDT</span><p>Top Contributor Reward Pool</p></article>
+            <article><strong>7.5</strong><span>USDT</span><p>Treasury, Device Manufacturing & Other Allocation</p></article>
+          </div>
+          <div class="section-head reveal" style="margin-top:70px">
+            <div><p class="section-label"><span class="index">S2.06</span> ACTIVITY RECORDS</p><h2 class="section-title">最新中選與團隊獎勵。</h2></div>
+            <p class="section-copy" id="s2-record-state">正在讀取原頁面所使用的活動記錄介面。</p>
+          </div>
+          <div class="winner-list reveal" id="s2-winner-list" aria-live="polite">
+            <div class="winner-row"><span class="winner-round">[ LOADING ]</span><span class="winner-address">正在讀取完整中選位址介面。</span><span class="winner-state">PUBLIC API</span></div>
+          </div>
+          <p class="winner-summary reveal" id="s2-winners-count">正在讀取 Season 2 中選記錄。</p>
+          <div class="s2-record-grid reveal">
+            <div class="panel">
+              <div class="panel-head"><span>LATEST DRAW</span><span>PUBLIC API</span></div>
+              <div class="panel-body" id="s2-latest-draw"><p class="empty-copy">正在讀取最近中選記錄。</p></div>
+            </div>
+            <div class="panel">
+              <div class="panel-head"><span>TEAM REWARD LEADERBOARD</span><span>TOP 10</span></div>
+              <div class="table-scroll"><table class="data-table"><thead><tr><th>Rank</th><th>Share</th><th>USDT</th><th>Address</th></tr></thead><tbody id="s2-leaderboard"></tbody></table></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">S2.07</span> MS2 + ON-CHAIN SNAPSHOT</p><h2 class="section-title">積分、流動性與鏈上引用。</h2></div>
+            <p class="section-copy">MS2 總供應量來自 Token 合約 <span class="mono">totalSupply()</span>；質押數來自 Staking 代理合約 <span class="mono">totalStaked()</span>。兩者皆以 18 位元精度換算，不作 USDT 估值，也不等於 Season 2 活動累積積分。</p>
+          </div>
+          <div class="evidence-strip reveal">
+            <article class="evidence-metric"><span class="kicker">MS2 TOKEN TOTAL SUPPLY</span><span class="value" id="s2-ms2-issued">—</span><span class="unit">MS2 TOKEN · TOTALSUPPLY()</span></article>
+            <article class="evidence-metric"><span class="kicker">TOTAL MS2 STAKED</span><span class="value" id="s2-liquidity">—</span><span class="unit">STAKING PROXY · TOTALSTAKED()</span></article>
+            <article class="evidence-metric"><span class="kicker">BASE RATE</span><span class="value" id="s2-base-rate">—</span><span class="unit">SNAPSHOT VALUE</span></article>
+          </div>
+          <div class="campaign-terms reveal" style="margin-top:20px">
+            <article class="campaign-term"><span class="term-id">[ MS2 ]</span><h3>MS2 ≠ MHA</h3><p>用於活動追蹤、排行榜、質押權重及未來資格審查，不代表固定收益。</p></article>
+            <article class="campaign-term"><span class="term-id">[ WEIGHT ]</span><h3>有效權重</h3><p>MS2 數量 × 質押時長係數 × 社群等級係數。</p></article>
+            <article class="campaign-term"><span class="term-id">[ LIFECYCLE ]</span><h3>五階段</h3><p>Campaign → Staking → Snapshot → Unlock → Settlement。</p></article>
+          </div>
+          <div class="contract-line reveal">
+            <span>MS2 TOKEN: <a href="https://bscscan.com/address/0xC46A54BBD2716C436Aaaed6Ed2f555a9b054ebD1" target="_blank" rel="noopener">0xC46A…ebD1 ↗</a></span>
+            <span>LOTTERY PROXY: <a href="https://bscscan.com/address/0x6DE61D8438176741fc8150Aef53256830a6Dd635" target="_blank" rel="noopener">0x6DE6…d635 ↗</a></span>
+            <span>STAKING PROXY: <a href="https://bscscan.com/address/0xB6Ed72808fb34a3Ac118D397f49332abBAA484D8" target="_blank" rel="noopener">0xB6Ed…84D8 ↗</a></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section contract-intelligence" id="contract-intelligence">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">S2.08</span> CONTRACT INTELLIGENCE</p><h2 class="section-title">把活動規則，<br />變成可驗證證據。</h2></div>
+            <p class="section-copy">這裡不只列出合約地址。 W3 將 Proxy 狀態、Implementation 版本、資金流事件、質押健康度與許可權風險拆成可追溯的證據層。</p>
+          </div>
+
+          <div class="intel-status-line reveal" aria-label="Contract intelligence evidence levels">
+            <span class="source-chip onchain">ON-CHAIN</span><span>合約狀態或事件</span>
+            <span class="source-chip api">OFFICIAL API</span><span>官方業務介面</span>
+            <span class="source-chip calculated">CALCULATED</span><span>由已標註資料計算</span>
+            <span class="source-chip interface">INTERFACE</span><span>合約可讀或可監控能力</span>
+          </div>
+
+          <div class="contract-parameter-strip reveal" aria-label="Live lottery contract parameters">
+            <div><span>COST PER ENTRY</span><strong id="s2-contract-cost">—</strong><small>costPerDraw()</small></div>
+            <div><span>MS2 PER ENTRY</span><strong id="s2-contract-ms2">—</strong><small>ms2PerDraw()</small></div>
+            <div><span>MAX / WALLET</span><strong id="s2-contract-max">—</strong><small>MAX_DRAWS_PER_USER()</small></div>
+            <div><span>LOTTERY STATE</span><strong id="s2-contract-active">—</strong><small>lotteryActive()</small></div>
+          </div>
+
+          <div class="intel-grid reveal">
+            <article class="intel-panel integrity">
+              <div class="intel-panel-head"><span>[ 01 ] CONTRACT INTEGRITY</span><span class="intel-state" id="s2-contract-match">VERIFYING</span></div>
+              <div class="intel-panel-body">
+                <strong class="intel-value">PROXY → IMPLEMENTATION</strong>
+                <p>Lottery 與 Staking 代理的 EIP-1967 Implementation 槽均與技術參考中的版本一致。</p>
+                <dl class="intel-ledger">
+                  <div><dt>LOTTERY</dt><dd id="s2-lottery-implementation">—</dd></div>
+                  <div><dt>STAKING</dt><dd id="s2-staking-implementation">—</dd></div>
+                </dl>
+                <span class="evidence-note">ON-CHAIN REVIEW · 2026-08-15</span>
+              </div>
+            </article>
+
+            <article class="intel-panel staking-health">
+              <div class="intel-panel-head"><span>[ 02 ] STAKING HEALTH</span><span class="intel-state" id="s2-staking-state">CHECKING SOURCE</span></div>
+              <div class="intel-panel-body">
+                <strong class="intel-value cyan" id="s2-staking-ratio">—</strong>
+                <p>已質押 MS2 佔 Token 總供應量的比例。該比例不等於流通率，未質押餘額仍可能包含 Treasury、鎖倉或其他合約餘額。</p>
+                <dl class="intel-ledger">
+                  <div><dt>TOTAL SUPPLY</dt><dd id="s2-ci-supply">—</dd></div>
+                  <div><dt>TOTAL STAKED</dt><dd id="s2-ci-staked">—</dd></div>
+                </dl>
+                <span class="evidence-note">ON-CHAIN SNAPSHOT + CALCULATED</span>
+              </div>
+            </article>
+
+            <article class="intel-panel event-proof">
+              <div class="intel-panel-head"><span>[ 03 ] LOTTERY FLOW</span><span class="intel-state watch">EVENT READY</span></div>
+              <div class="intel-panel-body">
+                <strong class="intel-value" id="s2-ci-gross-usdt">—</strong>
+                <p>目前參與名額 × 17 USDT 的業務口徑總額。後續可用 <span class="mono">LotteryDrawn</span> 事件中的實際支付與分配欄位逐筆交叉核驗。</p>
+                <dl class="intel-ledger compact">
+                  <div><dt>VERIFY</dt><dd>amount</dd></div>
+                  <div><dt>REFERRAL</dt><dd>referrerReward</dd></div>
+                  <div><dt>BUYBACK</dt><dd>buybackAmount</dd></div>
+                  <div><dt>TEAM</dt><dd>teamAmount</dd></div>
+                </dl>
+                <span class="evidence-note">OFFICIAL API + EVENT RECONCILIATION</span>
+              </div>
+            </article>
+
+            <article class="intel-panel control-plane">
+              <div class="intel-panel-head"><span>[ 04 ] CONTROL PLANE</span><span class="intel-state alert">MONITOR</span></div>
+              <div class="intel-panel-body">
+                <strong class="intel-value">UPGRADEABLE</strong>
+                <p>合約支援升級、Owner / Signer 參數控制及緊急 Token 提取。這些是營運能力，也是交易所 DD 應持續監控的風險面。</p>
+                <dl class="intel-ledger compact">
+                  <div><dt>ALERT</dt><dd>Upgraded</dd></div>
+                  <div><dt>ALERT</dt><dd>OwnershipTransferred</dd></div>
+                  <div><dt>ALERT</dt><dd>SignerUpdated</dd></div>
+                  <div><dt>REVIEW</dt><dd>withdrawToken</dd></div>
+                </dl>
+                <span class="evidence-note">ABI CAPABILITY · NOT A RISK ALLEGATION</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="event-schema reveal">
+            <div class="event-schema-head">
+              <div><span class="event-kicker">LOTTERYDRAWN / VERIFICATION PATH</span><h3>一筆事件，核驗一次資金分配。</h3></div>
+              <span class="intel-state watch">LOG INDEX REQUIRED</span>
+            </div>
+            <div class="event-flow" aria-label="LotteryDrawn event fields">
+              <div><span>01</span><strong>USER + REFERRER</strong><small>參與與推薦關係</small></div>
+              <div><span>02</span><strong>COUNT + AMOUNT</strong><small>名額數與實付 USDT</small></div>
+              <div><span>03</span><strong>REFERRER REWARD</strong><small>推薦分配</small></div>
+              <div><span>04</span><strong>BUYBACK AMOUNT</strong><small>回購分配</small></div>
+              <div><span>05</span><strong>TEAM AMOUNT</strong><small>團隊分配</small></div>
+            </div>
+            <p class="event-formula"><span>DERIVED RESIDUAL</span> amount − referrerReward − buybackAmount − teamAmount <b>= Treasury / Device / Other review target</b></p>
+          </div>
+
+          <div class="evidence-warning reveal">
+            <span class="warning-index">SOURCE NOTE / 2026-08-15</span>
+            <p>目前 16 條歷史中選記錄來自官方 <span class="mono">/lottery2/winners</span> API。本次審查時，目前 Lottery Proxy 的事件歷史尚不足以重建這 16 輪歷史，因此 W3 將其標記為 <strong>OFFICIAL API</strong>，而非 ON-CHAIN VERIFIED。</p>
+          </div>
+
+          <details class="technical-reference reveal">
+            <summary><span>$ expand technical reference</span><span class="summary-state">ADDRESSES · EVENTS · MONITORING</span></summary>
+            <div class="technical-reference-body">
+              <div class="reference-block">
+                <h3>PROXY + IMPLEMENTATION MAP</h3>
+                <dl class="reference-list">
+                  <div><dt>MS2 TOKEN</dt><dd><a href="https://bscscan.com/address/0xC46A54BBD2716C436Aaaed6Ed2f555a9b054ebD1" target="_blank" rel="noopener">0xC46A54BBD2716C436Aaaed6Ed2f555a9b054ebD1 ↗</a></dd></div>
+                  <div><dt>LOTTERY PROXY</dt><dd><a href="https://bscscan.com/address/0x6DE61D8438176741fc8150Aef53256830a6Dd635" target="_blank" rel="noopener">0x6DE61D8438176741fc8150Aef53256830a6Dd635 ↗</a></dd></div>
+                  <div><dt>LOTTERY IMPLEMENTATION</dt><dd><a href="https://bscscan.com/address/0x877f5C053F3F3b43063572b432fF7B7F7B08226B" target="_blank" rel="noopener">0x877f5C053F3F3b43063572b432fF7B7F7B08226B ↗</a></dd></div>
+                  <div><dt>STAKING PROXY</dt><dd><a href="https://bscscan.com/address/0xB6Ed72808fb34a3Ac118D397f49332abBAA484D8" target="_blank" rel="noopener">0xB6Ed72808fb34a3Ac118D397f49332abBAA484D8 ↗</a></dd></div>
+                  <div><dt>STAKING IMPLEMENTATION</dt><dd><a href="https://bscscan.com/address/0x9a7d5E82aB8bb64e279D02F80FF87aD42397532C" target="_blank" rel="noopener">0x9a7d5E82aB8bb64e279D02F80FF87aD42397532C ↗</a></dd></div>
+                </dl>
+              </div>
+              <div class="reference-block">
+                <h3>HIGH-VALUE MONITORING</h3>
+                <ul class="reference-events">
+                  <li><span>LOTTERY</span> LotteryDrawn · CostPerDrawUpdated · FeeConfigUpdated · LotteryStatusChanged</li>
+                  <li><span>STAKING</span> Staked · Unstaked · RewardsClaimed · UnstakeFeeUpdated</li>
+                  <li><span>CONTROL</span> Upgraded · OwnershipTransferred · SignerUpdated · TreasuryUpdated</li>
+                  <li><span>STATE</span> totalSupply() · totalStaked() · costPerDraw() · ms2PerDraw()</li>
+                </ul>
+                <p class="reference-caveat">Proxy 儲存目前業務狀態；Implementation 用於 ABI、程式碼版本與升級核驗。不套用 Implementation 餘額代表目前業務餘額。</p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="content-section" id="sources">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">S2.09</span> DATA + SOURCES</p><h2 class="section-title">資料來自哪裡。</h2></div>
+            <p class="section-copy">公開快照優先；需要登入態的介面僅在可公開讀取時顯示結果。更新時間：<span class="mono" id="s2-fetched-at">—</span></p>
+          </div>
+          <div class="table-scroll reveal">
+            <table class="data-table">
+              <thead><tr><th>Source</th><th>Coverage</th><th>Refresh</th><th>Access</th></tr></thead>
+              <tbody>
+                <tr><td>SEASON 2 SNAPSHOT</td><td>Payment 業務聚合、名額、手機、輪次與 MS2 質押鏈上快照</td><td>每 60 秒</td><td><a class="cyan" href="https://jerrysohigh-create.github.io/magne-web/assets/data/lottery2-dashboard.json" target="_blank" rel="noopener">OPEN JSON ↗</a></td></tr>
+                <tr><td>BSC PARTICIPATION EVENTS</td><td>Entries、唯一直接參與 / 付款地址與從零增長序列的主資料來源；首事件至斷點使用 BscScan 索引補檔，之後按已確認區塊增量同步</td><td>服務端每 5 分鐘</td><td><a class="cyan" href="https://bscscan.com/address/0x6DE61D8438176741fc8150Aef53256830a6Dd635#events" target="_blank" rel="noopener">OPEN EVENTS ↗</a></td></tr>
+                <tr><td>DUNE QUERY 7914122</td><td>歷史交叉校驗快照；不再作為頁面重新整理依賴</td><td>按需複核</td><td><a class="cyan" href="https://dune.com/queries/7914122" target="_blank" rel="noopener">OPEN QUERY ↗</a></td></tr>
+                <tr><td>LOTTERY2 WINNERS API</td><td>中選輪次、完整錢包地址與收貨地址填寫狀態</td><td>每 60 秒</td><td><a class="cyan" href="https://payment.magne.ai/api/v1/lottery2/winners" target="_blank" rel="noopener">OPEN API ↗</a></td></tr>
+                <tr><td>LOTTERY2 LIST API</td><td>最近中選紀錄</td><td>每 30 秒</td><td><a class="cyan" href="https://payment.magne.ai/api/v1/lottery2/list" target="_blank" rel="noopener">OPEN API ↗</a></td></tr>
+                <tr><td>LOTTERY2 LEADERBOARD API</td><td>團隊獎勵排行榜</td><td>每 60 秒</td><td><a class="cyan" href="https://payment.magne.ai/api/v1/lottery2/leaderboard" target="_blank" rel="noopener">OPEN API ↗</a></td></tr>
+                <tr><td>ORIGINAL DASHBOARD</td><td>規則、計算口徑、合約與交叉核驗</td><td>原站維護</td><td><a class="cyan" href="https://jerrysohigh-create.github.io/magne-web/lottery-dashboard2.html" target="_blank" rel="noopener">OPEN ORIGINAL ↗</a></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="disclosure reveal"><strong>活動宣告：</strong>頁面只作透明度展示。所有獎勵、活動積分、資格、質押權重、排行榜與分配時間，均受官方規則、身份與反濫用審查、TGE 時間表、地區限制及適用法規約束。</div>
+        </div>
+      </section>
+    </main>
+    <footer id="site-footer"></footer>
+    <script src="../assets/js/tc/site.js?v=20260821-13"></script>
+    <script src="../assets/js/tc/season-2.js?v=20260821-4"></script>
+    <script src="../assets/js/tc/season-2-trend.js?v=20260821-2"></script>
+  <script src="../assets/js/season-status.js?v=20260821-4"></script>
+<script src="../assets/js/tc/analytics.js?v=20260821-2"></script>
+<script src="../assets/js/locale-switch.js?v=20260821-3"></script>
+</body>
+</html>

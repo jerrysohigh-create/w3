@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>開發者 — W3.MAGNE.AI</title>
+    <meta name="description" content="W3 developer surfaces, public testnet configuration and release gates." />
+    <link rel="stylesheet" href="../assets/css/site.css?v=20260821-19" />
+    <link rel="canonical" href="https://w3.magne.ai/tc/developers.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Developers — W3.MAGNE.AI" />
+  <meta property="og:description" content="W3 developer surfaces, public testnet configuration and release gates." />
+  <meta property="og:image" content="https://w3.magne.ai/assets/images/og/w3-system-card.svg" />
+  <meta property="og:url" content="https://w3.magne.ai/tc/developers.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0a0a0c" />
+  <link rel="icon" href="../assets/images/brand/w3-mark.svg" type="image/svg+xml" />
+  <link rel="manifest" href="../manifest.webmanifest" />
+  <link rel="alternate" hreflang="en" href="https://w3.magne.ai/developers.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/developers.html" />
+  <link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/developers.html" />
+  <link rel="stylesheet" href="../assets/css/locale.css?v=20260821-2" />
+</head>
+  <body data-page="developers" class="system-page developers-page" data-lang="zh-Hant" data-locale-peer="../developers.html" data-asset-root="../">
+    <header id="site-header"></header>
+    <main>
+      <section class="system-hero">
+        <div class="wrap">
+          <div class="system-hero-grid">
+            <div class="system-hero-copy">
+              <p class="eyebrow"><span class="index">05</span> DEVELOPER SURFACE / PUBLIC TESTNET</p>
+              <div class="system-state live"><span></span> PUBLIC CONFIG AVAILABLE · W3 SDK NOT RELEASED</div>
+              <h1 class="system-title">BUILD AGAINST<br /><span>EVIDENCE.</span></h1>
+              <p class="system-lede">先用公開網路參數驗證連線、區塊與合約行為。身份委託、AgentPay API 與生產憑證只有在安全邊界、版本策略和可觀測性完成後才會開放。</p>
+            </div>
+            <aside class="system-hero-aside" aria-label="Developer file identity">
+              <span>W3 / BUILD SURFACE</span><strong>05</strong><p>TESTNET FIRST<br />CLAIM-BOUND DOCS</p><small>FILE: DEV-001<br />REV: 2026.08</small>
+            </aside>
+          </div>
+          <dl class="system-ledger">
+            <div><dt>L1 CHAIN ID</dt><dd>20250810</dd></div>
+            <div><dt>L2 CHAIN ID</dt><dd>20250827</dd></div>
+            <div><dt>W3 SDK</dt><dd>NOT RELEASED</dd></div>
+            <div><dt>PUBLIC RPC</dt><dd>NO CREDENTIAL REQUIRED</dd></div>
+          </dl>
+          <div class="hero-actions">
+            <a class="btn primary" href="#quickstart">$ start with rpc →</a>
+            <a class="btn" href="terminal.html">$ open sandbox →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section network-stack" id="networks">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">05.1</span> NETWORK REGISTER</p><h2 class="section-title">兩層網路，<br />分別驗證。</h2></div>
+            <p class="section-copy">L1 與 M Hash L2 都是公開測試網。參數來自 W3 Network 當前公開配置；進入生產環境前必須重新核驗。</p>
+          </div>
+          <div class="table-scroll reveal">
+            <table class="data-table developer-config-table">
+              <thead><tr><th>Layer</th><th>Network</th><th>Chain ID</th><th>RPC</th><th>Explorer</th><th>State</th></tr></thead>
+              <tbody>
+                <tr><td>L1</td><td>MAGNE Testnet</td><td class="mono cyan">20250810</td><td class="mono">https://rpc.testnet.magicalhash.com</td><td><a class="cyan" href="https://explorer.testnet.magicalhash.com/" target="_blank" rel="noopener">OPEN ↗</a></td><td><span class="lime">RESPONDING</span></td></tr>
+                <tr><td>L2</td><td>M Hash L2 Testnet</td><td class="mono cyan">20250827</td><td class="mono">https://l2-rpc.testnet.magicalhash.com</td><td><a class="cyan" href="https://l2-explorer.testnet.magicalhash.com/" target="_blank" rel="noopener">OPEN ↗</a></td><td><span class="lime">RESPONDING</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="network-live-note reveal"><span>● VERIFIED</span> · 兩個 RPC 與瀏覽器入口已於本地整合階段驗證可響應；這不構成主網、穩定性或持續可用性承諾。</p>
+        </div>
+      </section>
+
+      <section class="content-section system-protocol" id="quickstart">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">05.2</span> MINIMUM CONNECTION</p><h2 class="section-title">四行程式碼，<br />先讀取鏈。</h2></div>
+            <p class="section-copy">這是公開 RPC 的最小隻讀連線示例。它不包含錢包、私鑰、簽名或生產授權，也不代表 W3 SDK。</p>
+          </div>
+          <div class="protocol-console code-console reveal">
+            <div class="protocol-topline"><span>READONLY / ETHERS.JS</span><span>NO WALLET · NO SECRET · TESTNET</span></div>
+            <pre><code><span class="code-dim">01</span>  <span class="code-key">import</span> { JsonRpcProvider } <span class="code-key">from</span> <span class="code-string">"ethers"</span>;
+<span class="code-dim">02</span>
+<span class="code-dim">03</span>  <span class="code-key">const</span> l1 = <span class="code-key">new</span> JsonRpcProvider(<span class="code-string">"https://rpc.testnet.magicalhash.com"</span>);
+<span class="code-dim">04</span>  <span class="code-key">const</span> l2 = <span class="code-key">new</span> JsonRpcProvider(<span class="code-string">"https://l2-rpc.testnet.magicalhash.com"</span>);
+<span class="code-dim">05</span>
+<span class="code-dim">06</span>  console.log(<span class="code-key">await</span> l1.getNetwork(), <span class="code-key">await</span> l2.getBlockNumber());</code></pre>
+            <div class="protocol-rule"><span>RULE / 01</span><strong>VERIFY CHAIN ID BEFORE WRITE</strong><small>Do not infer production readiness from a successful read.</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">05.3</span> BUILD SURFACE</p><h2 class="section-title">舊內容歸檔，<br />新介面分階段開放。</h2></div>
+            <p class="section-copy">原 Web3 開發資料被整理為能力索引；W3 只把目前可驗證的部分標成 OPEN，避免將方向性設計寫成已發布產品。</p>
+          </div>
+          <div class="surface-register reveal">
+            <article><span>01 / NETWORK</span><h3>連線 L1 / L2</h3><p>公開 RPC、Chain ID 與瀏覽器設定。</p><b class="lime">OPEN</b></article>
+            <article><span>02 / CONTRACT</span><h3>部署與讀取合約</h3><p>沿用 EVM 工具鏈；具體合約需逐項核驗。</p><b>REFERENCE</b></article>
+            <article><span>03 / DAPP</span><h3>皮夾與 DApp</h3><p>連線流程可測試，生產體驗尚未定版。</p><b>TESTNET</b></article>
+            <article><span>04 / AGENTPAY</span><h3>代理支付協議</h3><p>授權、策略、執行與收據介面正在定義。</p><b class="amber">DESIGN</b></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section developer-gates">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">05.4</span> RELEASE GATES</p><h2 class="section-title">能呼叫之前，<br />先定義責任。</h2></div>
+            <p class="section-copy">W3 開發介面的釋出門檻是可審計、安全、可撤銷且不會混淆 sandbox、testnet 與 production。</p>
+          </div>
+          <div class="table-scroll reveal"><table class="data-table system-status-table"><thead><tr><th>Gate</th><th>Required control</th><th>Public state</th></tr></thead><tbody>
+            <tr><td>IDENTITY / DELEGATION</td><td>代理人代表誰、授權範圍、有效期限與撤銷路徑</td><td><span class="amber">DESIGNING</span></td></tr>
+            <tr><td>POLICY / LIMITS</td><td>金額、頻率、物件與地理限制繫結策略上下文</td><td><span class="amber">DESIGNING</span></td></tr>
+            <tr><td>OBSERVABILITY</td><td>決策、執行、失敗原因與可驗證收據</td><td><span class="amber">DESIGNING</span></td></tr>
+            <tr><td>VERSION / ENVIRONMENT</td><td>Sandbox、testnet、production 明確隔離</td><td>REQUIRED</td></tr>
+            <tr><td>SECRET HANDLING</td><td>金鑰不進入前端、日誌與公開倉庫</td><td>REQUIRED</td></tr>
+          </tbody></table></div>
+          <div class="system-next reveal"><div><span>NEXT / CONTROLLED EXECUTION</span><h2>讀鏈後，<br />理解 AgentPay。</h2></div><div><p>從網路連線進入代理授權、策略控制、支付執行與可驗證收據的完整邊界。</p><a class="btn primary" href="agentpay.html">$ inspect agentpay →</a></div></div>
+        </div>
+      </section>
+    </main>
+    <footer id="site-footer"></footer>
+    <script src="../assets/js/tc/site.js?v=20260821-13"></script>
+  <script src="../assets/js/season-status.js?v=20260821-4"></script>
+<script src="../assets/js/tc/analytics.js?v=20260821-2"></script>
+<script src="../assets/js/locale-switch.js?v=20260821-3"></script>
+</body>
+</html>

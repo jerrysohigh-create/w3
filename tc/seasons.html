@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>活動季度 — W3.MAGNE.AI</title>
+    <meta name="description" content="MAGNE Season 1 archive and Season 2 live activity control panel." />
+    <link rel="stylesheet" href="../assets/css/site.css?v=20260821-19" />
+    <link rel="canonical" href="https://w3.magne.ai/tc/seasons.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Seasons — W3.MAGNE.AI" />
+  <meta property="og:description" content="MAGNE Season 1 archive and Season 2 live activity control panel." />
+  <meta property="og:image" content="https://w3.magne.ai/assets/images/og/w3-system-card.svg" />
+  <meta property="og:url" content="https://w3.magne.ai/tc/seasons.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0a0a0c" />
+  <link rel="icon" href="../assets/images/brand/w3-mark.svg" type="image/svg+xml" />
+  <link rel="manifest" href="../manifest.webmanifest" />
+  <link rel="alternate" hreflang="en" href="https://w3.magne.ai/seasons.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/seasons.html" />
+  <link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/seasons.html" />
+  <link rel="stylesheet" href="../assets/css/locale.css?v=20260821-2" />
+</head>
+  <body data-page="seasons" data-lang="zh-Hant" data-locale-peer="../seasons.html" data-asset-root="../">
+    <header id="site-header"></header>
+    <main>
+      <section class="page-hero">
+        <div class="wrap">
+          <p class="eyebrow"><span class="index">06</span> LIVE ACTIVITY</p>
+          <h1 class="page-title">商業動能，<span class="accent">用資料說話。</span></h1>
+          <p class="page-lede">SEASON 1 已結束並進入歷史檔案；SEASON 2 正在進行。這裡是兩季活動的統一入口，指標直接讀取公開資料來源，不以示例數字替代。</p>
+          <dl class="hero-ledger">
+            <div><dt>S1 State</dt><dd>ENDED</dd></div>
+            <div><dt>S2 State</dt><dd id="seasons-s2-state">CHECKING</dd></div>
+            <div><dt>Refresh</dt><dd>SOURCE-BOUND</dd></div>
+            <div><dt>Fallback</dt><dd>NO FAKE DATA</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div>
+              <p class="section-label"><span class="index">06.1</span> CAMPAIGN CONTROL</p>
+              <h2 class="section-title">兩季活動，<br />兩個獨立檔案。</h2>
+            </div>
+            <p class="section-copy" id="season-source-state">正在讀取公開活動資料。</p>
+          </div>
+          <div class="panel-grid reveal">
+            <article class="panel">
+              <div class="panel-head"><span>SEASON 01 / ENDED</span><span>CLOSED</span></div>
+              <div class="panel-body">
+                <h3 class="module-title">SEASON 1 抽獎活動</h3>
+                <p class="module-copy">歷史參與、抽獎結果與資格記錄已在 W3 內重建；原 Dashboard 保留為資料來源與交叉核驗入口。</p>
+                <div class="metric-grid" style="margin-top: 28px">
+                  <div class="metric"><span class="value" id="s1-participants">—</span><span class="label">Wallet addresses</span></div>
+                  <div class="metric"><span class="value" id="s1-entries">—</span><span class="label">Derived entries</span></div>
+                  <div class="metric"><span class="value" id="s1-units">—</span><span class="label">Units selected</span></div>
+                </div>
+                <div class="hero-actions">
+                  <a class="btn primary" href="season-1.html">$ open local dashboard →</a>
+                  <a class="btn" href="season-1.html#sources">$ inspect sources →</a>
+                </div>
+              </div>
+            </article>
+            <article class="panel">
+              <div class="panel-head"><span id="seasons-s2-panel-title">SEASON 02 / CHECKING</span><span id="seasons-s2-panel-state">● CHECKING</span></div>
+              <div class="panel-body">
+                <h3 class="module-title">SEASON 2 活動中心</h3>
+                <p class="module-copy">Payment API 提供活動總覽；BSC 參與事件提供已確認名額、唯一付款地址與推薦獎勵流向核驗。Dashboard 保留為查詢與交叉核驗入口。</p>
+                <div class="metric-grid" style="margin-top: 28px">
+                  <div class="metric"><span class="value" id="s2-participants">—</span><span class="label" id="s2-participants-label">Direct payers · referrers pending</span></div>
+                  <div class="metric"><span class="value" id="s2-entries">—</span><span class="label" id="s2-entries-label">Entries · MS2 pending</span></div>
+                  <div class="metric"><span class="value" id="s2-units-left">—</span><span class="label">Units remaining</span></div>
+                </div>
+                <div class="hero-actions">
+                  <a class="btn primary" href="season-2.html">$ open S2 control →</a>
+                  <a class="btn" href="https://payment.magne.ai/lottery" target="_blank" rel="noopener noreferrer">$ join season 2 ↗</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <footer id="site-footer"></footer>
+    <script src="../assets/js/tc/site.js?v=20260821-13"></script>
+    <script src="../assets/js/tc/seasons.js?v=20260821-3"></script>
+  <script src="../assets/js/season-status.js?v=20260821-4"></script>
+<script src="../assets/js/tc/analytics.js?v=20260821-2"></script>
+<script src="../assets/js/locale-switch.js?v=20260821-3"></script>
+</body>
+</html>

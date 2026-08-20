@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -16,15 +16,19 @@
   <meta name="theme-color" content="#0a0a0c" />
   <link rel="icon" href="assets/images/brand/w3-mark.svg" type="image/svg+xml" />
   <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="alternate" hreflang="en" href="https://w3.magne.ai/seasons.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/seasons.html" />
+  <link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/seasons.html" />
+  <link rel="stylesheet" href="assets/css/locale.css?v=20260821-2" />
 </head>
-  <body data-page="seasons">
+  <body data-page="seasons" data-lang="en" data-locale-peer="tc/seasons.html">
     <header id="site-header"></header>
     <main>
       <section class="page-hero">
         <div class="wrap">
           <p class="eyebrow"><span class="index">06</span> LIVE ACTIVITY</p>
-          <h1 class="page-title">商業動能，<span class="accent">用資料說話。</span></h1>
-          <p class="page-lede">SEASON 1 已结束并进入历史档案；SEASON 2 正在进行。这里是两季活动的统一入口，指标直接读取公开数据源，不以示例数字替代。</p>
+          <h1 class="page-title">Operating momentum.<span class="accent">Let the data speak.</span></h1>
+          <p class="page-lede">SEASON 1 has ended and entered the history archive; SEASON 2 is in progress. This is a unified entrance for the two seasons' activities. The indicators are directly read from public data sources and are not replaced by sample numbers.</p>
           <dl class="hero-ledger">
             <div><dt>S1 State</dt><dd>ENDED</dd></div>
             <div><dt>S2 State</dt><dd id="seasons-s2-state">CHECKING</dd></div>
@@ -39,16 +43,16 @@
           <div class="section-head reveal">
             <div>
               <p class="section-label"><span class="index">06.1</span> CAMPAIGN CONTROL</p>
-              <h2 class="section-title">两季活动，<br />两个独立档案。</h2>
+              <h2 class="section-title">Two campaign seasons.<br />Two distinct records.</h2>
             </div>
-            <p class="section-copy" id="season-source-state">正在读取公开活动资料。</p>
+            <p class="section-copy" id="season-source-state">is loading public event data.</p>
           </div>
           <div class="panel-grid reveal">
             <article class="panel">
               <div class="panel-head"><span>SEASON 01 / ENDED</span><span>CLOSED</span></div>
               <div class="panel-body">
-                <h3 class="module-title">SEASON 1 抽奖活动</h3>
-                <p class="module-copy">历史参与、抽奖结果与资格记录已在 W3 内重建；原 Dashboard 保留为数据来源与交叉核验入口。</p>
+                <h3 class="module-title">SEASON 1 Sweepstakes</h3>
+                <p class="module-copy">Historical participation, lottery results and qualification records have been reconstructed in W3; the original Dashboard remains as the data source and cross-checking entry.</p>
                 <div class="metric-grid" style="margin-top: 28px">
                   <div class="metric"><span class="value" id="s1-participants">—</span><span class="label">Wallet addresses</span></div>
                   <div class="metric"><span class="value" id="s1-entries">—</span><span class="label">Derived entries</span></div>
@@ -63,8 +67,8 @@
             <article class="panel">
               <div class="panel-head"><span id="seasons-s2-panel-title">SEASON 02 / CHECKING</span><span id="seasons-s2-panel-state">● CHECKING</span></div>
               <div class="panel-body">
-                <h3 class="module-title">SEASON 2 活动中心</h3>
-                <p class="module-copy">Payment API 提供活动总览；BSC 参与事件提供已确认名额、唯一付款地址与推荐奖励流向核验。Dashboard 保留为查询与交叉核验入口。</p>
+                <h3 class="module-title">SEASON 2 Activity Center</h3>
+                <p class="module-copy">Payment API provides an overview of activities; BSC participation events provide verification of confirmed quotas, unique payment addresses, and referral reward flow. Dashboard is reserved for query and cross-checking.</p>
                 <div class="metric-grid" style="margin-top: 28px">
                   <div class="metric"><span class="value" id="s2-participants">—</span><span class="label" id="s2-participants-label">Direct payers · referrers pending</span></div>
                   <div class="metric"><span class="value" id="s2-entries">—</span><span class="label" id="s2-entries-label">Entries · MS2 pending</span></div>
@@ -82,9 +86,10 @@
 
     </main>
     <footer id="site-footer"></footer>
-    <script src="assets/js/site.js?v=20260821-12"></script>
-    <script src="assets/js/seasons.js?v=20260821-1"></script>
-  <script src="assets/js/season-status.js?v=20260821-2"></script>
-<script src="assets/js/analytics.js?v=20260821-1"></script>
+    <script src="assets/js/site.js?v=20260821-13"></script>
+    <script src="assets/js/seasons.js?v=20260821-3"></script>
+  <script src="assets/js/season-status.js?v=20260821-4"></script>
+<script src="assets/js/analytics.js?v=20260821-2"></script>
+<script src="assets/js/locale-switch.js?v=20260821-3"></script>
 </body>
 </html>

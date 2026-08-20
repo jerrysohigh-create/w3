@@ -34,7 +34,7 @@
     var panel = document.createElement("aside");
     panel.className = "analytics-consent";
     panel.setAttribute("aria-label", "Analytics consent");
-    panel.innerHTML = '<strong>PRIVACY / OPTIONAL ANALYTICS</strong><p>W3 仅在你同意后加载 GA4，用于衡量页面访问与站内导流；拒绝不会影响网站功能。详情见 <a href="' + (document.body.dataset.root || "") + 'privacy-policy.html">Privacy Policy</a>。</p><div class="analytics-consent__actions"><button type="button" data-analytics-accept>ALLOW ANALYTICS</button><button type="button" data-analytics-reject>CONTINUE WITHOUT</button></div>';
+    panel.innerHTML = '<strong>PRIVACY / OPTIONAL ANALYTICS</strong><p>W3 loads GA4 only after consent to measure page visits and internal journeys. Declining does not affect site functions. See the <a href="' + (document.body.dataset.root || "") + 'privacy-policy.html">Privacy Policy</a>.</p><div class="analytics-consent__actions"><button type="button" data-analytics-accept>ALLOW ANALYTICS</button><button type="button" data-analytics-reject>CONTINUE WITHOUT</button></div>';
     panel.querySelector("[data-analytics-accept]").addEventListener("click", function () {
       remember("granted");
       panel.remove();

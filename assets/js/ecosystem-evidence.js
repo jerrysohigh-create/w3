@@ -5,57 +5,57 @@
     updated: "2026-08-21",
     basis: "HISTORICAL PARTNER INDEX + PUBLIC WEB SWEEP THROUGH 2026-08-21",
     records: [
-      { date: "2026-01-20", partner: "M3 DAO", publisher: "MAGNE.AI", handle: "@Magne_Ai → @M3DAO_global", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/2013538993229746519", profileUrl: "https://x.com/M3DAO_global", profileLabel: "M3 DAO X ↗", note: "MAGNE 官方合作声明已锁定；M3 DAO 独立发布、引用、回复或转发仍待索引。" },
-      { date: "2026-01-13", partner: "Hyra Network", publisher: "MAGNE.AI", handle: "@Magne_Ai → @hyranetwork", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/2010921972386185673", profileUrl: "https://x.com/hyranetwork", profileLabel: "HYRA X ↗", note: "MAGNE 官方合作声明已锁定；Hyra Network 独立发布、引用、回复或转发仍待索引。" },
-      { date: "2026-01-12", partner: "OfficialAIOS", publisher: "MAGNE.AI + AIOS", handle: "@Magne_Ai / @OfficialAIOS", source: "dual", verification: "dual-post", url: "https://x.com/Magne_Ai/status/2010357266642547182", secondaryUrl: "https://x.com/OfficialAIOS/status/2010686587571696052", secondaryLabel: "PARTNER SOURCE ↗", note: "双方各自发布合作内容，两个官方 X status 均已锁定。" },
-      { date: "2026-01-08", partner: "iFlux Global", publisher: "iFlux Global + MAGNE.AI", handle: "@iFluxGlobal / @Magne_Ai", source: "dual", verification: "partner-quote-confirmed", url: "https://x.com/iFluxGlobal/status/2009195730288992579", secondaryUrl: "https://x.com/Magne_Ai/status/2009067781103485386", secondaryLabel: "MAGNE SOURCE ↗", note: "合作方官方帖引用 MAGNE 官方原帖；两个原始 status 均已锁定。" },
-      { date: "2026-01-06", partner: "MetaArena", publisher: "Meta Arena + MAGNE.AI", handle: "@MetaArenaGaming / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/MetaArenaGaming/status/2008438817272066451", secondaryUrl: "https://x.com/Magne_Ai/status/2008335203719319608", secondaryLabel: "MAGNE SOURCE ↗", note: "历史 PDF 重复了 iFlux 链接；现已回收到双方官方 X 原帖。" },
-      { date: "2025-12-08", partner: "AgentBay", publisher: "AgentBay", handle: "@The_AgentBay", source: "partner", url: "https://x.com/The_AgentBay/status/1997893903870275870", profileUrl: "https://x.com/The_AgentBay", profileLabel: "AGENTBAY X ↗", note: "合作方原帖仍可公开读取；未发现 MAGNE 独立原帖、官方回复或可定位的引用／转发 status。" },
-      { date: "2025-12-04", partner: "ManusPay", publisher: "ManusPay + MAGNE.AI", handle: "@ManusPay_X / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/ManusPay_X/status/1996466857671610378", secondaryUrl: "https://x.com/Magne_Ai/status/2026998702657937411", secondaryLabel: "MAGNE SOURCE ↗", note: "ManusPay 首次公告与 MAGNE 后续集成公告的双方原始 X status 均已锁定。" },
-      { date: "2025-12-02", partner: "RubberVerse", publisher: "MAGNE.AI", handle: "@Magne_Ai → @RubberVerseX", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/1995790376293335050", profileUrl: "https://x.com/RubberVerseX", profileLabel: "RUBBERVERSE X ↗", note: "MAGNE 官方合作声明已锁定；RubberVerse 独立发布、引用、回复或转发仍待索引。" },
-      { date: "2025-11-28", partner: "EPHYRA", publisher: "MAGNE.AI", handle: "@Magne_Ai", source: "magne", verification: "source-inaccessible", url: "https://x.com/Magne_Ai/status/1994388111087075837", note: "2026-08-20 复核时 X 明确返回内容不可用／404；保留历史索引，不再计入有效单边来源。" },
-      { date: "2025-11-27", partner: "TradeTalentAI", publisher: "MAGNE.AI", handle: "@Magne_Ai → @TradeTalentAI", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/1993861574239650183", profileUrl: "https://x.com/TradeTalentAI", profileLabel: "TRADE TALENT X ↗", note: "MAGNE 官方合作声明已锁定；TradeTalentAI 独立发布、引用、回复或转发仍待索引。" },
-      { date: "2025-11-25", partner: "Mix Max", publisher: "Mix Max", handle: "@mixmax_mc", source: "partner", url: "https://x.com/mixmax_mc/status/1993176213301739854", profileUrl: "https://x.com/mixmax_mc", profileLabel: "MIX MAX X ↗", note: "合作方原帖仍可公开读取；未发现 MAGNE 独立原帖、官方回复或可定位的引用／转发 status。" },
-      { date: "2025-11-20", partner: "NexusChain", publisher: "MAGNE.AI", handle: "@Magne_Ai", source: "magne", verification: "source-inaccessible", url: "https://x.com/Magne_Ai/status/1991394040122618236", note: "2026-08-20 复核时 X 明确返回内容不可用／404；保留历史索引，不再计入有效单边来源。" },
-      { date: "2025-11-13", partner: "ICB Network", publisher: "MAGNE.AI + ICB Network reply", handle: "@Magne_Ai / @icbx_network", source: "dual", verification: "reply-confirmed", url: "https://x.com/Magne_Ai/status/1988792613303120088", secondaryUrl: "https://x.com/icbx_network/status/1988823819553771861", secondaryLabel: "PARTNER REPLY ↗", note: "MAGNE 官方原帖与合作方官方账号确认回复均已锁定；合作方账号显示名与历史 @ICBnetwork 提及存在迁移。" },
-      { date: "2025-11-11", partner: "KPOPCLICK Labs", publisher: "MAGNE.AI", handle: "@Magne_Ai → @kpopclick_labs", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/1988043024845418824", profileUrl: "https://x.com/kpopclick_labs", profileLabel: "KPOPCLICK X ↗", note: "MAGNE 官方合作声明已锁定；KPOPCLICK Labs 独立发布、引用、回复或转发仍待索引。" },
-      { date: "2025-11-08", partner: "SOEI", publisher: "SOEI + MAGNE.AI", handle: "@soei_io / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/soei_io/status/1987174896246694145", secondaryUrl: "https://x.com/Magne_Ai/status/1986196873900925266", secondaryLabel: "MAGNE SOURCE ↗", note: "双方官方原帖均已锁定。" },
-      { date: "2025-11-04", partner: "Dmail", publisher: "MAGNE.AI", handle: "@Magne_Ai → @Dmailofficial", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/1985631845581517301", profileUrl: "https://x.com/Dmailofficial", profileLabel: "DMAIL X ↗", note: "MAGNE 官方合作声明已锁定；Dmail 独立发布、引用、回复或转发仍待索引。" },
-      { date: "2025-11-02", partner: "CRMClick / Cerram Meta", publisher: "CRMClick + MAGNE.AI", handle: "@Cerram_Meta / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/Cerram_Meta/status/1984833372686795188", secondaryUrl: "https://x.com/Magne_Ai/status/1990688410147959239", secondaryLabel: "MAGNE SOURCE ↗", note: "CRMClick 官方合作帖发布于 2025-11-02，MAGNE 后续官方帖亦已锁定；历史资料中的 cerram_meta 写法已按官方账号 @Cerram_Meta 校正。" },
-      { date: "2025-10-31", partner: "Metya", publisher: "Metya + MAGNE.AI", handle: "@metyacom / @Magne_Ai", source: "dual", verification: "partner-quote-confirmed", url: "https://x.com/metyacom/status/1984269440838729960", secondaryUrl: "https://x.com/Magne_Ai/status/1983876027484139904", secondaryLabel: "MAGNE SOURCE ↗", note: "合作方官方帖引用 MAGNE 官方原帖。" },
-      { date: "2025-10-29", partner: "ENI", publisher: "ENI + MAGNE.AI", handle: "@ENI__Official / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/ENI__Official/status/1983246900754297128", secondaryUrl: "https://x.com/Magne_Ai/status/1983183360211193978", secondaryLabel: "MAGNE SOURCE ↗", note: "双方官方原帖均已锁定。" },
-      { date: "2025-10-27", partner: "MOMO", publisher: "MOMO + MAGNE.AI", handle: "@MOMOisFUN / @Magne_Ai", source: "dual", verification: "partner-quote-confirmed", url: "https://x.com/MOMOisFUN/status/1982718630329503898", secondaryUrl: "https://x.com/Magne_Ai/status/1981700891200889262", secondaryLabel: "MAGNE SOURCE ↗", note: "合作方官方帖引用 MAGNE 官方原帖。" },
-      { date: "2025-10-22", partner: "Samurai Warlords", publisher: "MAGNE.AI", handle: "@Magne_Ai → @SamuraiWarlords", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/1980946097590911054", profileUrl: "https://x.com/SamuraiWarlords", profileLabel: "SAMURAI WARLORDS X ↗", note: "MAGNE 官方合作声明已锁定；Samurai Warlords 独立发布、引用、回复或转发仍待索引。" },
-      { date: "2025-10-16", partner: "Grand Gangsta City", publisher: "Grand Gangsta City + MAGNE.AI", handle: "@grandgangstaci / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/grandgangstaci/status/1978817159405916516", secondaryUrl: "https://x.com/Magne_Ai/status/1978706019284128008", secondaryLabel: "MAGNE SOURCE ↗", note: "双方官方原帖均已锁定。" },
-      { date: "2025-10-14", partner: "AYLab", publisher: "MAGNE.AI", handle: "@Magne_Ai → @Aylab_io", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/1978079098305192383", profileUrl: "https://x.com/Aylab_io", profileLabel: "AYLAB X ↗", note: "MAGNE 官方合作声明已锁定；AYLab 独立发布、引用、回复或转发仍待索引。" },
-      { date: "2025-10-09", partner: "JSR Coin", publisher: "JSR Coin + MAGNE.AI", handle: "@JSR_Coin / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/JSR_Coin/status/1976283611734351977", secondaryUrl: "https://x.com/Magne_Ai/status/1976284086831378840", secondaryLabel: "MAGNE SOURCE ↗", note: "双方官方原帖均已锁定。" },
-      { date: "2025-10-07", partner: "UBI Network", publisher: "UBI Network + MAGNE.AI", handle: "@ubinetworkdepin / @Magne_Ai", source: "dual-observed", verification: "bilateral-confirmed-pending", url: "https://x.com/ubinetworkdepin/status/1975467188715991125", profileUrl: "https://x.com/ubinetworkdepin", profileLabel: "UBI NETWORK X ↗", secondaryProfileUrl: "https://x.com/Magne_Ai", secondaryProfileLabel: "MAGNE X ↗", note: "UBI Network 官方合作原帖已锁定，双方官方确认成立，归入双边记录；MAGNE 对应确认的 status ID 尚待回收。" },
-      { date: "2025-10-02", partner: "ATT", publisher: "Advertising Time Trace + MAGNE.AI", handle: "@aiwayworld / @Magne_Ai", source: "dual", verification: "partner-quote-confirmed", url: "https://x.com/aiwayworld/status/1973941040962011584", secondaryUrl: "https://x.com/Magne_Ai/status/1973763617091907842", secondaryLabel: "MAGNE SOURCE ↗", note: "合作方官方帖引用 MAGNE 官方原帖。" },
-      { date: "2025-09-30", partner: "SquadBoom", publisher: "MAGNE.AI", handle: "@Magne_Ai → @SquadBoomWeb3", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/1972990881172279544", profileUrl: "https://x.com/SquadBoomWeb3", profileLabel: "SQUADBOOM X ↗", note: "MAGNE 官方合作声明已锁定；SquadBoom 独立发布、引用、回复或转发仍待索引。" },
-      { date: "2025-09-25", partner: "EVX Protocol", publisher: "EVX Protocol + MAGNE.AI", handle: "@EVXDepin / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/EVXDepin/status/1971085263196782757", secondaryUrl: "https://x.com/Magne_Ai/status/1971034236699459628", secondaryLabel: "MAGNE SOURCE ↗", note: "双方官方合作原帖均已锁定。" },
-      { date: "2025-09-22", partner: "U2DPN", publisher: "U2DPN + MAGNE.AI", handle: "@u2dpn_network / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/u2dpn_network/status/1970383595052347624", secondaryUrl: "https://x.com/Magne_Ai/status/1970094185614344247", secondaryLabel: "MAGNE SOURCE ↗", note: "双方官方合作原帖均已锁定；日期按最早的 MAGNE 原帖记录。" },
-      { date: "2025-09-18", partner: "Qitmeer Network", publisher: "Qitmeer Network + MAGNE.AI", handle: "@QitmeerNetwork / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/QitmeerNetwork/status/1968846162896810002", secondaryUrl: "https://x.com/Magne_Ai/status/1968654201258758223", secondaryLabel: "MAGNE SOURCE ↗", note: "双方官方合作原帖均已锁定；日期按最早的 MAGNE 原帖记录。" },
-      { date: "2025-09-16", partner: "mobiNODE", publisher: "mobiNODE + MAGNE.AI", handle: "@mobiNode_ / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/mobiNode_/status/1967901383052628293", secondaryUrl: "https://x.com/Magne_Ai/status/1967891050644885618", secondaryLabel: "MAGNE SOURCE ↗", note: "双方官方合作原帖均已锁定。" },
-      { date: "2025-09-11", partner: "NTH", publisher: "NTH + MAGNE.AI", handle: "@nthchain / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/nthchain/status/1965988345034731863", secondaryUrl: "https://x.com/Magne_Ai/status/1965986121625776192", secondaryLabel: "MAGNE SOURCE ↗", note: "双方官方合作原帖均已锁定。" },
-      { date: "2025-09-09", partner: "Fomo", publisher: "MAGNE.AI", handle: "@Magne_Ai → @Fomo__in", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/1965413262759231845", profileUrl: "https://x.com/Fomo__in", profileLabel: "FOMO X ↗", note: "MAGNE 官方生态连接声明已锁定；Fomo 独立发布、引用、回复或转发仍待索引。" },
-      { date: "2025-09-06", partner: "Ari Wallet", publisher: "MAGNE.AI", handle: "@Magne_Ai → @Ari_Wallet_", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/1964252240757006785", profileUrl: "https://x.com/Ari_Wallet_", profileLabel: "ARI WALLET X ↗", note: "MAGNE 官方合作声明已锁定；Ari Wallet 独立发布、引用、回复或转发仍待索引。" },
-      { date: "2025-09-02", partner: "DePINscan", publisher: "MAGNE.AI + DePINscan", handle: "@Magne_Ai / DePINscan project registry", source: "dual", verification: "platform-listing-confirmed", url: "https://x.com/Magne_Ai/status/1962703770862920048", linkLabel: "MAGNE SOURCE ↗", secondaryUrl: "https://depinscan.io/projects/magne-ai", secondaryLabel: "DEPINSCAN PROJECT ↗", secondaryKind: "platform", profileUrl: "https://x.com/DePINscan", profileLabel: "DEPINSCAN X ↗", note: "MAGNE 官方上线原帖与 DePINscan 官方项目页均已锁定；项目页明确收录 Magne.AI、项目分类与简介，作为平台侧持续公开证据，不表述为双方各自 X 发帖。" },
-      { date: "2025-08-28", partner: "DuckDAO", publisher: "DuckDAO + MAGNE.AI quote", handle: "@dao_duck / @Magne_Ai", source: "dual", verification: "dual-capital", url: "https://x.com/dao_duck/status/1960993591204999248", secondaryUrl: "https://x.com/Magne_Ai/status/1961056695129432464", secondaryLabel: "MAGNE QUOTE ↗", note: "DuckDAO 官方宣布战略支持 MAGNE；MAGNE 官方引用原帖确认。归类为资本与战略支持关系。" },
-      { date: "2025-08-25", partner: "Becker Ventures", publisher: "Becker Ventures + MAGNE.AI", handle: "@BeckerVentures / @Magne_Ai", source: "dual", verification: "dual-capital", url: "https://x.com/BeckerVentures/status/1959820378785890436", secondaryUrl: "https://x.com/Magne_Ai/status/1959214655425171628", secondaryLabel: "MAGNE FINANCING ↗", tertiaryUrl: "https://x.com/BeckerVentures/status/1961253867976605962", tertiaryLabel: "BECKER INVESTMENT ↗", note: "Becker Ventures 引用 MAGNE 的 1,000 万美元融资公告确认支持，并于 2025-08-29 再次独立说明投资关系。" },
-      { date: "2025-08-28", partner: "TBV", publisher: "TBV + MAGNE.AI quote", handle: "@_thebestevent / @Magne_Ai", source: "dual", verification: "dual-capital", url: "https://x.com/_thebestevent/status/1960887501679419677", secondaryUrl: "https://x.com/Magne_Ai/status/1960898147963822144", secondaryLabel: "MAGNE QUOTE ↗", note: "TBV 官方宣布投资 MAGNE；MAGNE 官方引用原帖确认。原 @tbvxyz 已迁移为 @_thebestevent。" },
-      { date: "2025-08-23", partner: "Castrum Istanbul", publisher: "Castrum Istanbul + MAGNE.AI quote", handle: "@castrumistanbul / @Magne_Ai", source: "dual", verification: "dual-capital", url: "https://x.com/castrumistanbul/status/1959289503740219695", secondaryUrl: "https://x.com/Magne_Ai/status/1959403931785970010", secondaryLabel: "MAGNE QUOTE ↗", note: "Castrum 官方宣布战略支持；MAGNE 官方引用原帖确认。X 时间戳为 2025-08-23，已替代历史 PDF 的模糊日期。" },
-      { date: "2025-08-23", partner: "AI Auction", publisher: "AI Auction", handle: "@Ai_Auctions", source: "partner", verification: "single-partner", url: "https://x.com/Ai_Auctions/status/1959120495301070920", profileUrl: "https://x.com/Ai_Auctions", profileLabel: "AI AUCTION X ↗", note: "原始 status 地址保留；X 当前返回临时读取错误而非明确 404，暂维持单边并标记后续复核。" },
-      { date: "2025-08-20", partner: "AI Xovia", publisher: "AI Xovia + MAGNE.AI", handle: "@AiXovia / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/AiXovia/status/1958594433886429266", secondaryUrl: "https://x.com/Magne_Ai/status/1958006419833384998", secondaryLabel: "MAGNE SOURCE ↗", note: "双方官方合作原帖均已锁定；日期按最早的 MAGNE 原帖记录。" },
-      { date: "2026-03-28", partner: "HPX", publisher: "MAGNE.AI", handle: "@Magne_Ai → @Hpx_Official", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/2037818979767447591", linkLabel: "MAGNE ACTIVITY SOURCE ↗", profileUrl: "https://x.com/Hpx_Official", profileLabel: "HPX X ↗", note: "MAGNE.AI 与 HPX 的 HyperCard 联合活动原帖已锁定，替代此前不可用的历史地址；暂未找到 HPX 对应原帖或官方回复 status，因此定义为 MAGNE 单源记录。" },
-      { date: "2025-08-15", partner: "Zoro", publisher: "Zoro + MAGNE.AI", handle: "@zorotechnology / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/zorotechnology/status/1956294809200812142", secondaryUrl: "https://x.com/Magne_Ai/status/1956329406189940985", secondaryLabel: "MAGNE SOURCE ↗", note: "双方官方合作原帖均已锁定。" },
-      { date: "2025-08-13", partner: "EDITH / IX RWA", publisher: "EDITH / IX RWA + MAGNE.AI", handle: "@ixrwacapital / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/ixrwacapital/status/1955703508898078849", secondaryUrl: "https://x.com/Magne_Ai/status/1955961870143381915", secondaryLabel: "MAGNE SOURCE ↗", note: "双方官方合作原帖均已锁定；原 @edithAPP 已迁移为 @ixrwacapital。" },
-      { date: "2025-08-13", partner: "CheersLand", publisher: "CheersLand + MAGNE.AI", handle: "@cheers_land / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/cheers_land/status/1955670276009767122", secondaryUrl: "https://x.com/Magne_Ai/status/1955921300809285914", secondaryLabel: "MAGNE SOURCE ↗", note: "双方官方合作原帖均已锁定；日期按最早的 CheersLand 原帖记录。" },
-      { date: "2025-08-13", partner: "AscendEX", publisher: "AscendEX", handle: "@AscendEX_", source: "partner", url: "https://x.com/AscendEX_/status/1955585134465323204", profileUrl: "https://x.com/AscendEX_", profileLabel: "ASCENDEX X ↗", note: "合作方原帖仍可公开读取；未发现 MAGNE 独立原帖、官方回复或可定位的引用／转发 status。" },
-      { date: "2025-08-12", partner: "Prime Yield", publisher: "Prime Yield + MAGNE.AI", handle: "@prime_yield / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/prime_yield/status/1954959643668779402", secondaryUrl: "https://x.com/Magne_Ai/status/1955089884433314174", secondaryLabel: "MAGNE SOURCE ↗", note: "双方官方原帖均已锁定。" },
-      { date: "2025-08-11", partner: "INTO", publisher: "INTO + MAGNE.AI", handle: "@intoverse_ / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/intoverse_/status/1955163455989699071", secondaryUrl: "https://x.com/Magne_Ai/status/1954873457407377778", secondaryLabel: "MAGNE SOURCE ↗", note: "双方官方合作原帖均已锁定。" },
-      { date: "2025-08-08", partner: "WorldAssets / RWAX", publisher: "RWAX + MAGNE.AI quote", handle: "@RWAX_life / @Magne_Ai", source: "dual", verification: "quote-confirmed", url: "https://x.com/RWAX_life/status/1953820882801160195", secondaryUrl: "https://x.com/Magne_Ai/status/1959869525949833706", secondaryLabel: "MAGNE QUOTE ↗", note: "RWAX 发布 WorldAssets 与 MAGNE 的生态合作信息，MAGNE 官方引用确认；未发现 WorldAssets 官方账号独立原帖，因此不表述为双方各自发文。" },
-      { date: "2025-08-05", partner: "Tx24", publisher: "Tx24 + MAGNE.AI quote", handle: "@tx24io / @Magne_Ai", source: "dual", verification: "quote-confirmed", url: "https://x.com/tx24io/status/1952696180896346546", secondaryUrl: "https://x.com/Magne_Ai/status/1952705281302958160", secondaryLabel: "MAGNE QUOTE ↗", note: "TX24 官方发布合作公告；MAGNE 随后引用原帖确认合作。双方原始 X status 均已锁定。" },
-      { date: "2026-05-29", partner: "AISIM", publisher: "MAGNE.AI + AISIM", handle: "@Magne_Ai / @AISIM_EN", source: "dual-observed", verification: "joint-activation-confirmed", url: "https://x.com/Magne_Ai/status/2060217067173749136", linkLabel: "JOINT ACTIVITY SOURCE ↗", profileUrl: "https://x.com/AISIM_EN", profileLabel: "AISIM EN X ↗", note: "原帖明确标注 MAGNE.AI × AISIM Partnership Giveaway，并要求同时关注双方有效官方账号，属于双方联合活动记录；旧失效账号及其关联历史来源已移除。" }
+      { date: "2026-01-20", partner: "M3 DAO", publisher: "MAGNE.AI", handle: "@Magne_Ai → @M3DAO_global", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/2013538993229746519", profileUrl: "https://x.com/M3DAO_global", profileLabel: "M3 DAO X ↗", note: "MAGNE official cooperation statement has been locked; M3 DAO independent publication, citation, reply or forwarding still needs to be indexed." },
+      { date: "2026-01-13", partner: "Hyra Network", publisher: "MAGNE.AI", handle: "@Magne_Ai → @hyranetwork", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/2010921972386185673", profileUrl: "https://x.com/hyranetwork", profileLabel: "HYRA X ↗", note: "MAGNE official cooperation statement is locked; independent publication, citation, reply or forwarding by Hyra Network remains to be indexed." },
+      { date: "2026-01-12", partner: "OfficialAIOS", publisher: "MAGNE.AI + AIOS", handle: "@Magne_Ai / @OfficialAIOS", source: "dual", verification: "dual-post", url: "https://x.com/Magne_Ai/status/2010357266642547182", secondaryUrl: "https://x.com/OfficialAIOS/status/2010686587571696052", secondaryLabel: "PARTNER SOURCE ↗", note: "Both parties have released cooperation content respectively, and both official X statuses have been locked." },
+      { date: "2026-01-08", partner: "iFlux Global", publisher: "iFlux Global + MAGNE.AI", handle: "@iFluxGlobal / @Magne_Ai", source: "dual", verification: "partner-quote-confirmed", url: "https://x.com/iFluxGlobal/status/2009195730288992579", secondaryUrl: "https://x.com/Magne_Ai/status/2009067781103485386", secondaryLabel: "MAGNE SOURCE ↗", note: "The official post of the partner quotes the original official post of MAGNE; both original statuses have been locked." },
+      { date: "2026-01-06", partner: "MetaArena", publisher: "Meta Arena + MAGNE.AI", handle: "@MetaArenaGaming / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/MetaArenaGaming/status/2008438817272066451", secondaryUrl: "https://x.com/Magne_Ai/status/2008335203719319608", secondaryLabel: "MAGNE SOURCE ↗", note: "History PDF duplicates iFlux link; now recycled to both parties' official X original posts." },
+      { date: "2025-12-08", partner: "AgentBay", publisher: "AgentBay", handle: "@The_AgentBay", source: "partner", url: "https://x.com/The_AgentBay/status/1997893903870275870", profileUrl: "https://x.com/The_AgentBay", profileLabel: "AGENTBAY X ↗", note: "The original post of the partner is still publicly readable; no MAGNE independent original post, official reply, or locateable citation/repost status was found." },
+      { date: "2025-12-04", partner: "ManusPay", publisher: "ManusPay + MAGNE.AI", handle: "@ManusPay_X / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/ManusPay_X/status/1996466857671610378", secondaryUrl: "https://x.com/Magne_Ai/status/2026998702657937411", secondaryLabel: "MAGNE SOURCE ↗", note: "The original X status of both sides of ManusPay's first announcement and MAGNE's subsequent integration announcement has been locked." },
+      { date: "2025-12-02", partner: "RubberVerse", publisher: "MAGNE.AI", handle: "@Magne_Ai → @RubberVerseX", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/1995790376293335050", profileUrl: "https://x.com/RubberVerseX", profileLabel: "RUBBERVERSE X ↗", note: "MAGNE official partnership statement locked; RubberVerse independent posts, quotes, replies, or retweets remain to be indexed." },
+      { date: "2025-11-28", partner: "EPHYRA", publisher: "MAGNE.AI", handle: "@Magne_Ai", source: "magne", verification: "source-inaccessible", url: "https://x.com/Magne_Ai/status/1994388111087075837", note: "2026-08-20 When reviewing," },
+      { date: "2025-11-27", partner: "TradeTalentAI", publisher: "MAGNE.AI", handle: "@Magne_Ai → @TradeTalentAI", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/1993861574239650183", profileUrl: "https://x.com/TradeTalentAI", profileLabel: "TRADE TALENT X ↗", note: "MAGNE official cooperation statement is locked; TradeTalentAI independent publication, citation, reply or forwarding is still to be indexed." },
+      { date: "2025-11-25", partner: "Mix Max", publisher: "Mix Max", handle: "@mixmax_mc", source: "partner", url: "https://x.com/mixmax_mc/status/1993176213301739854", profileUrl: "https://x.com/mixmax_mc", profileLabel: "MIX MAX X ↗", note: "The original post of the partner is still publicly readable; no MAGNE independent original post, official reply, or locateable citation/repost status was found." },
+      { date: "2025-11-20", partner: "NexusChain", publisher: "MAGNE.AI", handle: "@Magne_Ai", source: "magne", verification: "source-inaccessible", url: "https://x.com/Magne_Ai/status/1991394040122618236", note: "2026-08-20 When reviewing," },
+      { date: "2025-11-13", partner: "ICB Network", publisher: "MAGNE.AI + ICB Network reply", handle: "@Magne_Ai / @icbx_network", source: "dual", verification: "reply-confirmed", url: "https://x.com/Magne_Ai/status/1988792613303120088", secondaryUrl: "https://x.com/icbx_network/status/1988823819553771861", secondaryLabel: "PARTNER REPLY ↗", note: "MAGNE's official original post and the partner's official account confirmation reply have been locked; the partner's account display name and history @ICBnetwork mentioned that there is a migration." },
+      { date: "2025-11-11", partner: "KPOPCLICK Labs", publisher: "MAGNE.AI", handle: "@Magne_Ai → @kpopclick_labs", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/1988043024845418824", profileUrl: "https://x.com/kpopclick_labs", profileLabel: "KPOPCLICK X ↗", note: "MAGNE official cooperation statement is locked; independent publication, citation, reply or forwarding by KPOPCLICK Labs remains to be indexed." },
+      { date: "2025-11-08", partner: "SOEI", publisher: "SOEI + MAGNE.AI", handle: "@soei_io / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/soei_io/status/1987174896246694145", secondaryUrl: "https://x.com/Magne_Ai/status/1986196873900925266", secondaryLabel: "MAGNE SOURCE ↗", note: "The official original posts of both parties have been locked." },
+      { date: "2025-11-04", partner: "Dmail", publisher: "MAGNE.AI", handle: "@Magne_Ai → @Dmailofficial", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/1985631845581517301", profileUrl: "https://x.com/Dmailofficial", profileLabel: "DMAIL X ↗", note: "MAGNE Official Cooperation Statement Locked; Dmail Independent Post, Quote, Reply or Forward Still To Be Indexed." },
+      { date: "2025-11-02", partner: "CRMClick / Cerram Meta", publisher: "CRMClick + MAGNE.AI", handle: "@Cerram_Meta / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/Cerram_Meta/status/1984833372686795188", secondaryUrl: "https://x.com/Magne_Ai/status/1990688410147959239", secondaryLabel: "MAGNE SOURCE ↗", note: "The official cooperation post of CRMClick was released on 2025-11-02, and MAGNE's subsequent official posts have also been locked; the writing of cerram_meta in historical data has been corrected according to the official account @Cerram_Meta." },
+      { date: "2025-10-31", partner: "Metya", publisher: "Metya + MAGNE.AI", handle: "@metyacom / @Magne_Ai", source: "dual", verification: "partner-quote-confirmed", url: "https://x.com/metyacom/status/1984269440838729960", secondaryUrl: "https://x.com/Magne_Ai/status/1983876027484139904", secondaryLabel: "MAGNE SOURCE ↗", note: "The official post of the partner quoted the original official post of MAGNE." },
+      { date: "2025-10-29", partner: "ENI", publisher: "ENI + MAGNE.AI", handle: "@ENI__Official / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/ENI__Official/status/1983246900754297128", secondaryUrl: "https://x.com/Magne_Ai/status/1983183360211193978", secondaryLabel: "MAGNE SOURCE ↗", note: "The official original posts of both parties have been locked." },
+      { date: "2025-10-27", partner: "MOMO", publisher: "MOMO + MAGNE.AI", handle: "@MOMOisFUN / @Magne_Ai", source: "dual", verification: "partner-quote-confirmed", url: "https://x.com/MOMOisFUN/status/1982718630329503898", secondaryUrl: "https://x.com/Magne_Ai/status/1981700891200889262", secondaryLabel: "MAGNE SOURCE ↗", note: "The official post of the partner quoted the original official post of MAGNE." },
+      { date: "2025-10-22", partner: "Samurai Warlords", publisher: "MAGNE.AI", handle: "@Magne_Ai → @SamuraiWarlords", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/1980946097590911054", profileUrl: "https://x.com/SamuraiWarlords", profileLabel: "SAMURAI WARLORDS X ↗", note: "MAGNE official partnership statement locked; Samurai Warlords independent posts, quotes, replies or retweets remain to be indexed." },
+      { date: "2025-10-16", partner: "Grand Gangsta City", publisher: "Grand Gangsta City + MAGNE.AI", handle: "@grandgangstaci / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/grandgangstaci/status/1978817159405916516", secondaryUrl: "https://x.com/Magne_Ai/status/1978706019284128008", secondaryLabel: "MAGNE SOURCE ↗", note: "The official original posts of both parties have been locked." },
+      { date: "2025-10-14", partner: "AYLab", publisher: "MAGNE.AI", handle: "@Magne_Ai → @Aylab_io", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/1978079098305192383", profileUrl: "https://x.com/Aylab_io", profileLabel: "AYLAB X ↗", note: "MAGNE official collaboration statement locked; AYLab independent publication, quote, reply or retweet remains to be indexed." },
+      { date: "2025-10-09", partner: "JSR Coin", publisher: "JSR Coin + MAGNE.AI", handle: "@JSR_Coin / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/JSR_Coin/status/1976283611734351977", secondaryUrl: "https://x.com/Magne_Ai/status/1976284086831378840", secondaryLabel: "MAGNE SOURCE ↗", note: "The official original posts of both parties have been locked." },
+      { date: "2025-10-07", partner: "UBI Network", publisher: "UBI Network + MAGNE.AI", handle: "@ubinetworkdepin / @Magne_Ai", source: "dual-observed", verification: "bilateral-confirmed-pending", url: "https://x.com/ubinetworkdepin/status/1975467188715991125", profileUrl: "https://x.com/ubinetworkdepin", profileLabel: "UBI NETWORK X ↗", secondaryProfileUrl: "https://x.com/Magne_Ai", secondaryProfileLabel: "MAGNE X ↗", note: "The original post of UBI Network's official cooperation has been locked, and both parties have officially confirmed the establishment and are included in bilateral records; the status ID corresponding to MAGNE's confirmation has yet to be recovered." },
+      { date: "2025-10-02", partner: "ATT", publisher: "Advertising Time Trace + MAGNE.AI", handle: "@aiwayworld / @Magne_Ai", source: "dual", verification: "partner-quote-confirmed", url: "https://x.com/aiwayworld/status/1973941040962011584", secondaryUrl: "https://x.com/Magne_Ai/status/1973763617091907842", secondaryLabel: "MAGNE SOURCE ↗", note: "The official post of the partner quoted the original official post of MAGNE." },
+      { date: "2025-09-30", partner: "SquadBoom", publisher: "MAGNE.AI", handle: "@Magne_Ai → @SquadBoomWeb3", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/1972990881172279544", profileUrl: "https://x.com/SquadBoomWeb3", profileLabel: "SQUADBOOM X ↗", note: "MAGNE official collaboration statement is locked; SquadBoom independent posts, quotes, replies or retweets remain to be indexed." },
+      { date: "2025-09-25", partner: "EVX Protocol", publisher: "EVX Protocol + MAGNE.AI", handle: "@EVXDepin / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/EVXDepin/status/1971085263196782757", secondaryUrl: "https://x.com/Magne_Ai/status/1971034236699459628", secondaryLabel: "MAGNE SOURCE ↗", note: "The original official cooperation posts from both parties have been locked." },
+      { date: "2025-09-22", partner: "U2DPN", publisher: "U2DPN + MAGNE.AI", handle: "@u2dpn_network / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/u2dpn_network/status/1970383595052347624", secondaryUrl: "https://x.com/Magne_Ai/status/1970094185614344247", secondaryLabel: "MAGNE SOURCE ↗", note: "The official cooperation posts of both parties have been locked; the date is recorded according to the earliest MAGNE original post." },
+      { date: "2025-09-18", partner: "Qitmeer Network", publisher: "Qitmeer Network + MAGNE.AI", handle: "@QitmeerNetwork / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/QitmeerNetwork/status/1968846162896810002", secondaryUrl: "https://x.com/Magne_Ai/status/1968654201258758223", secondaryLabel: "MAGNE SOURCE ↗", note: "The official cooperation posts of both parties have been locked; the date is recorded according to the earliest MAGNE original post." },
+      { date: "2025-09-16", partner: "mobiNODE", publisher: "mobiNODE + MAGNE.AI", handle: "@mobiNode_ / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/mobiNode_/status/1967901383052628293", secondaryUrl: "https://x.com/Magne_Ai/status/1967891050644885618", secondaryLabel: "MAGNE SOURCE ↗", note: "The original official cooperation posts from both parties have been locked." },
+      { date: "2025-09-11", partner: "NTH", publisher: "NTH + MAGNE.AI", handle: "@nthchain / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/nthchain/status/1965988345034731863", secondaryUrl: "https://x.com/Magne_Ai/status/1965986121625776192", secondaryLabel: "MAGNE SOURCE ↗", note: "The original official cooperation posts from both parties have been locked." },
+      { date: "2025-09-09", partner: "Fomo", publisher: "MAGNE.AI", handle: "@Magne_Ai → @Fomo__in", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/1965413262759231845", profileUrl: "https://x.com/Fomo__in", profileLabel: "FOMO X ↗", note: "MAGNE's official ecological connection statement has been locked; Fomo's independent publication, citation, reply or forwarding is still to be indexed." },
+      { date: "2025-09-06", partner: "Ari Wallet", publisher: "MAGNE.AI", handle: "@Magne_Ai → @Ari_Wallet_", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/1964252240757006785", profileUrl: "https://x.com/Ari_Wallet_", profileLabel: "ARI WALLET X ↗", note: "MAGNE official cooperation statement has been locked; Ari Wallet's independent publication, citation, reply or forwarding is still to be indexed." },
+      { date: "2025-09-02", partner: "DePINscan", publisher: "MAGNE.AI + DePINscan", handle: "@Magne_Ai / DePINscan project registry", source: "dual", verification: "platform-listing-confirmed", url: "https://x.com/Magne_Ai/status/1962703770862920048", linkLabel: "MAGNE SOURCE ↗", secondaryUrl: "https://depinscan.io/projects/magne-ai", secondaryLabel: "DEPINSCAN PROJECT ↗", secondaryKind: "platform", profileUrl: "https://x.com/DePINscan", profileLabel: "DEPINSCAN X ↗", note: "MAGNE's official online original post and DePINscan's official project page have both been locked; the project page clearly includes Magne.AI, project classification and introduction, as evidence of continued disclosure on the platform side, and does not represent X posts by both parties." },
+      { date: "2025-08-28", partner: "DuckDAO", publisher: "DuckDAO + MAGNE.AI quote", handle: "@dao_duck / @Magne_Ai", source: "dual", verification: "dual-capital", url: "https://x.com/dao_duck/status/1960993591204999248", secondaryUrl: "https://x.com/Magne_Ai/status/1961056695129432464", secondaryLabel: "MAGNE QUOTE ↗", note: "DuckDAO officially announced strategic support for MAGNE; MAGNE officially quoted the original post for confirmation. Categorized as capital and strategic support relationship." },
+      { date: "2025-08-25", partner: "Becker Ventures", publisher: "Becker Ventures + MAGNE.AI", handle: "@BeckerVentures / @Magne_Ai", source: "dual", verification: "dual-capital", url: "https://x.com/BeckerVentures/status/1959820378785890436", secondaryUrl: "https://x.com/Magne_Ai/status/1959214655425171628", secondaryLabel: "MAGNE FINANCING ↗", tertiaryUrl: "https://x.com/BeckerVentures/status/1961253867976605962", tertiaryLabel: "BECKER INVESTMENT ↗", note: "Becker Ventures cited MAGNE's $10 million funding announcement to confirm support, and again independently stated the investment relationship on 2025-08-29." },
+      { date: "2025-08-28", partner: "TBV", publisher: "TBV + MAGNE.AI quote", handle: "@_thebestevent / @Magne_Ai", source: "dual", verification: "dual-capital", url: "https://x.com/_thebestevent/status/1960887501679419677", secondaryUrl: "https://x.com/Magne_Ai/status/1960898147963822144", secondaryLabel: "MAGNE QUOTE ↗", note: "TBV officially announced its investment in MAGNE; MAGNE officially quoted the original post for confirmation. The original @tbvxyz has been moved to @_thebestevent." },
+      { date: "2025-08-23", partner: "Castrum Istanbul", publisher: "Castrum Istanbul + MAGNE.AI quote", handle: "@castrumistanbul / @Magne_Ai", source: "dual", verification: "dual-capital", url: "https://x.com/castrumistanbul/status/1959289503740219695", secondaryUrl: "https://x.com/Magne_Ai/status/1959403931785970010", secondaryLabel: "MAGNE QUOTE ↗", note: "Castrum officially announced strategic support; MAGNE officially quoted the original post for confirmation. The X timestamp is 2025-08-23, which has replaced the ambiguous date of the historical PDF." },
+      { date: "2025-08-23", partner: "AI Auction", publisher: "AI Auction", handle: "@Ai_Auctions", source: "partner", verification: "single-partner", url: "https://x.com/Ai_Auctions/status/1959120495301070920", profileUrl: "https://x.com/Ai_Auctions", profileLabel: "AI AUCTION X ↗", note: "The original status address is retained;" },
+      { date: "2025-08-20", partner: "AI Xovia", publisher: "AI Xovia + MAGNE.AI", handle: "@AiXovia / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/AiXovia/status/1958594433886429266", secondaryUrl: "https://x.com/Magne_Ai/status/1958006419833384998", secondaryLabel: "MAGNE SOURCE ↗", note: "The official cooperation posts of both parties have been locked; the date is recorded according to the earliest MAGNE original post." },
+      { date: "2026-03-28", partner: "HPX", publisher: "MAGNE.AI", handle: "@Magne_Ai → @Hpx_Official", source: "magne", verification: "single-magne", url: "https://x.com/Magne_Ai/status/2037818979767447591", linkLabel: "MAGNE ACTIVITY SOURCE ↗", profileUrl: "https://x.com/Hpx_Official", profileLabel: "HPX X ↗", note: "The original MAGNE.AI post for a HyperCard joint event with HPX has been recovered, replacing the previously unavailable historical address. No corresponding HPX post or official reply has been recovered, so the record remains MAGNE single-source." },
+      { date: "2025-08-15", partner: "Zoro", publisher: "Zoro + MAGNE.AI", handle: "@zorotechnology / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/zorotechnology/status/1956294809200812142", secondaryUrl: "https://x.com/Magne_Ai/status/1956329406189940985", secondaryLabel: "MAGNE SOURCE ↗", note: "The original official cooperation posts from both parties have been locked." },
+      { date: "2025-08-13", partner: "EDITH / IX RWA", publisher: "EDITH / IX RWA + MAGNE.AI", handle: "@ixrwacapital / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/ixrwacapital/status/1955703508898078849", secondaryUrl: "https://x.com/Magne_Ai/status/1955961870143381915", secondaryLabel: "MAGNE SOURCE ↗", note: "The original official posts of both parties have been locked; the original @edithAPP has been migrated to @ixrwacapital." },
+      { date: "2025-08-13", partner: "CheersLand", publisher: "CheersLand + MAGNE.AI", handle: "@cheers_land / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/cheers_land/status/1955670276009767122", secondaryUrl: "https://x.com/Magne_Ai/status/1955921300809285914", secondaryLabel: "MAGNE SOURCE ↗", note: "The original posts of official cooperation between both parties have been locked; the date is recorded according to the earliest CheersLand original post." },
+      { date: "2025-08-13", partner: "AscendEX", publisher: "AscendEX", handle: "@AscendEX_", source: "partner", url: "https://x.com/AscendEX_/status/1955585134465323204", profileUrl: "https://x.com/AscendEX_", profileLabel: "ASCENDEX X ↗", note: "The original post of the partner is still publicly readable; no MAGNE independent original post, official reply, or locateable citation/repost status was found." },
+      { date: "2025-08-12", partner: "Prime Yield", publisher: "Prime Yield + MAGNE.AI", handle: "@prime_yield / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/prime_yield/status/1954959643668779402", secondaryUrl: "https://x.com/Magne_Ai/status/1955089884433314174", secondaryLabel: "MAGNE SOURCE ↗", note: "The official original posts of both parties have been locked." },
+      { date: "2025-08-11", partner: "INTO", publisher: "INTO + MAGNE.AI", handle: "@intoverse_ / @Magne_Ai", source: "dual", verification: "dual-post", url: "https://x.com/intoverse_/status/1955163455989699071", secondaryUrl: "https://x.com/Magne_Ai/status/1954873457407377778", secondaryLabel: "MAGNE SOURCE ↗", note: "The original official cooperation posts from both parties have been locked." },
+      { date: "2025-08-08", partner: "WorldAssets / RWAX", publisher: "RWAX + MAGNE.AI quote", handle: "@RWAX_life / @Magne_Ai", source: "dual", verification: "quote-confirmed", url: "https://x.com/RWAX_life/status/1953820882801160195", secondaryUrl: "https://x.com/Magne_Ai/status/1959869525949833706", secondaryLabel: "MAGNE QUOTE ↗", note: "RWAX released information on the ecological cooperation between WorldAssets and MAGNE, and MAGNE officially quoted and confirmed it; no independent original post from the WorldAssets official account was found, so it is not stated as separate posts from both parties." },
+      { date: "2025-08-05", partner: "Tx24", publisher: "Tx24 + MAGNE.AI quote", handle: "@tx24io / @Magne_Ai", source: "dual", verification: "quote-confirmed", url: "https://x.com/tx24io/status/1952696180896346546", secondaryUrl: "https://x.com/Magne_Ai/status/1952705281302958160", secondaryLabel: "MAGNE QUOTE ↗", note: "TX24 officially released a cooperation announcement; MAGNE later quoted the original post to confirm the cooperation. The original X status of both parties is locked." },
+      { date: "2026-05-29", partner: "AISIM", publisher: "MAGNE.AI + AISIM", handle: "@Magne_Ai / @AISIM_EN", source: "dual-observed", verification: "joint-activation-confirmed", url: "https://x.com/Magne_Ai/status/2060217067173749136", linkLabel: "JOINT ACTIVITY SOURCE ↗", profileUrl: "https://x.com/AISIM_EN", profileLabel: "AISIM EN X ↗", note: "The original post was clearly marked MAGNE.AI × AISIM Partnership Giveaway, and requested to follow the valid official accounts of both parties at the same time, which is a joint activity record of both parties; the old invalid account and its associated historical sources have been removed." }
     ],
     webUpdates: [
       {
@@ -68,7 +68,7 @@
         url: "https://x.com/Magne_Ai/status/2087749567983112664",
         secondaryUrl: "https://x.com/AlphioAI/status/2087121597228626303",
         secondaryLabel: "PARTNER SOURCE ↗",
-        note: "双方官方原帖均已锁定。"
+        note: "The official original posts of both parties have been locked."
       },
       {
         date: "2026-08-10",
@@ -80,7 +80,7 @@
         url: "https://x.com/Magne_Ai/status/2086652056631410860",
         secondaryUrl: "https://x.com/InsightXHQ/status/2086642934041219497",
         secondaryLabel: "PARTNER SOURCE ↗",
-        note: "双方官方原帖均已锁定。"
+        note: "The official original posts of both parties have been locked."
       },
       {
         date: "2026-08-06",
@@ -92,7 +92,7 @@
         url: "https://x.com/Magne_Ai/status/2085395979113750686",
         secondaryUrl: "https://x.com/goldhousedotcc/status/2085326828261220701",
         secondaryLabel: "PARTNER SOURCE ↗",
-        note: "双方官方原帖均已锁定。"
+        note: "The official original posts of both parties have been locked."
       },
       {
         date: "2026-08-18",
@@ -105,7 +105,7 @@
         profileLabel: "TIMORA X ↗",
         secondaryProfileUrl: "https://x.com/Magne_Ai",
         secondaryProfileLabel: "MAGNE X ↗",
-        note: "TimoraAI 公告与 MAGNE.AI 官方转发已确认，归入双边记录；原始公告与转发 status ID 尚待回收。"
+        note: "TimoraAI announcement and MAGNE.AI official forwarding have been confirmed and included in bilateral records; the original announcement and forwarding status ID have yet to be recovered."
       },
       {
         date: "2026-07-21",
@@ -117,7 +117,7 @@
         url: "https://x.com/Magne_Ai/status/2079506675237785643",
         secondaryUrl: "https://x.com/ArcNova_ACI/status/2079190085216415982",
         secondaryLabel: "PARTNER SOURCE ↗",
-        note: "双方官方原帖均已锁定。"
+        note: "The official original posts of both parties have been locked."
       },
       {
         date: "2026-07-18",
@@ -129,7 +129,7 @@
         url: "https://x.com/Magne_Ai/status/2078332684640915506",
         secondaryUrl: "https://x.com/Titans_ventures/status/2077784151873479052",
         secondaryLabel: "TITANS SOURCE ↗",
-        note: "MAGNE 官方帖确认 Titans Ventures 为战略投资方；Titans 官方帖确认双方战略关系。归类为资本关系，不扩大为产品集成。"
+        note: "MAGNE’s official post confirmed that Titans Ventures is a strategic investor; Titans’ official post confirmed the strategic relationship between the two parties. Classified as a capital relationship and not expanded to product integration."
       },
       {
         date: "2026-07-08",
@@ -143,7 +143,7 @@
         profileLabel: "ADAPT X ↗",
         secondaryProfileUrl: "https://x.com/Magne_Ai",
         secondaryProfileLabel: "MAGNE X ↗",
-        note: "Adapt 官方合作帖已锁定，双方官方确认成立，归入双边记录；MAGNE 对应确认的 status ID 尚待回收。"
+        note: "Adapt's official cooperation post has been locked, and both parties have officially confirmed the establishment and are included in bilateral records; the status ID corresponding to MAGNE's confirmation has yet to be recovered."
       },
       {
         date: "2026-07-05",
@@ -155,7 +155,7 @@
         url: "https://x.com/Magne_Ai/status/2073619881023660323",
         secondaryUrl: "https://x.com/SumPlusReal/status/2073318403818062039",
         secondaryLabel: "PARTNER SOURCE ↗",
-        note: "双方官方原帖均已锁定。"
+        note: "The official original posts of both parties have been locked."
       },
       {
         date: "2026-07-04",
@@ -167,7 +167,7 @@
         url: "https://x.com/Magne_Ai/status/2073257996637896904",
         secondaryUrl: "https://x.com/prom_io/status/2073124046724575384",
         secondaryLabel: "PARTNER SOURCE ↗",
-        note: "双方官方原帖均已锁定。"
+        note: "The official original posts of both parties have been locked."
       },
       {
         date: "2026-06-26",
@@ -179,7 +179,7 @@
         url: "https://x.com/Magne_Ai/status/2070371728094589340",
         secondaryUrl: "https://x.com/AstroXFinance/status/2070053965279215798",
         secondaryLabel: "PARTNER SOURCE ↗",
-        note: "双方官方原帖均已锁定。"
+        note: "The official original posts of both parties have been locked."
       },
       {
         date: "2026-06-20",
@@ -191,7 +191,7 @@
         url: "https://x.com/Dextools_Daily/status/2067897165197021436",
         secondaryUrl: "https://x.com/Magne_Ai/status/2068182053116604448",
         secondaryLabel: "MAGNE QUOTE ↗",
-        note: "合作方先发布 Partnership Announcement 与 Quest；MAGNE 随后引用原帖确认活动上线。归类为双边活动联动，不扩大为未披露的产品集成。"
+        note: "The partner first released the Partnership Announcement and Quest; MAGNE then quoted the original post to confirm the launch of the event. Classified as bilateral activity linkage and not expanded to undisclosed product integration."
       },
       {
         date: "2026-06",
@@ -204,7 +204,7 @@
         profileLabel: "XDGAI X ↗",
         secondaryProfileUrl: "https://x.com/Magne_Ai",
         secondaryProfileLabel: "MAGNE X ↗",
-        note: "MAGNE.AI 合作声明与 XDGAI 官方确认回应已核实，归入双边记录；双方原始 X status ID 尚待回收。"
+        note: "MAGNE.AI Cooperation statement and XDGAI official confirmation response have been verified and included in bilateral records; the original X status IDs of both parties have yet to be recovered."
       },
       {
         date: "2026-06-19",
@@ -216,7 +216,7 @@
         url: "https://x.com/limewire/status/2067593171593261353",
         profileUrl: "https://x.com/Magne_Ai",
         profileLabel: "MAGNE X ↗",
-        note: "LimeWire 官方合作原帖已锁定，MAGNE.AI 官方确认回应已核实，归入双边记录；MAGNE 确认帖的 status ID 尚待回收。"
+        note: "The original LimeWire official cooperation post has been locked, and the MAGNE.AI official confirmation response has been verified and included in the bilateral record; the status ID of the MAGNE confirmation post has yet to be recovered."
       },
       {
         date: "2026-06-18",
@@ -228,7 +228,7 @@
         url: "https://x.com/Magne_Ai/status/2067534030384296060",
         profileUrl: "https://x.com/tomoland_app",
         profileLabel: "TOMOLAND X ↗",
-        note: "MAGNE 官方发布与 Tomoland 的合作声明；原始 status 已锁定，合作方独立发布、引用或回复仍待索引。"
+        note: "MAGNE officially released a cooperation statement with Tomoland; the original status has been locked, and independent releases, quotes or replies from the partners still need to be indexed."
       },
       {
         date: "2026-06-13",
@@ -239,7 +239,7 @@
         verification: "single-partner",
         url: "https://x.com/NoosProtocol/status/2065752455804321953",
         linkLabel: "NOOS SOURCE ↗",
-        note: "NOOS 官方原始 status 已锁定；页面只保留这一条精准来源，定义为单边记录。"
+        note: "NOOS official original status is locked; the page only retains this precise source, which is defined as a unilateral record."
       },
       {
         date: "2026-06-12",
@@ -252,7 +252,7 @@
         linkLabel: "MAGNE SOURCE ↗",
         profileUrl: "https://x.com/XAgent_official",
         profileLabel: "X-AGENT X ↗",
-        note: "MAGNE 官方合作原帖已锁定，内容聚焦 X-Agent 的自然语言 Agent 应用构建能力与 MAGNE 安全移动基础设施的协同；X-Agent 独立发布、引用、回复或可定位转发仍待索引。"
+        note: "The original post of MAGNE's official cooperation has been locked. The content focuses on the collaboration between X-Agent's natural language Agent application building capabilities and MAGNE's secure mobile infrastructure; X-Agent's independent publishing, citation, reply or positionable forwarding is still to be indexed."
       },
       {
         date: "2026-06",
@@ -263,7 +263,7 @@
         verification: "source-pending",
         profileUrl: "https://x.com/NizaEcosystem",
         profileLabel: "NIZA X ↗",
-        note: "已观察到合作方公告；NIZA 官方账号地址已列出，原始 X status ID 待回收。"
+        note: "The partner announcement has been observed; the official NIZA account address has been listed, and the original X status ID needs to be recycled."
       },
       {
         date: "2026-05-22",
@@ -275,7 +275,7 @@
         url: "https://x.com/Magne_Ai/status/2057675821909750174",
         secondaryUrl: "https://x.com/funton_ai/status/2057851057498439830",
         secondaryLabel: "PARTNER QUOTE ↗",
-        note: "Funton.ai 官方账号引用 MAGNE 官方合作原帖；两个原始 status 均已锁定。"
+        note: "Funton.ai official account quoted MAGNE official cooperation original post; both original statuses have been locked."
       },
       {
         date: "2026-05-28",
@@ -287,7 +287,7 @@
         url: "https://x.com/Magne_Ai/status/2059921368091648328",
         profileUrl: "https://x.com/web3_cyperchat",
         profileLabel: "CYPER X ↗",
-        note: "MAGNE 官方合作声明已锁定；Cyper 独立发布、引用、回复或转发仍待索引。"
+        note: "MAGNE official cooperation statement is locked; Cyper's independent publication, citation, reply or forwarding remains to be indexed."
       },
       {
         date: "2026-05-23",
@@ -299,7 +299,7 @@
         url: "https://x.com/Magne_Ai/status/2058111945899643134",
         profileUrl: "https://x.com/AstarterDefiHub",
         profileLabel: "ASTARTER X ↗",
-        note: "MAGNE 官方合作声明已锁定；ASTARTER 独立发布、引用、回复或转发仍待索引。"
+        note: "MAGNE's official cooperation statement is locked; ASTARTER's independent publication, citation, reply or forwarding is still to be indexed."
       },
       {
         date: "2026-05-16",
@@ -311,7 +311,7 @@
         url: "https://x.com/Magne_Ai/status/2055575230563643845",
         secondaryUrl: "https://x.com/LSP_Fi/status/2055806430494790115",
         secondaryLabel: "PARTNER REPLY ↗",
-        note: "LSP Finance 官方账号直接回复 MAGNE 合作原帖并确认共同建设；原帖与回复 status 均已锁定。"
+        note: "LSP Finance official account directly replied to the original post of MAGNE cooperation and confirmed the joint construction; both the original post and the status of the reply have been locked."
       },
       {
         date: "2026-05-13",
@@ -324,7 +324,7 @@
         linkLabel: "MAGNE SOURCE ↗",
         profileUrl: "https://x.com/HolmesAI_",
         profileLabel: "HOLMES X ↗",
-        note: "MAGNE.AI 官方合作原帖已锁定，HolmesAI 官方对应内容已确认，归入双边记录；合作方原始 status ID 尚待回收。"
+        note: "MAGNE.AI The original official cooperation post has been locked, and the official corresponding content of HolmesAI has been confirmed and included in bilateral records; the original status ID of the partner has yet to be recovered."
       },
       {
         date: "2026-05-07",
@@ -340,7 +340,7 @@
         tertiaryUrl: "https://www.cointrust.com/market-news/magne-ai-and-marscat-build-end-to-end-web3-privacy",
         tertiaryLabel: "INDEPENDENT COVERAGE ↗",
         tertiaryKind: "coverage",
-        note: "双方官方原帖均已锁定；CoinTrust 报道仅作为补充材料，不替代原始 X 证据。"
+        note: "The original official posts of both parties have been locked; the CoinTrust report is only used as supplementary material and does not replace the original X evidence."
       },
       {
         date: "2026-05-05",
@@ -352,7 +352,7 @@
         url: "https://x.com/Magne_Ai/status/2051593997353644104",
         profileUrl: "https://x.com/GoldFingerRWA",
         profileLabel: "GOLDFINGER X ↗",
-        note: "GoldFinger RWA 官方账号已转发 MAGNE 合作原帖；转发不生成独立 status ID，按既定证据规则计为双边确认。"
+        note: "GoldFinger RWA official account has forwarded the original post of MAGNE cooperation; forwarding does not generate an independent status ID and is counted as bilateral confirmation according to established evidence rules."
       },
       {
         date: "2026-04-30",
@@ -364,7 +364,7 @@
         url: "https://x.com/Magne_Ai/status/2049777024974409929",
         secondaryUrl: "https://x.com/AIW3_official/status/2049794301694218309",
         secondaryLabel: "PARTNER SOURCE ↗",
-        note: "双方官方账号分别发布合作内容，两个原始 X status 均已锁定。"
+        note: "The official accounts of both parties released cooperation content respectively, and both original X statuses have been locked."
       },
       {
         date: "2026-04-28",
@@ -376,7 +376,7 @@
         url: "https://x.com/Magne_Ai/status/2049052249381589150",
         profileUrl: "https://x.com/BASCAN_io",
         profileLabel: "BAS X ↗",
-        note: "MAGNE 官方合作原帖已锁定；BAS 官方回复、引用、转发或独立原帖仍待索引。"
+        note: "MAGNE official cooperation original post has been locked; BAS official reply, quote, forward or independent original post is still to be indexed."
       },
       {
         date: "2026-04-25",
@@ -388,7 +388,7 @@
         url: "https://x.com/Magne_Ai/status/2047889588090232841",
         secondaryUrl: "https://x.com/Official_BONDX/status/2046508202792268078",
         secondaryLabel: "PARTNER SOURCE ↗",
-        note: "双方官方账号分别发布合作内容，两个原始 X status 均已锁定。"
+        note: "The official accounts of both parties released cooperation content respectively, and both original X statuses have been locked."
       },
       {
         date: "2026-04-24",
@@ -401,7 +401,7 @@
         linkLabel: "TT CHAIN SOURCE ↗",
         secondaryUrl: "https://x.com/Magne_Ai/status/2047527200212103485",
         secondaryLabel: "MAGNE SOURCE ↗",
-        note: "双方官方账号分别发布合作内容，两个原始 X status 均已锁定。"
+        note: "The official accounts of both parties released cooperation content respectively, and both original X statuses have been locked."
       },
       {
         date: "2026-04-21",
@@ -413,7 +413,7 @@
         url: "https://x.com/Magne_Ai/status/2046446327731470494",
         secondaryUrl: "https://x.com/TheLandlord2023/status/2046490501847916586",
         secondaryLabel: "PARTNER QUOTE ↗",
-        note: "Landlord 官方账号引用 MAGNE 官方合作原帖；两个原始 status 均已锁定。"
+        note: "Landlord's official account quoted MAGNE's official cooperation original post; both original statuses have been locked."
       },
       {
         date: "2026-04-18",
@@ -426,7 +426,7 @@
         linkLabel: "MAGNE SOURCE ↗",
         profileUrl: "https://x.com/GXChainGlobal",
         profileLabel: "REI NETWORK X ↗",
-        note: "MAGNE 官方合作原帖已锁定，内容明确说明双方将探索安全移动硬件与 REI 零手续费 EVM 网络的协同；REI Network 独立发布、引用、回复或可定位转发仍待索引。"
+        note: "The original post of MAGNE's official cooperation has been locked, and the content clearly states that both parties will explore the synergy of secure mobile hardware and REI's zero-fee EVM network; REI Network's independent publication, quotation, reply or positionable forwarding still needs to be indexed."
       },
       {
         date: "2026-04-09",
@@ -438,7 +438,7 @@
         url: "https://x.com/Magne_Ai/status/2042157434878484564",
         secondaryUrl: "https://x.com/LinkLayerAI/status/2042151640787193862",
         secondaryLabel: "PARTNER SOURCE ↗",
-        note: "双方官方账号分别发布合作内容，两个原始 X status 均已锁定；媒体报道不再作为主证据。"
+        note: "The official accounts of both parties released cooperation content respectively, and both original X statuses have been locked; media reports will no longer be used as primary evidence."
       },
       {
         date: "2026-04-07",
@@ -451,7 +451,7 @@
         linkLabel: "MANADIA SOURCE ↗",
         secondaryUrl: "https://x.com/Magne_Ai/status/2041450216482881738",
         secondaryLabel: "MAGNE SOURCE ↗",
-        note: "双方官方账号分别发布合作内容，两个原始 X status 均已锁定。"
+        note: "The official accounts of both parties released cooperation content respectively, and both original X statuses have been locked."
       },
       {
         date: "2026-04-07",
@@ -463,7 +463,7 @@
         url: "https://x.com/0xhares/status/2041474469664006496",
         profileUrl: "https://x.com/0xhares",
         profileLabel: "PLANET HARES X ↗",
-        note: "合作方原帖仍可公开读取；复扫未发现 MAGNE 独立原帖、官方回复或可定位的引用／转发 status。"
+        note: "The partner's original post is still publicly readable; rescanning did not find MAGNE's independent original post, official reply, or locateable citation/forwarding status."
       },
       {
         date: "2026-03-31",
@@ -479,7 +479,7 @@
         tertiaryUrl: "https://blockchainreporter.net/playsout-and-magne-ai-shake-hands-for-ai-powered-web3-gaming-experiences/",
         tertiaryLabel: "INDEPENDENT COVERAGE ↗",
         tertiaryKind: "coverage",
-        note: "PlaysOut 与 MAGNE.AI 双方官方合作原帖均已锁定；两帖发布时间相隔约一分钟，归入蓝色双边记录。BlockchainReporter 报道仅作为补充材料。"
+        note: "PlaysOut and MAGNE.AI The original official cooperation posts of both parties have been locked; the two posts were published about one minute apart and are classified into blue bilateral records. BlockchainReporter reports are provided as supplementary material only."
       },
       {
         date: "2026-03-02",
@@ -491,7 +491,7 @@
         url: "https://x.com/FOGNET2024/status/2028350734757159090",
         secondaryUrl: "https://x.com/Magne_Ai/status/2028474598153715790",
         secondaryLabel: "MAGNE SOURCE ↗",
-        note: "双方官方原帖均已锁定。"
+        note: "The official original posts of both parties have been locked."
       },
       {
         date: "2026-02-25",
@@ -503,7 +503,7 @@
         url: "https://x.com/AI_UR_Alfredo/status/2026660043135779324",
         secondaryUrl: "https://x.com/Magne_Ai/status/2026661167226347699",
         secondaryLabel: "MAGNE SOURCE ↗",
-        note: "双方官方原帖均已锁定。"
+        note: "The official original posts of both parties have been locked."
       },
       {
         date: "2026-01-27",
@@ -515,7 +515,7 @@
         url: "https://x.com/ChainThink_news/status/2015991915829985763",
         secondaryUrl: "https://x.com/Magne_Ai/status/2016096336047902974",
         secondaryLabel: "MAGNE SOURCE ↗",
-        note: "双方原始 status 均已锁定，可按 VERIFIED DUAL-SOURCE 使用。"
+        note: "The original status of both parties is locked and can be used by pressing VERIFIED DUAL-SOURCE."
       },
       {
         date: "2025-09-04",
@@ -527,7 +527,7 @@
         url: "https://x.com/DePIN_Union/status/1963398051843965027",
         profileUrl: "https://x.com/DePIN_Union",
         profileLabel: "DEPIN UNION X ↗",
-        note: "合作方原始 status 已锁定；属于历史 PDF 漏项，不是 2026 新合作。复扫未发现 MAGNE 独立原帖、官方回复或可定位的引用／转发 status。"
+        note: "The original status of the partner is locked; it is a missing item in the historical PDF and is not a new cooperation in 2026. Repeat scan did not find MAGNE's independent original post, official reply, or locateable citation/forwarding status."
       }
     ],
     activities: [

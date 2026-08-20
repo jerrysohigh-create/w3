@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>MAGNE.AI Phone Gen1 Season 1 活動 — W3 版</title>
+    <meta name="description" content="MAGNE.AI Phone Gen1 Campaign dashboard rebuilt in the W3 visual system." />
+    <link rel="stylesheet" href="../assets/css/site.css?v=20260821-19" />
+    <link rel="canonical" href="https://w3.magne.ai/tc/season-1.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MAGNE.AI Phone Gen1 Campaign — W3 Edition" />
+  <meta property="og:description" content="MAGNE.AI Phone Gen1 Campaign dashboard rebuilt in the W3 visual system." />
+  <meta property="og:image" content="https://w3.magne.ai/assets/images/og/w3-system-card.svg" />
+  <meta property="og:url" content="https://w3.magne.ai/tc/season-1.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0a0a0c" />
+  <link rel="icon" href="../assets/images/brand/w3-mark.svg" type="image/svg+xml" />
+  <link rel="manifest" href="../manifest.webmanifest" />
+  <link rel="alternate" hreflang="en" href="https://w3.magne.ai/season-1.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/season-1.html" />
+  <link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/season-1.html" />
+  <link rel="stylesheet" href="../assets/css/locale.css?v=20260821-2" />
+</head>
+  <body data-page="seasons" data-lang="zh-Hant" data-locale-peer="../season-1.html" data-asset-root="../">
+    <header id="site-header"></header>
+    <main>
+      <section class="page-hero">
+        <div class="wrap">
+          <p class="eyebrow"><span class="index">06.1</span> MAGNE.AI PHONE GEN1 CAMPAIGN</p>
+          <span class="campaign-live is-snapshot">PUBLIC ARCHIVE DATA</span>
+          <h1 class="page-title" style="margin-top: 24px">MAGNE.AI Phone Gen1<span class="accent">抽獎活動。</span></h1>
+          <p class="page-lede">1,000 臺 MAGNE.AI Phone Gen1 活動配置 · 每 100 個參與名額觸發 1 次手機中選（8GB + 256GB）。</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#campaign">$ inspect campaign →</a>
+            <a class="btn" href="https://payment.magne.ai/lottery" target="_blank" rel="noopener">$ participate ↗</a>
+            <a class="btn" href="seasons.html">$ all seasons →</a>
+          </div>
+          <dl class="hero-ledger">
+            <div><dt>Allocation</dt><dd>1,000 PHONES</dd></div>
+            <div><dt>Entry</dt><dd>10 USDT</dd></div>
+            <div><dt>Selection</dt><dd>1 / 100 ENTRIES</dd></div>
+            <div><dt>API</dt><dd id="s1dash-status">LOADING</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="content-section" id="campaign">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">S1.01</span> CAMPAIGN RULES</p><h2 class="section-title">原有規則，<br />完整保留。</h2></div>
+            <p class="section-copy">本地版本只重建視覺與資訊層次，不改變原活動規則、API、計算口徑或外部參與入口。</p>
+          </div>
+          <div class="rules-grid reveal">
+            <article class="rule-item"><span class="rule-no">[01]</span><h3>1,000 臺配置</h3><p>MAGNE.AI Phone Gen1 活動配置。</p></article>
+            <article class="rule-item"><span class="rule-no">[02]</span><h3>每錢包最多 10 次</h3><p>每個參與名額 10 USDT。</p></article>
+            <article class="rule-item"><span class="rule-no">[03]</span><h3>每 100 次中選 1 臺</h3><p>裝置版本為 8GB + 256GB。</p></article>
+            <article class="rule-item"><span class="rule-no">[04]</span><h3>MHA 獎勵安排</h3><p>符合資格但未中選者，依官方規則、資格驗證及相關代幣分配時間表執行。</p></article>
+          </div>
+          <div class="disclosure reveal"><strong>Season 1 MS2 空投：</strong>每個中選位址獲得 100 MS2。該活動權益仍受最終活動規則、資格核驗及適用合規要求約束。</div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">S1.02</span> LIVE METRICS</p><h2 class="section-title">同一套資料，<br />換成 W3 表達。</h2></div>
+            <p class="section-copy" id="s1dash-source-state">正在讀取原始 Dashboard API。</p>
+          </div>
+          <div class="dashboard-grid reveal">
+            <article class="dashboard-kpi"><span class="icon">[ PARTICIPANTS ]</span><span class="value" id="s1dash-wallets">—</span><span class="label">總參與區塊鏈位址數 · 官方頁參考 +127 today</span></article>
+            <article class="dashboard-kpi"><span class="icon">[ SELECTED PHONES ]</span><span class="value" id="s1dash-units">—</span><span class="label" id="s1dash-remaining">剩餘 — 名額</span></article>
+            <article class="dashboard-kpi"><span class="icon">[ ON-CHAIN ASSETS ]</span><span class="value" id="s1dash-pool">—</span><span class="label">USDT 活動池</span></article>
+            <article class="dashboard-kpi"><span class="icon">[ POST-TGE MHA STATUS ]</span><span class="value" id="s1dash-mha">—</span><span class="label">MHA TOKEN</span></article>
+          </div>
+          <div class="campaign-spec reveal">
+            <div><strong>Device</strong><span>8GB + 256GB</span></div>
+            <div><strong>Shipping</strong><span>首批 2026 年 7–9 月</span></div>
+            <div><strong>MHA Reward</strong><span>依 TGE 時間、活動規則與資格驗證執行</span></div>
+          </div>
+          <div class="disclosure reveal"><strong>MS2 AIRDROP RECORD：</strong>目前公開中選數量對應 <span class="cyan mono" id="s1dash-ms2-airdrop">—</span> MS2 的 Season 1 中選位址空投配置。</div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">S1.03</span> CURRENT ROUND</p><h2 class="section-title">每 100 個名額，<br />完成一次中選。</h2></div>
+            <p class="section-copy">輪次與進度直接使用原 Dashboard API 的 <span class="mono">currRound</span> 與 <span class="mono">nextDrawNeed</span> 欄位。</p>
+          </div>
+          <div class="round-grid reveal">
+            <div class="round-state"><span class="round-no">CURRENT ROUND</span><span class="round-value" id="s1dash-round">—</span><p>1 部 MAGNE.AI Phone Gen1</p></div>
+            <div class="round-control">
+              <div class="progress-readout"><strong><span id="s1dash-current-entries">—</span>/100</strong><span>ENTRIES TOWARD NEXT SELECTION</span></div>
+              <div class="progress-track" aria-label="Current round progress"><div class="progress-fill" id="s1dash-progress"></div></div>
+              <p class="round-needed">NEXT SELECTION NEEDS <span class="cyan" id="s1dash-needed">—</span> MORE ENTRIES</p>
+            </div>
+          </div>
+
+          <div class="section-head reveal" style="margin-top: 70px">
+            <div><p class="section-label"><span class="index">S1.04</span> PARTICIPATION OPTIONS</p><h2 class="section-title">原參與選項。</h2></div>
+            <p class="section-copy">參與與支付繼續進入原 <span class="mono">payment.magne.ai/lottery</span> 頁。</p>
+          </div>
+          <div class="option-grid reveal">
+            <article class="entry-option"><span class="price">10 USDT</span><h3>標準參與</h3><p>1 CHANCE</p></article>
+            <article class="entry-option"><span class="price">20 USDT</span><h3>雙倍參與</h3><p>2 CHANCES</p></article>
+            <article class="entry-option"><span class="price">50 USDT</span><h3>多次參與</h3><p>5 CHANCES</p></article>
+            <article class="entry-option"><span class="price">100 USDT</span><h3>最多 10 次參與</h3><p>10 CHANCES</p></article>
+          </div>
+          <div class="hero-actions reveal"><a class="btn primary" href="https://payment.magne.ai/lottery" target="_blank" rel="noopener">$ participate in campaign ↗</a></div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">S1.05</span> ALL WINNERS</p><h2 class="section-title">所有中選記錄。</h2></div>
+            <p class="section-copy"><span id="s1-winners-count">正在讀取公開中選記錄。</span> 位址點選後進入 BscScan；收貨位址狀態來自原 API。</p>
+          </div>
+          <div class="winner-list reveal" id="s1-winner-list" aria-live="polite"><div class="winner-row"><span class="winner-round">[ LOADING ]</span><span class="winner-address">正在讀取中選記錄。</span><span class="winner-state">PUBLIC API</span></div></div>
+          <div class="pagination reveal"><button type="button" id="s1-prev-page">← PREV</button><span id="s1-page-indicator">PAGE — / —</span><button type="button" id="s1-next-page">NEXT →</button></div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">S1.06</span> CAMPAIGN TERMS</p><h2 class="section-title">活動說明與交付。</h2></div>
+            <p class="section-copy">以下內容對應原 Dashboard 底部的獎勵、交付與合約說明。</p>
+          </div>
+          <div class="disclosure reveal"><strong>活動資料僅供透明度展示。</strong>獎勵安排、參與資格及分配時間均以官方活動規則、資格驗證及 TGE 相關時間安排為準。 MHA 獎勵相關資訊不構成投資建議、價值保證或任何形式的保證回報。</div>
+          <div class="campaign-terms reveal" style="margin-top: 20px">
+            <article class="campaign-term"><span class="term-id">[ PRIZE ]</span><h3>1,000 臺 Phone Gen1</h3><p>每 100 個參與名額觸發一次手機中選。</p></article>
+            <article class="campaign-term"><span class="term-id">[ SHIPPING ]</span><h3>首批交付</h3><p>預計於 2026 年 7–9 月交付；運費及適用關稅由收件人負擔。</p></article>
+            <article class="campaign-term"><span class="term-id">[ MHA ]</span><h3>TGE 後分配</h3><p>符合資格的參與者在 TGE 後 30 天內完成分配，並須符合規則及資格驗證。</p></article>
+          </div>
+          <div class="contract-line reveal">
+            <span>S1 WINNER AIRDROP: <span class="cyan">100 MS2 / WINNING ADDRESS</span></span>
+            <span>CONTRACT: <a href="https://bscscan.com/address/0xb14426893ADb6601b9e6397afa10527B66297bc1" target="_blank" rel="noopener">0xb144…97bc1 ↗</a></span>
+            <span>CAMPAIGN POOL: <a href="https://bscscan.com/token/0x55d398326f99059ff775485246999027b3197955?a=0x2598825231f9aff0018c407b46e8e50facf082d7" target="_blank" rel="noopener">VIEW ON BSCSCAN ↗</a></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="sources">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">S1.07</span> DATA + SOURCES</p><h2 class="section-title">Season 1 資料板塊。</h2></div>
+            <p class="section-copy">這裡集中呈現 DR 資料室補充的歷史成長資料與來源登記，不改變原 Dashboard 的活動內容。</p>
+          </div>
+          <div class="chart-panel reveal">
+            <div class="chart-panel-head"><div><h3>Season 1 累計參與錢包位址成長</h3><p>75 DAILY OBSERVATIONS · 2026-04-17 TO 2026-07-06</p></div><span class="chart-status" id="s1dash-growth-status">LOADING SOURCE</span></div>
+            <div class="chart-scroll"><svg id="s1-dashboard-growth-chart" viewBox="0 0 900 340" role="img" aria-label="Season 1 累計參與錢包位址成長長條圖"></svg></div>
+            <div class="chart-source"><span>DUNE QUERY 7913639 · GITHUB ACTION SNAPSHOT · NON-REAL-TIME</span><span>REFRESHED: <span id="s1dash-growth-refreshed">—</span> · <a href="https://dune.com/yolos3565/magne" target="_blank" rel="noopener">OPEN DUNE ↗</a></span></div>
+          </div>
+          <div class="disclosure reveal"><strong>口徑說明：</strong>參與錢包位址只反映 Season 1 期間記錄到的鏈上錢包活動，不等於已驗證真人、KYC 使用者或唯一自然人；此歷史快照不代表 Season 2 目前參與資料。</div>
+          <div class="table-scroll reveal" style="margin-top: 28px"><table class="data-table">
+            <thead><tr><th>Source</th><th>Coverage</th><th>Refresh</th><th>Access</th></tr></thead>
+            <tbody>
+              <tr><td>LOTTERY DASHBOARD API</td><td>參與、輪調、配置與活動狀態</td><td>頁面載入時</td><td><a class="cyan" href="https://payment.magne.ai/api/v1/lottery/dashboard" target="_blank" rel="noopener">OPEN API ↗</a></td></tr>
+              <tr><td>LOTTERY WINNERS API</td><td>中選輪次、錢包與地址狀態</td><td>頁面載入時</td><td><a class="cyan" href="https://payment.magne.ai/api/v1/lottery/winners" target="_blank" rel="noopener">OPEN API ↗</a></td></tr>
+              <tr><td>DUNE QUERY 7913639</td><td>累計參與錢包位址成長</td><td>GitHub Action 快照</td><td><a class="cyan" href="https://jerrysohigh-create.github.io/DR/assets/data/dune/season1-participants-growth.json" target="_blank" rel="noopener">OPEN JSON ↗</a></td></tr>
+              <tr><td>ORIGINAL DASHBOARD</td><td>原始活動頁面與交叉核驗</td><td>原站維護</td><td><a class="cyan" href="https://jerrysohigh-create.github.io/magne-web/lottery-dashboard.html" target="_blank" rel="noopener">OPEN ORIGINAL ↗</a></td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </section>
+    </main>
+    <footer id="site-footer"></footer>
+    <script src="../assets/js/tc/site.js?v=20260821-13"></script>
+    <script src="../assets/js/tc/season-chart.js?v=20260818-mobile"></script>
+    <script src="../assets/js/tc/season-1.js?v=20260815-official"></script>
+  <script src="../assets/js/season-status.js?v=20260821-4"></script>
+<script src="../assets/js/tc/analytics.js?v=20260821-2"></script>
+<script src="../assets/js/locale-switch.js?v=20260821-3"></script>
+</body>
+</html>

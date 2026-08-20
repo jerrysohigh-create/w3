@@ -15,10 +15,15 @@
     "audit:s2-flows": "node scripts/audit-season-2-usdt-flows.mjs",
     "fetch:s2-dune": "node scripts/fetch-season-2-dune.mjs",
     "materialize:s2": "node scripts/materialize-season-2-history.mjs",
-    "check": "node --check server/index.mjs && node --check server/config.mjs && node --check server/payment-client.mjs && node --check server/chain-client.mjs && node --check server/snapshot.mjs && node --check server/history.mjs && node --check scripts/collect-season-2-snapshot.mjs && node --check scripts/backfill-season-2-history.mjs && node --check scripts/materialize-season-2-history.mjs && node --check scripts/fetch-season-2-dune.mjs && node --check scripts/audit-season-2-usdt-flows.mjs && node --check scripts/normalize-site-meta.mjs && node --check scripts/enforce-readable-type.mjs && node --check assets/js/site.js && node --check assets/js/season-status.js && node --check assets/js/analytics.js && node --check assets/js/seasons.js && node --check assets/js/season-2.js && node --check assets/js/season-2-trend.js && node --check assets/js/newsroom.js && node --check assets/js/newsroom-content.js && node --check assets/js/newsroom-sources.js && node --check assets/js/ecosystem-evidence.js && node --check assets/js/newsroom-pages.js && node --check assets/js/newsroom-article.js",
+    "check": "node --check server/index.mjs && node --check server/config.mjs && node --check server/payment-client.mjs && node --check server/chain-client.mjs && node --check server/snapshot.mjs && node --check server/history.mjs && node --check scripts/collect-season-2-snapshot.mjs && node --check scripts/backfill-season-2-history.mjs && node --check scripts/materialize-season-2-history.mjs && node --check scripts/fetch-season-2-dune.mjs && node --check scripts/audit-season-2-usdt-flows.mjs && node --check scripts/normalize-site-meta.mjs && node --check scripts/enforce-readable-type.mjs && node --check scripts/bootstrap-bilingual-site.mjs && node --check scripts/normalize-traditional-chinese.mjs && node --check scripts/audit-locales.mjs && node --check scripts/generate-sitemap.mjs && node --check assets/js/site.js && node --check assets/js/season-status.js && node --check assets/js/analytics.js && node --check assets/js/seasons.js && node --check assets/js/season-2.js && node --check assets/js/season-2-trend.js && node --check assets/js/newsroom.js && node --check assets/js/newsroom-content.js && node --check assets/js/newsroom-sources.js && node --check assets/js/ecosystem-evidence.js && node --check assets/js/newsroom-pages.js && node --check assets/js/newsroom-article.js && node scripts/audit-locales.mjs",
+    "audit:locales": "node scripts/audit-locales.mjs",
+    "generate:sitemap": "node scripts/generate-sitemap.mjs",
     "test": "node --test"
   },
   "dependencies": {
     "ethers": "^6.17.0"
+  },
+  "devDependencies": {
+    "opencc-js": "^1.4.1"
   }
 }

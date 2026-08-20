@@ -1,29 +1,325 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://w3.magne.ai/</loc></url>
-  <url><loc>https://w3.magne.ai/system.html</loc></url>
-  <url><loc>https://w3.magne.ai/agentpay.html</loc></url>
-  <url><loc>https://w3.magne.ai/terminal.html</loc></url>
-  <url><loc>https://w3.magne.ai/ai-box.html</loc></url>
-  <url><loc>https://w3.magne.ai/seasons.html</loc></url>
-  <url><loc>https://w3.magne.ai/season-1.html</loc></url>
-  <url><loc>https://w3.magne.ai/season-2.html</loc></url>
-  <url><loc>https://w3.magne.ai/network.html</loc></url>
-  <url><loc>https://w3.magne.ai/developers.html</loc></url>
-  <url><loc>https://w3.magne.ai/token.html</loc></url>
-  <url><loc>https://w3.magne.ai/trust.html</loc></url>
-  <url><loc>https://w3.magne.ai/due-diligence.html</loc></url>
-  <url><loc>https://w3.magne.ai/media-kit.html</loc></url>
-  <url><loc>https://w3.magne.ai/magne-contact.html</loc></url>
-  <url><loc>https://w3.magne.ai/privacy-policy.html</loc></url>
-  <url><loc>https://w3.magne.ai/newsroom/</loc></url>
-  <url><loc>https://w3.magne.ai/newsroom/news/</loc></url>
-  <url><loc>https://w3.magne.ai/newsroom/videos/</loc></url>
-  <url><loc>https://w3.magne.ai/newsroom/events/</loc></url>
-  <url><loc>https://w3.magne.ai/newsroom/ecosystem/</loc></url>
-  <url><loc>https://w3.magne.ai/newsroom/article/launch-night-mybw-2025/</loc><lastmod>2026-08-20</lastmod></url>
-  <url><loc>https://w3.magne.ai/newsroom/article/magne-l1-mhash-l2-open-source/</loc><lastmod>2026-08-20</lastmod></url>
-  <url><loc>https://w3.magne.ai/newsroom/article/strategic-financing-10m/</loc><lastmod>2026-08-21</lastmod></url>
-  <url><loc>https://w3.magne.ai/newsroom/article/follow-on-financing-264m/</loc><lastmod>2026-08-21</lastmod></url>
-  <url><loc>https://w3.magne.ai/newsroom/article/external-commentary-index/</loc><lastmod>2026-08-21</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://w3.magne.ai/agentpay.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/agentpay.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/agentpay.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/agentpay.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/agentpay.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/agentpay.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/agentpay.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/agentpay.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/ai-box.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/ai-box.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/ai-box.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/ai-box.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/ai-box.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/ai-box.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/ai-box.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/ai-box.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/developers.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/developers.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/developers.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/developers.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/developers.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/developers.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/developers.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/developers.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/due-diligence.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/due-diligence.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/due-diligence.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/due-diligence.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/due-diligence.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/due-diligence.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/due-diligence.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/due-diligence.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/magne-contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/magne-contact.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/magne-contact.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/magne-contact.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/magne-contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/magne-contact.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/magne-contact.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/magne-contact.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/media-kit.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/media-kit.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/media-kit.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/media-kit.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/media-kit.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/media-kit.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/media-kit.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/media-kit.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/network.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/network.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/network.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/network.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/network.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/network.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/network.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/network.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/newsroom/article/external-commentary-index/</loc>
+    <lastmod>2026-08-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/newsroom/article/external-commentary-index/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/newsroom/article/external-commentary-index/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/newsroom/article/external-commentary-index/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/newsroom/article/external-commentary-index/</loc>
+    <lastmod>2026-08-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/newsroom/article/external-commentary-index/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/newsroom/article/external-commentary-index/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/newsroom/article/external-commentary-index/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/newsroom/article/follow-on-financing-264m/</loc>
+    <lastmod>2026-08-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/newsroom/article/follow-on-financing-264m/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/newsroom/article/follow-on-financing-264m/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/newsroom/article/follow-on-financing-264m/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/newsroom/article/follow-on-financing-264m/</loc>
+    <lastmod>2026-08-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/newsroom/article/follow-on-financing-264m/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/newsroom/article/follow-on-financing-264m/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/newsroom/article/follow-on-financing-264m/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/newsroom/article/launch-night-mybw-2025/</loc>
+    <lastmod>2026-08-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/newsroom/article/launch-night-mybw-2025/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/newsroom/article/launch-night-mybw-2025/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/newsroom/article/launch-night-mybw-2025/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/newsroom/article/launch-night-mybw-2025/</loc>
+    <lastmod>2026-08-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/newsroom/article/launch-night-mybw-2025/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/newsroom/article/launch-night-mybw-2025/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/newsroom/article/launch-night-mybw-2025/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/newsroom/article/magne-l1-mhash-l2-open-source/</loc>
+    <lastmod>2026-08-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/newsroom/article/magne-l1-mhash-l2-open-source/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/newsroom/article/magne-l1-mhash-l2-open-source/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/newsroom/article/magne-l1-mhash-l2-open-source/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/newsroom/article/magne-l1-mhash-l2-open-source/</loc>
+    <lastmod>2026-08-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/newsroom/article/magne-l1-mhash-l2-open-source/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/newsroom/article/magne-l1-mhash-l2-open-source/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/newsroom/article/magne-l1-mhash-l2-open-source/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/newsroom/article/strategic-financing-10m/</loc>
+    <lastmod>2026-08-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/newsroom/article/strategic-financing-10m/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/newsroom/article/strategic-financing-10m/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/newsroom/article/strategic-financing-10m/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/newsroom/article/strategic-financing-10m/</loc>
+    <lastmod>2026-08-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/newsroom/article/strategic-financing-10m/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/newsroom/article/strategic-financing-10m/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/newsroom/article/strategic-financing-10m/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/newsroom/ecosystem/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/newsroom/ecosystem/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/newsroom/ecosystem/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/newsroom/ecosystem/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/newsroom/ecosystem/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/newsroom/ecosystem/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/newsroom/ecosystem/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/newsroom/ecosystem/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/newsroom/events/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/newsroom/events/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/newsroom/events/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/newsroom/events/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/newsroom/events/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/newsroom/events/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/newsroom/events/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/newsroom/events/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/newsroom/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/newsroom/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/newsroom/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/newsroom/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/newsroom/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/newsroom/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/newsroom/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/newsroom/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/newsroom/news/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/newsroom/news/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/newsroom/news/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/newsroom/news/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/newsroom/news/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/newsroom/news/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/newsroom/news/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/newsroom/news/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/newsroom/videos/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/newsroom/videos/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/newsroom/videos/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/newsroom/videos/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/newsroom/videos/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/newsroom/videos/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/newsroom/videos/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/newsroom/videos/" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/privacy-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/privacy-policy.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/privacy-policy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/privacy-policy.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/privacy-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/privacy-policy.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/privacy-policy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/privacy-policy.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/season-1.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/season-1.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/season-1.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/season-1.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/season-1.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/season-1.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/season-1.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/season-1.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/season-2.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/season-2.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/season-2.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/season-2.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/season-2.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/season-2.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/season-2.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/season-2.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/seasons.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/seasons.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/seasons.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/seasons.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/seasons.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/seasons.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/seasons.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/seasons.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/system.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/system.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/system.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/system.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/system.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/system.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/system.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/system.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/terminal.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/terminal.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/terminal.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/terminal.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/terminal.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/terminal.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/terminal.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/terminal.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/token.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/token.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/token.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/token.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/token.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/token.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/token.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/token.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/trust.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/trust.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/trust.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/trust.html" />
+  </url>
+  <url>
+    <loc>https://w3.magne.ai/tc/trust.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w3.magne.ai/trust.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/trust.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/trust.html" />
+  </url>
 </urlset>

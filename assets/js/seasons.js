@@ -1,15 +1,16 @@
 (function () {
+  var assetRoot = document.body.dataset.assetRoot || "";
   var s1Source = "https://payment.magne.ai/api/v1/lottery/dashboard";
   var s2Sources = [
+    { url: assetRoot + "assets/data/season-2-snapshot.json", label: "W3 VERIFIED SNAPSHOT" },
     { url: "/api/v1/season-2/dashboard", label: "W3 AUTHENTICATED COLLECTOR" },
-    { url: "assets/data/season-2-snapshot.json", label: "W3 VERIFIED SNAPSHOT" },
     { url: "https://jerrysohigh-create.github.io/magne-web/assets/data/lottery2-dashboard.json", label: "LEGACY SNAPSHOT" },
   ];
   var s2HistorySources = [
     "/api/v1/season-2/history",
-    "assets/data/season-2-history.json",
+    assetRoot + "assets/data/season-2-history.json",
   ];
-  var s2FlowSource = "assets/data/season-2-flow-audit.json";
+  var s2FlowSource = assetRoot + "assets/data/season-2-flow-audit.json";
 
   function finite(value) {
     if (value === null || value === undefined || value === "") return null;
@@ -138,12 +139,12 @@
     }
 
     if (available === 2) {
-      setState("两季活动数据已载入。Season 2：" + (s2State === "live" ? "LIVE COLLECTOR" : s2State === "snapshot" ? "VERIFIED SNAPSHOT" : "STALE SNAPSHOT") + " · " + s2SourceLabel + (s2ChainLabel ? "；" + s2ChainLabel : "") + "。", s2State === "live" || s2State === "snapshot");
+      setState("Activity data for both seasons has been loaded. Season 2:" + (s2State === "live" ? "LIVE COLLECTOR" : s2State === "snapshot" ? "VERIFIED SNAPSHOT" : "STALE SNAPSHOT") + " · " + s2SourceLabel + (s2ChainLabel ? "；" + s2ChainLabel : "") + "。", s2State === "live" || s2State === "snapshot");
     } else if (available === 1) {
-      setState("部分公开数据源暂时不可用；缺失项保持 —。", false);
+      setState("Some public data sources are temporarily unavailable; missing items remain —.", false);
     } else {
       setS2State("unavailable");
-      setState("活动数据源暂时不可用；页面没有使用示例数据。", false);
+      setState("The active data source is temporarily unavailable; the page does not use sample data.", false);
     }
   });
 })();
