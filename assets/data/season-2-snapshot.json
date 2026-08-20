@@ -5,7 +5,7 @@
     "source": "W3 authenticated collector",
     "status": "verified",
     "authMode": "ephemeral",
-    "staleAfterSeconds": 1200,
+    "staleAfterSeconds": 3600,
     "evidence": {
       "dashboard": "PAYMENT_AUTHENTICATED",
       "winners": "PAYMENT_PUBLIC_API",
