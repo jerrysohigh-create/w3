@@ -3,10 +3,11 @@
 
   var root = document.body.dataset.root || "";
   var assetRoot = document.body.dataset.assetRoot || root;
-  var sources = [
-    { url: assetRoot + "assets/data/season-2-snapshot.json", mode: "snapshot" },
-    { url: "/api/v1/season-2/dashboard", mode: "collector" }
-  ];
+  var collectorSource = { url: "/api/v1/season-2/dashboard", mode: "collector" };
+  var snapshotSource = { url: assetRoot + "assets/data/season-2-snapshot.json", mode: "snapshot" };
+  var sources = location.hostname === "jerrysohigh-create.github.io"
+    ? [snapshotSource, collectorSource]
+    : [collectorSource, snapshotSource];
 
   function freshness(payload) {
     var meta = payload && payload._meta;

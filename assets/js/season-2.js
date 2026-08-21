@@ -1,10 +1,11 @@
 (function () {
   var assetRoot = document.body.dataset.assetRoot || "";
-  var snapshotSources = [
-    { url: assetRoot + "assets/data/season-2-snapshot.json", label: "W3 VERIFIED SNAPSHOT", mode: "snapshot" },
-    { url: "/api/v1/season-2/dashboard", label: "W3 AUTHENTICATED COLLECTOR", mode: "collector" },
-    { url: "https://jerrysohigh-create.github.io/magne-web/assets/data/lottery2-dashboard.json", label: "LEGACY SNAPSHOT", mode: "snapshot" }
-  ];
+  var collectorSource = { url: "/api/v1/season-2/dashboard", label: "W3 AUTHENTICATED COLLECTOR", mode: "collector" };
+  var verifiedSnapshotSource = { url: assetRoot + "assets/data/season-2-snapshot.json", label: "W3 VERIFIED SNAPSHOT", mode: "snapshot" };
+  var legacySnapshotSource = { url: "https://jerrysohigh-create.github.io/magne-web/assets/data/lottery2-dashboard.json", label: "LEGACY SNAPSHOT", mode: "snapshot" };
+  var snapshotSources = location.hostname === "jerrysohigh-create.github.io"
+    ? [verifiedSnapshotSource, collectorSource, legacySnapshotSource]
+    : [collectorSource, verifiedSnapshotSource, legacySnapshotSource];
   var listSource = "https://payment.magne.ai/api/v1/lottery2/list";
   var winnersSource = "https://payment.magne.ai/api/v1/lottery2/winners";
   var leaderboardSource = "https://payment.magne.ai/api/v1/lottery2/leaderboard";
