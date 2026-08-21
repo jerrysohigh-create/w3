@@ -1,11 +1,11 @@
 {
   "_meta": {
-    "fetchedAt": "2026-08-21T02:09:29.934Z",
-    "onchainFetchedAt": "2026-08-21T02:09:28.851Z",
+    "fetchedAt": "2026-08-21T03:19:09.090Z",
+    "onchainFetchedAt": "2026-08-21T03:19:08.849Z",
     "source": "W3 authenticated collector",
     "status": "verified",
     "authMode": "ephemeral",
-    "staleAfterSeconds": 3600,
+    "staleAfterSeconds": 21600,
     "evidence": {
       "dashboard": "PAYMENT_AUTHENTICATED",
       "winners": "PAYMENT_PUBLIC_API",
@@ -15,10 +15,10 @@
   "code": 200,
   "msg": "ok",
   "data": {
-    "totalEntries": 3764,
+    "totalEntries": 3774,
     "totalMobile": 37,
     "currRound": 38,
-    "nextDrawNeed": 36,
+    "nextDrawNeed": 26,
     "ms2Issued": 5110000,
     "liquidityPrepared": 98518.23368584053,
     "baseRate": 0.15,
@@ -26,7 +26,7 @@
     "winnerRecords": 37
   },
   "contracts": {
-    "fetchedAt": "2026-08-21T02:09:28.851Z",
+    "fetchedAt": "2026-08-21T03:19:08.849Z",
     "contracts": {
       "ms2Token": "0xC46A54BBD2716C436Aaaed6Ed2f555a9b054ebD1",
       "lotteryProxy": "0x6DE61D8438176741fc8150Aef53256830a6Dd635",
