@@ -54,7 +54,9 @@ jobs:
           W3_ALLOW_EPHEMERAL_WALLET: "true"
           W3_SERVICE_WALLET_PRIVATE_KEY: ${{ secrets.W3_SERVICE_WALLET_PRIVATE_KEY }}
           W3_REFRESH_SECONDS: "600"
-          W3_STALE_AFTER_SECONDS: "3600"
+          # GitHub's scheduled jobs are best-effort and can be delayed. Keep
+          # the 10-minute collection cadence, but alert only after a real gap.
+          W3_STALE_AFTER_SECONDS: "21600"
         run: pnpm collect:s2
 
       - name: Refresh Dune participant series when configured
