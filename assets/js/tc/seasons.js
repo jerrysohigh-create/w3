@@ -3,10 +3,7 @@
   var s1Source = "https://payment.magne.ai/api/v1/lottery/dashboard";
   var collectorSource = { url: "/api/v1/season-2/dashboard", label: "W3 AUTHENTICATED COLLECTOR" };
   var verifiedSnapshotSource = { url: assetRoot + "assets/data/season-2-snapshot.json", label: "W3 VERIFIED SNAPSHOT" };
-  var legacySnapshotSource = { url: "https://jerrysohigh-create.github.io/magne-web/assets/data/lottery2-dashboard.json", label: "LEGACY SNAPSHOT" };
-  var s2Sources = location.hostname === "jerrysohigh-create.github.io"
-    ? [verifiedSnapshotSource, collectorSource, legacySnapshotSource]
-    : [collectorSource, verifiedSnapshotSource, legacySnapshotSource];
+  var s2Sources = [collectorSource, verifiedSnapshotSource];
   var s2HistorySources = [
     "/api/v1/season-2/history",
     assetRoot + "assets/data/season-2-history.json",
