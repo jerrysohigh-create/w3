@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var officialAsset = "https://jerrysohigh-create.github.io/magne-web/MAGNE.AI/assets/images/";
+  var officialAsset = "https://www.magne.ai/assets/images/";
   var siteRoot = document.body.dataset.root || "";
   var assetRoot = document.body.dataset.assetRoot || siteRoot;
   var localEventAsset = assetRoot + "assets/images/newsroom/events/";
@@ -35,7 +35,7 @@
           { label: "會後回顧", url: "https://x.com/Magne_Ai/status/1947331133571830200", publisher: "MAGNE.AI X" },
           { label: "共同主辦單位確認", url: "https://x.com/BeckerVentures/status/1947335120589131957", publisher: "Becker Ventures X" },
           { label: "官方影片回顧", url: "https://x.com/Magne_Ai/status/1948226297483919778", publisher: "MAGNE.AI X" },
-          { label: "MAGNE.AI 影像檔案", url: "https://jerrysohigh-create.github.io/magne-web/MAGNE.AI/stories.html#launch-night-2025", publisher: "MAGNE.AI" }
+          { label: "MAGNE.AI 影像檔案", url: "https://www.magne.ai/en/stories.html#launch-night-2025", publisher: "MAGNE.AI" }
         ]
       },
       {
@@ -54,7 +54,7 @@
         facts: ["08 PUBLIC SIGNALS", "FCC PUBLIC", "GSMA TAC OBTAINED", "NDA FILES EXCLUDED"],
         sources: [
           { label: "Web2 基礎資料室", url: "https://jerrysohigh-create.github.io/DR/tc/web2-foundation.html", publisher: "MAGNE.AI DD" },
-          { label: "MAGNE.AI 產品與認證總覽", url: "https://jerrysohigh-create.github.io/magne-web/tc/magne-home.html", publisher: "MAGNE.AI" }
+          { label: "MAGNE.AI 產品與認證總覽", url: "https://www.magne.ai/en/compliance.html", publisher: "MAGNE.AI" }
         ]
       },
       {
