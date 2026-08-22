@@ -1,4 +1,4 @@
-import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rename, rm, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { config } from "../server/config.mjs";
 
@@ -28,6 +28,7 @@ const CONCURRENCY = Math.max(1, Number(process.env.S2_HISTORY_CONCURRENCY || 1))
 const RPC_COOLDOWN_MS = Math.max(0, Number(process.env.S2_HISTORY_RPC_COOLDOWN_MS || 1000));
 const snapshotFile = config.cacheFile;
 const evidenceFile = config.evidenceFile;
+const rebuildFile = `${evidenceFile}.rebuild`;
 const bootstrapFile = config.bootstrapFile;
 
 let requestId = 0;
@@ -111,7 +112,11 @@ async function concurrentMap(items, worker, concurrency = CONCURRENCY) {
   return results;
 }
 
-const previous = await readJson(evidenceFile, { _meta: {}, events: [] });
+const canonical = await readJson(evidenceFile, { _meta: {}, events: [] });
+const stagedRebuild = FULL_REBUILD
+  ? await readJson(rebuildFile, { _meta: {}, events: [] })
+  : null;
+const previous = FULL_REBUILD ? stagedRebuild : canonical;
 const bootstrap = await readJson(bootstrapFile, { _meta: {}, events: [] });
 const previousEvents = Array.isArray(previous.events) ? previous.events : [];
 const bootstrapEvents = Array.isArray(bootstrap.events) ? bootstrap.events : [];
@@ -121,10 +126,10 @@ const bootstrapToBlock = Math.max(
   Number(bootstrap?._meta?.verifiedThroughBlock || 0),
   ...bootstrapEvents.map((event) => Number(event.blockNumber || 0)),
 );
-const latestKnownBlock = Math.max(previousToBlock, bootstrapToBlock);
+const latestKnownBlock = Math.max(previousToBlock, FULL_REBUILD ? 0 : bootstrapToBlock);
 const latestHead = REQUESTED_TO_BLOCK || Number.parseInt(await rpc("eth_blockNumber", []), 16);
 const finalizedBlock = Math.max(FIRST_EVENT_BLOCK, latestHead - CONFIRMATIONS);
-const scanFrom = FULL_REBUILD || !previousEvents.length
+const scanFrom = !previousEvents.length
   ? FIRST_EVENT_BLOCK
   : Math.max(FIRST_EVENT_BLOCK, latestKnownBlock - OVERLAP + 1);
 
@@ -173,7 +178,7 @@ const newEvents = rawLogs.map((log) => {
   };
 });
 
-const baseEvents = FULL_REBUILD ? [] : [...previousEvents, ...bootstrapEvents];
+const baseEvents = FULL_REBUILD ? previousEvents : [...previousEvents, ...bootstrapEvents];
 const events = [...new Map([...baseEvents, ...newEvents].map((event) => [eventKey(event), event])).values()]
   .sort((left, right) => left.blockNumber - right.blockNumber || left.logIndex - right.logIndex);
 if (!events.length) throw new Error("No Season 2 participation events found");
@@ -259,12 +264,22 @@ if (ANALYZE_ONLY) {
   process.exit(0);
 }
 
-if (matched === false) {
+if (matched === false && caughtUp) {
   console.warn(`[chain-sync] dashboard/chain delta retained for review: ${JSON.stringify(reconciliation)}`);
 }
 
 await mkdir(dirname(evidenceFile), { recursive: true });
-const temporary = `${evidenceFile}.tmp`;
+const targetFile = FULL_REBUILD && !caughtUp ? rebuildFile : evidenceFile;
+if (FULL_REBUILD && caughtUp) {
+  const canonicalEvents = Array.isArray(canonical.events) ? canonical.events : [];
+  const canonicalPayers = new Set(canonicalEvents.map((event) => String(event.participant).toLowerCase()));
+  const canonicalEntries = canonicalEvents.reduce((sum, event) => sum + Number(event.entries || 0), 0);
+  if (events.length < canonicalEvents.length || participants.size < canonicalPayers.size || totalEntries < canonicalEntries) {
+    throw new Error("Completed rebuild regressed below the last verified canonical history");
+  }
+}
+const temporary = `${targetFile}.tmp`;
 await writeFile(temporary, `${JSON.stringify(evidence, null, 2)}\n`, "utf8");
-await rename(temporary, evidenceFile);
-console.log(`[chain-sync] stored ${events.length} events (+${Math.max(0, events.length - previousEvents.length)}); ${participants.size} direct payers; ${totalEntries} entries; scanned through ${scanTo}${caughtUp ? " (current)" : ` (${finalizedBlock - scanTo} blocks remain)`}`);
+await rename(temporary, targetFile);
+if (FULL_REBUILD && caughtUp) await rm(rebuildFile, { force: true });
+console.log(`[chain-sync] ${targetFile === rebuildFile ? "staged" : "stored"} ${events.length} events (+${Math.max(0, events.length - previousEvents.length)}); ${participants.size} direct payers; ${totalEntries} entries; scanned through ${scanTo}${caughtUp ? " (current)" : ` (${finalizedBlock - scanTo} blocks remain)`}`);

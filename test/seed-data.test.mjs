@@ -40,3 +40,60 @@ test("seedPersistentData initializes an empty persistent directory without overw
     await rm(root, { recursive: true, force: true });
   }
 });
+
+test("seedPersistentData restores regressed BSC history and preserves newer data", async () => {
+  const root = await mkdtemp(join(tmpdir(), "w3-seed-recovery-"));
+  const dataDir = join(root, "persistent");
+  const historySeed = {
+    _meta: { chainBackfill: { toBlock: 200, eventCount: 20, uniqueDirectPayers: 8, totalEntries: 30 } },
+    points: [{ observedAt: "2026-08-20T00:00:00.000Z", onchainPayers: 8, totalEntries: 30 }],
+  };
+  const eventsSeed = {
+    _meta: { toBlock: 200, eventCount: 20, uniqueDirectPayers: 8, totalEntries: 30 },
+    events: Array.from({ length: 20 }, (_, index) => ({ transactionHash: `0x${index}`, participant: `0x${index}`, entries: index < 10 ? 2 : 1 })),
+  };
+
+  try {
+    const seedFiles = {
+      "assets/data/season-2-snapshot.json": {},
+      "assets/data/season-2-history.json": historySeed,
+      "server-data/season-2-chain-events.json": eventsSeed,
+      "server-data/season-2-bscscan-bootstrap.json": {},
+      "assets/data/season-2-flow-audit.json": {},
+    };
+    for (const [relative, value] of Object.entries(seedFiles)) {
+      const file = join(root, relative);
+      await mkdir(dirname(file), { recursive: true });
+      await writeFile(file, JSON.stringify(value), "utf8");
+    }
+    const config = {
+      dataDir,
+      cacheFile: join(dataDir, "season-2-snapshot.json"),
+      historyFile: join(dataDir, "season-2-history.json"),
+      evidenceFile: join(dataDir, "season-2-chain-events.json"),
+      bootstrapFile: join(dataDir, "season-2-bscscan-bootstrap.json"),
+      flowAuditFile: join(dataDir, "season-2-flow-audit.json"),
+    };
+    await seedPersistentData(config, root);
+
+    await writeFile(config.historyFile, JSON.stringify({
+      _meta: { chainBackfill: { toBlock: 120, eventCount: 4, uniqueDirectPayers: 3, totalEntries: 5 } },
+      points: [{ observedAt: "2026-07-10T00:00:00.000Z", onchainPayers: 3, totalEntries: 5 }],
+    }), "utf8");
+    await writeFile(config.evidenceFile, JSON.stringify({
+      _meta: { toBlock: 120, eventCount: 4, uniqueDirectPayers: 3, totalEntries: 5 },
+      events: eventsSeed.events.slice(0, 4),
+    }), "utf8");
+
+    assert.equal((await seedPersistentData(config, root)).length, 2);
+    assert.equal(JSON.parse(await readFile(config.historyFile, "utf8"))._meta.chainBackfill.uniqueDirectPayers, 8);
+    assert.equal(JSON.parse(await readFile(config.evidenceFile, "utf8"))._meta.uniqueDirectPayers, 8);
+
+    const newer = { ...historySeed, _meta: { chainBackfill: { toBlock: 220, eventCount: 22, uniqueDirectPayers: 9, totalEntries: 33 } } };
+    await writeFile(config.historyFile, JSON.stringify(newer), "utf8");
+    assert.equal((await seedPersistentData(config, root)).length, 0);
+    assert.equal(JSON.parse(await readFile(config.historyFile, "utf8"))._meta.chainBackfill.uniqueDirectPayers, 9);
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});

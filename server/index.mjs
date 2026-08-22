@@ -99,6 +99,12 @@ async function syncChainHistory() {
       for (const script of scripts) {
         const result = await execFileAsync(process.execPath, [script], {
           cwd: projectRoot,
+          env: {
+            ...process.env,
+            // Scheduled collection must always extend the last verified BSC
+            // baseline. A full rebuild is a manual maintenance operation.
+            S2_HISTORY_FULL: "false",
+          },
           windowsHide: true,
           timeout: Math.max(120_000, config.chainSyncMs - 1_000),
           maxBuffer: 1024 * 1024,
