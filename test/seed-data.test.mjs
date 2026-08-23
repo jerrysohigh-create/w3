@@ -3,7 +3,19 @@ import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
 import { seedPersistentData } from "../server/seed-data.mjs";
+
+test("deployment bundle includes the verified Season 2 chain baseline", async () => {
+  const evidenceFile = join(dirname(fileURLToPath(import.meta.url)), "..", "server-data", "season-2-chain-events.json");
+  const evidence = JSON.parse(await readFile(evidenceFile, "utf8"));
+  const events = Array.isArray(evidence.events) ? evidence.events : [];
+  const payers = new Set(events.map((event) => String(event.participant).toLowerCase()));
+
+  assert.ok(events.length >= 137, "verified event history must ship with the deployment");
+  assert.ok(payers.size >= 80, "verified direct-payer baseline must not regress below 80");
+  assert.ok(Number(evidence?._meta?.toBlock) >= 117055101, "verified scan coverage must be preserved");
+});
 
 test("seedPersistentData initializes an empty persistent directory without overwriting it", async () => {
   const root = await mkdtemp(join(tmpdir(), "w3-seed-test-"));

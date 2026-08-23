@@ -1,5 +1,6 @@
 node_modules/
-server-data/
+server-data/*
+!server-data/season-2-chain-events.json
 .env
 .env.*
 !.env.example
