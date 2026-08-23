@@ -102,6 +102,8 @@ const history = {
       fromBlock: evidence._meta.fromBlock,
       toBlock: evidence._meta.toBlock,
       chainHead: evidence._meta.chainHead,
+      caughtUp: Boolean(evidence._meta.caughtUp),
+      remainingBlocks: Number(evidence._meta.remainingBlocks || 0),
       confirmations: evidence._meta.confirmations,
       eventCount: events.length,
       firstEventAt: events[0].observedAt,

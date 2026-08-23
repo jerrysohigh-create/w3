@@ -195,9 +195,14 @@ const server = createServer(async (request, response) => {
         lastError: lastError || null,
         chainHistory: {
           lastCheckedAt: history?._meta?.lastCheckedAt || null,
-          finalizedBlock: history?._meta?.chainBackfill?.toBlock || null,
+          scanToBlock: history?._meta?.chainBackfill?.toBlock || null,
+          chainHead: history?._meta?.chainBackfill?.chainHead || null,
+          caughtUp: history?._meta?.chainBackfill?.caughtUp ?? null,
+          remainingBlocks: history?._meta?.chainBackfill?.remainingBlocks ?? null,
           firstEventBlock: history?._meta?.chainBackfill?.firstEventBlock || null,
           eventCount: history?._meta?.chainBackfill?.eventCount || null,
+          uniqueDirectPayers: history?._meta?.chainBackfill?.uniqueDirectPayers || null,
+          totalEntries: history?._meta?.chainBackfill?.totalEntries || null,
           lastError: lastChainError || null
         }
       }
