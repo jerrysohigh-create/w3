@@ -1,7 +1,7 @@
 (function () {
   var dashboardSource = "https://payment.magne.ai/api/v1/lottery/dashboard";
   var winnersSource = "https://payment.magne.ai/api/v1/lottery/winners";
-  var growthSource = "https://jerrysohigh-create.github.io/DR/assets/data/dune/season1-participants-growth.json";
+  var growthSource = "../assets/data/season-1-participants-growth.json";
   var pageSize = 20;
   var currentPage = 1;
   var winners = [];

@@ -26,6 +26,7 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="../assets/css/home-consent.css?v=20260821-2" />
     <style>
       /* ============================================================
        RESET + BASE
@@ -660,7 +661,7 @@
       }
       .why-grid {
         display: grid;
-        grid-template-columns: 200px 1fr 1fr 1fr;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 0;
       }
       .why-cell {
@@ -2696,7 +2697,7 @@
                 >
               </div>
               <p class="footnote" id="s2-home-source">
-                * 正在同步 W3 驗證快照、Dune 唯一直接付款地址與 BSC 資金流分類。
+                * 正在同步 W3 認證收集器、BSC 唯一直接付款地址歷史與資金流分類。
               </p>
             </div>
           </div>
@@ -3227,11 +3228,13 @@
         { url: "assets/data/season-1-summary.json", label: "W3 VERIFIED S1 SNAPSHOT" },
       ];
       var S2_SOURCES = [
-        { url: "../assets/data/season-2-snapshot.json", label: "W3 VERIFIED SNAPSHOT" },
         { url: "/api/v1/season-2/dashboard", label: "W3 AUTHENTICATED COLLECTOR" },
-        { url: "https://jerrysohigh-create.github.io/magne-web/assets/data/lottery2-dashboard.json", label: "LEGACY SNAPSHOT" },
+        { url: "../assets/data/season-2-snapshot.json", label: "W3 VERIFIED SNAPSHOT" },
       ];
-      var S2_PAYERS = "../assets/data/season-2-dune-participants.json";
+      var S2_HISTORY_SOURCES = [
+        "/api/v1/season-2/history",
+        "../assets/data/season-2-history.json",
+      ];
       var S2_FLOW = "../assets/data/season-2-flow-audit.json";
       function setMetric(id, value) {
         var el = document.getElementById(id);
@@ -3266,10 +3269,20 @@
           return loadHomeSource(sources, index + 1);
         });
       }
+      function loadHomeHistory(index) {
+        if (index >= S2_HISTORY_SOURCES.length) return Promise.reject(new Error("No S2 history source"));
+        var url = S2_HISTORY_SOURCES[index];
+        return fetchHomeJson(url, "S2 history").then(function (payload) {
+          if (payload.code !== 200 || !Array.isArray(payload.points)) throw new Error("S2 history payload");
+          return payload;
+        }).catch(function () {
+          return loadHomeHistory(index + 1);
+        });
+      }
       Promise.allSettled([
         loadHomeSource(S1_SOURCES, 0),
         loadHomeSource(S2_SOURCES, 0),
-        fetchHomeJson(S2_PAYERS, "S2 direct payers"),
+        loadHomeHistory(0),
         fetchHomeJson(S2_FLOW, "S2 referral audit"),
       ]).then(function (results) {
         if (results[0].status === "fulfilled") {
@@ -3291,20 +3304,20 @@
         if (results[1].status === "fulfilled") {
           var s2Result = results[1].value;
           var s2 = s2Result.payload.data || {};
-          setMetric("s2-participants", s2.totalParticipants);
           setMetric("s2-entries", s2.totalEntries);
           setMetric("s2-units-left", 1600 - Number(s2.totalMobile || 0));
           var s2FetchedAt = s2Result.payload._meta && s2Result.payload._meta.fetchedAt;
-          setHomeText("s2-home-source", "* " + s2Result.source.label + (s2FetchedAt ? " · " + new Date(s2FetchedAt).toLocaleString("zh-Hant", { hour12: false }) : "") + "· 詳細來源與重新整理狀態見完整面板。");
+          var s2HistoryCheckedAt = results[2].status === "fulfilled" && results[2].value._meta && results[2].value._meta.lastCheckedAt;
+          setHomeText("s2-home-source", "* " + s2Result.source.label + (s2FetchedAt ? " · " + new Date(s2FetchedAt).toLocaleString("zh-Hant", { hour12: false }) : "") + (s2HistoryCheckedAt ? " · BSC EVENTS · " + new Date(s2HistoryCheckedAt).toLocaleString("zh-Hant", { hour12: false }) : "") + " · 詳細來源與重新整理狀態見完整面板。");
         } else {
           ["s2-entries", "s2-units-left"].forEach(function (id) { setMetric(id, null); });
           setHomeText("s2-home-source", "* SEASON 2 SNAPSHOT TEMPORARILY UNAVAILABLE · 未使用示例數字。");
         }
 
         if (results[2].status === "fulfilled") {
-          var payerRows = Array.isArray(results[2].value.rows) ? results[2].value.rows : [];
-          var latestPayers = payerRows[payerRows.length - 1];
-          setMetric("s2-participants", latestPayers && latestPayers.total_participants);
+          var historyPoints = Array.isArray(results[2].value.points) ? results[2].value.points : [];
+          var latestHistory = historyPoints[historyPoints.length - 1];
+          setMetric("s2-participants", latestHistory && latestHistory.onchainPayers);
         } else {
           setMetric("s2-participants", null);
         }

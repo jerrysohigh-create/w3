@@ -8,6 +8,7 @@ import { ChainClient } from "./chain-client.mjs";
 import { config, projectRoot } from "./config.mjs";
 import { createServiceWallet, PaymentClient } from "./payment-client.mjs";
 import { readHistory } from "./history.mjs";
+import { seedPersistentData } from "./seed-data.mjs";
 import { buildSnapshot, readSnapshot, snapshotWithFreshness, writeSnapshot } from "./snapshot.mjs";
 
 const MIME = Object.freeze({
@@ -28,6 +29,9 @@ const serviceWallet = createServiceWallet({
 const payment = new PaymentClient({ baseUrl: config.paymentApiBase, wallet: serviceWallet.wallet });
 const chain = new ChainClient(config.rpcUrls);
 const execFileAsync = promisify(execFile);
+
+const seededFiles = await seedPersistentData(config, projectRoot);
+if (seededFiles.length) console.log(`[data] seeded ${seededFiles.length} persistent files`);
 
 let snapshot = await readSnapshot(config.cacheFile);
 let history = await readHistory(config.historyFile);
@@ -95,6 +99,12 @@ async function syncChainHistory() {
       for (const script of scripts) {
         const result = await execFileAsync(process.execPath, [script], {
           cwd: projectRoot,
+          env: {
+            ...process.env,
+            // Scheduled collection must always extend the last verified BSC
+            // baseline. A full rebuild is a manual maintenance operation.
+            S2_HISTORY_FULL: "false",
+          },
           windowsHide: true,
           timeout: Math.max(120_000, config.chainSyncMs - 1_000),
           maxBuffer: 1024 * 1024,
