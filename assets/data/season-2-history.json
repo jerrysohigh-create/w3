@@ -7,10 +7,10 @@
       "onchainPayers": "Distinct participant addresses observed in the participation event"
     },
     "startedAt": "2026-07-10T07:04:14.999Z",
-    "updatedAt": "2026-08-24T03:53:20.881Z",
+    "updatedAt": "2026-08-24T06:06:13.752Z",
     "lastCheckedAt": "2026-08-20T14:20:20.407Z",
     "refreshSeconds": 600,
-    "pointCount": 173,
+    "pointCount": 174,
     "chartMetric": "totalEntries",
     "chainBackfill": {
       "contract": "0x6DE61D8438176741fc8150Aef53256830a6Dd635",
@@ -41,7 +41,7 @@
         }
       }
     },
-    "automatedSnapshotAt": "2026-08-24T03:53:20.881Z"
+    "automatedSnapshotAt": "2026-08-24T06:06:13.752Z"
   },
   "code": 200,
   "msg": "ok",
@@ -1874,6 +1874,15 @@
       "totalMobile": 63,
       "currRound": 64,
       "nextDrawNeed": 55,
+      "source": "PAYMENT_AUTHENTICATED_OBSERVATION",
+      "onchainPayers": 80
+    },
+    {
+      "observedAt": "2026-08-24T06:06:13.752Z",
+      "totalEntries": 6365,
+      "totalMobile": 63,
+      "currRound": 64,
+      "nextDrawNeed": 35,
       "source": "PAYMENT_AUTHENTICATED_OBSERVATION",
       "onchainPayers": 80
     }
