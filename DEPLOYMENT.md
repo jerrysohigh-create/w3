@@ -66,6 +66,19 @@ Production requirements:
 - Keep `W3_ALLOW_EPHEMERAL_WALLET=false`.
 - Never expose the key in frontend JavaScript, logs, public JSON, screenshots, tickets or Git.
 - Never fund this wallet or approve contracts from it. It is only a Payment API challenge signer.
+- Keep `S2_HISTORY_USE_PORTAL=true` so BSC history can catch up from the finalized stream without using the service wallet.
+- Keep `W3_CHAIN_SYNC_SECONDS=300` and mount `W3_DATA_DIR=/var/lib/w3` on persistent storage.
+
+## Automatic Season 2 sync
+
+The service runs both collectors immediately after every start:
+
+- Payment API snapshot refresh every `W3_REFRESH_SECONDS` (default 60 seconds).
+- BSC participation-history sync every `W3_CHAIN_SYNC_SECONDS` (default 300 seconds).
+
+The BSC collector uses the public SQD finalized stream as its primary source and the configured JSON-RPC endpoints as fallback. It merges participation events by transaction hash and derives the unique payer count from the union of participant addresses. It never treats the verified historical baseline as zero and never replaces a larger persisted history with a partial rescan.
+
+The repository evidence is only the deployment seed. Runtime updates are written to `W3_DATA_DIR`; therefore `/var/lib/w3` must survive service restarts and application upgrades.
 
 ## systemd
 
@@ -117,6 +130,9 @@ The health response must report:
 - `authMode: "secret"`
 - `collectorReady: true`
 - `lastError: null`
+- `chainHistory.caughtUp: true`
+- `chainHistory.remainingBlocks: 0`
+- `chainHistory.lastError: null`
 
 The W3 interface translates a fresh same-origin collector response into the public `S2: LIVE` state.
 

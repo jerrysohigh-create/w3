@@ -1,6 +1,7 @@
 import { mkdir, readFile, rename, rm, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { config } from "../server/config.mjs";
+import { DEFAULT_STREAM_URL, PortalClient } from "../server/portal-client.mjs";
 
 const RPC_URLS = (process.env.BSC_HISTORY_RPCS || process.env.BSC_HISTORY_RPC
   || [
@@ -26,6 +27,8 @@ const OVERLAP = Math.max(0, Number(process.env.S2_HISTORY_OVERLAP || 100));
 const CONFIRMATIONS = Math.max(0, Number(process.env.S2_HISTORY_CONFIRMATIONS || 15));
 const CONCURRENCY = Math.max(1, Number(process.env.S2_HISTORY_CONCURRENCY || 1));
 const RPC_COOLDOWN_MS = Math.max(0, Number(process.env.S2_HISTORY_RPC_COOLDOWN_MS || 1000));
+const USE_PORTAL = process.env.S2_HISTORY_USE_PORTAL !== "false";
+const PORTAL_URL = process.env.S2_HISTORY_PORTAL_URL || DEFAULT_STREAM_URL;
 const snapshotFile = config.cacheFile;
 const evidenceFile = config.evidenceFile;
 const rebuildFile = `${evidenceFile}.rebuild`;
@@ -127,51 +130,91 @@ const bootstrapToBlock = Math.max(
   ...bootstrapEvents.map((event) => Number(event.blockNumber || 0)),
 );
 const latestKnownBlock = Math.max(previousToBlock, FULL_REBUILD ? 0 : bootstrapToBlock);
-const latestHead = REQUESTED_TO_BLOCK || Number.parseInt(await rpc("eth_blockNumber", []), 16);
-const finalizedBlock = Math.max(FIRST_EVENT_BLOCK, latestHead - CONFIRMATIONS);
 const scanFrom = !previousEvents.length
   ? FIRST_EVENT_BLOCK
   : Math.max(FIRST_EVENT_BLOCK, latestKnownBlock - OVERLAP + 1);
+
+let latestHead;
+let finalizedBlock;
+let scanTo;
+let rawLogs;
+let syncSource;
+
+if (USE_PORTAL) {
+  try {
+    const portal = new PortalClient({ streamUrl: PORTAL_URL });
+    latestHead = REQUESTED_TO_BLOCK || await portal.getFinalizedHead();
+    finalizedBlock = Math.max(FIRST_EVENT_BLOCK, latestHead - CONFIRMATIONS);
+    if (scanFrom <= finalizedBlock) {
+      console.log(`[chain-sync] SQD finalized scan: blocks ${scanFrom}–${finalizedBlock}`);
+      rawLogs = await portal.queryLogs({
+        fromBlock: scanFrom,
+        toBlock: finalizedBlock,
+        address: CONTRACT,
+        topic0: PARTICIPATION_TOPIC,
+        onProgress: ({ page, scannedTo, toBlock, logCount }) => {
+          if (page % 10 === 0 || scannedTo >= toBlock) {
+            console.log(`[chain-sync] portal page ${page}; scanned ${scannedTo}/${toBlock}; ${logCount} logs`);
+          }
+        },
+      });
+    } else {
+      rawLogs = [];
+    }
+    scanTo = finalizedBlock;
+    syncSource = "SQD Portal finalized BSC stream + verified indexed bootstrap";
+  } catch (error) {
+    console.warn(`[chain-sync] SQD Portal unavailable; using JSON-RPC fallback: ${error.message || error}`);
+  }
+}
+
+if (!rawLogs) {
+  latestHead = REQUESTED_TO_BLOCK || Number.parseInt(await rpc("eth_blockNumber", []), 16);
+  finalizedBlock = Math.max(FIRST_EVENT_BLOCK, latestHead - CONFIRMATIONS);
+  scanTo = Math.min(finalizedBlock, scanFrom + WINDOW * MAX_WINDOWS - 1);
+  const ranges = [];
+  for (let from = scanFrom; from <= scanTo; from += WINDOW) {
+    ranges.push([from, Math.min(scanTo, from + WINDOW - 1)]);
+  }
+  console.log(`[chain-sync] JSON-RPC fallback: ${ranges.length} windows, blocks ${scanFrom}–${scanTo}${scanTo < finalizedBlock ? ` of ${finalizedBlock}` : ""}`);
+  const batches = await concurrentMap(ranges, async ([fromBlock, toBlock], index) => {
+    const logs = await rpc("eth_getLogs", [{
+      address: CONTRACT,
+      fromBlock: hex(fromBlock),
+      toBlock: hex(toBlock),
+      topics: [PARTICIPATION_TOPIC],
+    }]);
+    if ((index + 1) % 10 === 0 || index + 1 === ranges.length) {
+      console.log(`[chain-sync] ${index + 1}/${ranges.length} windows`);
+    }
+    return logs;
+  });
+  rawLogs = batches.flat();
+  syncSource = "BSC JSON-RPC fallback + verified indexed bootstrap";
+}
 
 if (scanFrom > finalizedBlock) {
   console.log(`[chain-sync] already current at block ${previousToBlock}; head ${latestHead}`);
   process.exit(0);
 }
 
-const scanTo = Math.min(finalizedBlock, scanFrom + WINDOW * MAX_WINDOWS - 1);
-const ranges = [];
-for (let from = scanFrom; from <= scanTo; from += WINDOW) {
-  ranges.push([from, Math.min(scanTo, from + WINDOW - 1)]);
-}
-console.log(`[chain-sync] ${FULL_REBUILD ? "full" : "incremental"} scan: ${ranges.length} windows, blocks ${scanFrom}–${scanTo}${scanTo < finalizedBlock ? ` of ${finalizedBlock}` : ""}`);
-
-const batches = await concurrentMap(ranges, async ([fromBlock, toBlock], index) => {
-  const logs = await rpc("eth_getLogs", [{
-    address: CONTRACT,
-    fromBlock: hex(fromBlock),
-    toBlock: hex(toBlock),
-    topics: [PARTICIPATION_TOPIC],
-  }]);
-  if ((index + 1) % 10 === 0 || index + 1 === ranges.length) {
-    console.log(`[chain-sync] ${index + 1}/${ranges.length} windows`);
-  }
-  return logs;
-});
-
-const rawLogs = batches.flat();
-const blockNumbers = [...new Set(rawLogs.map((log) => Number.parseInt(log.blockNumber, 16)))];
+const portalLogs = rawLogs.filter((log) => Number.isSafeInteger(log.blockNumber));
+const rpcLogs = rawLogs.filter((log) => !Number.isSafeInteger(log.blockNumber));
+const blockNumbers = [...new Set(rpcLogs.map((log) => Number.parseInt(log.blockNumber, 16)))];
 const blocks = await concurrentMap(blockNumbers, async (blockNumber) => {
   const block = await rpc("eth_getBlockByNumber", [hex(blockNumber), false]);
   return [blockNumber, Number.parseInt(block.timestamp, 16)];
 }, 5);
 const timestamps = new Map(blocks);
-const newEvents = rawLogs.map((log) => {
-  const blockNumber = Number.parseInt(log.blockNumber, 16);
+const newEvents = [...portalLogs, ...rpcLogs].map((log) => {
+  const blockNumber = Number.isSafeInteger(log.blockNumber) ? log.blockNumber : Number.parseInt(log.blockNumber, 16);
+  const logIndex = typeof log.logIndex === "number" ? log.logIndex : Number.parseInt(log.logIndex, 16);
+  const timestamp = Number.isFinite(log.timestamp) ? log.timestamp : timestamps.get(blockNumber);
   return {
     blockNumber,
     transactionHash: log.transactionHash,
-    logIndex: Number.parseInt(log.logIndex, 16),
-    observedAt: new Date(timestamps.get(blockNumber) * 1000).toISOString(),
+    logIndex,
+    observedAt: new Date(timestamp * 1000).toISOString(),
     participant: addressFromTopic(log.topics[1]),
     referrer: addressFromTopic(log.topics[2]),
     entries: Number(uintWord(log.data, 0)),
@@ -215,7 +258,7 @@ const reconciliation = {
 
 const evidence = {
   _meta: {
-    source: "BSC JSON-RPC + BscScan indexed bootstrap",
+    source: syncSource,
     contract: CONTRACT,
     eventTopic: PARTICIPATION_TOPIC,
     provenEmptyFromBlock: 108500000,

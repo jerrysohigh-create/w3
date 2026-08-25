@@ -4,29 +4,29 @@
     "contract": "0x6DE61D8438176741fc8150Aef53256830a6Dd635",
     "token": "0x55d398326f99059ff775485246999027b3197955",
     "fromBlock": 109128469,
-    "toBlock": 117045770,
+    "toBlock": 117932519,
     "firstEventAt": "2026-07-10T07:04:15.000Z",
-    "lastEventAt": "2026-08-20T13:08:14.000Z",
-    "lastTransactionHash": "0x6b6beb62c7793b9308f746d44dc81c68542092b58d33548b7a141e4fe48732a1",
-    "generatedAt": "2026-08-20T13:11:05.103Z",
+    "lastEventAt": "2026-08-25T01:58:23.000Z",
+    "lastTransactionHash": "0xd2e58a7b3981ebccb674445d750f0e52bed09d6c138deaf041815530b53ee6dd",
+    "generatedAt": "2026-08-25T04:06:35.632Z",
     "rule": "Each participation event has exactly two USDT transfers equal to 4 × Entries",
     "matched": true
   },
   "code": 200,
   "msg": "ok",
   "data": {
-    "eventsAudited": 137,
-    "transfersAudited": 274,
+    "eventsAudited": 265,
+    "transfersAudited": 530,
     "perEntryUsdt": 4,
     "referral": {
-      "transfers": 137,
-      "uniqueRecipients": 9,
-      "totalUsdt": "15004"
+      "transfers": 265,
+      "uniqueRecipients": 16,
+      "totalUsdt": "32060"
     },
     "pool": {
-      "transfers": 137,
+      "transfers": 265,
       "uniqueRecipients": 1,
-      "totalUsdt": "15004"
+      "totalUsdt": "32060"
     }
   }
 }
