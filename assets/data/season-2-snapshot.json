@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "fetchedAt": "2026-08-25T11:39:32.987Z",
-    "onchainFetchedAt": "2026-08-25T11:39:32.200Z",
+    "fetchedAt": "2026-08-25T12:16:57.886Z",
+    "onchainFetchedAt": "2026-08-25T12:16:56.474Z",
     "source": "W3 authenticated collector",
     "status": "verified",
     "authMode": "ephemeral",
@@ -15,18 +15,18 @@
   "code": 200,
   "msg": "ok",
   "data": {
-    "totalEntries": 8028,
-    "totalMobile": 80,
-    "currRound": 81,
-    "nextDrawNeed": 72,
+    "totalEntries": 9032,
+    "totalMobile": 90,
+    "currRound": 91,
+    "nextDrawNeed": 68,
     "ms2Issued": 5110000,
     "liquidityPrepared": 115196.93428584053,
     "baseRate": 0.15,
     "annualRate": 0.15,
-    "winnerRecords": 80
+    "winnerRecords": 90
   },
   "contracts": {
-    "fetchedAt": "2026-08-25T11:39:32.200Z",
+    "fetchedAt": "2026-08-25T12:16:56.474Z",
     "contracts": {
       "ms2Token": "0xC46A54BBD2716C436Aaaed6Ed2f555a9b054ebD1",
       "lotteryProxy": "0x6DE61D8438176741fc8150Aef53256830a6Dd635",
