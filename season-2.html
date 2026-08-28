@@ -177,8 +177,13 @@
             <div><p class="section-label"><span class="index">S2.06</span> ACTIVITY RECORDS</p><h2 class="section-title">Latest winning and team rewards.</h2></div>
             <p class="section-copy" id="s2-record-state">is reading the W3 Season 2 activity record service.</p>
           </div>
-          <div class="winner-list reveal" id="s2-winner-list" aria-live="polite">
+          <div class="winner-list reveal" id="s2-winner-list" aria-live="polite" aria-label="Season 2 winning phone records" tabindex="0">
             <div class="winner-row"><span class="winner-round">[ LOADING ]</span><span class="winner-address">Reading the complete selected address interface.</span><span class="winner-state">PUBLIC API</span></div>
+          </div>
+          <div class="pagination winner-pagination">
+            <button type="button" id="s2-prev-page" aria-label="Previous winning records page">← PREV</button>
+            <span id="s2-page-indicator" aria-live="polite">PAGE — / —</span>
+            <button type="button" id="s2-next-page" aria-label="Next winning records page">NEXT →</button>
           </div>
           <p class="winner-summary reveal" id="s2-winners-count">is reading the Season 2 selected record.</p>
           <div class="s2-record-grid reveal">

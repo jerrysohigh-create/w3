@@ -576,6 +576,7 @@ button, input { font: inherit; }
   .flow-proof { grid-template-columns: 1fr; }
   .flow-proof span { border-right: 0; border-bottom: 1px solid var(--line); }
   .flow-proof span:last-child { border-bottom: 0; }
+  .winner-list.reveal { opacity: 1; transform: none; }
   .winner-row { grid-template-columns: 1fr; gap: 8px; }
   .winner-state { justify-self: start; }
   .campaign-spec, .campaign-terms { grid-template-columns: 1fr; }

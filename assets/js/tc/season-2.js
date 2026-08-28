@@ -10,6 +10,9 @@
   var entriesPerRound = 100;
   var entryFee = 17;
   var ms2PerEntry = 10;
+  var winnerPageSize = 20;
+  var currentWinnerPage = 1;
+  var winners = [];
   var expectedLotteryImplementation = "0x877f5c053f3f3b43063572b432ff7b7f7b08226b";
   var expectedStakingImplementation = "0x9a7d5e82ab8bb64e279d02f80ff87ad42397532c";
   var leaderboardRatios = [40, 15, 10, 8, 7, 6, 5, 4, 3, 2];
@@ -201,14 +204,22 @@
 
   function renderWinners(rows) {
     var list = get("s2-winner-list");
+    var previous = get("s2-prev-page");
+    var next = get("s2-next-page");
     if (!list) return;
+    if (Array.isArray(rows)) winners = rows;
+    var totalPages = Math.max(1, Math.ceil(winners.length / winnerPageSize));
+    currentWinnerPage = Math.min(Math.max(1, currentWinnerPage), totalPages);
+
+    // Keep the live archive independent of the global reveal threshold. Even
+    // with 1,600 winners, only the current 20-row page enters the DOM.
+    list.classList.add("is-visible");
     list.innerHTML = "";
-    if (!Array.isArray(rows) || !rows.length) {
+    if (!winners.length) {
       list.innerHTML = '<div class="winner-row"><span class="winner-round">[ UNAVAILABLE ]</span><span class="winner-address">公開中選記錄暫時不可用。</span><span class="winner-state pending">NO FALLBACK DATA</span></div>';
       setText("s2-winners-count", "公開介面目前沒有回傳中選記錄。");
-      return;
-    }
-    rows.forEach(function (winner) {
+    } else {
+      winners.slice((currentWinnerPage - 1) * winnerPageSize, currentWinnerPage * winnerPageSize).forEach(function (winner) {
       var row = document.createElement("div");
       row.className = "winner-row";
 
@@ -234,8 +245,12 @@
       row.appendChild(address);
       row.appendChild(status);
       list.appendChild(row);
-    });
-    setText("s2-winners-count", rows.length.toLocaleString("en-US") + "筆公開中選記錄；頁面減敏顯示，連結保留完整地址。");
+      });
+      setText("s2-winners-count", winners.length.toLocaleString("en-US") + " 筆公開中選記錄；頁面減敏顯示，連結保留完整地址。");
+    }
+    if (previous) previous.disabled = currentWinnerPage <= 1;
+    if (next) next.disabled = currentWinnerPage >= totalPages || !winners.length;
+    setText("s2-page-indicator", "第 " + currentWinnerPage + " / " + totalPages + " 頁 · 共 " + winners.length.toLocaleString("en-US") + " 筆");
   }
 
   function loadWinners() {
@@ -284,6 +299,16 @@
   }
 
   renderLeaderboard([]);
+  var previousWinnerButton = get("s2-prev-page");
+  var nextWinnerButton = get("s2-next-page");
+  if (previousWinnerButton) previousWinnerButton.addEventListener("click", function () {
+    currentWinnerPage -= 1;
+    renderWinners();
+  });
+  if (nextWinnerButton) nextWinnerButton.addEventListener("click", function () {
+    currentWinnerPage += 1;
+    renderWinners();
+  });
   Promise.all([loadWinners(), loadLatestDraw(), loadLeaderboard()]).then(function (results) {
     setText("s2-record-state", results[0] ? "完整中選位址介面讀取成功；頁面以脫敏位址展示並連結至 BscScan。" : "中選位址介面暫時無法使用；頁面未使用範例記錄。");
   });
