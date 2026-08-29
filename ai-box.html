@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>MAGNE.AI BOX — Private Edge Intelligence | W3.MAGNE.AI</title>
   <meta name="description" content="MAGNE.AI BOX is a manageable private AI workspace deployed on the organizational site, carrying local knowledge, contract intelligence, permission control and verifiable output.">
-  <link rel="stylesheet" href="assets/css/site.css?v=20260821-23">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260829-ai-box-2">
   <link rel="canonical" href="https://w3.magne.ai/ai-box.html" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="MAGNE.AI BOX — Private Edge Intelligence | W3.MAGNE.AI" />
@@ -48,9 +48,9 @@
       </div>
       <div class="wrap">
         <dl class="ai-box-ledger">
-          <div><dt>FIRST VALIDATED MODEL</dt><dd>QWEN3.6-35B-A3B <span class="tag verified">TEST OK</span></dd></div>
+          <div><dt>FIRST TESTED MODEL</dt><dd>QWEN3.6-35B-A3B <span class="tag verified">TEST OK</span></dd></div>
           <div><dt>MODEL ARTIFACT</dt><dd>Q4_K_M · NPU GGUF <span class="tag verified">VALIDATED</span></dd></div>
-          <div><dt>EDGE RUNTIME</dt><dd>PRIVATE LLAMA.CPP FORK <span class="tag verified">ACTIVE</span></dd></div>
+          <div><dt>EDGE RUNTIME</dt><dd>PRIVATE RUNTIME · LLAMA.CPP-COMPATIBLE <span class="tag pending">POC ACTIVE</span></dd></div>
           <div><dt>ACCELERATION</dt><dd>MAGNE GGML BACKEND <span class="tag verified">ACTIVE</span></dd></div>
         </dl>
       </div>
@@ -123,10 +123,10 @@
             <div><dt>WIRED NETWORK</dt><dd>2× 2.5GbE RJ45</dd><small>Device-level PDF configuration</small></div>
             <div><dt>WIRELESS</dt><dd>Wi-Fi 5 2×2 · Bluetooth 5.0</dd><small>Device-level PDF configuration</small></div>
             <div><dt>EXTERNAL I/O</dt><dd>2× USB 2.0 · 2× USB 3.2 · USB-C 3.2</dd><small>Plus 3.5mm audio and DC power</small></div>
-            <div><dt>OPERATING SYSTEM</dt><dd>Ubuntu / Android</dd><small>PDF support statement</small></div>
+            <div><dt>OPERATING SYSTEM</dt><dd>Ubuntu</dd><small>PUBLIC PRODUCT BASELINE</small></div>
           </dl>
         </div>
-        <p class="ai-box-hardware-note reveal"><span>SPEC NOTE /</span> CPU topology and frequency can be cross-confirmed by the platform's official data; MAGNE's customized NPU's 56 TOPS, 10GB 3D DRAM, 16GB LPDDR5X, &gt;600GB/s and 8–15W are all from the FIH PDF, which still needs to be confirmed by the supplier's Datasheet, memory topology, power consumption test boundaries and MAGNE prototype original logs.</p>
+        <p class="ai-box-hardware-note reveal"><span>SPEC NOTE /</span> CPU topology and frequency can be cross-confirmed by the platform's official data; MAGNE's customized NPU's 56 TOPS, 10GB 3D DRAM, 16GB LPDDR5X, &gt;600GB/s and 8–15W are drawn from controlled technical materials and still require supplier datasheets, memory topology, defined power-test boundaries and MAGNE prototype logs.</p>
       </div>
     </section>
 
@@ -151,8 +151,8 @@
             <small>OpenAI-compatible service surface · local model lifecycle · streaming inference · model expansion</small>
           </div>
           <ol class="runtime-chain">
-            <li><span>01 / MODEL</span><b>VALIDATED GGUF</b><small>LLM · VLM · MoE</small></li>
-            <li><span>02 / RUNTIME</span><b>PRIVATE LLAMA.CPP</b><small>Direct artifact loading</small></li>
+            <li><span>01 / MODEL</span><b>CONTROLLED GGUF</b><small>LLM · VLM · MoE</small></li>
+            <li><span>02 / RUNTIME</span><b>PRIVATE RUNTIME</b><small>llama.cpp-compatible · direct loading</small></li>
             <li><span>03 / BACKEND</span><b>MAGNE GGML</b><small>Graph · memory · dispatch</small></li>
             <li><span>04 / SILICON</span><b>MAGNE CUSTOM NPU</b><small>INT4 / INT8 execution path</small></li>
           </ol>
@@ -164,14 +164,37 @@
       </div>
     </section>
 
+    <section class="content-section ai-box-service" id="service-plane">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-label"><span class="index">03.4</span> LOCAL AI SERVICE PLANE</p>
+            <h2 class="section-title">From model runtime<br>to managed AI service.</h2>
+          </div>
+          <p class="section-copy">The business path starts with enterprise tasks, local knowledge and Agent tools, then passes through MAGNE's identity, permission, policy and audit control plane. The diagram separates local execution from the optional W3 evidence lane detailed in 03.6.</p>
+        </div>
+
+        <figure class="ai-box-architecture-figure reveal">
+          <div class="architecture-svg-shell">
+            <picture>
+              <source media="(max-width: 760px)" srcset="assets/images/ai-box-business-architecture-mobile-en.svg" />
+              <img src="assets/images/ai-box-business-architecture-en.svg" width="1600" height="1050" loading="lazy" decoding="async" alt="MAGNE.AI BOX business architecture: enterprise tasks enter a local control plane, run through local model, knowledge and tool layers, then return cited results while optional Web3 evidence remains separated from private data." />
+            </picture>
+          </div>
+          <figcaption><span>BUSINESS FLOW /</span> ENTERPRISE INPUT → LOCAL CONTROL → LOCAL EXECUTION → CITED RESULT OR APPROVED ACTION. WEB3 EVIDENCE IS OPTIONAL AND SEPARATE.</figcaption>
+        </figure>
+        <p class="runtime-note reveal"><span>BOUNDARY /</span> Enterprise files, prompts, full outputs and private keys remain inside the local trust zone. Partner names, supplier codenames and internal responsibility allocation are intentionally excluded.</p>
+      </div>
+    </section>
+
     <section class="content-section ai-box-model" id="model">
       <div class="wrap">
         <div class="section-head reveal">
           <div>
-            <p class="section-label"><span class="index">03.4</span> FIRST VALIDATED LARGE MODEL</p>
+            <p class="section-label"><span class="index">03.5</span> CONTROLLED MODEL SUPPORT</p>
             <h2 class="section-title">35B total parameters.<br>3B active parameters.</h2>
           </div>
-          <p class="section-copy">The light-feather optimized Qwen3.6-35B-A3B is currently the first large model to complete testing and verification. It runs via Q4_K_M GGUF deployment artifacts customized for MAGNE Custom NPU; GAMMA continues to be validated with other LLMs/VLMs.</p>
+          <p class="section-copy">The optimized Qwen3.6-35B-A3B is currently the first large model to complete controlled testing. It runs via Q4_K_M GGUF deployment artifacts customized for MAGNE Custom NPU; GAMMA continues to be validated with other LLMs/VLMs.</p>
         </div>
 
         <div class="moe-dossier reveal">
@@ -184,7 +207,7 @@
           <dl class="moe-metrics">
             <div><dt>TOTAL PARAMETERS</dt><dd>35B</dd><small>MODEL CAPACITY</small></div>
             <div><dt>ACTIVE PARAMETERS</dt><dd>3B</dd><small>PER-TOKEN ACTIVE PATH</small></div>
-            <div><dt>QUANTIZATION</dt><dd>Q4_K_M</dd><small>FIRST VALIDATED BUILD</small></div>
+            <div><dt>QUANTIZATION</dt><dd>Q4_K_M</dd><small>FIRST TESTED BUILD</small></div>
             <div><dt>DEPLOYMENT ARTIFACT</dt><dd>NPU GGUF</dd><small>CUSTOMIZED FOR MAGNE NPU</small></div>
           </dl>
           <div class="moe-memory-path">
@@ -193,9 +216,38 @@
             <small>ILLUSTRATIVE LAYERING · EXACT ADDRESSING, EXPERT RESIDENCY AND KV-CACHE PLACEMENT REQUIRE ENGINEERING DISCLOSURE</small>
           </div>
           <div class="model-validation-line">
-            <span><b>VALIDATED</b> QWEN3.6-35B-A3B / Q4_K_M / NPU-CUSTOMIZED GGUF</span>
-            <span><b>IN VALIDATION</b> GAMMA + OTHER LLM / VLM ARCHITECTURES</span>
+            <span><b>TESTED</b> QWEN3.6-35B-A3B / Q4_K_M / NPU-CUSTOMIZED GGUF</span>
+            <span class="supplier-measured"><b>ENGINEERING SAMPLE</b> 70 TOKENS/S · CONTROLLED TEST · CONSERVATIVE PUBLIC VALUE</span>
+            <span class="in-validation"><b>IN VALIDATION</b> GAMMA + OTHER LLM / VLM ARCHITECTURES</span>
           </div>
+        </div>
+
+        <div class="performance-register reveal" aria-label="Controlled AI BOX performance register">
+          <div><span>LOCAL DECODE</span><strong>70</strong><small>TOKENS/S · CONTROLLED SAMPLE TEST · CONSERVATIVE PUBLIC VALUE</small></div>
+          <div><span>CONTEXT ENVELOPE</span><strong>256K</strong><small>MAXIMUM CONTEXT CLAIM · POC VERIFICATION REQUIRED</small></div>
+          <div><span>ACCELERATOR</span><strong>56</strong><small>TOPS INT8 · SUPPLIER CLAIM</small></div>
+          <div><span>NPU NEAR MEMORY</span><strong>10GB</strong><small>3D DRAM · SUPPLIER CLAIM</small></div>
+          <div><span>POWER ENVELOPE</span><strong>8–15W</strong><small>SCOPE REQUIRES DEFINITION</small></div>
+        </div>
+
+        <div class="model-support-matrix reveal">
+          <div class="model-matrix-head"><span>CONTROLLED MODEL MATRIX / 2026.08</span><span>OPTIMIZED · TESTED · TARGET</span></div>
+          <div class="table-scroll model-matrix-scroll">
+            <table class="model-matrix-table">
+              <caption class="sr-only">Controlled model optimization, test and target matrix for August 2026</caption>
+              <thead><tr><th>MODEL FAMILY</th><th>STATUS</th><th>PREFILL TOK/S</th><th>DECODE TOK/S</th><th>PRIMARY DIRECTION</th></tr></thead>
+              <tbody>
+                <tr><td data-label="MODEL">Qwen2.5-3B</td><td data-label="STATUS"><span class="tag verified">OPTIMIZED</span></td><td data-label="PREFILL TOK/S">1000</td><td data-label="DECODE TOK/S">300</td><td data-label="DIRECTION">LOCAL LLM</td></tr>
+                <tr><td data-label="MODEL">Qwen2.5-Omni-3B</td><td data-label="STATUS"><span class="tag verified">OPTIMIZED</span></td><td data-label="PREFILL TOK/S">1000</td><td data-label="DECODE TOK/S">300</td><td data-label="DIRECTION">VOICE / MULTIMODAL</td></tr>
+                <tr><td data-label="MODEL">Qwen2.5-Omni-7B</td><td data-label="STATUS"><span class="tag target">SEP TARGET</span></td><td data-label="PREFILL TOK/S">500</td><td data-label="DECODE TOK/S">160</td><td data-label="DIRECTION">VOICE / MULTIMODAL</td></tr>
+                <tr class="model-primary"><td data-label="MODEL">Qwen3.6-35B-A3B · MoE</td><td data-label="STATUS"><span class="tag pending">TESTED</span></td><td data-label="PREFILL TOK/S">200 <small>TARGET</small></td><td data-label="DECODE TOK/S">70 <small>MEASURED</small></td><td data-label="DIRECTION">AGENT APPLICATIONS</td></tr>
+                <tr><td data-label="MODEL">LLaMA2-13B</td><td data-label="STATUS"><span class="tag target">OCT TARGET</span></td><td data-label="PREFILL TOK/S">300</td><td data-label="DECODE TOK/S">80</td><td data-label="DIRECTION">LOCAL LLM</td></tr>
+                <tr><td data-label="MODEL">Qwen3-VL-4B · Qwen3.5-4B</td><td data-label="STATUS"><span class="tag target">OCT TARGET</span></td><td data-label="PREFILL TOK/S">500</td><td data-label="DECODE TOK/S">200</td><td data-label="DIRECTION">VISION AI</td></tr>
+                <tr><td data-label="MODEL">Qwen3-VL-8B · Qwen3.5-9B</td><td data-label="STATUS"><span class="tag target">OCT TARGET</span></td><td data-label="PREFILL TOK/S">350</td><td data-label="DECODE TOK/S">100</td><td data-label="DIRECTION">VISION AI</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Matrix values other than the public 70 tokens/s decode figure are controlled optimization results or targets, not unconditional product commitments. Final values remain subject to model hash, context, quantization and repeatable POC conditions.</p>
         </div>
       </div>
     </section>
@@ -204,7 +256,7 @@
       <div class="wrap">
         <div class="section-head reveal">
           <div>
-            <p class="section-label"><span class="index">03.5</span> WEB3 TRUST &amp; AGENT ECONOMY</p>
+            <p class="section-label"><span class="index">03.6</span> WEB3 TRUST &amp; AGENT ECONOMY</p>
             <h2 class="section-title">Private computation remains local.<br>The proof of trust goes on-chain.</h2>
           </div>
           <p class="section-copy">Web3 is not another interface decoration, but the identity, authorization, auditing and settlement layer of AI BOX. Original files, prompt words and complete reasoning content do not enter the chain; device signature, model version, task summary and authorization status constitute verifiable evidence of collaboration.</p>
@@ -263,42 +315,11 @@
       </div>
     </section>
 
-    <section class="content-section" id="architecture">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <p class="section-label"><span class="index">03.6</span> COMPUTE ARCHITECTURE</p>
-            <h2 class="section-title">From private data<br>to verifiable results.</h2>
-          </div>
-          <p class="section-copy">The UIS 7885 main control is responsible for system, network, storage and task scheduling, and integrates 8–10 TOPS INT8 NPU; MAGNE customized NPU is responsible for large model reasoning. The main control link uses PCIe 3.0 ×1, and the internal interconnection of the customized NPU is PCIe 4.0 ×4.</p>
-        </div>
-        <div class="ai-box-architecture reveal" role="img" aria-label="Enterprise information is controlled by UIS 7885, high-speed interconnection to be confirmed, MAGNE customized NPU, output with reference results and approved by the mobile phone">
-          <div class="architecture-topline"><span>ABX / COMPUTE FABRIC</span><span>REV 0.1 · NOT FOR PROCUREMENT</span></div>
-          <div class="architecture-flow">
-            <article class="architecture-node source"><span>INPUT / 01</span><strong>PRIVATE DATA</strong><small>PDF · DOCX · XLSX<br>NAS · USB · LAN</small></article>
-            <i aria-hidden="true">→</i>
-            <article class="architecture-node host"><span>HOST / 02</span><strong>UIS 7885</strong><small>8C ARM · 8–10 TOPS<br>INT8 HOST NPU</small></article>
-            <i aria-hidden="true">→</i>
-            <article class="architecture-node"><span>LINK / 03</span><strong>PCIE FABRIC</strong><small>HOST · PCIe 3.0 ×1<br>NPU INTERNAL · PCIe 4.0 ×4</small></article>
-            <i aria-hidden="true">→</i>
-            <article class="architecture-node npu"><span>ACCEL / 04</span><strong>MAGNE CUSTOM NPU</strong><small>56 TOPS INT8 · 10GB 3D<br>+ 16GB LPDDR5X EXPANSION</small></article>
-            <i aria-hidden="true">→</i>
-            <article class="architecture-node output"><span>OUTPUT / 05</span><strong>VERIFIED TASK</strong><small>CITATION · LOG<br>HUMAN APPROVAL</small></article>
-          </div>
-          <div class="architecture-rail">
-            <span>MAGNE.AI PHONE</span>
-            <b>IDENTITY</b><b>NOTIFICATION</b><b>APPROVAL</b><b>RESULT VIEW</b>
-            <small>NO PRIVATE KEY INSIDE MODEL</small>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="content-section ai-box-workflow">
       <div class="wrap">
         <div class="section-head reveal">
           <div>
-            <p class="section-label"><span class="index">03.7</span> FIRST RELEASE LOOP</p>
+            <p class="section-label"><span class="index">03.7</span> ENTERPRISE WORKFLOW</p>
             <h2 class="section-title">Start with one deep<br>enterprise workflow.</h2>
           </div>
           <p class="section-copy">The first edition focuses on Private Knowledge Workspace and Contract Intelligence, but does not simultaneously commit to discrete product lines such as AI NAS, industrial vision, and robot control.</p>
@@ -317,17 +338,18 @@
       <div class="wrap">
         <div class="section-head reveal">
           <div>
-            <p class="section-label"><span class="index">03.8</span> SPECIFICATION CONTROL</p>
+            <p class="section-label"><span class="index">03.8</span> VERIFICATION &amp; TRUST BOUNDARY</p>
             <h2 class="section-title">Specifications have status.<br>Commitments have boundaries.</h2>
           </div>
-          <p class="section-copy">All specifications are layered as VERIFIED, TARGET, FIH CONFIRMATION REQUIRED. Figures without written confirmation and MAGNE prototype retest will not be converted into customer commitment.</p>
+          <p class="section-copy">All specifications are layered as VERIFIED, TARGET or SUPPLIER CONFIRMATION REQUIRED. Figures without written confirmation and MAGNE prototype retest will not be converted into customer commitment.</p>
         </div>
         <div class="table-scroll reveal">
           <table class="data-table ai-box-spec-table">
+            <caption class="sr-only">AI BOX controlled specification status, planning baseline and release evidence</caption>
             <thead><tr><th>Domain</th><th>Planning baseline</th><th>Status</th><th>Release evidence</th></tr></thead>
             <tbody>
               <tr><td>HOST PLATFORM</td><td>UIS 7885 · Host + 8–10 TOPS INT8 NPU</td><td><span class="tag verified">CONTROLLED BASELINE</span></td><td>UIS 7885 platform, main control NPU and official BOM corresponding records</td></tr>
-              <tr><td>HOST CPU</td><td>8-core Arm · 1×A76 2.7GHz + 3×A76 2.3GHz + 4×A55 2.1GHz</td><td><span class="tag verified">CROSS-VERIFIED</span></td><td>FIH PDF is consistent with the official platform information</td></tr>
+              <tr><td>HOST CPU</td><td>8-core Arm · 1×A76 2.7GHz + 3×A76 2.3GHz + 4×A55 2.1GHz</td><td><span class="tag verified">CROSS-VERIFIED</span></td><td>Controlled technical material is consistent with official platform information</td></tr>
               <tr><td>GPU</td><td>Mali-G57 · 4 cores · 850MHz</td><td><span class="tag verified">CONTROLLED BASELINE</span></td><td>BOM, driver identification and real machine system information</td></tr>
               <tr><td>HOST DRAM</td><td>8GB / 12GB LPDDR4X · up to 2133MHz</td><td><span class="tag pending">PDF CONFIG</span></td><td>Formal capacity SKU, particles and available capacity</td></tr>
               <tr><td>MAGNE NPU NEAR MEMORY</td><td>10GB 3D DRAM</td><td><span class="tag pending">SUPPLIER CLAIM</span></td><td>Supplier Datasheet, Memory Map and Available Capacity</td></tr>
@@ -338,26 +360,22 @@
               <tr><td>PCIE TOPOLOGY</td><td>Host: PCIe 3.0 ×1; MAGNE customized NPU Internal: PCIe 4.0 ×4</td><td><span class="tag policy">LAYERED BASELINE</span></td><td>Board level block diagram, lane negotiation and main control/NPU internal throughput measurement</td></tr>
               <tr><td>DEVICE I/O</td><td>USB 2.0×2 · USB 3.2×2 · USB-C 3.2 · HDMI 1.4 · DP 1.4 · Audio · DC</td><td><span class="tag pending">PDF CONFIG</span></td><td>Engineering prototype interface inventory and functional testing</td></tr>
               <tr><td>NETWORK</td><td>Wi-Fi 5 2×2 · BT 5.0 · 2×2.5GbE RJ45</td><td><span class="tag pending">PDF CONFIG</span></td><td>Module material number, throughput and stability test</td></tr>
-              <tr><td>MEDIA / OS</td><td>4K@30fps · Ubuntu / Android</td><td><span class="tag pending">PDF CONFIG</span></td><td>Codec actual measurement, OS version and maintenance cycle</td></tr>
+              <tr><td>MEDIA / OS</td><td>4K@30fps · Ubuntu</td><td><span class="tag verified">PRODUCT BASELINE</span></td><td>Codec actual measurement, Ubuntu version and maintenance cycle</td></tr>
               <tr><td>AI POWER</td><td>8–15W</td><td><span class="tag pending">SCOPE UNDEFINED</span></td><td>It is necessary to confirm whether it is a customized NPU, computing board or complete machine, and do a socket power consumption test</td></tr>
               <tr><td>EDGE RUNTIME</td><td>Privately maintained llama.cpp-compatible runtime + MAGNE GGML backend</td><td><span class="tag verified">IMPLEMENTED</span></td><td>Version tracking, upstream synchronization and security patch records</td></tr>
-              <tr><td>FIRST VALIDATED MODEL</td><td>Qwen3.6-35B-A3B · Q4_K_M · NPU customization GGUF</td><td><span class="tag verified">TEST OK</span></td><td>Solidified model hash, conversion tools, output consistency and regression logs</td></tr>
+              <tr><td>FIRST TESTED MODEL</td><td>Qwen3.6-35B-A3B · Q4_K_M · NPU customization GGUF</td><td><span class="tag verified">TEST OK</span></td><td>Solidified model hash, conversion tools, output consistency and regression logs</td></tr>
+              <tr><td>MODEL DECODE</td><td>70 tokens/s</td><td><span class="tag pending">SAMPLE MEASURED</span></td><td>Conservative public value from a controlled 70–80 tokens/s engineering-sample test range; MAGNE reproducibility verification pending</td></tr>
               <tr><td>MODEL EXPANSION</td><td>GAMMA and other LLM / VLM</td><td><span class="tag target">IN VALIDATION</span></td><td>Operator coverage, CPU fallback, TTFT, decode, long context, power consumption and quality regression</td></tr>
-              <tr><td>SECURITY</td><td>Secure Boot · Encryption · Signature Upgrade · Rollback</td><td><span class="tag pending">FIH CONFIRMATION</span></td><td>Startup chain, attack testing and recovery records</td></tr>
+              <tr><td>SECURITY</td><td>Secure Boot · Encryption · Signature Upgrade · Rollback</td><td><span class="tag pending">SUPPLIER CONFIRMATION</span></td><td>Startup chain, attack testing and recovery records</td></tr>
               <tr><td>WEB3 TRUST LAYER</td><td>Device/Agent identity · Signature inference receipt · Audit summary anchoring</td><td><span class="tag target">ARCHITECTURE TARGET</span></td><td>Threat model, signature format, on-chain Schema, privacy review and security audit</td></tr>
               <tr><td>AGENT AUTHORIZATION &amp; PAY</td><td>Mobile/Wallet Approval · Policy Check · Payment and Settlement Receipt</td><td><span class="tag target">ARCHITECTURE TARGET</span></td><td>Permission policy, transaction limits, manual confirmation, failure recovery and compliance review</td></tr>
             </tbody>
           </table>
         </div>
         <p class="ai-box-disclaimer reveal"><span>CONTROL NOTE</span> Qwen3.6-35B-A3B / Q4_K_M / NPU customized GGUF has been marked as the first TEST OK model; this does not mean that any community GGUF can be fully accelerated without conversion. &gt;600GB/s, 56 TOPS and 8–15W remain as supplier claims and will be converted to product commitments after testing boundaries and original evidence are completed.</p>
-      </div>
-    </section>
-
-    <section class="content-section ai-box-security">
-      <div class="wrap">
-        <div class="section-head reveal">
+        <div class="section-head reveal ai-box-boundary-subhead">
           <div>
-            <p class="section-label"><span class="index">03.9</span> TRUST BOUNDARY</p>
+            <p class="section-label">ACCEPTANCE RULES / TRUST BOUNDARY</p>
             <h2 class="section-title">Local is not a slogan.<br>It is a testable boundary.</h2>
           </div>
           <p class="section-copy">The acceptance goal for unauthorized outreach is zero when Cloud Enhancement is not enabled. Every tool call, approval and result enters a traceable chain of evidence.</p>
@@ -378,7 +396,7 @@
       <div class="wrap">
         <div class="section-head reveal">
           <div>
-            <p class="section-label"><span class="index">03.10</span> RELEASE GATES</p>
+            <p class="section-label"><span class="index">03.9</span> RELEASE GATES</p>
             <h2 class="section-title">Prove it first.<br>Scale production second.</h2>
           </div>
           <p class="section-copy">MAGNE.AI BOX is currently allowed to enter conditional POC and does not enter unproven mass production commitments. Each Gate needs to clearly define the deliverables and release conditions.</p>

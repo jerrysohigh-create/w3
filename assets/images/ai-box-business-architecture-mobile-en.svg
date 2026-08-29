@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1780" role="img" aria-labelledby="title desc">
+  <title id="title">MAGNE.AI BOX mobile business architecture</title>
+  <desc id="desc">A vertical mobile diagram showing enterprise input, MAGNE local control, local execution, business result, optional W3 evidence and the Ubuntu device foundation.</desc>
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#202329" stroke-width="1" opacity=".42"/></pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#7fdadd"/></marker>
+    <style>
+      .bg{fill:#08090b}.grid{fill:url(#grid)}.panel{fill:#0c0e11;stroke:#343840;stroke-width:2}.control{stroke:#79d7da}.result{stroke:#84e56f}.trust{stroke:#b65a53}.node{fill:#111419;stroke:#343840;stroke-width:1.5}.k{fill:#75d6d9;font:600 18px 'IBM Plex Mono',monospace;letter-spacing:2px}.h{fill:#f1f3f4;font:600 28px 'IBM Plex Sans',sans-serif}.n{fill:#f1f3f4;font:600 23px 'IBM Plex Sans',sans-serif}.r{fill:#f1f3f4;font:600 19px 'IBM Plex Sans',sans-serif}.b{fill:#a7abb2;font:18px 'IBM Plex Sans',sans-serif}.m{fill:#858a92;font:15px 'IBM Plex Mono',monospace;letter-spacing:.5px}.red{fill:#d97067}.green{fill:#9aec7d}.line{stroke:#7fdadd;stroke-width:3;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect class="bg" width="720" height="1780"/><rect class="grid" width="720" height="1780"/>
+  <text class="h" x="30" y="52">MAGNE.AI BOX / LOCAL AGENT FLOW</text><text class="m" x="30" y="84">MOBILE VIEW · PRIVATE INPUT · CONTROLLED EXECUTION</text>
+
+  <rect class="panel" x="24" y="116" width="672" height="244"/><text class="k" x="46" y="150">01 / BUSINESS + AGENT ENTRY</text>
+  <rect class="node" x="46" y="174" width="300" height="70"/><text class="n" x="64" y="206">ENTERPRISE TASK</text><text class="m" x="64" y="229">files · people · workflow</text>
+  <rect class="node" x="374" y="174" width="300" height="70"/><text class="n" x="392" y="206">LOCAL KNOWLEDGE</text><text class="m" x="392" y="229">RAG corpus · permissions</text>
+  <rect class="node" x="46" y="264" width="300" height="70"/><text class="n" x="64" y="296">AGENT + TOOLS</text><text class="m" x="64" y="319">MCP · Skills · workflow</text>
+  <rect class="node" x="374" y="264" width="300" height="70"/><text class="n" x="392" y="296">HUMAN APPROVAL</text><text class="m" x="392" y="319">high-risk action gate</text>
+  <path class="line" d="M360 360V392"/>
+
+  <rect class="panel control" x="24" y="406" width="672" height="376"/><text class="k" x="46" y="442">02 / MAGNE LOCAL CONTROL PLANE</text><text class="h" x="46" y="478">CONTROL BEFORE EXECUTION</text>
+  <rect class="node" x="46" y="504" width="628" height="44"/><text class="n" x="64" y="533">IDENTITY + TENANT</text><text class="m" x="386" y="532">device · user · Agent</text>
+  <rect class="node" x="46" y="558" width="628" height="44"/><text class="n" x="64" y="587">POLICY + APPROVAL</text><text class="m" x="386" y="586">scope · limit · consent</text>
+  <rect class="node" x="46" y="612" width="628" height="44"/><text class="n" x="64" y="641">SESSION + MEMORY</text><text class="m" x="386" y="640">context · profile · state</text>
+  <rect class="node" x="46" y="666" width="628" height="44"/><text class="n" x="64" y="695">ROUTE + ADMISSION</text><text class="m" x="386" y="694">local-first · fallback off</text>
+  <rect class="node" x="46" y="720" width="628" height="44"/><text class="n" x="64" y="749">AUDIT + MONITOR</text><text class="m" x="386" y="748">health · logs · receipt</text>
+  <path class="line" d="M360 782V814"/>
+
+  <rect class="panel" x="24" y="828" width="672" height="448"/><text class="k" x="46" y="864">03 / LOCAL EXECUTION PLANE</text>
+  <rect class="node" x="46" y="890" width="628" height="108"/><text class="k red" x="64" y="922">MODEL RUNTIME</text><text class="n" x="64" y="955">GGUF LOAD + LLM / VLM</text><text class="m" x="64" y="980">llama.cpp-compatible · scheduler · KV cache · MAGNE NPU</text>
+  <rect class="node control" x="46" y="1014" width="628" height="108"/><text class="k" x="64" y="1046">KNOWLEDGE + AI SERVICES</text><text class="n" x="64" y="1079">RAG LIVES LOCALLY</text><text class="m" x="64" y="1104">OCR · document · embedding · rerank · citation · ASR / TTS</text>
+  <rect class="node" x="46" y="1138" width="628" height="108"/><text class="k" x="64" y="1170">TOOL + ACTION SANDBOX</text><text class="n" x="64" y="1203">AGENT EXECUTES WITHIN POLICY</text><text class="m" x="64" y="1228">MCP · Skills · isolated tools · approval gate · recovery</text>
+  <path class="line" d="M360 1276V1308"/>
+
+  <rect class="panel result" x="24" y="1322" width="672" height="112"/><text class="k green" x="46" y="1358">04 / LOCAL BUSINESS RESULT</text><text class="r" x="46" y="1395">CITED ANSWER · APPROVED ACTION · LOCAL AUDIT RECORD</text><text class="m" x="46" y="1418">optional signed receipt only when policy allows</text>
+  <path d="M360 1434V1470" stroke="#b65a53" stroke-width="3" stroke-dasharray="8 8" fill="none" marker-end="url(#arrow)"/>
+
+  <rect class="panel trust" x="24" y="1484" width="672" height="166"/><text class="k red" x="46" y="1520">05 / OPTIONAL W3 TRUST LANE · TARGET</text><text class="n" x="46" y="1555">EVIDENCE, NOT PRIVATE DATA</text><text class="m" x="46" y="1585">device + Agent ID · policy approval · signed receipt</text><text class="m" x="46" y="1610">audit digest · AgentPay settlement</text><text class="m red" x="46" y="1635">NEVER: enterprise files · prompts · full output · keys · raw knowledge</text>
+
+  <rect class="panel" x="24" y="1668" width="672" height="94"/><text class="k" x="46" y="1698">DEVICE FOUNDATION</text><text class="n" x="46" y="1728">UBUNTU · ARM64 HOST · MAGNE CUSTOM NPU</text><text class="m" x="46" y="1752">3D DRAM · LOCAL STORAGE</text>
+</svg>

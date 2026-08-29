@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1780" role="img" aria-labelledby="title desc">
+  <title id="title">MAGNE.AI BOX 行動版業務架構</title>
+  <desc id="desc">縱向展示企業輸入、MAGNE 本地控制、本地執行、業務結果、可選 W3 憑證與 Ubuntu 裝置基礎。</desc>
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#202329" stroke-width="1" opacity=".42"/></pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#7fdadd"/></marker>
+    <style>
+      .bg{fill:#08090b}.grid{fill:url(#grid)}.panel{fill:#0c0e11;stroke:#343840;stroke-width:2}.control{stroke:#79d7da}.result{stroke:#84e56f}.trust{stroke:#b65a53}.node{fill:#111419;stroke:#343840;stroke-width:1.5}.k{fill:#75d6d9;font:600 18px 'IBM Plex Mono','Noto Sans TC',monospace;letter-spacing:2px}.h{fill:#f1f3f4;font:600 28px 'Noto Sans TC','IBM Plex Sans',sans-serif}.n{fill:#f1f3f4;font:600 23px 'Noto Sans TC','IBM Plex Sans',sans-serif}.r{fill:#f1f3f4;font:600 19px 'Noto Sans TC','IBM Plex Sans',sans-serif}.b{fill:#a7abb2;font:18px 'Noto Sans TC','IBM Plex Sans',sans-serif}.m{fill:#858a92;font:15px 'IBM Plex Mono','Noto Sans TC',monospace;letter-spacing:.5px}.red{fill:#d97067}.green{fill:#9aec7d}.line{stroke:#7fdadd;stroke-width:3;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect class="bg" width="720" height="1780"/><rect class="grid" width="720" height="1780"/>
+  <text class="h" x="30" y="52">MAGNE.AI BOX / 本地 AGENT 業務流程</text><text class="m" x="30" y="84">行動版 · 私有輸入 · 受控執行 · 帶引用輸出</text>
+
+  <rect class="panel" x="24" y="116" width="672" height="244"/><text class="k" x="46" y="150">01 / 企業與 AGENT 入口</text>
+  <rect class="node" x="46" y="174" width="300" height="70"/><text class="n" x="64" y="206">企業任務</text><text class="m" x="64" y="229">檔案 · 人員 · 工作流程</text>
+  <rect class="node" x="374" y="174" width="300" height="70"/><text class="n" x="392" y="206">本地知識</text><text class="m" x="392" y="229">RAG 語料 · 權限</text>
+  <rect class="node" x="46" y="264" width="300" height="70"/><text class="n" x="64" y="296">AGENT + 工具</text><text class="m" x="64" y="319">MCP · Skills · 流程</text>
+  <rect class="node" x="374" y="264" width="300" height="70"/><text class="n" x="392" y="296">人工批准</text><text class="m" x="392" y="319">高風險操作閘門</text>
+  <path class="line" d="M360 360V392"/>
+
+  <rect class="panel control" x="24" y="406" width="672" height="376"/><text class="k" x="46" y="442">02 / MAGNE 本地控制面</text><text class="h" x="46" y="478">執行之前，先完成控制</text>
+  <rect class="node" x="46" y="504" width="628" height="44"/><text class="n" x="64" y="533">身份 + 租戶</text><text class="m" x="386" y="532">裝置 · 使用者 · Agent</text>
+  <rect class="node" x="46" y="558" width="628" height="44"/><text class="n" x="64" y="587">策略 + 批准</text><text class="m" x="386" y="586">範圍 · 限額 · 同意</text>
+  <rect class="node" x="46" y="612" width="628" height="44"/><text class="n" x="64" y="641">會話 + 記憶</text><text class="m" x="386" y="640">上下文 · Profile · 狀態</text>
+  <rect class="node" x="46" y="666" width="628" height="44"/><text class="n" x="64" y="695">路由 + 准入</text><text class="m" x="386" y="694">本地優先 · 雲端預設關閉</text>
+  <rect class="node" x="46" y="720" width="628" height="44"/><text class="n" x="64" y="749">審計 + 監控</text><text class="m" x="386" y="748">健康 · 日誌 · 憑證</text>
+  <path class="line" d="M360 782V814"/>
+
+  <rect class="panel" x="24" y="828" width="672" height="448"/><text class="k" x="46" y="864">03 / 本地執行面</text>
+  <rect class="node" x="46" y="890" width="628" height="108"/><text class="k red" x="64" y="922">模型 RUNTIME</text><text class="n" x="64" y="955">GGUF 直接載入 + LLM / VLM</text><text class="m" x="64" y="980">llama.cpp 相容 · 排程 · KV Cache · MAGNE NPU</text>
+  <rect class="node control" x="46" y="1014" width="628" height="108"/><text class="k" x="64" y="1046">知識 + AI 能力服務</text><text class="n" x="64" y="1079">RAG 保留在本地</text><text class="m" x="64" y="1104">OCR · 文件 · Embedding · Rerank · 引用 · ASR / TTS</text>
+  <rect class="node" x="46" y="1138" width="628" height="108"/><text class="k" x="64" y="1170">工具 + 操作沙箱</text><text class="n" x="64" y="1203">AGENT 在策略內執行</text><text class="m" x="64" y="1228">MCP · Skills · 工具隔離 · 批准閘門 · 失敗復原</text>
+  <path class="line" d="M360 1276V1308"/>
+
+  <rect class="panel result" x="24" y="1322" width="672" height="112"/><text class="k green" x="46" y="1358">04 / 本地業務結果</text><text class="r" x="46" y="1395">帶引用答案 · 經批准操作 · 本地審計記錄</text><text class="m" x="46" y="1418">僅在策略允許時產生可選簽名憑證</text>
+  <path d="M360 1434V1470" stroke="#b65a53" stroke-width="3" stroke-dasharray="8 8" fill="none" marker-end="url(#arrow)"/>
+
+  <rect class="panel trust" x="24" y="1484" width="672" height="166"/><text class="k red" x="46" y="1520">05 / 可選 W3 信任通道 · TARGET</text><text class="n" x="46" y="1555">只上鏈憑證，不上鏈私有資料</text><text class="m" x="46" y="1585">裝置 + Agent 身份 · 策略批准 · 簽名執行憑證</text><text class="m" x="46" y="1610">審計摘要 · AgentPay 結算</text><text class="m red" x="46" y="1635">永不：企業檔案 · Prompt · 完整輸出 · 私鑰 · 原始知識庫</text>
+
+  <rect class="panel" x="24" y="1668" width="672" height="94"/><text class="k" x="46" y="1698">裝置基礎</text><text class="n" x="46" y="1728">UBUNTU · ARM64 HOST · MAGNE 定製 NPU</text><text class="m" x="46" y="1752">3D DRAM · 本地儲存</text>
+</svg>
