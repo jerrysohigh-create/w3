@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>MAGNE.AI Season 2 活動中心 — W3 版</title>
     <meta name="description" content="MAGNE.AI Season 2 campaign data, round progress, MS2 records and public source references in the W3 visual system." />
-    <link rel="stylesheet" href="../assets/css/site.css?v=20260828-winner-mobile-2" />
+    <link rel="stylesheet" href="../assets/css/site.css?v=20260907-og-ms2-prelaunch-1" />
     <link rel="canonical" href="https://w3.magne.ai/tc/season-2.html" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="MAGNE.AI Season 2 Campaign Hub — W3 Edition" />
@@ -32,6 +32,7 @@
           <p class="page-lede">Phone Gen1 Lottery · MS2 Campaign Credits · Staking Weight · Team Rewards。Season 2 資料紀錄與計算口徑由 W3 維護。</p>
           <div class="hero-actions">
             <a class="btn primary" href="#live-data">$ inspect live data →</a>
+            <a class="btn" href="#og-ms2">$ OG 兌換指南 →</a>
             <a class="btn" href="#contract-intelligence">$ contract intelligence →</a>
             <a class="btn" href="https://payment.magne.ai/lottery" target="_blank" rel="noopener noreferrer">$ join season 2 ↗</a>
             <a class="btn" href="seasons.html">$ all seasons →</a>
@@ -55,10 +56,71 @@
             <article class="rule-item"><span class="rule-no">[01]</span><h3>1,600 臺配置</h3><p>MAGNE.AI Phone Gen1 8GB + 256GB 活動配置。</p></article>
             <article class="rule-item"><span class="rule-no">[02]</span><h3>17 USDT / Entry</h3><p>每錢包最多 100 個參與名額，每個有效名額記錄 10 MS2。</p></article>
             <article class="rule-item"><span class="rule-no">[03]</span><h3>100 Entries / Round</h3><p>每 100 個有效名額觸發一次 Phone Gen1 中選。</p></article>
-            <article class="rule-item"><span class="rule-no">[04]</span><h3>35,000,000 MHA</h3><p>後續合資格分配池；時間與資格受 TGE 安排及活動規則約束。</p></article>
+            <article class="rule-item"><span class="rule-no">[04]</span><h3>40,000,000 MHA</h3><p>Season 2 合資格 CI 的最終分配池；適用正式公布的結束邊界及最終資格規則。</p></article>
           </div>
           <div class="disclosure reveal"><strong>未中選名額記錄：</strong>當每回合達到 100 個名額後觸發一次 Phone Gen1 中選；未中選的每個有效名額可記錄未來合資格分配的 100 MHA，預計於 TGE 後一個月內依活動規則完成。</div>
-          <div class="disclosure reveal"><strong>MS2 與最終分配：</strong>MS2 不等同於 MHA，也不代表固定收益或上市承諾。活動結束後，質押合約內全部 MS2（包括尚未領取的 MS2）將依據最終合資格質押記錄，按比例參與後續 35,000,000 MHA 分配；具體比例、時間與領取條件以正式規則為準。</div>
+          <div class="disclosure reveal"><strong>MS2 與最終分配：</strong>MS2 不等同於 MHA，也不代表固定收益或上市承諾。只有實際質押至合資格合約並累計合資格 Contribution Interest（CI）的 MS2，才參與 40,000,000 MHA 分配池。已釋放、可領取或僅存放於錢包的 MS2，不會自動視為已質押。</div>
+        </div>
+      </section>
+
+      <section class="content-section og-ms2-section" id="og-ms2">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">S2.01A</span> OG CONVERSION &amp; VESTING</p><h2 class="section-title">只兌換一次。<br />領取後再質押。</h2></div>
+            <p class="section-copy">這是 OG → MS2 路徑的發布前規則指南。合約整合與官方操作入口仍在完成中；W3 本頁不連接錢包、不要求簽名，也不提交交易。</p>
+          </div>
+
+          <div class="og-readiness reveal" role="status" aria-label="OG 轉換 MS2 發布準備狀態">
+            <span>PRE-RELEASE / CONTRACT INTEGRATION PENDING</span>
+            <small>規則文案更新於 2026-09-07 · 操作入口將在核驗後加入</small>
+          </div>
+
+          <div class="og-rule-register reveal" aria-label="Season 2 OG 與 MS2 規則參數">
+            <article><span>[ 分配池 ]</span><strong>40,000,000</strong><small>MHA · 合資格 CI 占比</small></article>
+            <article><span>[ 最大供應參數 ]</span><strong>6,000,000</strong><small>MS2 · 靜態規則參數</small></article>
+            <article><span>[ 兌換比例 ]</span><strong>4 : 1</strong><small>OG MHA : MS2 權益</small></article>
+            <article><span>[ 釋放期 ]</span><strong>40 天</strong><small>實作粒度待核驗</small></article>
+          </div>
+
+          <div class="og-step-grid reveal">
+            <article class="og-step">
+              <header><span>01 / CONVERT</span><b>確認權益</b></header>
+              <h3>確認 OG 兌換。</h3>
+              <p>正式啟用後，合資格 OG 持有人可自願按固定 4 MHA 兌 1 MS2 確認兌換。例如，400 OG MHA 對應 100 MS2 總權益。</p>
+              <dl><div><dt>OG 記錄</dt><dd>400 OG 保留顯示為歷史</dd></div><div><dt>MS2 權益</dt><dd>100 MS2 總額</dd></div><div><dt>重複操作</dt><dd>不得再次產生 MS2</dd></div></dl>
+              <p class="og-note">保留顯示的歷史 OG 數量，不代表另有一份可重複兌換的餘額。合約層冪等與防重複仍屬發布核驗項目。</p>
+            </article>
+            <article class="og-step">
+              <header><span>02 / CLAIM</span><b>領取已釋放 MS2</b></header>
+              <h3>領取已釋放 MS2。</h3>
+              <p>兌換後，MS2 權益按 40 天計畫釋放。釋放介面設計為分別顯示已領取、目前可領取及 MS2 總權益。</p>
+              <dl><div><dt>CLAIMED</dt><dd>先前已領取</dd></div><div><dt>CLAIMABLE</dt><dd>目前可領取</dd></div><div><dt>TOTAL</dt><dd>已確認 MS2 總權益</dd></div></dl>
+              <p class="og-note">Claim 只把目前可領取額發送至錢包，並不等於質押。每日釋放的實作粒度與精度尾差，會在完整合約可核驗後、正式啟用前確認。</p>
+            </article>
+          </div>
+
+          <div class="og-after-claim reveal">
+            <div class="og-after-copy"><span>領取後 / 必須手動操作</span><h3>先領取，再手動質押，才開始累計 CI。</h3><p>已釋放或已領取的 MS2 不會自動產生 CI。持有人必須自行質押至指定合資格 Staking 合約，並自質押實際生效後開始計算。未質押期間不計 CI，之後亦不補計；解押部分停止未來累計，歷史已累計的合資格 CI 保留。</p></div>
+            <ol class="og-flow" aria-label="OG 兌換至 Season 2 分配流程"><li><b>01</b><span>CONVERT</span></li><li><b>02</b><span>釋放 + CLAIM</span></li><li><b>03</b><span>手動 STAKE</span></li><li><b>04</b><span>累計 CI</span></li><li><b>05</b><span>S2 結束</span></li><li><b>06</b><span>40M 分配</span></li></ol>
+          </div>
+
+          <div class="og-allocation reveal">
+            <div class="og-formulas">
+              <article><span>CONTRIBUTION INTEREST</span><math display="block" aria-label="參與者 i 的 Contribution Interest 等於由質押生效起點至 Season 2 結束期間，合資格質押 MS2 乘以貢獻計量率的積分"><msub><mi>CI</mi><mi>i</mi></msub><mo>=</mo><munderover><mo>∫</mo><msub><mi>t</mi><mn>0</mn></msub><mrow><mi>T</mi><mo>⁢</mo><mi>S2,end</mi></mrow></munderover><msub><mi>S</mi><mi>i</mi></msub><mo>(</mo><mi>t</mi><mo>)</mo><mi>ρ</mi><mo>(</mo><mi>t</mi><mo>)</mo><mi>d</mi><mi>t</mi></math></article>
+              <article><span>最終 MHA 分配</span><math display="block" aria-label="參與者 i 的分配等於四千萬乘以參與者 i 的 Contribution Interest 除以全體合資格 Contribution Interest"><msub><mi>A</mi><mi>i</mi></msub><mo>=</mo><mn>40,000,000</mn><mo>×</mo><mfrac><msub><mi>CI</mi><mi>i</mi></msub><mrow><munderover><mo>∑</mo><mrow><mi>j</mi><mo>∈</mo><mi>ℰ</mi></mrow><mrow></mrow></munderover><msub><mi>CI</mi><mi>j</mi></msub></mrow></mfrac></math></article>
+            </div>
+            <dl class="og-variable-list"><div><dt>Sᵢ(t)</dt><dd>手動質押實際生效後的合資格 MS2 餘額。</dd></div><div><dt>ρ(t)</dt><dd>由最終規則定義的貢獻計量率。</dd></div><div><dt>ℰ</dt><dd>最終規則納入 40M 分配池的合資格參與者集合。</dd></div><div><dt>結束邊界</dt><dd>Season 2 的具體結束時間與區塊將在啟用前公布。</dd></div></dl>
+            <p class="og-allocation-note">Contribution Interest 是分配權重的計量單位，不是 APR、固定收益或固定 MS2 兌 MHA 比率。Season 2 結束時停止合資格 CI 累計並鎖定記錄，再按 CI 占比分配；分母為零的情況須另有預先批准規則。</p>
+          </div>
+
+          <div class="og-faq reveal">
+            <p class="section-label"><span class="index">FAQ</span> 狀態 + 責任</p>
+            <details open><summary>為何原始 OG 數量仍顯示？</summary><p>它作為歷史記錄保留顯示，不是可再次兌換的第二份餘額。</p></details>
+            <details open><summary>同一份 OG 權益能否兌換兩次？</summary><p>不能。已確認規則要求同一份權益只產生一次 MS2；只有最終實作可檢查後，才會將合約層防重複標記為已核驗。</p></details>
+            <details><summary>CLAIM 是否開始累計 CI？</summary><p>不是。Claim 只領取已釋放 MS2；另行手動質押至指定合資格合約並實際生效後，才開始累計 CI。</p></details>
+            <details><summary>質押前或解押後如何計算？</summary><p>未質押期間不計 CI，之後也不補計。解押後，已提取部分停止未來累計；此前已累計的合資格 CI 保留。</p></details>
+            <details><summary>在哪裡進行 CONVERT、CLAIM 與 STAKE？</summary><p>合約與介面完成後，已核驗的官方操作入口會公布於此。本 W3 頁面僅作披露，目前不發起任何錢包操作。</p></details>
+          </div>
         </div>
       </section>
 
@@ -203,17 +265,18 @@
         <div class="wrap">
           <div class="section-head reveal">
             <div><p class="section-label"><span class="index">S2.07</span> MS2 + ON-CHAIN SNAPSHOT</p><h2 class="section-title">積分、流動性與鏈上引用。</h2></div>
-            <p class="section-copy">MS2 總供應量來自 Token 合約 <span class="mono">totalSupply()</span>；質押數來自 Staking 代理合約 <span class="mono">totalStaked()</span>。兩者皆以 18 位元精度換算，不作 USDT 估值，也不等於 Season 2 活動累積積分。</p>
+            <p class="section-copy">MS2 目前供應量來自 Token 合約 <span class="mono">totalSupply()</span>；質押數來自 Staking 代理合約 <span class="mono">totalStaked()</span>。6,000,000 最大供應參數與即時合約讀值分開揭露，即使兩者目前相同。數值皆以 18 位精度換算，不作 USDT 估值，也不等於 Season 2 活動參與名額。</p>
           </div>
-          <div class="evidence-strip reveal">
-            <article class="evidence-metric"><span class="kicker">MS2 TOKEN TOTAL SUPPLY</span><span class="value" id="s2-ms2-issued">—</span><span class="unit">MS2 TOKEN · TOTALSUPPLY()</span></article>
+          <div class="evidence-strip s2-supply-strip reveal">
+            <article class="evidence-metric"><span class="kicker">鏈上目前總供應</span><span class="value" id="s2-ms2-issued">—</span><span class="unit">MS2 TOKEN · TOTALSUPPLY()</span></article>
+            <article class="evidence-metric parameter"><span class="kicker">最大供應參數</span><span class="value">6,000,000</span><span class="unit">MS2 · 靜態揭露</span></article>
             <article class="evidence-metric"><span class="kicker">TOTAL MS2 STAKED</span><span class="value" id="s2-liquidity">—</span><span class="unit">STAKING PROXY · TOTALSTAKED()</span></article>
             <article class="evidence-metric"><span class="kicker">BASE RATE</span><span class="value" id="s2-base-rate">—</span><span class="unit">SNAPSHOT VALUE</span></article>
           </div>
           <div class="campaign-terms reveal" style="margin-top:20px">
             <article class="campaign-term"><span class="term-id">[ MS2 ]</span><h3>MS2 ≠ MHA</h3><p>用於活動追蹤、排行榜、質押權重及未來資格審查，不代表固定收益。</p></article>
-            <article class="campaign-term"><span class="term-id">[ WEIGHT ]</span><h3>有效權重</h3><p>MS2 數量 × 質押時長係數 × 社群等級係數。</p></article>
-            <article class="campaign-term"><span class="term-id">[ LIFECYCLE ]</span><h3>五階段</h3><p>Campaign → Staking → Snapshot → Unlock → Settlement。</p></article>
+            <article class="campaign-term"><span class="term-id">[ CI WEIGHT ]</span><h3>合資格質押隨時間累計</h3><p>CI 依手動質押實際生效後的合資格 MS2 數量及有效期間累計；此處不套用未核實的社群倍率。</p></article>
+            <article class="campaign-term"><span class="term-id">[ LIFECYCLE ]</span><h3>六階段</h3><p>Convert → 釋放與 Claim → 手動 Stake → 累計 CI → Season 2 結束 → 40M 分配。</p></article>
           </div>
           <div class="contract-line reveal">
             <span>MS2 TOKEN: <a href="https://bscscan.com/address/0xC46A54BBD2716C436Aaaed6Ed2f555a9b054ebD1" target="_blank" rel="noopener">0xC46A…ebD1 ↗</a></span>
