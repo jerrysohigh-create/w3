@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>MAGNE.AI Season 2 Campaign Hub — W3 Edition</title>
     <meta name="description" content="MAGNE.AI Season 2 campaign data, round progress, MS2 records and public source references in the W3 visual system." />
-    <link rel="stylesheet" href="assets/css/site.css?v=20260907-og-ms2-prelaunch-2" />
+    <link rel="stylesheet" href="assets/css/site.css?v=20260908-public-sale-og-2" />
     <link rel="canonical" href="https://w3.magne.ai/season-2.html" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="MAGNE.AI Season 2 Campaign Hub — W3 Edition" />
@@ -32,7 +32,7 @@
           <p class="page-lede">Phone Gen1 Lottery · MS2 Campaign Credits · Staking Weight · Team Rewards. W3 maintains the Season 2 data record and calculation definitions.</p>
           <div class="hero-actions">
             <a class="btn primary" href="#live-data">$ inspect live data →</a>
-            <a class="btn" href="#og-ms2">$ OG conversion guide →</a>
+            <a class="btn" href="public-sale-og.html">$ Public Sale OG record →</a>
             <a class="btn" href="#contract-intelligence">$ contract intelligence →</a>
             <a class="btn" href="https://payment.magne.ai/lottery" target="_blank" rel="noopener noreferrer">$ join season 2 ↗</a>
             <a class="btn" href="seasons.html">$ all seasons →</a>
@@ -60,67 +60,6 @@
           </div>
           <div class="disclosure reveal"><strong>Unselected quota records:</strong>When 100 quotas are reached in each round, a Phone Gen1 selection will be triggered; each valid quota that is not selected can record the 100 MHA that will be eligible for distribution in the future, which is expected to be completed within one month after the TGE according to the event rules.</div>
           <div class="disclosure reveal"><strong>MS2 and the final allocation:</strong>MS2 is not equivalent to MHA and does not represent fixed income or a listing commitment. Only MS2 that is actually staked in an eligible contract and accrues eligible Contribution Interest participates in the 40,000,000 MHA pool. Released, claimable or wallet-held MS2 is not treated as staked automatically.</div>
-        </div>
-      </section>
-
-      <section class="content-section og-ms2-section" id="og-ms2">
-        <div class="wrap">
-          <div class="section-head reveal">
-            <div><p class="section-label"><span class="index">S2.01A</span> OG CONVERSION &amp; VESTING</p><h2 class="section-title">Convert once.<br />Claim, then stake.</h2></div>
-            <p class="section-copy">This is the release-ready rule guide for the OG → MS2 path. Contract integration and the official operation URL are still being completed; W3 does not connect a wallet, request a signature or submit a transaction from this page.</p>
-          </div>
-
-          <div class="og-readiness reveal" role="status" aria-label="OG to MS2 release readiness">
-            <span>PRE-RELEASE / CONTRACT INTEGRATION PENDING</span>
-            <small>RULE COPY UPDATED 2026-09-07 · OPERATION ENTRY WILL BE ADDED AFTER VERIFICATION</small>
-          </div>
-
-          <div class="og-rule-register reveal" aria-label="Season 2 OG and MS2 rule parameters">
-            <article><span>[ ALLOCATION POOL ]</span><strong>40,000,000</strong><small>MHA · ELIGIBLE CI SHARE</small></article>
-            <article><span>[ MAX SUPPLY PARAMETER ]</span><strong>6,000,000</strong><small>MS2 · STATIC RULE PARAMETER</small></article>
-            <article><span>[ CONVERSION ]</span><strong>4 : 1</strong><small>OG MHA : MS2 ENTITLEMENT</small></article>
-            <article><span>[ VESTING ]</span><strong>40 DAYS</strong><small>IMPLEMENTATION GRANULARITY TO VERIFY</small></article>
-          </div>
-
-          <div class="og-step-grid reveal">
-            <article class="og-step">
-              <header><span>01 / CONVERT</span><b>CONFIRM ENTITLEMENT</b></header>
-              <h3>Confirm your OG conversion.</h3>
-              <p>At launch, eligible OG holders may voluntarily confirm conversion at a fixed ratio of 4 MHA to 1 MS2. For example, 400 OG MHA corresponds to a total entitlement of 100 MS2.</p>
-              <dl><div><dt>OG RECORD</dt><dd>400 OG remains visible as history</dd></div><div><dt>MS2 ENTITLEMENT</dt><dd>100 MS2 total</dd></div><div><dt>REPEAT ACTION</dt><dd>Must not generate MS2 again</dd></div></dl>
-              <p class="og-note">A displayed historical OG amount is not an additional convertible balance. Contract-level idempotency remains a release verification item.</p>
-            </article>
-            <article class="og-step">
-              <header><span>02 / CLAIM</span><b>RECEIVE RELEASED MS2</b></header>
-              <h3>Claim released MS2.</h3>
-              <p>After conversion, the MS2 entitlement follows a 40-day vesting schedule. The release interface is designed to distinguish the amount already claimed, the amount currently claimable and the total entitlement.</p>
-              <dl><div><dt>CLAIMED</dt><dd>Previously received</dd></div><div><dt>CLAIMABLE</dt><dd>Currently available to claim</dd></div><div><dt>TOTAL</dt><dd>Confirmed MS2 entitlement</dd></div></dl>
-              <p class="og-note">Claiming sends the available amount to the wallet; it does not stake MS2. Daily implementation granularity and precision handling will be verified against the completed contract before launch.</p>
-            </article>
-          </div>
-
-          <div class="og-after-claim reveal">
-            <div class="og-after-copy"><span>AFTER CLAIMING / MANUAL ACTION REQUIRED</span><h3>Claim first. Stake manually to accumulate CI.</h3><p>Released or claimed MS2 does not earn CI automatically. The holder must manually stake it in the designated eligible staking contract. CI starts only when the stake takes effect. Unstaked periods do not earn CI and are not credited retroactively. Unstaking stops future accrual on the withdrawn amount; previously accumulated eligible CI is retained.</p></div>
-            <ol class="og-flow" aria-label="OG conversion to Season 2 allocation flow"><li><b>01</b><span>CONVERT</span></li><li><b>02</b><span>VEST + CLAIM</span></li><li><b>03</b><span>MANUALLY STAKE</span></li><li><b>04</b><span>ACCUMULATE CI</span></li><li><b>05</b><span>S2 END</span></li><li><b>06</b><span>40M ALLOCATION</span></li></ol>
-          </div>
-
-          <div class="og-allocation reveal">
-            <div class="og-formulas">
-              <article><span>CONTRIBUTION INTEREST</span><div class="og-equation og-equation-integral" role="img" aria-label="Contribution Interest for participant i equals the integral from staking start to the end of Season 2 of eligible staked MS2 multiplied by the contribution measurement rate"><span class="eq-name"><i>CI</i><sub>i</sub></span><span class="eq-operator">=</span><span class="eq-integral"><b>∫</b><sup>T<sub>S2,end</sub></sup><sub>t<sub>0</sub></sub></span><span class="eq-term"><i>S</i><sub>i</sub>(t) · ρ(t) · dt</span></div></article>
-              <article><span>FINAL MHA ALLOCATION</span><div class="og-equation og-equation-allocation" role="img" aria-label="Allocation for participant i equals forty million multiplied by participant i Contribution Interest divided by total eligible Contribution Interest"><span class="eq-name"><i>A</i><sub>i</sub></span><span class="eq-operator">=</span><span class="eq-pool">40,000,000 ×</span><span class="eq-fraction"><span><i>CI</i><sub>i</sub></span><span>Σ<sub>j ∈ ℰ</sub> <i>CI</i><sub>j</sub></span></span></div></article>
-            </div>
-            <dl class="og-variable-list"><div><dt>Sᵢ(t)</dt><dd>Eligible MS2 balance after manual staking takes effect.</dd></div><div><dt>ρ(t)</dt><dd>Contribution measurement rate defined by the final rules.</dd></div><div><dt>ℰ</dt><dd>Participants included by the final eligibility rules for the 40M pool.</dd></div><div><dt>END BOUNDARY</dt><dd>Exact Season 2 end time and block will be published before activation.</dd></div></dl>
-            <p class="og-allocation-note">Contribution Interest is an allocation-weight measure—not APR, a fixed return or a fixed MS2-to-MHA conversion rate. At the end of Season 2, eligible CI accrual stops, the eligible CI record is locked, and allocation is calculated from CI shares. A zero-denominator case requires a separately approved rule.</p>
-          </div>
-
-          <div class="og-faq reveal">
-            <p class="section-label"><span class="index">FAQ</span> STATE + RESPONSIBILITY</p>
-            <details open><summary>Why does the original OG amount still show?</summary><p>It remains visible as a historical record. It is not a second balance that can be converted again.</p></details>
-            <details open><summary>Can the same OG entitlement be converted twice?</summary><p>No. The confirmed rule requires one entitlement to generate MS2 only once. Contract-level duplicate prevention will be marked verified only after the final implementation is reviewable.</p></details>
-            <details><summary>Does CLAIM start CI accrual?</summary><p>No. Claiming receives released MS2. CI begins only after a separate manual stake takes effect in the designated eligible contract.</p></details>
-            <details><summary>What happens before staking or after unstaking?</summary><p>Unstaked periods do not earn CI and are not credited later. The withdrawn amount stops future accrual after unstaking; previously accumulated eligible CI is retained.</p></details>
-            <details><summary>Where are CONVERT, CLAIM and STAKE performed?</summary><p>The verified official operation entry will be published here after the contract and interface are ready. This W3 page is disclosure-only and does not currently initiate any wallet action.</p></details>
-          </div>
         </div>
       </section>
 
@@ -276,7 +215,7 @@
           <div class="campaign-terms reveal" style="margin-top:20px">
             <article class="campaign-term"><span class="term-id">[ MS2 ]</span><h3>MS2 ≠ MHA</h3><p>is used for activity tracking, rankings, pledge weight and future qualification review, and does not represent fixed income.</p></article>
             <article class="campaign-term"><span class="term-id">[ CI WEIGHT ]</span><h3>Eligible stake over time</h3><p>CI follows the eligible MS2 amount after manual staking takes effect and its eligible duration. No unverified community multiplier is applied here.</p></article>
-            <article class="campaign-term"><span class="term-id">[ LIFECYCLE ]</span><h3>Six stages</h3><p>Convert → Vest &amp; Claim → Manually Stake → Accumulate CI → Season 2 End → 40M Allocation.</p></article>
+            <article class="campaign-term"><span class="term-id">[ LIFECYCLE ]</span><h3>Four campaign stages</h3><p>Earn eligible MS2 → Manually stake → Accumulate CI → Season 2 end and final allocation.</p></article>
           </div>
           <div class="contract-line reveal">
             <span>MS2 TOKEN: <a href="https://bscscan.com/address/0xC46A54BBD2716C436Aaaed6Ed2f555a9b054ebD1" target="_blank" rel="noopener">0xC46A…ebD1 ↗</a></span>
