@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>MAGNE.AI Season 2 活動中心 — W3 版</title>
     <meta name="description" content="MAGNE.AI Season 2 campaign data, round progress, MS2 records and public source references in the W3 visual system." />
-    <link rel="stylesheet" href="../assets/css/site.css?v=20260907-og-ms2-prelaunch-1" />
+    <link rel="stylesheet" href="../assets/css/site.css?v=20260907-og-ms2-prelaunch-2" />
     <link rel="canonical" href="https://w3.magne.ai/tc/season-2.html" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="MAGNE.AI Season 2 Campaign Hub — W3 Edition" />
@@ -106,8 +106,8 @@
 
           <div class="og-allocation reveal">
             <div class="og-formulas">
-              <article><span>CONTRIBUTION INTEREST</span><math display="block" aria-label="參與者 i 的 Contribution Interest 等於由質押生效起點至 Season 2 結束期間，合資格質押 MS2 乘以貢獻計量率的積分"><msub><mi>CI</mi><mi>i</mi></msub><mo>=</mo><munderover><mo>∫</mo><msub><mi>t</mi><mn>0</mn></msub><mrow><mi>T</mi><mo>⁢</mo><mi>S2,end</mi></mrow></munderover><msub><mi>S</mi><mi>i</mi></msub><mo>(</mo><mi>t</mi><mo>)</mo><mi>ρ</mi><mo>(</mo><mi>t</mi><mo>)</mo><mi>d</mi><mi>t</mi></math></article>
-              <article><span>最終 MHA 分配</span><math display="block" aria-label="參與者 i 的分配等於四千萬乘以參與者 i 的 Contribution Interest 除以全體合資格 Contribution Interest"><msub><mi>A</mi><mi>i</mi></msub><mo>=</mo><mn>40,000,000</mn><mo>×</mo><mfrac><msub><mi>CI</mi><mi>i</mi></msub><mrow><munderover><mo>∑</mo><mrow><mi>j</mi><mo>∈</mo><mi>ℰ</mi></mrow><mrow></mrow></munderover><msub><mi>CI</mi><mi>j</mi></msub></mrow></mfrac></math></article>
+              <article><span>CONTRIBUTION INTEREST</span><div class="og-equation og-equation-integral" role="img" aria-label="參與者 i 的 Contribution Interest 等於由質押生效起點至 Season 2 結束期間，合資格質押 MS2 乘以貢獻計量率的積分"><span class="eq-name"><i>CI</i><sub>i</sub></span><span class="eq-operator">=</span><span class="eq-integral"><b>∫</b><sup>T<sub>S2,end</sub></sup><sub>t<sub>0</sub></sub></span><span class="eq-term"><i>S</i><sub>i</sub>(t) · ρ(t) · dt</span></div></article>
+              <article><span>最終 MHA 分配</span><div class="og-equation og-equation-allocation" role="img" aria-label="參與者 i 的分配等於四千萬乘以參與者 i 的 Contribution Interest 除以全體合資格 Contribution Interest"><span class="eq-name"><i>A</i><sub>i</sub></span><span class="eq-operator">=</span><span class="eq-pool">40,000,000 ×</span><span class="eq-fraction"><span><i>CI</i><sub>i</sub></span><span>Σ<sub>j ∈ ℰ</sub> <i>CI</i><sub>j</sub></span></span></div></article>
             </div>
             <dl class="og-variable-list"><div><dt>Sᵢ(t)</dt><dd>手動質押實際生效後的合資格 MS2 餘額。</dd></div><div><dt>ρ(t)</dt><dd>由最終規則定義的貢獻計量率。</dd></div><div><dt>ℰ</dt><dd>最終規則納入 40M 分配池的合資格參與者集合。</dd></div><div><dt>結束邊界</dt><dd>Season 2 的具體結束時間與區塊將在啟用前公布。</dd></div></dl>
             <p class="og-allocation-note">Contribution Interest 是分配權重的計量單位，不是 APR、固定收益或固定 MS2 兌 MHA 比率。Season 2 結束時停止合資格 CI 累計並鎖定記錄，再按 CI 占比分配；分母為零的情況須另有預先批准規則。</p>

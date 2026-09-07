@@ -296,7 +296,20 @@ button, input { font: inherit; }
 .og-formulas article { min-width: 0; padding: clamp(24px,3vw,36px); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .og-formulas article:last-child { border-right: 0; }
 .og-formulas article > span { color: var(--cyan); font: 11px var(--mono); letter-spacing: .1em; }
-.og-formulas math { display: block; max-width: 100%; margin: 30px auto 8px; color: var(--ink); font-size: clamp(17px,2.2vw,31px); overflow: hidden; }
+.og-equation { display: flex; min-height: 118px; max-width: 100%; align-items: center; justify-content: center; gap: clamp(9px,1.2vw,20px); margin: 18px auto 0; color: var(--ink); font: 500 clamp(18px,2vw,30px)/1.15 "Cambria Math", "STIX Two Math", Georgia, serif; white-space: nowrap; }
+.og-equation i { font-style: italic; }
+.og-equation sub { font-size: .58em; line-height: 1; }
+.eq-name { font-size: 1.18em; }
+.eq-operator { color: var(--dim); }
+.eq-integral { position: relative; display: inline-grid; width: clamp(54px,6vw,86px); height: 88px; place-items: center; flex: 0 0 auto; }
+.eq-integral b { font-size: 2.8em; font-weight: 400; line-height: .85; }
+.eq-integral > sup, .eq-integral > sub { position: absolute; left: 62%; font: 500 .42em/1 var(--mono); }
+.eq-integral > sup { top: 7px; }
+.eq-integral > sub { bottom: 5px; }
+.eq-term { letter-spacing: .01em; }
+.eq-fraction { display: inline-grid; min-width: min(260px,45vw); text-align: center; }
+.eq-fraction > span { display: block; padding: 7px 12px; }
+.eq-fraction > span:first-child { border-bottom: 1px solid var(--ink); }
 .og-variable-list { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); margin: 0; }
 .og-variable-list div { min-width: 0; padding: 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .og-variable-list div:last-child { border-right: 0; }
@@ -662,7 +675,9 @@ button, input { font: inherit; }
   .og-flow li, .og-flow li:nth-child(3n), .og-flow li:nth-last-child(-n+3) { min-height: 74px; border-right: 0; border-bottom: 1px solid var(--line); }
   .og-flow li:last-child { border-bottom: 0; }
   .og-flow li:not(:last-child)::after { top: auto; right: 18px; bottom: -8px; transform: rotate(90deg); }
-  .og-formulas math { font-size: clamp(14px,4.2vw,18px); }
+  .og-equation { min-height: 104px; flex-wrap: wrap; gap: 8px; font-size: clamp(17px,5.1vw,22px); white-space: normal; }
+  .og-equation-allocation .eq-pool { flex-basis: auto; }
+  .eq-fraction { min-width: min(235px,100%); }
   .og-variable-list div, .og-variable-list div:nth-child(2n), .og-variable-list div:nth-last-child(-n+2) { border-right: 0; border-bottom: 1px solid var(--line); }
   .og-variable-list div:last-child { border-bottom: 0; }
   .s2-supply-strip { grid-template-columns: 1fr; }
