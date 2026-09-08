@@ -111,7 +111,7 @@
       var totalMobile = finite(s2.totalMobile);
       set("s2-entries", totalEntries);
       set("s2-units-left", totalMobile === null ? null : Math.max(0, 1600 - totalMobile));
-      setText("s2-entries-label", totalEntries === null ? "Entries · MS2 pending" : "Entries · " + (totalEntries * 10).toLocaleString("en-US") + " MS2 points");
+      setText("s2-entries-label", totalEntries === null ? "名額 · MS2 待載入" : "名額 · " + (totalEntries * 10).toLocaleString("en-US") + " MS2 積分");
 
       var fetchedAt = payload._meta && payload._meta.fetchedAt;
       s2SourceLabel = sourceResult.source.label + (fetchedAt ? " · " + new Date(fetchedAt).toLocaleString("zh-Hant", { hour12: false }) : "");
@@ -131,9 +131,9 @@
     if (results[3].status === "fulfilled") {
       var referral = results[3].value.data && results[3].value.data.referral;
       var referrers = referral ? finite(referral.uniqueRecipients) : null;
-      setText("s2-participants-label", referrers === null ? "Unique direct payers" : "Unique direct payers · " + referrers.toLocaleString("en-US") + " referrers");
+      setText("s2-participants-label", referrers === null ? "唯一付款地址" : "唯一付款地址 · " + referrers.toLocaleString("en-US") + " 名推薦人");
     } else {
-      setText("s2-participants-label", "Unique direct payers");
+      setText("s2-participants-label", "唯一付款地址");
     }
 
     if (available === 2) {

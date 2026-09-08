@@ -24,7 +24,7 @@ test("buildSnapshot combines authenticated, public and chain evidence", () => {
   const snapshot = buildSnapshot({
     dashboard: { totalParticipants: 1, totalDraws: 2, totalMobile: 3, currRound: 4, nextDrawNeed: 5 },
     winners: [{ drawRound: 1 }],
-    chain: { fetchedAt: new Date().toISOString(), ms2TotalSupply: "5110000.0", totalStaked: "77618.3" },
+    chain: { fetchedAt: new Date().toISOString(), ms2TotalSupply: "6000000.0", totalStaked: "77618.3" },
     stakingInfo: { baseRate: 0.15, annualRate: 0.15, currentStaked: 0, nonce: "private-account-field" },
     authMode: "ephemeral",
     staleAfterMs: 300000
@@ -32,7 +32,7 @@ test("buildSnapshot combines authenticated, public and chain evidence", () => {
   assert.equal(snapshot.code, 200);
   assert.equal(snapshot.data.totalEntries, 2);
   assert.equal(snapshot.data.winnerRecords, 1);
-  assert.equal(snapshot.data.ms2Issued, 5110000);
+  assert.equal(snapshot.data.ms2Issued, 6000000);
   assert.equal(snapshot.data.baseRate, 0.15);
   assert.equal(snapshot.data.annualRate, 0.15);
   assert.equal("nonce" in snapshot.data, false);

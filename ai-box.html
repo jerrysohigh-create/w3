@@ -48,8 +48,8 @@
       </div>
       <div class="wrap">
         <dl class="ai-box-ledger">
-          <div><dt>FIRST TESTED MODEL</dt><dd>QWEN3.6-35B-A3B <span class="tag verified">TEST OK</span></dd></div>
-          <div><dt>MODEL ARTIFACT</dt><dd>Q4_K_M · NPU GGUF <span class="tag verified">VALIDATED</span></dd></div>
+          <div><dt>CURRENT MODEL TARGET</dt><dd>QWEN3.6-35B-A3B <span class="tag target">ENGINEERING TARGET</span></dd></div>
+          <div><dt>MODEL ARTIFACT</dt><dd>Q4_K_M · NPU GGUF <span class="tag target">IN ENGINEERING</span></dd></div>
           <div><dt>EDGE RUNTIME</dt><dd>PRIVATE RUNTIME · LLAMA.CPP-COMPATIBLE <span class="tag pending">POC ACTIVE</span></dd></div>
           <div><dt>ACCELERATION</dt><dd>MAGNE GGML BACKEND <span class="tag verified">ACTIVE</span></dd></div>
         </dl>
@@ -78,9 +78,9 @@
         <div class="section-head reveal">
           <div>
             <p class="section-label"><span class="index">03.2</span> HARDWARE BASELINE</p>
-            <h2 class="section-title">Eight-core controller.<br>Three-tier memory.</h2>
+            <h2 class="section-title">Eight-core controller.<br>Separate memory domains.</h2>
           </div>
-          <p class="section-copy">ABX-001 consists of UIS 7885 master control and MAGNE custom NPU. The memory is not a 10–16GB range, but three levels: host LPDDR4X, NPU built-in 3D DRAM, and NPU extended LPDDR5X.</p>
+          <p class="section-copy">ABX-001 consists of UIS 7885 master control and MAGNE custom NPU. Host LPDDR4X, NPU 3D DRAM and NPU expansion LPDDR5X belong to separate memory domains. Their capacities must not be added together or described as unified memory.</p>
         </div>
 
         <div class="ai-box-hardware-console reveal">
@@ -101,14 +101,14 @@
             </article>
 
             <article class="hardware-memory">
-              <div class="hardware-panel-head"><span>MEMORY / THREE LAYERS</span><span class="tag pending">TOPOLOGY REQUIRED</span></div>
-              <div class="memory-total"><span>DERIVED INVENTORY*</span><strong>34 / 38<small>GB</small></strong><em>8 / 12 + 10 + 16</em></div>
+              <div class="hardware-panel-head"><span>MEMORY / SEPARATE DOMAINS</span><span class="tag pending">TOPOLOGY REQUIRED</span></div>
+              <div class="memory-total"><span>ADDRESSING BOUNDARY*</span><strong>3<small>DOMAINS</small></strong><em>DO NOT SUM AS UNIFIED MEMORY</em></div>
               <div class="memory-map" aria-label="Capacity list of host 8 or 12GB, MAGNE custom NPU 10GB 3D DRAM and 16GB LPDDR5X extended memory">
                 <div class="memory-soc"><span>HOST SYSTEM DRAM</span><b>8 / 12GB</b><small>LPDDR4X · UP TO 2133MHz</small></div>
                 <div class="memory-npu"><span>MAGNE NPU NEAR MEMORY</span><b>10GB</b><small>3D DRAM · SUPPLIER CLAIM</small></div>
                 <div class="memory-expand"><span>MAGNE NPU EXPANSION</span><b>16GB</b><small>LPDDR5X · SUPPLIER CLAIM</small></div>
               </div>
-              <p class="memory-rule"><span>* DERIVATION RULE</span> 34 / 38GB is only a capacity inventory derivation assuming 16GB expansion and 10GB 3D DRAM; the PDF does not describe unified addressing, sharing methods, available capacity, or model allocation and cannot be used as a formal total memory commitment.</p>
+              <p class="memory-rule"><span>* MEMORY RULE</span> The published capacity entries identify separate host, NPU near-memory and expansion-memory domains. No aggregate memory figure is stated because addressing, sharing, available capacity and model placement have not been formally confirmed.</p>
             </article>
           </div>
           <dl class="hardware-spec-strip">
@@ -118,11 +118,11 @@
             <div><dt>AI POWER</dt><dd>8–15W</dd><small>SCOPE UNDEFINED · TEST REQUIRED</small></div>
           </dl>
           <dl class="hardware-io-register">
-            <div><dt>PRECISION</dt><dd>INT4 · INT8 · INT16 · FP16</dd><small>MAGNE NPU supported-format claim</small></div>
+            <div><dt>PRECISION</dt><dd>INT4 · INT8</dd><small>MAGNE NPU engineering path</small></div>
             <div><dt>DISPLAY / VIDEO</dt><dd>HDMI 1.4 · DP 1.4 · 4K@30FPS</dd><small>Device-level PDF configuration</small></div>
             <div><dt>WIRED NETWORK</dt><dd>2× 2.5GbE RJ45</dd><small>Device-level PDF configuration</small></div>
-            <div><dt>WIRELESS</dt><dd>Wi-Fi 5 2×2 · Bluetooth 5.0</dd><small>Device-level PDF configuration</small></div>
-            <div><dt>EXTERNAL I/O</dt><dd>2× USB 2.0 · 2× USB 3.2 · USB-C 3.2</dd><small>Plus 3.5mm audio and DC power</small></div>
+            <div><dt>WIRELESS</dt><dd>Wi-Fi 5 1×1 · Bluetooth 5.0</dd><small>Single-antenna engineering configuration</small></div>
+            <div><dt>EXTERNAL I/O</dt><dd>2× USB 2.0 · 2× USB 3.2 Gen 1 · 1× USB-C 3.2 Gen 1</dd><small>Plus 3.5mm audio and DC power</small></div>
             <div><dt>OPERATING SYSTEM</dt><dd>Ubuntu</dd><small>PUBLIC PRODUCT BASELINE</small></div>
           </dl>
         </div>
@@ -194,12 +194,12 @@
             <p class="section-label"><span class="index">03.5</span> CONTROLLED MODEL SUPPORT</p>
             <h2 class="section-title">35B total parameters.<br>3B active parameters.</h2>
           </div>
-          <p class="section-copy">The optimized Qwen3.6-35B-A3B is currently the first large model to complete controlled testing. It runs via Q4_K_M GGUF deployment artifacts customized for MAGNE Custom NPU; GAMMA continues to be validated with other LLMs/VLMs.</p>
+          <p class="section-copy">Qwen3.6-35B-A3B is the current large-model engineering target for the MAGNE Custom NPU path. Its speed and delivery timing remain engineering targets and have not completed formal reproducible testing. Q4_K_M identifies a GGUF artifact format and must not be treated as equivalent to W4A16.</p>
         </div>
 
         <div class="moe-dossier reveal">
           <div class="moe-identity">
-            <div class="moe-head"><span>MODEL / QWEN3.6-35B-A3B</span><span class="tag verified">TEST OK</span></div>
+            <div class="moe-head"><span>MODEL / QWEN3.6-35B-A3B</span><span class="tag target">ENGINEERING TARGET</span></div>
             <p class="moe-kicker">SPARSE MIXTURE-OF-EXPERTS</p>
             <h3>CAPACITY WITHOUT<br><span>FULL ACTIVATION.</span></h3>
             <p>The total parameters affect model capacity and weight retention; each token only enables part of the expert path. MoE reduces the amount of active computation without eliminating the storage and memory requirements of full weights.</p>
@@ -207,8 +207,8 @@
           <dl class="moe-metrics">
             <div><dt>TOTAL PARAMETERS</dt><dd>35B</dd><small>MODEL CAPACITY</small></div>
             <div><dt>ACTIVE PARAMETERS</dt><dd>3B</dd><small>PER-TOKEN ACTIVE PATH</small></div>
-            <div><dt>QUANTIZATION</dt><dd>Q4_K_M</dd><small>FIRST TESTED BUILD</small></div>
-            <div><dt>DEPLOYMENT ARTIFACT</dt><dd>NPU GGUF</dd><small>CUSTOMIZED FOR MAGNE NPU</small></div>
+            <div><dt>QUANTIZATION</dt><dd>Q4_K_M</dd><small>GGUF ARTIFACT LABEL · NOT W4A16</small></div>
+            <div><dt>DEPLOYMENT ARTIFACT</dt><dd>NPU GGUF</dd><small>CUSTOMIZATION IN ENGINEERING</small></div>
           </dl>
           <div class="moe-memory-path">
             <span>WEIGHT RESIDENCY / MEMORY PATH</span>
@@ -216,14 +216,14 @@
             <small>ILLUSTRATIVE LAYERING · EXACT ADDRESSING, EXPERT RESIDENCY AND KV-CACHE PLACEMENT REQUIRE ENGINEERING DISCLOSURE</small>
           </div>
           <div class="model-validation-line">
-            <span><b>TESTED</b> QWEN3.6-35B-A3B / Q4_K_M / NPU-CUSTOMIZED GGUF</span>
-            <span class="supplier-measured"><b>ENGINEERING SAMPLE</b> 70 TOKENS/S · CONTROLLED TEST · CONSERVATIVE PUBLIC VALUE</span>
+            <span><b>ENGINEERING TARGET</b> QWEN3.6-35B-A3B / Q4_K_M / NPU-CUSTOMIZED GGUF</span>
+            <span class="supplier-measured"><b>PERFORMANCE TARGET</b> 70 TOKENS/S · FORMAL REPRODUCIBLE TEST PENDING</span>
             <span class="in-validation"><b>IN VALIDATION</b> GAMMA + OTHER LLM / VLM ARCHITECTURES</span>
           </div>
         </div>
 
         <div class="performance-register reveal" aria-label="Controlled AI BOX performance register">
-          <div><span>LOCAL DECODE</span><strong>70</strong><small>TOKENS/S · CONTROLLED SAMPLE TEST · CONSERVATIVE PUBLIC VALUE</small></div>
+          <div><span>LOCAL DECODE</span><strong>70</strong><small>TOKENS/S · ENGINEERING TARGET · NOT YET FORMALLY TESTED</small></div>
           <div><span>CONTEXT ENVELOPE</span><strong>256K</strong><small>MAXIMUM CONTEXT CLAIM · POC VERIFICATION REQUIRED</small></div>
           <div><span>ACCELERATOR</span><strong>56</strong><small>TOPS INT8 · SUPPLIER CLAIM</small></div>
           <div><span>NPU NEAR MEMORY</span><strong>10GB</strong><small>3D DRAM · SUPPLIER CLAIM</small></div>
@@ -240,14 +240,14 @@
                 <tr><td data-label="MODEL">Qwen2.5-3B</td><td data-label="STATUS"><span class="tag verified">OPTIMIZED</span></td><td data-label="PREFILL TOK/S">1000</td><td data-label="DECODE TOK/S">300</td><td data-label="DIRECTION">LOCAL LLM</td></tr>
                 <tr><td data-label="MODEL">Qwen2.5-Omni-3B</td><td data-label="STATUS"><span class="tag verified">OPTIMIZED</span></td><td data-label="PREFILL TOK/S">1000</td><td data-label="DECODE TOK/S">300</td><td data-label="DIRECTION">VOICE / MULTIMODAL</td></tr>
                 <tr><td data-label="MODEL">Qwen2.5-Omni-7B</td><td data-label="STATUS"><span class="tag target">SEP TARGET</span></td><td data-label="PREFILL TOK/S">500</td><td data-label="DECODE TOK/S">160</td><td data-label="DIRECTION">VOICE / MULTIMODAL</td></tr>
-                <tr class="model-primary"><td data-label="MODEL">Qwen3.6-35B-A3B · MoE</td><td data-label="STATUS"><span class="tag pending">TESTED</span></td><td data-label="PREFILL TOK/S">200 <small>TARGET</small></td><td data-label="DECODE TOK/S">70 <small>MEASURED</small></td><td data-label="DIRECTION">AGENT APPLICATIONS</td></tr>
+                <tr class="model-primary"><td data-label="MODEL">Qwen3.6-35B-A3B · MoE</td><td data-label="STATUS"><span class="tag target">ENGINEERING TARGET</span></td><td data-label="PREFILL TOK/S">200 <small>TARGET</small></td><td data-label="DECODE TOK/S">70 <small>TARGET</small></td><td data-label="DIRECTION">AGENT APPLICATIONS</td></tr>
                 <tr><td data-label="MODEL">LLaMA2-13B</td><td data-label="STATUS"><span class="tag target">OCT TARGET</span></td><td data-label="PREFILL TOK/S">300</td><td data-label="DECODE TOK/S">80</td><td data-label="DIRECTION">LOCAL LLM</td></tr>
                 <tr><td data-label="MODEL">Qwen3-VL-4B · Qwen3.5-4B</td><td data-label="STATUS"><span class="tag target">OCT TARGET</span></td><td data-label="PREFILL TOK/S">500</td><td data-label="DECODE TOK/S">200</td><td data-label="DIRECTION">VISION AI</td></tr>
                 <tr><td data-label="MODEL">Qwen3-VL-8B · Qwen3.5-9B</td><td data-label="STATUS"><span class="tag target">OCT TARGET</span></td><td data-label="PREFILL TOK/S">350</td><td data-label="DECODE TOK/S">100</td><td data-label="DIRECTION">VISION AI</td></tr>
               </tbody>
             </table>
           </div>
-          <p>Matrix values other than the public 70 tokens/s decode figure are controlled optimization results or targets, not unconditional product commitments. Final values remain subject to model hash, context, quantization and repeatable POC conditions.</p>
+          <p>Qwen3.6-35B-A3B timing and the 70 tokens/s decode figure are engineering targets, not completed test results or unconditional product commitments. Final values remain subject to model hash, context, artifact format and repeatable prototype testing.</p>
         </div>
       </div>
     </section>
@@ -354,17 +354,16 @@
               <tr><td>HOST DRAM</td><td>8GB / 12GB LPDDR4X · up to 2133MHz</td><td><span class="tag pending">PDF CONFIG</span></td><td>Formal capacity SKU, particles and available capacity</td></tr>
               <tr><td>MAGNE NPU NEAR MEMORY</td><td>10GB 3D DRAM</td><td><span class="tag pending">SUPPLIER CLAIM</span></td><td>Supplier Datasheet, Memory Map and Available Capacity</td></tr>
               <tr><td>MAGNE NPU EXPANSION</td><td>16GB LPDDR5X</td><td><span class="tag pending">SUPPLIER CLAIM</span></td><td>Whether it is required, sharing method, bandwidth and capacity measurement</td></tr>
-              <tr><td>DRAM INVENTORY</td><td>34GB / 38GB* · Host 8/12 + NPU 10 + expansion 16</td><td><span class="tag target">DERIVED</span></td><td>Capacity list derivation only; not equivalent to unified available memory</td></tr>
               <tr><td>STORAGE</td><td>128GB / 256GB UFS 3.1</td><td><span class="tag pending">PDF CONFIG</span></td><td>Mass production SKU and real machine reading and writing, life test</td></tr>
-              <tr><td>ACCELERATOR</td><td>MAGNE Customized NPU · 56 TOPS INT8 · &gt;600GB/s · INT4/8/16/FP16</td><td><span class="tag pending">SUPPLIER CLAIM</span></td><td>Datasheet, original Benchmark and continuous load testing</td></tr>
+              <tr><td>ACCELERATOR</td><td>MAGNE Customized NPU · 56 TOPS INT8 · &gt;600GB/s · INT4/INT8</td><td><span class="tag pending">SUPPLIER CLAIM</span></td><td>Datasheet, original Benchmark and continuous load testing</td></tr>
               <tr><td>PCIE TOPOLOGY</td><td>Host: PCIe 3.0 ×1; MAGNE customized NPU Internal: PCIe 4.0 ×4</td><td><span class="tag policy">LAYERED BASELINE</span></td><td>Board level block diagram, lane negotiation and main control/NPU internal throughput measurement</td></tr>
-              <tr><td>DEVICE I/O</td><td>USB 2.0×2 · USB 3.2×2 · USB-C 3.2 · HDMI 1.4 · DP 1.4 · Audio · DC</td><td><span class="tag pending">PDF CONFIG</span></td><td>Engineering prototype interface inventory and functional testing</td></tr>
-              <tr><td>NETWORK</td><td>Wi-Fi 5 2×2 · BT 5.0 · 2×2.5GbE RJ45</td><td><span class="tag pending">PDF CONFIG</span></td><td>Module material number, throughput and stability test</td></tr>
+              <tr><td>DEVICE I/O</td><td>USB 2.0×2 · USB 3.2 Gen 1×2 · USB-C 3.2 Gen 1×1 · HDMI 1.4 · DP 1.4 · Audio · DC</td><td><span class="tag pending">PDF CONFIG</span></td><td>Engineering prototype interface inventory and functional testing</td></tr>
+              <tr><td>NETWORK</td><td>Wi-Fi 5 1×1 · BT 5.0 · 2×2.5GbE RJ45</td><td><span class="tag pending">PDF CONFIG</span></td><td>Module part number, throughput and stability test</td></tr>
               <tr><td>MEDIA / OS</td><td>4K@30fps · Ubuntu</td><td><span class="tag verified">PRODUCT BASELINE</span></td><td>Codec actual measurement, Ubuntu version and maintenance cycle</td></tr>
               <tr><td>AI POWER</td><td>8–15W</td><td><span class="tag pending">SCOPE UNDEFINED</span></td><td>It is necessary to confirm whether it is a customized NPU, computing board or complete machine, and do a socket power consumption test</td></tr>
               <tr><td>EDGE RUNTIME</td><td>Privately maintained llama.cpp-compatible runtime + MAGNE GGML backend</td><td><span class="tag verified">IMPLEMENTED</span></td><td>Version tracking, upstream synchronization and security patch records</td></tr>
-              <tr><td>FIRST TESTED MODEL</td><td>Qwen3.6-35B-A3B · Q4_K_M · NPU customization GGUF</td><td><span class="tag verified">TEST OK</span></td><td>Solidified model hash, conversion tools, output consistency and regression logs</td></tr>
-              <tr><td>MODEL DECODE</td><td>70 tokens/s</td><td><span class="tag pending">SAMPLE MEASURED</span></td><td>Conservative public value from a controlled 70–80 tokens/s engineering-sample test range; MAGNE reproducibility verification pending</td></tr>
+              <tr><td>MODEL TARGET</td><td>Qwen3.6-35B-A3B · Q4_K_M · NPU customization GGUF</td><td><span class="tag target">ENGINEERING TARGET</span></td><td>Freeze the model hash, conversion tool and artifact format before formal testing; Q4_K_M is not W4A16</td></tr>
+              <tr><td>MODEL DECODE</td><td>70 tokens/s</td><td><span class="tag target">ENGINEERING TARGET</span></td><td>Repeatable prototype benchmark, workload definition, context, power scope and raw logs required</td></tr>
               <tr><td>MODEL EXPANSION</td><td>GAMMA and other LLM / VLM</td><td><span class="tag target">IN VALIDATION</span></td><td>Operator coverage, CPU fallback, TTFT, decode, long context, power consumption and quality regression</td></tr>
               <tr><td>SECURITY</td><td>Secure Boot · Encryption · Signature Upgrade · Rollback</td><td><span class="tag pending">SUPPLIER CONFIRMATION</span></td><td>Startup chain, attack testing and recovery records</td></tr>
               <tr><td>WEB3 TRUST LAYER</td><td>Device/Agent identity · Signature inference receipt · Audit summary anchoring</td><td><span class="tag target">ARCHITECTURE TARGET</span></td><td>Threat model, signature format, on-chain Schema, privacy review and security audit</td></tr>
@@ -372,7 +371,7 @@
             </tbody>
           </table>
         </div>
-        <p class="ai-box-disclaimer reveal"><span>CONTROL NOTE</span> Qwen3.6-35B-A3B / Q4_K_M / NPU customized GGUF has been marked as the first TEST OK model; this does not mean that any community GGUF can be fully accelerated without conversion. &gt;600GB/s, 56 TOPS and 8–15W remain as supplier claims and will be converted to product commitments after testing boundaries and original evidence are completed.</p>
+        <p class="ai-box-disclaimer reveal"><span>CONTROL NOTE</span> Qwen3.6-35B-A3B, Q4_K_M NPU customization, delivery timing and 70 tokens/s remain engineering targets pending formal reproducible testing. Q4_K_M is not equivalent to W4A16. &gt;600GB/s, 56 TOPS and 8–15W remain supplier claims and require defined test boundaries and original evidence before becoming product commitments.</p>
         <div class="section-head reveal ai-box-boundary-subhead">
           <div>
             <p class="section-label">ACCEPTANCE RULES / TRUST BOUNDARY</p>

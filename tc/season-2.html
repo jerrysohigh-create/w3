@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>MAGNE.AI Season 2 活動中心 — W3 版</title>
     <meta name="description" content="MAGNE.AI Season 2 campaign data, round progress, MS2 records and public source references in the W3 visual system." />
-    <link rel="stylesheet" href="../assets/css/site.css?v=20260908-public-sale-og-2" />
+    <link rel="stylesheet" href="../assets/css/site.css?v=20260908-og-settlement-window" />
     <link rel="canonical" href="https://w3.magne.ai/tc/season-2.html" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="MAGNE.AI Season 2 Campaign Hub — W3 Edition" />
@@ -32,7 +32,6 @@
           <p class="page-lede">Phone Gen1 Lottery · MS2 Campaign Credits · Staking Weight · Team Rewards。Season 2 資料紀錄與計算口徑由 W3 維護。</p>
           <div class="hero-actions">
             <a class="btn primary" href="#live-data">$ inspect live data →</a>
-            <a class="btn" href="public-sale-og.html">$ Public Sale OG 記錄 →</a>
             <a class="btn" href="#contract-intelligence">$ contract intelligence →</a>
             <a class="btn" href="https://payment.magne.ai/lottery" target="_blank" rel="noopener noreferrer">$ join season 2 ↗</a>
             <a class="btn" href="seasons.html">$ all seasons →</a>
@@ -56,10 +55,10 @@
             <article class="rule-item"><span class="rule-no">[01]</span><h3>1,600 臺配置</h3><p>MAGNE.AI Phone Gen1 8GB + 256GB 活動配置。</p></article>
             <article class="rule-item"><span class="rule-no">[02]</span><h3>17 USDT / Entry</h3><p>每錢包最多 100 個參與名額，每個有效名額記錄 10 MS2。</p></article>
             <article class="rule-item"><span class="rule-no">[03]</span><h3>100 Entries / Round</h3><p>每 100 個有效名額觸發一次 Phone Gen1 中選。</p></article>
-            <article class="rule-item"><span class="rule-no">[04]</span><h3>40,000,000 MHA</h3><p>Season 2 合資格 CI 的最終分配池；適用正式公布的結束邊界及最終資格規則。</p></article>
+            <article class="rule-item"><span class="rule-no">[04]</span><h3>40,000,000 MHA</h3><p>後續合資格分配池；時間與資格受 TGE 安排及活動規則約束。</p></article>
           </div>
           <div class="disclosure reveal"><strong>未中選名額記錄：</strong>當每回合達到 100 個名額後觸發一次 Phone Gen1 中選；未中選的每個有效名額可記錄未來合資格分配的 100 MHA，預計於 TGE 後一個月內依活動規則完成。</div>
-          <div class="disclosure reveal"><strong>MS2 與最終分配：</strong>MS2 不等同於 MHA，也不代表固定收益或上市承諾。只有實際質押至合資格合約並累計合資格 Contribution Interest（CI）的 MS2，才參與 40,000,000 MHA 分配池。已釋放、可領取或僅存放於錢包的 MS2，不會自動視為已質押。</div>
+          <div class="disclosure reveal"><strong>MS2 與最終分配：</strong>MS2 不等同於 MHA，也不代表固定收益或上市承諾。活動結束後，質押合約內全部 MS2（包括尚未領取的 MS2）將依據最終合資格質押記錄，按比例參與後續 40,000,000 MHA 分配；具體比例、時間與領取條件以正式規則為準。</div>
         </div>
       </section>
 
@@ -204,18 +203,50 @@
         <div class="wrap">
           <div class="section-head reveal">
             <div><p class="section-label"><span class="index">S2.07</span> MS2 + ON-CHAIN SNAPSHOT</p><h2 class="section-title">積分、流動性與鏈上引用。</h2></div>
-            <p class="section-copy">MS2 目前供應量來自 Token 合約 <span class="mono">totalSupply()</span>；質押數來自 Staking 代理合約 <span class="mono">totalStaked()</span>。6,000,000 最大供應參數與即時合約讀值分開揭露，即使兩者目前相同。數值皆以 18 位精度換算，不作 USDT 估值，也不等於 Season 2 活動參與名額。</p>
+            <p class="section-copy">MS2 總供應量來自 Token 合約 <span class="mono">totalSupply()</span>；質押數來自 Staking 代理合約 <span class="mono">totalStaked()</span>。兩者皆以 18 位元精度換算，不作 USDT 估值，也不等於 Season 2 活動累積積分。</p>
           </div>
-          <div class="evidence-strip s2-supply-strip reveal">
-            <article class="evidence-metric"><span class="kicker">鏈上目前總供應</span><span class="value" id="s2-ms2-issued">—</span><span class="unit">MS2 TOKEN · TOTALSUPPLY()</span></article>
-            <article class="evidence-metric parameter"><span class="kicker">最大供應參數</span><span class="value">6,000,000</span><span class="unit">MS2 · 靜態揭露</span></article>
+          <div class="evidence-strip reveal">
+            <article class="evidence-metric"><span class="kicker">MS2 TOKEN TOTAL SUPPLY</span><span class="value" id="s2-ms2-issued">—</span><span class="unit">MS2 TOKEN · TOTALSUPPLY()</span></article>
             <article class="evidence-metric"><span class="kicker">TOTAL MS2 STAKED</span><span class="value" id="s2-liquidity">—</span><span class="unit">STAKING PROXY · TOTALSTAKED()</span></article>
             <article class="evidence-metric"><span class="kicker">BASE RATE</span><span class="value" id="s2-base-rate">—</span><span class="unit">SNAPSHOT VALUE</span></article>
           </div>
           <div class="campaign-terms reveal" style="margin-top:20px">
             <article class="campaign-term"><span class="term-id">[ MS2 ]</span><h3>MS2 ≠ MHA</h3><p>用於活動追蹤、排行榜、質押權重及未來資格審查，不代表固定收益。</p></article>
-            <article class="campaign-term"><span class="term-id">[ CI WEIGHT ]</span><h3>合資格質押隨時間累計</h3><p>CI 依手動質押實際生效後的合資格 MS2 數量及有效期間累計；此處不套用未核實的社群倍率。</p></article>
-            <article class="campaign-term"><span class="term-id">[ LIFECYCLE ]</span><h3>四個活動階段</h3><p>取得合資格 MS2 → 手動質押 → 累計 CI → Season 2 結束及最終分配。</p></article>
+            <article class="campaign-term"><span class="term-id">[ BASIS ]</span><h3>挖礦收益占比</h3><p>按最終快照記錄的合資格 MS2 累計質押挖礦收益占全體總收益的比例分配。</p></article>
+            <article class="campaign-term"><span class="term-id">[ LIFECYCLE ]</span><h3>五階段</h3><p>Campaign → Staking → Snapshot → Unlock → Settlement。</p></article>
+          </div>
+          <div class="ci-allocation reveal" id="ci-allocation">
+            <header class="ci-allocation-head">
+              <div><span>S2.07A / MS2 挖礦收益分配</span><h3>40,000,000 MHA 按合資格 MS2 挖礦收益占比分配。</h3></div>
+              <p>方案二以每位參與者實際累計產生的合資格 MS2 質押挖礦收益作為分配權重。計入最終快照前已領取及可驗證但尚未領取的挖礦收益；不把質押本金或錢包餘額當作收益。</p>
+            </header>
+            <div class="og-formulas">
+              <article><span>合資格累計挖礦收益</span><div class="og-equation" role="img" aria-label="參與者 i 的合資格累計 MS2 挖礦收益，等於已領取收益加上可驗證但尚未領取的累計收益"><span class="eq-name"><i>R</i><sub>i</sub></span><span class="eq-operator">=</span><span class="eq-term"><i>R</i><sub>claimed,i</sub> + <i>R</i><sub>accrued,i</sub></span></div></article>
+              <article><span>最終 MHA 分配</span><div class="og-equation og-equation-allocation" role="img" aria-label="參與者 i 的分配等於四千萬 MHA 乘以參與者 i 的合資格 MS2 挖礦收益除以全體參與者的合資格 MS2 挖礦收益總和"><span class="eq-name"><i>A</i><sub>i</sub></span><span class="eq-operator">=</span><span class="eq-pool">40,000,000 MHA ×</span><span class="eq-fraction"><span><i>R</i><sub>i</sub></span><span>Σ<sub>j</sub> <i>R</i><sub>j</sub></span></span></div></article>
+            </div>
+            <dl class="og-variable-list">
+              <div><dt>Rᵢ</dt><dd>參與者截至最終快照的合資格 MS2 累計質押挖礦收益。</dd></div>
+              <div><dt>R<sub>claimed</sub></dt><dd>最終快照前已由合資格質押記錄領取的 MS2 挖礦收益。</dd></div>
+              <div><dt>R<sub>accrued</sub></dt><dd>最終快照時已產生、可由合約驗證但尚未領取的 MS2 挖礦收益。</dd></div>
+              <div><dt>T<sub>snapshot</sub></dt><dd>正式公布的最終快照時間與區塊；不自動等同於最後一部手機完成中選的時間。</dd></div>
+            </dl>
+            <ol class="ci-rule-list" aria-label="Season 2 MS2 挖礦收益分配細則">
+              <li><b>01 / 開始</b><span>只有已釋放並由參與者手動質押至指定合資格合約、且質押已實際生效的 MS2，才開始產生可計入的挖礦收益。</span></li>
+              <li><b>02 / 累計</b><span>以合資格質押合約實際記錄的 MS2 挖礦收益為準；已領取與可驗證未領取收益一併計入，避免領取時間改變分配結果。</span></li>
+              <li><b>03 / 排除</b><span>質押本金、錢包持有量、尚未釋放或尚未質押的 MS2，以及單純轉入或買入的 MS2，均不直接計入挖礦收益。</span></li>
+              <li><b>04 / 結算</b><span>手機抽選結束後停止新的 Season 2 購買與抽獎；已進入 OG 或私募轉換流程的使用者，仍可完成釋放、質押並持續產生合資格收益，直到另行公布的最終快照，再按收益占比分配 4,000 萬 MHA。</span></li>
+            </ol>
+            <p class="og-allocation-note">最終資格、排除地址、異常或濫用行為、合約收益計算口徑、精度與尾差、全體合資格收益為零時的處理，以及具體快照時間與區塊，均以最終公布規則為準。本方法按實際挖礦收益占比分配，不承諾固定 APR、固定收益或固定 MS2 兌 MHA 匯率。</p>
+          </div>
+          <div class="market-panel reveal" id="ms2-market">
+            <header class="market-panel-head">
+              <div><span>S2.07B / 外部市場資料</span><h3>MS2 / USDT 交易面板。</h3><p>BSC · PancakeSwap v3 · Pair 0xBaB6…6aD9</p></div>
+              <a class="btn" href="https://dexscreener.com/bsc/0xbab6d8382ee29f0fbf5a674eb35cf90f84fe6ad9" target="_blank" rel="noopener noreferrer">開啟 DEXSCREENER ↗</a>
+            </header>
+            <div class="market-frame-wrap">
+              <iframe title="DexScreener 上的 MS2 與 USDT 市場圖表及交易記錄" src="https://dexscreener.com/bsc/0xbab6d8382ee29f0fbf5a674eb35cf90f84fe6ad9?embed=1&amp;theme=dark&amp;trades=1&amp;info=0" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <p class="market-disclaimer">市場資料由第三方 DexScreener 提供。W3 不託管資產、不執行交易、不保證流動性，也不為畫面所示價格背書；操作前請自行核對 Token 與交易對合約。</p>
           </div>
           <div class="contract-line reveal">
             <span>MS2 TOKEN: <a href="https://bscscan.com/address/0xC46A54BBD2716C436Aaaed6Ed2f555a9b054ebD1" target="_blank" rel="noopener">0xC46A…ebD1 ↗</a></span>

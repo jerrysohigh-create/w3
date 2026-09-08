@@ -48,8 +48,8 @@
       </div>
       <div class="wrap">
         <dl class="ai-box-ledger">
-          <div><dt>FIRST TESTED MODEL</dt><dd>QWEN3.6-35B-A3B <span class="tag verified">TEST OK</span></dd></div>
-          <div><dt>MODEL ARTIFACT</dt><dd>Q4_K_M · NPU GGUF <span class="tag verified">VALIDATED</span></dd></div>
+          <div><dt>目前模型目標</dt><dd>QWEN3.6-35B-A3B <span class="tag target">工程目標</span></dd></div>
+          <div><dt>模型製品</dt><dd>Q4_K_M · NPU GGUF <span class="tag target">工程處理中</span></dd></div>
           <div><dt>EDGE RUNTIME</dt><dd>PRIVATE RUNTIME · LLAMA.CPP-COMPATIBLE <span class="tag pending">POC ACTIVE</span></dd></div>
           <div><dt>ACCELERATION</dt><dd>MAGNE GGML BACKEND <span class="tag verified">ACTIVE</span></dd></div>
         </dl>
@@ -78,9 +78,9 @@
         <div class="section-head reveal">
           <div>
             <p class="section-label"><span class="index">03.2</span> HARDWARE BASELINE</p>
-            <h2 class="section-title">八核主控。<br>三層記憶體。</h2>
+            <h2 class="section-title">八核主控。<br>分離的記憶體域。</h2>
           </div>
-          <p class="section-copy">ABX-001 由 UIS 7885 主控與 MAGNE 定製 NPU 組成。記憶體不是一個 10–16GB 區間，而是主機 LPDDR4X、NPU 內建 3D DRAM 與 NPU 擴充套件 LPDDR5X 三個層級。</p>
+          <p class="section-copy">ABX-001 由 UIS 7885 主控與 MAGNE 定製 NPU 組成。主機 LPDDR4X、NPU 3D DRAM 與 NPU 擴展 LPDDR5X 分屬不同記憶體域，不可直接加總，也不可描述為統一記憶體。</p>
         </div>
 
         <div class="ai-box-hardware-console reveal">
@@ -101,14 +101,14 @@
             </article>
 
             <article class="hardware-memory">
-              <div class="hardware-panel-head"><span>MEMORY / THREE LAYERS</span><span class="tag pending">TOPOLOGY REQUIRED</span></div>
-              <div class="memory-total"><span>DERIVED INVENTORY*</span><strong>34 / 38<small>GB</small></strong><em>8 / 12 + 10 + 16</em></div>
+              <div class="hardware-panel-head"><span>MEMORY / SEPARATE DOMAINS</span><span class="tag pending">TOPOLOGY REQUIRED</span></div>
+              <div class="memory-total"><span>ADDRESSING BOUNDARY*</span><strong>3<small>DOMAINS</small></strong><em>不可加總為統一記憶體</em></div>
               <div class="memory-map" aria-label="主機 8 或 12GB、MAGNE 定製 NPU 10GB 3D DRAM 與 16GB LPDDR5X 擴充套件記憶體的容量清單">
                 <div class="memory-soc"><span>HOST SYSTEM DRAM</span><b>8 / 12GB</b><small>LPDDR4X · UP TO 2133MHz</small></div>
                 <div class="memory-npu"><span>MAGNE NPU NEAR MEMORY</span><b>10GB</b><small>3D DRAM · SUPPLIER CLAIM</small></div>
                 <div class="memory-expand"><span>MAGNE NPU EXPANSION</span><b>16GB</b><small>LPDDR5X · SUPPLIER CLAIM</small></div>
               </div>
-              <p class="memory-rule"><span>* DERIVATION RULE</span> 34 / 38GB 僅為假設 16GB 擴充套件與 10GB 3D DRAM 同時存在時的容量清單推導；PDF 未說明統一定址、共享方式、可用容量或模型分配，不能作為正式總記憶體承諾。</p>
+              <p class="memory-rule"><span>* MEMORY RULE</span> 公開容量條目分別屬於主機、NPU 近端記憶體與擴展記憶體域。因定址、共享方式、可用容量及模型配置尚未正式確認，頁面不提供加總記憶體數字。</p>
             </article>
           </div>
           <dl class="hardware-spec-strip">
@@ -118,11 +118,11 @@
             <div><dt>AI POWER</dt><dd>8–15W</dd><small>SCOPE UNDEFINED · TEST REQUIRED</small></div>
           </dl>
           <dl class="hardware-io-register">
-            <div><dt>PRECISION</dt><dd>INT4 · INT8 · INT16 · FP16</dd><small>MAGNE NPU supported-format claim</small></div>
+            <div><dt>PRECISION</dt><dd>INT4 · INT8</dd><small>MAGNE NPU 工程路徑</small></div>
             <div><dt>DISPLAY / VIDEO</dt><dd>HDMI 1.4 · DP 1.4 · 4K@30FPS</dd><small>Device-level PDF configuration</small></div>
             <div><dt>WIRED NETWORK</dt><dd>2× 2.5GbE RJ45</dd><small>Device-level PDF configuration</small></div>
-            <div><dt>WIRELESS</dt><dd>Wi-Fi 5 2×2 · Bluetooth 5.0</dd><small>Device-level PDF configuration</small></div>
-            <div><dt>EXTERNAL I/O</dt><dd>2× USB 2.0 · 2× USB 3.2 · USB-C 3.2</dd><small>Plus 3.5mm audio and DC power</small></div>
+            <div><dt>WIRELESS</dt><dd>Wi-Fi 5 1×1 · Bluetooth 5.0</dd><small>單天線工程配置</small></div>
+            <div><dt>EXTERNAL I/O</dt><dd>2× USB 2.0 · 2× USB 3.2 Gen 1 · 1× USB-C 3.2 Gen 1</dd><small>另含 3.5mm 音訊與 DC 電源</small></div>
             <div><dt>OPERATING SYSTEM</dt><dd>Ubuntu</dd><small>公開產品基線</small></div>
           </dl>
         </div>
@@ -194,12 +194,12 @@
             <p class="section-label"><span class="index">03.5</span> CONTROLLED MODEL SUPPORT</p>
             <h2 class="section-title">35B 模型容量。<br>3B 啟用計算。</h2>
           </div>
-          <p class="section-copy">經最佳化的 Qwen3.6-35B-A3B 是目前首個完成受控測試的大模型。它通過面向 MAGNE Custom NPU 定製的 Q4_K_M GGUF 部署製品執行；GAMMA 與其他 LLM/VLM 仍在持續驗證。</p>
+          <p class="section-copy">Qwen3.6-35B-A3B 是 MAGNE Custom NPU 路徑目前的大模型工程目標，其速度與交付時間尚未完成正式可重現測試。Q4_K_M 指的是 GGUF 製品格式，不可與 W4A16 視為同義規格。</p>
         </div>
 
         <div class="moe-dossier reveal">
           <div class="moe-identity">
-            <div class="moe-head"><span>MODEL / QWEN3.6-35B-A3B</span><span class="tag verified">TEST OK</span></div>
+            <div class="moe-head"><span>MODEL / QWEN3.6-35B-A3B</span><span class="tag target">工程目標</span></div>
             <p class="moe-kicker">SPARSE MIXTURE-OF-EXPERTS</p>
             <h3>CAPACITY WITHOUT<br><span>FULL ACTIVATION.</span></h3>
             <p>總參數影響模型容量與權重駐留；每個 token 僅啟用部分專家路徑。MoE 降低活躍計算量，不消除完整權重的儲存與記憶體需求。</p>
@@ -207,8 +207,8 @@
           <dl class="moe-metrics">
             <div><dt>TOTAL PARAMETERS</dt><dd>35B</dd><small>MODEL CAPACITY</small></div>
             <div><dt>ACTIVE PARAMETERS</dt><dd>3B</dd><small>PER-TOKEN ACTIVE PATH</small></div>
-            <div><dt>QUANTIZATION</dt><dd>Q4_K_M</dd><small>FIRST TESTED BUILD</small></div>
-            <div><dt>DEPLOYMENT ARTIFACT</dt><dd>NPU GGUF</dd><small>CUSTOMIZED FOR MAGNE NPU</small></div>
+            <div><dt>QUANTIZATION</dt><dd>Q4_K_M</dd><small>GGUF 製品標籤 · 不等同 W4A16</small></div>
+            <div><dt>DEPLOYMENT ARTIFACT</dt><dd>NPU GGUF</dd><small>NPU 定製工程處理中</small></div>
           </dl>
           <div class="moe-memory-path">
             <span>WEIGHT RESIDENCY / MEMORY PATH</span>
@@ -216,14 +216,14 @@
             <small>ILLUSTRATIVE LAYERING · EXACT ADDRESSING, EXPERT RESIDENCY AND KV-CACHE PLACEMENT REQUIRE ENGINEERING DISCLOSURE</small>
           </div>
           <div class="model-validation-line">
-            <span><b>TESTED</b> QWEN3.6-35B-A3B / Q4_K_M / NPU-CUSTOMIZED GGUF</span>
-            <span class="supplier-measured"><b>ENGINEERING SAMPLE</b> 70 TOKENS/S · 受控實測 · 保守公開值</span>
+            <span><b>工程目標</b> QWEN3.6-35B-A3B / Q4_K_M / NPU-CUSTOMIZED GGUF</span>
+            <span class="supplier-measured"><b>效能目標</b> 70 TOKENS/S · 尚待正式可重現測試</span>
             <span class="in-validation"><b>IN VALIDATION</b> GAMMA + OTHER LLM / VLM ARCHITECTURES</span>
           </div>
         </div>
 
         <div class="performance-register reveal" aria-label="AI BOX 受控效能記錄">
-          <div><span>LOCAL DECODE</span><strong>70</strong><small>TOKENS/S · 工程樣機受控實測 · 保守公開值</small></div>
+          <div><span>LOCAL DECODE</span><strong>70</strong><small>TOKENS/S · 工程目標 · 尚未完成正式實測</small></div>
           <div><span>CONTEXT ENVELOPE</span><strong>256K</strong><small>最大上下文宣告 · 需要 POC 復測</small></div>
           <div><span>ACCELERATOR</span><strong>56</strong><small>TOPS INT8 · 供應方宣告</small></div>
           <div><span>NPU NEAR MEMORY</span><strong>10GB</strong><small>3D DRAM · 供應方宣告</small></div>
@@ -240,14 +240,14 @@
                 <tr><td data-label="模型">Qwen2.5-3B</td><td data-label="狀態"><span class="tag verified">已最佳化</span></td><td data-label="PREFILL TOK/S">1000</td><td data-label="DECODE TOK/S">300</td><td data-label="主要方向">本地 LLM</td></tr>
                 <tr><td data-label="模型">Qwen2.5-Omni-3B</td><td data-label="狀態"><span class="tag verified">已最佳化</span></td><td data-label="PREFILL TOK/S">1000</td><td data-label="DECODE TOK/S">300</td><td data-label="主要方向">語音／多模態</td></tr>
                 <tr><td data-label="模型">Qwen2.5-Omni-7B</td><td data-label="狀態"><span class="tag target">9 月目標</span></td><td data-label="PREFILL TOK/S">500</td><td data-label="DECODE TOK/S">160</td><td data-label="主要方向">語音／多模態</td></tr>
-                <tr class="model-primary"><td data-label="模型">Qwen3.6-35B-A3B · MoE</td><td data-label="狀態"><span class="tag pending">已測試</span></td><td data-label="PREFILL TOK/S">200 <small>目標</small></td><td data-label="DECODE TOK/S">70 <small>實測</small></td><td data-label="主要方向">Agent 應用</td></tr>
+                <tr class="model-primary"><td data-label="模型">Qwen3.6-35B-A3B · MoE</td><td data-label="狀態"><span class="tag target">工程目標</span></td><td data-label="PREFILL TOK/S">200 <small>目標</small></td><td data-label="DECODE TOK/S">70 <small>目標</small></td><td data-label="主要方向">Agent 應用</td></tr>
                 <tr><td data-label="模型">LLaMA2-13B</td><td data-label="狀態"><span class="tag target">10 月目標</span></td><td data-label="PREFILL TOK/S">300</td><td data-label="DECODE TOK/S">80</td><td data-label="主要方向">本地 LLM</td></tr>
                 <tr><td data-label="模型">Qwen3-VL-4B · Qwen3.5-4B</td><td data-label="狀態"><span class="tag target">10 月目標</span></td><td data-label="PREFILL TOK/S">500</td><td data-label="DECODE TOK/S">200</td><td data-label="主要方向">視覺 AI</td></tr>
                 <tr><td data-label="模型">Qwen3-VL-8B · Qwen3.5-9B</td><td data-label="狀態"><span class="tag target">10 月目標</span></td><td data-label="PREFILL TOK/S">350</td><td data-label="DECODE TOK/S">100</td><td data-label="主要方向">視覺 AI</td></tr>
               </tbody>
             </table>
           </div>
-          <p>除公開採用的 70 tokens/s Decode 數值外，矩陣內其他數字屬受控最佳化結果或目標，不構成無條件產品承諾。最終值仍以模型雜湊、上下文、量化方式與可重現 POC 條件為準。</p>
+          <p>Qwen3.6-35B-A3B 的時間安排與 70 tokens/s Decode 數字目前均為工程目標，不是已完成的測試結果或無條件產品承諾。最終值仍以模型雜湊、上下文、製品格式與可重現樣機測試為準。</p>
         </div>
       </div>
     </section>
@@ -354,17 +354,16 @@
               <tr><td>HOST DRAM</td><td>8GB / 12GB LPDDR4X · up to 2133MHz</td><td><span class="tag pending">PDF CONFIG</span></td><td>正式容量 SKU、顆粒與可用容量</td></tr>
               <tr><td>MAGNE NPU NEAR MEMORY</td><td>10GB 3D DRAM</td><td><span class="tag pending">SUPPLIER CLAIM</span></td><td>供應方 Datasheet、記憶體對映與可用容量</td></tr>
               <tr><td>MAGNE NPU EXPANSION</td><td>16GB LPDDR5X</td><td><span class="tag pending">SUPPLIER CLAIM</span></td><td>是否必配、共享方式、頻寬與容量實測</td></tr>
-              <tr><td>DRAM INVENTORY</td><td>34GB / 38GB* · Host 8/12 + NPU 10 + expansion 16</td><td><span class="tag target">DERIVED</span></td><td>僅容量清單推導；不等同統一可用記憶體</td></tr>
               <tr><td>STORAGE</td><td>128GB / 256GB UFS 3.1</td><td><span class="tag pending">PDF CONFIG</span></td><td>量產 SKU 與實機讀寫、壽命測試</td></tr>
-              <tr><td>ACCELERATOR</td><td>MAGNE 定製 NPU · 56 TOPS INT8 · &gt;600GB/s · INT4/8/16/FP16</td><td><span class="tag pending">SUPPLIER CLAIM</span></td><td>Datasheet、原始 Benchmark 與持續負載測試</td></tr>
+              <tr><td>ACCELERATOR</td><td>MAGNE 定製 NPU · 56 TOPS INT8 · &gt;600GB/s · INT4/INT8</td><td><span class="tag pending">SUPPLIER CLAIM</span></td><td>Datasheet、原始 Benchmark 與持續負載測試</td></tr>
               <tr><td>PCIE TOPOLOGY</td><td>Host：PCIe 3.0 ×1；MAGNE 定製 NPU 內部：PCIe 4.0 ×4</td><td><span class="tag policy">LAYERED BASELINE</span></td><td>板級框圖、lane 協商與主控／NPU 內部吞吐實測</td></tr>
-              <tr><td>DEVICE I/O</td><td>USB 2.0×2 · USB 3.2×2 · USB-C 3.2 · HDMI 1.4 · DP 1.4 · Audio · DC</td><td><span class="tag pending">PDF CONFIG</span></td><td>工程樣機介面盤點與功能測試</td></tr>
-              <tr><td>NETWORK</td><td>Wi-Fi 5 2×2 · BT 5.0 · 2×2.5GbE RJ45</td><td><span class="tag pending">PDF CONFIG</span></td><td>模組料號、吞吐與穩定性測試</td></tr>
+              <tr><td>DEVICE I/O</td><td>USB 2.0×2 · USB 3.2 Gen 1×2 · USB-C 3.2 Gen 1×1 · HDMI 1.4 · DP 1.4 · Audio · DC</td><td><span class="tag pending">PDF CONFIG</span></td><td>工程樣機介面盤點與功能測試</td></tr>
+              <tr><td>NETWORK</td><td>Wi-Fi 5 1×1 · BT 5.0 · 2×2.5GbE RJ45</td><td><span class="tag pending">PDF CONFIG</span></td><td>模組料號、吞吐與穩定性測試</td></tr>
               <tr><td>MEDIA / OS</td><td>4K@30fps · Ubuntu</td><td><span class="tag verified">產品基線</span></td><td>Codec 實測、Ubuntu 版本與維護週期</td></tr>
               <tr><td>AI POWER</td><td>8–15W</td><td><span class="tag pending">SCOPE UNDEFINED</span></td><td>需確認是定製 NPU、算力板或整機，並做插座功耗測試</td></tr>
               <tr><td>EDGE RUNTIME</td><td>私有維護的 llama.cpp-compatible runtime + MAGNE GGML backend</td><td><span class="tag verified">IMPLEMENTED</span></td><td>版本追蹤、上游同步與安全修補記錄</td></tr>
-              <tr><td>FIRST TESTED MODEL</td><td>Qwen3.6-35B-A3B · Q4_K_M · NPU 定製 GGUF</td><td><span class="tag verified">TEST OK</span></td><td>固化模型雜湊、轉換工具、輸出一致性與回歸日誌</td></tr>
-              <tr><td>MODEL DECODE</td><td>70 tokens/s</td><td><span class="tag pending">SAMPLE MEASURED</span></td><td>工程樣機受控測試區間為 70–80 tokens/s，公開採用保守值；待 MAGNE 完成可重現驗證</td></tr>
+              <tr><td>MODEL TARGET</td><td>Qwen3.6-35B-A3B · Q4_K_M · NPU 定製 GGUF</td><td><span class="tag target">工程目標</span></td><td>正式測試前固化模型雜湊、轉換工具與製品格式；Q4_K_M 不等同 W4A16</td></tr>
+              <tr><td>MODEL DECODE</td><td>70 tokens/s</td><td><span class="tag target">工程目標</span></td><td>需補充可重現樣機 Benchmark、工作負載、上下文、功耗口徑及原始日誌</td></tr>
               <tr><td>MODEL EXPANSION</td><td>GAMMA 與其他 LLM / VLM</td><td><span class="tag target">IN VALIDATION</span></td><td>運算元覆蓋、CPU fallback、TTFT、decode、長上下文、功耗與質量回歸</td></tr>
               <tr><td>SECURITY</td><td>Secure Boot · 加密 · 簽名升級 · 回滾</td><td><span class="tag pending">SUPPLIER CONFIRMATION</span></td><td>啟動鏈、攻擊測試與恢復記錄</td></tr>
               <tr><td>WEB3 TRUST LAYER</td><td>裝置／Agent 身份 · 簽名推理收據 · 審計摘要錨定</td><td><span class="tag target">ARCHITECTURE TARGET</span></td><td>威脅模型、簽名格式、鏈上 Schema、隱私審查與安全審計</td></tr>
@@ -372,7 +371,7 @@
             </tbody>
           </table>
         </div>
-        <p class="ai-box-disclaimer reveal"><span>CONTROL NOTE</span> Qwen3.6-35B-A3B / Q4_K_M / NPU 定製 GGUF 已標記為首個 TEST OK 模型；這不等於任意社群 GGUF 皆可無轉換完整加速。&gt;600GB/s、56 TOPS 與 8–15W 仍保留為供應方宣告，待測試邊界和原始證據完成後再轉為產品承諾。</p>
+        <p class="ai-box-disclaimer reveal"><span>CONTROL NOTE</span> Qwen3.6-35B-A3B、Q4_K_M NPU 定製、交付時間與 70 tokens/s 均為工程目標，尚待正式可重現測試。Q4_K_M 不等同 W4A16。&gt;600GB/s、56 TOPS 與 8–15W 仍為供應方宣告，完成測試邊界和原始證據後才可轉為產品承諾。</p>
         <div class="section-head reveal ai-box-boundary-subhead">
           <div>
             <p class="section-label">ACCEPTANCE RULES / TRUST BOUNDARY</p>

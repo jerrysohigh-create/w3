@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Seasons — W3.MAGNE.AI</title>
     <meta name="description" content="Public Sale OG records, MAGNE Season 1 archive and Season 2 live activity control panel." />
-    <link rel="stylesheet" href="assets/css/site.css?v=20260908-public-sale-og-2" />
+    <link rel="stylesheet" href="assets/css/site.css?v=20260908-seasons-layout-1" />
     <link rel="canonical" href="https://w3.magne.ai/seasons.html" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Seasons — W3.MAGNE.AI" />
@@ -28,7 +28,7 @@
         <div class="wrap">
           <p class="eyebrow"><span class="index">06</span> LIVE ACTIVITY</p>
           <h1 class="page-title">Operating momentum.<span class="accent">Let the data speak.</span></h1>
-          <p class="page-lede">Public Sale OG, Season 1 and Season 2 are three distinct records. The OG sale archive and optional conversion route are separated from both campaign seasons; source-bound indicators are not replaced by sample numbers.</p>
+          <p class="page-lede">Public Sale OG, Season 1 and Season 2 are separate records. OG ownership choices do not enter either campaign, and every displayed metric remains tied to its source.</p>
           <dl class="hero-ledger">
             <div><dt>S1 State</dt><dd>ENDED</dd></div>
             <div><dt>S2 State</dt><dd id="seasons-s2-state">CHECKING</dd></div>
@@ -43,56 +43,56 @@
           <div class="section-head reveal">
             <div>
               <p class="section-label"><span class="index">06.1</span> CAMPAIGN CONTROL</p>
-              <h2 class="section-title">Three programs.<br />Three distinct records.</h2>
+              <h2 class="section-title">Three programs.<br />One clear index.</h2>
             </div>
             <p class="section-copy" id="season-source-state">is loading public event data.</p>
           </div>
           <div class="panel-grid seasons-program-grid reveal">
-            <article class="panel">
+            <article class="panel season-program-panel og-program-panel">
               <div class="panel-head"><span>PUBLIC SALE OG / RECORD</span><span>SEPARATE</span></div>
               <div class="panel-body">
                 <h3 class="module-title">Public Sale OG</h3>
-                <p class="module-copy">Historical MHA-denominated Public Sale OG data is shown with DD and Dune provenance. Eligible holders may separately choose whether to convert through the authorized Payment portal.</p>
+                <p class="module-copy">Source-bound OG history and two holder choices: retain the original OG rights or voluntarily convert to MS2.</p>
                 <div class="metric-grid" style="margin-top: 28px">
                   <div class="metric"><span class="value">13.33M</span><span class="label">Reported MHA amount</span></div>
                   <div class="metric"><span class="value">1,082</span><span class="label">Participating wallets</span></div>
                   <div class="metric"><span class="value">6</span><span class="label">Dune source rows</span></div>
                 </div>
                 <div class="hero-actions">
-                  <a class="btn primary" href="public-sale-og.html">$ open OG record →</a>
-                  <a class="btn" href="https://payment.magne.ai/public-sale" target="_blank" rel="noopener noreferrer">$ conversion portal ↗</a>
+                  <a class="btn primary" href="public-sale-og.html">$ view Public Sale OG →</a>
+                  <a class="btn" href="https://payment.magne.ai/public-sale" target="_blank" rel="noopener noreferrer">$ convert to MS2 ↗</a>
                 </div>
               </div>
             </article>
-            <article class="panel">
+            <article class="panel season-program-panel s1-program-panel">
               <div class="panel-head"><span>SEASON 01 / ENDED</span><span>CLOSED</span></div>
               <div class="panel-body">
                 <h3 class="module-title">SEASON 1 Sweepstakes</h3>
-                <p class="module-copy">Historical participation, lottery results and qualification records have been reconstructed in W3; the original Dashboard remains as the data source and cross-checking entry.</p>
+                <p class="module-copy">Completed participation, draw results and qualification records, reconstructed in W3 with source links retained.</p>
                 <div class="metric-grid" style="margin-top: 28px">
                   <div class="metric"><span class="value" id="s1-participants">—</span><span class="label">Wallet addresses</span></div>
                   <div class="metric"><span class="value" id="s1-entries">—</span><span class="label">Derived entries</span></div>
                   <div class="metric"><span class="value" id="s1-units">—</span><span class="label">Units selected</span></div>
                 </div>
                 <div class="hero-actions">
-                  <a class="btn primary" href="season-1.html">$ open local dashboard →</a>
-                  <a class="btn" href="season-1.html#sources">$ inspect sources →</a>
+                  <a class="btn primary" href="season-1.html">$ view Season 1 →</a>
+                  <a class="btn" href="season-1.html#sources">$ verify sources →</a>
                 </div>
               </div>
             </article>
-            <article class="panel">
+            <article class="panel season-program-panel s2-program-panel">
               <div class="panel-head"><span id="seasons-s2-panel-title">SEASON 02 / CHECKING</span><span id="seasons-s2-panel-state">● CHECKING</span></div>
               <div class="panel-body">
                 <h3 class="module-title">SEASON 2 Activity Center</h3>
-                <p class="module-copy">Payment API provides an overview of activities; BSC participation events provide verification of confirmed quotas, unique payment addresses, and referral reward flow. Dashboard is reserved for query and cross-checking.</p>
+                <p class="module-copy">Current activity metrics from the Payment API, with BSC events used to verify confirmed entries, unique direct payers and referral flows.</p>
                 <div class="metric-grid" style="margin-top: 28px">
                   <div class="metric"><span class="value" id="s2-participants">—</span><span class="label" id="s2-participants-label">Direct payers · referrers pending</span></div>
                   <div class="metric"><span class="value" id="s2-entries">—</span><span class="label" id="s2-entries-label">Entries · MS2 pending</span></div>
                   <div class="metric"><span class="value" id="s2-units-left">—</span><span class="label">Units remaining</span></div>
                 </div>
                 <div class="hero-actions">
-                  <a class="btn primary" href="season-2.html">$ open S2 control →</a>
-                  <a class="btn" href="https://payment.magne.ai/lottery" target="_blank" rel="noopener noreferrer">$ join season 2 ↗</a>
+                  <a class="btn primary" href="season-2.html">$ view Season 2 →</a>
+                  <a class="btn" href="https://payment.magne.ai/lottery" target="_blank" rel="noopener noreferrer">$ join campaign ↗</a>
                 </div>
               </div>
             </article>

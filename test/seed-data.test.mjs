@@ -17,6 +17,18 @@ test("deployment bundle includes the verified Season 2 chain baseline", async ()
   assert.ok(Number(evidence?._meta?.toBlock) >= 117055101, "verified scan coverage must be preserved");
 });
 
+test("public snapshot keeps the verified MS2 supply and staking ratio", async () => {
+  const snapshotFile = join(dirname(fileURLToPath(import.meta.url)), "..", "assets", "data", "season-2-snapshot.json");
+  const snapshot = JSON.parse(await readFile(snapshotFile, "utf8"));
+  const supply = Number(snapshot?.data?.ms2Issued);
+  const staked = Number(snapshot?.data?.liquidityPrepared);
+
+  assert.equal(supply, 6000000, "checked-in current supply must match MS2 totalSupply()");
+  assert.equal(snapshot?.contracts?.ms2TotalSupply, "6000000.0");
+  assert.equal(snapshot?.contracts?.contracts?.ms2Token, "0xC46A54BBD2716C436Aaaed6Ed2f555a9b054ebD1");
+  assert.equal(((staked / supply) * 100).toFixed(4), "4.6447");
+});
+
 test("seedPersistentData initializes an empty persistent directory without overwriting it", async () => {
   const root = await mkdtemp(join(tmpdir(), "w3-seed-test-"));
   const dataDir = join(root, "persistent");

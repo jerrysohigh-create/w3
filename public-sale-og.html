@@ -4,12 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Public Sale OG — W3.MAGNE.AI</title>
-    <meta name="description" content="Source-bound Public Sale OG records and the separate, user-initiated OG to MS2 conversion route." />
-    <link rel="stylesheet" href="assets/css/site.css?v=20260908-public-sale-og-4" />
+    <meta name="description" content="Public Sale OG users may retain their original OG rights or opt into MS2 conversion with a 40-day linear release." />
+    <link rel="stylesheet" href="assets/css/site.css?v=20260908-og-settlement-window" />
     <link rel="canonical" href="https://w3.magne.ai/public-sale-og.html" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Public Sale OG — W3.MAGNE.AI" />
-    <meta property="og:description" content="Public Sale OG records, source context and the authorized OG to MS2 operation route." />
+    <meta property="og:description" content="Retain original OG rights or choose MS2 conversion with a 40-day linear release." />
     <meta property="og:image" content="https://w3.magne.ai/assets/images/og/w3-system-card.svg" />
     <meta property="og:url" content="https://w3.magne.ai/public-sale-og.html" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -28,26 +28,69 @@
         <div class="wrap">
           <p class="eyebrow"><span class="index">06.3</span> PUBLIC SALE OG</p>
           <span class="campaign-live is-snapshot">SOURCE-BOUND RECORD</span>
-          <h1 class="page-title" style="margin-top:24px">Public Sale OG<span class="accent">Record first.<br />Convert by choice.</span></h1>
-          <p class="page-lede">The historical Public Sale OG record and the optional OG → MS2 operation are presented here as a standalone program. They are not Season 2 lottery activity.</p>
+          <h1 class="page-title" style="margin-top:24px">Public Sale OG<span class="accent">Your OG rights.<br />Your choice.</span></h1>
+          <p class="page-lede">Eligible Public Sale OG users may retain their original OG rights or voluntarily convert to MS2 through the authorized Payment portal. Converted MS2 follows a 40-day linear release. This program is separate from Season 2 lottery activity.</p>
           <div class="hero-actions">
-            <a class="btn primary" href="#record">$ inspect OG record →</a>
-            <a class="btn" href="https://payment.magne.ai/public-sale" target="_blank" rel="noopener noreferrer">$ open authorized portal ↗</a>
+            <a class="btn primary" href="#choice">$ compare both paths →</a>
+            <a class="btn" href="https://payment.magne.ai/public-sale" target="_blank" rel="noopener noreferrer">$ choose MS2 conversion ↗</a>
             <a class="btn" href="seasons.html">$ seasons index →</a>
           </div>
           <dl class="hero-ledger">
             <div><dt>Program</dt><dd>PUBLIC SALE OG</dd></div>
-            <div><dt>Record Unit</dt><dd>MHA</dd></div>
-            <div><dt>Operation</dt><dd>USER-INITIATED</dd></div>
-            <div><dt>Season 2</dt><dd>SEPARATE RECORD</dd></div>
+            <div><dt>Path A</dt><dd>RETAIN OG RIGHTS</dd></div>
+            <div><dt>Path B</dt><dd>CONVERT TO MS2</dd></div>
+            <div><dt>MS2 Release</dt><dd>40-DAY LINEAR</dd></div>
           </dl>
+        </div>
+      </section>
+
+      <section class="content-section og-choice-section" id="choice">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div><p class="section-label"><span class="index">OG.01</span> USER CHOICE</p><h2 class="section-title">One OG entitlement.<br />Two voluntary paths.</h2></div>
+            <p class="section-copy">Retaining OG is a valid choice. Converting to MS2 is also a valid choice. Only users who choose conversion need to connect a wallet and confirm through the Payment portal.</p>
+          </div>
+          <div class="og-step-grid og-choice-grid reveal" aria-label="Public Sale OG user choices">
+            <article class="og-step og-choice-card is-retain" id="retain">
+              <header><span>A / RETAIN OG</span><b>NO WALLET ACTION</b></header>
+              <h3>Keep the original OG rights.</h3>
+              <p>Take no conversion action. The original Public Sale OG rights and historical record remain in place, subject to the published OG terms and final formal arrangements.</p>
+              <dl><div><dt>USER ACTION</dt><dd>None required</dd></div><div><dt>RIGHTS STATUS</dt><dd>OG retained</dd></div><div><dt>MS2 CONVERSION</dt><dd>Does not occur</dd></div></dl>
+              <p class="og-note">The retain path requires no wallet connection and does not automatically convert OG into MS2.</p>
+            </article>
+            <article class="og-step og-choice-card is-convert" id="convert">
+              <header><span>B / CONVERT TO MS2</span><b>USER CONFIRMATION</b></header>
+              <h3>Convert to MS2. Release over 40 days.</h3>
+              <p>Eligible users may convert through the authorized Payment portal at 4 OG MHA : 1 MS2. Once confirmed, the resulting MS2 entitlement follows a 40-day linear release.</p>
+              <dl><div><dt>RATIO</dt><dd>4 : 1</dd></div><div><dt>RELEASE</dt><dd>40-day linear</dd></div><div><dt>CLAIM</dt><dd>Claim available amount</dd></div></dl>
+              <a class="btn primary og-choice-cta" href="https://payment.magne.ai/public-sale" target="_blank" rel="noopener noreferrer">$ continue to authorized conversion ↗</a>
+              <p class="og-note">Eligibility, wallet values, transaction outcome and final rules are controlled by the authorized portal and deployed contracts. W3 does not execute wallet transactions.</p>
+            </article>
+          </div>
+          <div class="og-settlement-window reveal" id="provisional-window">
+            <header class="og-settlement-window-head">
+              <div><span>PROVISIONAL MECHANISM / SUBJECT TO FINAL RULES</span><h3>Provisional 10-day conversion window. 40-day release. One final settlement.</h3></div>
+              <dl class="og-window-dates" aria-label="Provisional conversion window dates">
+                <div><dt>START / UTC+8</dt><dd><time datetime="2026-09-08">2026.09.08</time></dd></div>
+                <div><dt>END / UTC+8</dt><dd><time datetime="2026-09-17T23:59:59+08:00">2026.09.17 · 23:59</time></dd></div>
+                <small>10 calendar days, counting both the start and end date. Final snapshot time and block will be published separately.</small>
+              </dl>
+            </header>
+            <ol class="og-settlement-timeline" aria-label="Provisional OG conversion and settlement timeline">
+              <li><b>01 / 2026.09.08–09.17</b><strong>Provisional 10-day OG conversion window</strong><span>Eligible OG users choose either to retain their original rights or confirm conversion through the authorized portal.</span></li>
+              <li><b>02 / FROM CONFIRMATION</b><strong>40-day linear release</strong><span>Each confirmed conversion starts its applicable MS2 release schedule. Released MS2 may be claimed and staked under the published contract rules.</span></li>
+              <li><b>03 / PHONE DRAW CLOSE</b><strong>New S2 participation stops</strong><span>After the final Phone Gen1 selection, no new Season 2 purchases or lottery entries are accepted.</span></li>
+              <li><b>04 / FINAL SETTLEMENT</b><strong>Eligible rewards are locked</strong><span>Users already admitted to the OG or private-sale conversion process may finish release and staking, and continue generating eligible MS2 staking-mining rewards until the pre-announced final snapshot.</span></li>
+            </ol>
+            <p class="og-settlement-boundary"><strong>THREE DIFFERENT MILESTONES:</strong> phone selection close ≠ end of MS2 release ≠ final 40,000,000 MHA settlement. At the final snapshot, the MHA pool follows the published Option 2 allocation by each participant's share of total eligible MS2 staking-mining rewards.</p>
+          </div>
         </div>
       </section>
 
       <section class="content-section og-ms2-section" id="record">
         <div class="wrap">
           <div class="section-head reveal">
-            <div><p class="section-label"><span class="index">OG.01</span> PUBLIC SALE RECORD</p><h2 class="section-title">The historical amount,<br />with its source attached.</h2></div>
+            <div><p class="section-label"><span class="index">OG.02</span> PUBLIC SALE RECORD</p><h2 class="section-title">The historical amount,<br />with its source attached.</h2></div>
             <p class="section-copy">Snapshot values below reproduce the Public Sale OG module published by MAGNE.AI DD. The DD dataset is server-refreshed and explicitly non-real-time.</p>
           </div>
           <div class="og-rule-register reveal" aria-label="Public Sale OG summary metrics">
@@ -82,50 +125,16 @@
         </div>
       </section>
 
-      <section class="content-section" id="conversion">
-        <div class="wrap">
-          <div class="section-head reveal">
-            <div><p class="section-label"><span class="index">OG.02</span> OPTIONAL OG → MS2 OPERATION</p><h2 class="section-title">The record stays.<br />The user chooses the action.</h2></div>
-            <p class="section-copy">The authorized Payment portal reads the connected wallet's eligible OG record and exposes the conversion and claim actions. W3 provides disclosure and routing only.</p>
-          </div>
-          <div class="og-readiness reveal" role="status" aria-label="Public Sale OG operation route">
-            <span>AUTHORIZED OPERATION ROUTE AVAILABLE</span>
-            <small>PAYMENT.MAGNE.AI/PUBLIC-SALE · WALLET ACTION OCCURS OUTSIDE W3</small>
-          </div>
-          <div class="og-step-grid reveal">
-            <article class="og-step">
-              <header><span>01 / CONVERT</span><b>VOLUNTARY WALLET ACTION</b></header>
-              <h3>Convert eligible OG at 4 : 1.</h3>
-              <p>The portal currently presents a voluntary conversion of eligible OG MHA records into MS2 entitlement at a ratio of 4 OG MHA to 1 MS2.</p>
-              <dl><div><dt>OG RECORD</dt><dd>Remains historical</dd></div><div><dt>MS2 ENTITLEMENT</dt><dd>Calculated by portal</dd></div><div><dt>SEASON 2 ENTRY</dt><dd>Not created by conversion</dd></div></dl>
-              <p class="og-note">Eligibility, connected-wallet values, duplicate prevention and transaction outcome are determined by the authorized portal and deployed contracts—not by this W3 page.</p>
-            </article>
-            <article class="og-step">
-              <header><span>02 / VEST + CLAIM</span><b>SEPARATE FROM CONVERSION</b></header>
-              <h3>Claim released MS2.</h3>
-              <p>The portal currently shows a 40-day MS2 release schedule and separates claimed, claimable and total entitlement. Claiming is a distinct wallet transaction.</p>
-              <dl><div><dt>CLAIMED</dt><dd>Previously received</dd></div><div><dt>CLAIMABLE</dt><dd>Available now</dd></div><div><dt>TOTAL</dt><dd>Confirmed entitlement</dd></div></dl>
-              <p class="og-note">Conversion and claiming do not themselves create a Season 2 lottery entry. Any later staking or Season 2 eligibility is governed by the separate Season 2 rules.</p>
-            </article>
-          </div>
-          <div class="public-sale-operation reveal">
-            <div><span>DISCLOSURE SITE</span><strong>W3.MAGNE.AI</strong><small>No wallet connection or transaction submission.</small></div>
-            <div><span>AUTHORIZED OPERATION</span><strong>PAYMENT.MAGNE.AI</strong><small>Connect, review wallet data, convert or claim.</small></div>
-            <a class="btn primary" href="https://payment.magne.ai/public-sale" target="_blank" rel="noopener noreferrer">$ continue to Public Sale portal ↗</a>
-          </div>
-        </div>
-      </section>
-
       <section class="content-section" id="sources">
         <div class="wrap">
           <div class="section-head reveal">
-            <div><p class="section-label"><span class="index">OG.03</span> SOURCE REGISTER</p><h2 class="section-title">History, operation,<br />and campaign remain distinct.</h2></div>
+            <div><p class="section-label"><span class="index">OG.03</span> SOURCE REGISTER</p><h2 class="section-title">Rights, operation,<br />and campaign remain distinct.</h2></div>
             <p class="section-copy">Every route below has a different purpose. A source record is not an operation portal, and an OG conversion is not a Season 2 participation event.</p>
           </div>
           <div class="source-route-grid reveal">
             <article class="source-route-card"><span>01 / MAGNE.AI DD</span><h3>Historical source</h3><p>Public Sale OG summary, published terms and Dune-derived purchase record.</p><small>SERVER-REFRESHED · NON-REAL-TIME</small><a href="https://dd.magne.ai/web3-infrastructure.html" target="_blank" rel="noopener">OPEN SOURCE ↗</a></article>
             <article class="source-route-card"><span>02 / PAYMENT PUBLIC SALE</span><h3>Authorized operation</h3><p>Connected-wallet eligibility, OG conversion and released-MS2 claim actions.</p><small>EXTERNAL WALLET OPERATION</small><a href="https://payment.magne.ai/public-sale" target="_blank" rel="noopener noreferrer">OPEN PORTAL ↗</a></article>
-            <article class="source-route-card"><span>03 / SEASON 2</span><h3>Separate campaign</h3><p>Lottery entries, rounds, Phone Gen1 selections, campaign MS2 and CI records.</p><small>SEPARATE CAMPAIGN DATA</small><a href="season-2.html">OPEN S2 ↗</a></article>
+            <article class="source-route-card"><span>03 / SEASON 2</span><h3>Separate campaign</h3><p>Lottery entries, rounds, Phone Gen1 selections, campaign MS2 and mining-reward settlement records.</p><small>SEPARATE CAMPAIGN DATA</small><a href="season-2.html">OPEN S2 ↗</a></article>
           </div>
         </div>
       </section>

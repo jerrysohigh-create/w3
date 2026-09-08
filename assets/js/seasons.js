@@ -114,7 +114,7 @@
       setText("s2-entries-label", totalEntries === null ? "Entries · MS2 pending" : "Entries · " + (totalEntries * 10).toLocaleString("en-US") + " MS2 points");
 
       var fetchedAt = payload._meta && payload._meta.fetchedAt;
-      s2SourceLabel = sourceResult.source.label + (fetchedAt ? " · " + new Date(fetchedAt).toLocaleString("zh-Hant", { hour12: false }) : "");
+      s2SourceLabel = sourceResult.source.label + (fetchedAt ? " · " + new Date(fetchedAt).toLocaleString("en-US", { hour12: false }) : "");
       s2State = snapshotState(payload, sourceResult.sourceIndex);
       setS2State(s2State);
       available += 1;
@@ -125,7 +125,7 @@
       var latestHistory = historyPoints[historyPoints.length - 1];
       set("s2-participants", latestHistory && latestHistory.onchainPayers);
       var checkedAt = results[2].value._meta && results[2].value._meta.lastCheckedAt;
-      s2ChainLabel = "BSC EVENTS" + (checkedAt ? " · " + new Date(checkedAt).toLocaleString("zh-Hant", { hour12: false }) : "");
+      s2ChainLabel = "BSC EVENTS" + (checkedAt ? " · " + new Date(checkedAt).toLocaleString("en-US", { hour12: false }) : "");
     }
 
     if (results[3].status === "fulfilled") {
@@ -137,7 +137,7 @@
     }
 
     if (available === 2) {
-      setState("Activity data for both seasons has been loaded. Season 2:" + (s2State === "live" ? "LIVE COLLECTOR" : s2State === "snapshot" ? "VERIFIED SNAPSHOT" : "STALE SNAPSHOT") + " · " + s2SourceLabel + (s2ChainLabel ? "；" + s2ChainLabel : "") + "。", s2State === "live" || s2State === "snapshot");
+      setState("Activity data for both seasons has loaded. Season 2: " + (s2State === "live" ? "LIVE COLLECTOR" : s2State === "snapshot" ? "VERIFIED SNAPSHOT" : "STALE SNAPSHOT") + " · " + s2SourceLabel + (s2ChainLabel ? "; " + s2ChainLabel : "") + ".", s2State === "live" || s2State === "snapshot");
     } else if (available === 1) {
       setState("Some public data sources are temporarily unavailable; missing items remain —.", false);
     } else {
