@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "fetchedAt": "2026-09-08T00:43:31.588Z",
-    "onchainFetchedAt": "2026-09-08T00:43:31.587Z",
+    "fetchedAt": "2026-09-08T05:21:05.585Z",
+    "onchainFetchedAt": "2026-09-08T05:21:04.554Z",
     "source": "W3 authenticated collector",
     "status": "verified",
     "authMode": "ephemeral",
@@ -15,25 +15,25 @@
   "code": 200,
   "msg": "ok",
   "data": {
-    "totalEntries": 24758,
+    "totalEntries": 24760,
     "totalMobile": 247,
     "currRound": 248,
-    "nextDrawNeed": 42,
+    "nextDrawNeed": 40,
     "ms2Issued": 6000000,
-    "liquidityPrepared": 264527.6149719618,
+    "liquidityPrepared": 278681.3722779803,
     "baseRate": 0.15,
     "annualRate": 0.15,
     "winnerRecords": 247
   },
   "contracts": {
-    "fetchedAt": "2026-09-08T00:43:31.587Z",
+    "fetchedAt": "2026-09-08T05:21:04.554Z",
     "contracts": {
       "ms2Token": "0xC46A54BBD2716C436Aaaed6Ed2f555a9b054ebD1",
       "lotteryProxy": "0x6DE61D8438176741fc8150Aef53256830a6Dd635",
       "stakingProxy": "0xB6Ed72808fb34a3Ac118D397f49332abBAA484D8"
     },
     "ms2TotalSupply": "6000000.0",
-    "totalStaked": "264527.614971961797846965",
+    "totalStaked": "278681.372277980316356965",
     "lottery": {
       "implementation": "0x877f5c053f3f3b43063572b432ff7b7f7b08226b",
       "costPerDraw": "17.0",
