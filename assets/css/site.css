@@ -355,6 +355,13 @@ button, input { font: inherit; }
 .market-panel-head span { color: var(--cyan); font: 11px/1.5 var(--mono); letter-spacing: .1em; }
 .market-panel-head h3 { margin: 14px 0 8px; color: var(--ink); font: 600 clamp(24px,2.7vw,38px)/1.05 var(--display); }
 .market-panel-head p { margin: 0; color: var(--dim); font: 11px/1.55 var(--mono); letter-spacing: .05em; }
+.market-panel-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; }
+.market-panel-actions .btn { justify-content: center; }
+.market-reload-button { appearance: none; cursor: pointer; }
+.market-reload-button:disabled { cursor: wait; opacity: .52; }
+.market-frame-status { margin: 0; padding: 12px 20px; border-bottom: 1px solid var(--line); color: var(--dim); font: 10px/1.6 var(--mono); letter-spacing: .04em; }
+.market-frame-status.is-loading { color: var(--amber); }
+.market-frame-status.is-ready { color: var(--cyan); }
 .market-frame-wrap { position: relative; height: clamp(560px,68vh,760px); min-height: 560px; overflow: hidden; background: #090b0e; }
 .market-frame-wrap iframe { display: block; width: 100%; height: 100%; border: 0; color-scheme: dark; }
 .market-disclaimer { margin: 0; padding: 16px 20px; border-top: 1px solid var(--line); color: var(--dim); font: 10px/1.7 var(--mono); }
@@ -788,7 +795,9 @@ button, input { font: inherit; }
   .ci-rule-list li { min-height: auto; padding: 20px 16px; border-right: 0; border-bottom: 1px solid var(--line); }
   .ci-rule-list li:last-child { border-bottom: 0; }
   .market-panel-head { grid-template-columns: 1fr; align-items: start; padding: 22px 16px; }
+  .market-panel-actions { display: grid; width: 100%; justify-content: stretch; }
   .market-panel-head .btn { width: 100%; justify-content: center; }
+  .market-frame-status { padding: 12px 16px; }
   .market-frame-wrap { height: 640px; min-height: 640px; }
   .market-disclaimer { padding: 16px; }
   .public-sale-history-head { align-items: flex-start; flex-direction: column; gap: 16px; }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>MAGNE.AI Season 2 活動中心 — W3 版</title>
     <meta name="description" content="MAGNE.AI Season 2 campaign data, round progress, MS2 records and public source references in the W3 visual system." />
-    <link rel="stylesheet" href="../assets/css/site.css?v=20260908-og-settlement-window" />
+    <link rel="stylesheet" href="../assets/css/site.css?v=20260909-market-mobile-reload" />
     <link rel="canonical" href="https://w3.magne.ai/tc/season-2.html" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="MAGNE.AI Season 2 Campaign Hub — W3 Edition" />
@@ -241,10 +241,14 @@
           <div class="market-panel reveal" id="ms2-market">
             <header class="market-panel-head">
               <div><span>S2.07B / 外部市場資料</span><h3>MS2 / USDT 交易面板。</h3><p>BSC · PancakeSwap v3 · Pair 0xBaB6…6aD9</p></div>
-              <a class="btn" href="https://dexscreener.com/bsc/0xbab6d8382ee29f0fbf5a674eb35cf90f84fe6ad9" target="_blank" rel="noopener noreferrer">開啟 DEXSCREENER ↗</a>
+              <div class="market-panel-actions">
+                <a class="btn" href="https://dexscreener.com/bsc/0xbab6d8382ee29f0fbf5a674eb35cf90f84fe6ad9" target="_blank" rel="noopener noreferrer">開啟 DEXSCREENER ↗</a>
+                <button class="btn market-reload-button" type="button" data-market-reload>重新載入面板 ↻</button>
+              </div>
             </header>
+            <p class="market-frame-status" data-market-status aria-live="polite">正在載入第三方交易面板；若畫面持續空白，請重新載入或直接開啟 DexScreener。</p>
             <div class="market-frame-wrap">
-              <iframe title="DexScreener 上的 MS2 與 USDT 市場圖表及交易記錄" src="https://dexscreener.com/bsc/0xbab6d8382ee29f0fbf5a674eb35cf90f84fe6ad9?embed=1&amp;theme=dark&amp;trades=1&amp;info=0" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe data-market-frame title="DexScreener 上的 MS2 與 USDT 市場圖表及交易記錄" src="https://dexscreener.com/bsc/0xbab6d8382ee29f0fbf5a674eb35cf90f84fe6ad9?embed=1&amp;theme=dark&amp;trades=1&amp;info=0" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <p class="market-disclaimer">市場資料由第三方 DexScreener 提供。W3 不託管資產、不執行交易、不保證流動性，也不為畫面所示價格背書；操作前請自行核對 Token 與交易對合約。</p>
           </div>
@@ -408,7 +412,7 @@
     </main>
     <footer id="site-footer"></footer>
     <script src="../assets/js/tc/site.js?v=20260821-15"></script>
-    <script src="../assets/js/tc/season-2.js?v=20260828-winner-mobile-2"></script>
+    <script src="../assets/js/tc/season-2.js?v=20260909-market-mobile-reload"></script>
     <script src="../assets/js/tc/season-2-trend.js?v=20260821-2"></script>
   <script src="../assets/js/season-status.js?v=20260821-4"></script>
 <script src="../assets/js/tc/analytics.js?v=20260821-3"></script>

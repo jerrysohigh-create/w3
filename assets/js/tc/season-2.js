@@ -312,6 +312,53 @@
   Promise.all([loadWinners(), loadLatestDraw(), loadLeaderboard()]).then(function (results) {
     setText("s2-record-state", results[0] ? "完整中選位址介面讀取成功；頁面以脫敏位址展示並連結至 BscScan。" : "中選位址介面暫時無法使用；頁面未使用範例記錄。");
   });
+
+  function initMarketPanel() {
+    var frame = document.querySelector("[data-market-frame]");
+    var reloadButton = document.querySelector("[data-market-reload]");
+    var status = document.querySelector("[data-market-status]");
+    if (!frame || !reloadButton || !status) return;
+
+    var source = frame.getAttribute("src");
+    var loadingTimer = 0;
+
+    function setMarketState(message, state) {
+      status.textContent = message;
+      status.classList.toggle("is-loading", state === "loading");
+      status.classList.toggle("is-ready", state === "ready");
+    }
+
+    function finishMarketLoad() {
+      if (frame.getAttribute("src") === "about:blank") return;
+      window.clearTimeout(loadingTimer);
+      reloadButton.disabled = false;
+      setMarketState("交易面板已完成載入請求；若第三方圖表仍為空白，請重新載入或直接開啟 DexScreener。", "ready");
+    }
+
+    function reloadMarketFrame() {
+      var separator = source.indexOf("?") === -1 ? "?" : "&";
+      reloadButton.disabled = true;
+      frame.loading = "eager";
+      setMarketState("正在重新連線 DexScreener…", "loading");
+      frame.setAttribute("src", "about:blank");
+      window.setTimeout(function () {
+        frame.setAttribute("src", source + separator + "w3_reload=" + Date.now());
+      }, 80);
+      loadingTimer = window.setTimeout(function () {
+        reloadButton.disabled = false;
+        setMarketState("第三方交易面板回應較慢；可再次重新載入，或直接開啟 DexScreener。", "loading");
+      }, 12000);
+    }
+
+    frame.addEventListener("load", finishMarketLoad);
+    reloadButton.addEventListener("click", reloadMarketFrame);
+
+    if (window.matchMedia && window.matchMedia("(max-width: 760px)").matches) {
+      frame.loading = "eager";
+    }
+  }
+
+  initMarketPanel();
   loadSnapshot();
 
   window.setInterval(loadSnapshot, 60000);
