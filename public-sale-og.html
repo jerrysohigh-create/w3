@@ -91,11 +91,11 @@
         <div class="wrap">
           <div class="section-head reveal">
             <div><p class="section-label"><span class="index">OG.02</span> PUBLIC SALE RECORD</p><h2 class="section-title">The historical amount,<br />with its source attached.</h2></div>
-            <p class="section-copy">Snapshot values below reproduce the Public Sale OG module published by MAGNE.AI DD. The DD dataset is server-refreshed and explicitly non-real-time.</p>
+            <p class="section-copy">The participating-wallet count reflects the latest Dune reading confirmed on 2026-09-10. The reported MHA amount and six purchase rows remain the non-real-time MAGNE.AI DD snapshot.</p>
           </div>
           <div class="og-rule-register reveal" aria-label="Public Sale OG summary metrics">
             <article><span>[ REPORTED AMOUNT ]</span><strong>13,328,547</strong><small>MHA · UNDERLYING 13,328,547.463653</small></article>
-            <article><span>[ PARTICIPATING WALLETS ]</span><strong>1,082</strong><small>CUMULATIVE · AS OF 2026-03-14</small></article>
+            <article><span>[ PARTICIPATING WALLETS ]</span><strong>1,085</strong><small>DUNE QUERY 7924103 · CHECKED 2026-09-10</small></article>
             <article><span>[ PURCHASE PERIOD ]</span><strong>2025.10.29</strong><small>TO 2026.03.14 · APPROX. 4.5 MONTHS</small></article>
             <article><span>[ DATA SOURCE ]</span><strong>7924103</strong><small>DUNE QUERY · NON-REAL-TIME</small></article>
           </div>
@@ -116,12 +116,18 @@
             <p class="chart-source">SOURCE JSON REFRESH: 2026-07-13 15:21:30 UTC · VALUES SHOWN IN MHA · STATIC W3 REPRODUCTION</p>
           </div>
 
+          <div class="public-sale-operation reveal" aria-label="OG to MS2 conversion snapshot">
+            <div><span>[ OG → MS2 CONVERTED WALLETS ]</span><strong>465</strong><small>UNIQUE USER ADDRESSES · 465 CONVERTED EVENTS · BSC BLOCK 120,914,306</small></div>
+            <div><span>[ MS2 ALLOCATED BY CONVERSION CONTRACT ]</span><strong>1,849,581.087235 MS2</strong><small>ON-CHAIN TOTALALLOCATED() · SNAPSHOT 2026-09-10 00:59 UTC+8</small></div>
+            <a class="btn secondary" href="https://bscscan.com/address/0x6bAa796a82dB3aBE94cb202c0A6796F0d046a4bC" target="_blank" rel="noopener noreferrer">VERIFY CONTRACT ↗</a>
+          </div>
+
           <div class="campaign-terms reveal" style="margin-top:20px">
             <article class="campaign-term"><span class="term-id">[ LOCK-UP ]</span><h3>6 months after listing</h3><p>The published Public Sale OG terms state a six-month lock-up after listing.</p></article>
             <article class="campaign-term"><span class="term-id">[ RELEASE ]</span><h3>24 months continuous</h3><p>After the lock-up, the published terms state continuous release over twenty-four months.</p></article>
             <article class="campaign-term"><span class="term-id">[ BOUNDARY ]</span><h3>Subject to final arrangements</h3><p>Listing arrangements, exchange procedures, eligibility and compliance review remain controlling conditions.</p></article>
           </div>
-          <div class="disclosure reveal"><strong>Source boundary:</strong>Public Sale OG figures are Dune-query results denominated in MHA. They should be reconciled against internal sale, treasury, refund and compliance records. This record is not investment advice, a guaranteed listing outcome or a promise of future market performance.</div>
+          <div class="disclosure reveal"><strong>Source boundary:</strong>The 1,085 figure counts participating wallet addresses, not verified unique people. Converted wallets are counted separately by deduplicating the indexed <code>user</code> field in finalized <code>Converted</code> events from the conversion contract. Public Sale OG amounts remain Dune-query results denominated in MHA and should be reconciled against internal sale, treasury, refund and compliance records.</div>
         </div>
       </section>
 
