@@ -1,0 +1,23 @@
+/* AI BOX engineering photo record: isolated from shared site styles. */
+.ai-box-prototype { margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--line); }
+.ai-box-photo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.ai-box-photo { min-width: 0; margin: 0; border: 1px solid var(--line); background: var(--bg-1); }
+.ai-box-photo-meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding: 16px 20px; color: var(--muted); font: 11px/1.5 var(--mono); letter-spacing: .05em; }
+.ai-box-photo-meta span:first-child { color: var(--cyan); }
+.ai-box-photo-link { display: block; }
+.ai-box-photo img { display: block; width: 100%; height: auto; object-fit: contain; }
+.ai-box-photo figcaption { padding: 24px; }
+.ai-box-photo h4 { margin: 0 0 12px; font: 500 clamp(22px, 2.2vw, 30px)/1.2 var(--display); }
+.ai-box-photo p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.7; }
+.ai-box-photo-open { display: inline-flex; align-items: center; min-height: 44px; margin-top: 14px; color: var(--cyan); font: 12px/1.5 var(--mono); }
+.ai-box-photo a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+.ai-box-photo-open:hover { text-decoration: underline; text-underline-offset: 5px; }
+.ai-box-photo-note { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 24px; margin: 24px 0 0; padding: 20px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; line-height: 1.7; }
+.ai-box-photo-note strong { color: var(--ink); font: 12px/1.7 var(--mono); }
+#prototype { scroll-margin-top: 100px; }
+@media (max-width: 700px) {
+  .ai-box-photo-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .ai-box-photo figcaption { padding: 20px; }
+  .ai-box-photo-meta { padding: 14px 16px; font-size: 10px; }
+  .ai-box-photo-note { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+}
