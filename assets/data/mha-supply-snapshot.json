@@ -1,0 +1,152 @@
+{
+  "code": 200,
+  "data": {
+    "token": {
+      "name": "MAGNE.AI",
+      "symbol": "MHA",
+      "network": "BNB Smart Chain",
+      "chainId": 56,
+      "decimals": 18,
+      "contract": "0x37c563cdf4606d4302abb395cdb94e79d31233ed"
+    },
+    "metrics": {
+      "totalSupply": "10000000000",
+      "maxSupply": "10000000000",
+      "disclosedNonCirculating": "9922114500",
+      "releasedFromPrimaryWallets": "77885500",
+      "circulatingSupply": "77885500",
+      "platformReady": true
+    },
+    "wallets": [
+      {
+        "address": "0x1117dA6F04376588A94a7B7fDC070607d0ad649C",
+        "category": "exchange-allocation",
+        "label": "Exchange allocation reserve",
+        "labelTc": "交易所分配儲備",
+        "treatment": "non-circulating",
+        "balance": "23749500.0"
+      },
+      {
+        "address": "0x222EB7Dca28C875115dE21055881E3008df822c4",
+        "category": "user-airdrop",
+        "label": "User airdrop reserve",
+        "labelTc": "用戶空投儲備",
+        "treatment": "non-circulating",
+        "balance": "798365000.0"
+      },
+      {
+        "address": "0x3337e8082646Df644179db3834b3ACc19bc55eFf",
+        "category": "market-making-reserve",
+        "label": "Market-making reserve",
+        "labelTc": "做市儲備",
+        "treatment": "non-circulating",
+        "balance": "700000000.0"
+      },
+      {
+        "address": "0x4442ff4eae58dc9dbbe318b284b001b3967478fd",
+        "category": "equipment-agents",
+        "label": "Equipment agents",
+        "labelTc": "設備代理商",
+        "treatment": "non-circulating",
+        "balance": "100000000.0"
+      },
+      {
+        "address": "0x555d2527752c41c6bdb8166fd6e00d34997be1dd",
+        "category": "public-sale",
+        "label": "Public sale and subscriptions",
+        "labelTc": "公募與訂閱",
+        "treatment": "non-circulating",
+        "balance": "300000000.0"
+      },
+      {
+        "address": "0x66660077B39DbF0c6225289Fa6c6a4BF4b1C9417",
+        "category": "vc",
+        "label": "VC allocation",
+        "labelTc": "VC 分配",
+        "treatment": "non-circulating",
+        "balance": "1000000000.0"
+      },
+      {
+        "address": "0x777031eb97880cee836ce508b2d24dc66f898358",
+        "category": "team",
+        "label": "Team and advisers",
+        "labelTc": "團隊與顧問",
+        "treatment": "non-circulating",
+        "balance": "1000000000.0"
+      },
+      {
+        "address": "0x888F2F895aCf7E068e5eFF76Ae7E7ec7CC337cDD",
+        "category": "ecosystem",
+        "label": "Ecosystem / DAO",
+        "labelTc": "生態 / DAO",
+        "treatment": "non-circulating",
+        "balance": "1500000000.0"
+      },
+      {
+        "address": "0x999A665B14D33B947813ea1a6525c9C377DBE196",
+        "category": "staking",
+        "label": "Staking nodes",
+        "labelTc": "質押節點",
+        "treatment": "non-circulating",
+        "balance": "1500000000.0"
+      },
+      {
+        "address": "0xaAa2ec1f5bd840754e7459fd848D681bC50D62e8",
+        "category": "mining",
+        "label": "Mining nodes",
+        "labelTc": "挖礦節點",
+        "treatment": "non-circulating",
+        "balance": "3000000000.0"
+      }
+    ],
+    "evidence": {
+      "exchangeCustodyWallets": [
+        {
+          "address": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+          "exchange": "Bitget",
+          "label": "Observed pooled custody destination",
+          "labelTc": "已觀察混合託管歸集地址",
+          "calculationRole": "observation-only",
+          "balance": null
+        },
+        {
+          "address": "0x53f78a071d04224b8e254e243fffc6d9f2f3fa23",
+          "exchange": "KuCoin",
+          "label": "Observed pooled custody destination",
+          "labelTc": "已觀察混合託管歸集地址",
+          "calculationRole": "observation-only",
+          "balance": null
+        },
+        {
+          "address": "0x124d9bf2fecbc16b54ec4accdb14d44c2144f012",
+          "exchange": "LBank",
+          "label": "Observed pooled custody destination",
+          "labelTc": "已觀察混合託管歸集地址",
+          "calculationRole": "observation-only",
+          "balance": null
+        },
+        {
+          "address": "0x4982085c9e2f89f2ecb8131eca71afad896e89cb",
+          "exchange": "MEXC",
+          "label": "Observed pooled custody destination",
+          "labelTc": "已觀察混合託管歸集地址",
+          "calculationRole": "observation-only",
+          "balance": null
+        }
+      ],
+      "boundary": "Pooled exchange custody balances are public-market observations only. They are not project holdings, internal market-making balances or direct circulating-supply deductions."
+    },
+    "methodology": {
+      "equation": "totalSupply - disclosedNonCirculating = releasedFromPrimaryWallets; released is not automatically official circulating supply",
+      "officialCirculatingSupply": "published",
+      "note": "Released from primary allocation wallets is not automatically public circulating supply. Pooled exchange custody balances are observations, not direct deductible-wallet inputs."
+    }
+  },
+  "_meta": {
+    "status": "live",
+    "fetchedAt": "2026-09-20T13:38:59.240Z",
+    "blockNumber": 122998669,
+    "source": "BSC RPC eth_call at one block",
+    "version": "2026-09-22"
+  }
+}

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MHA 流通量證據 — W3.MAGNE.AI</title>
+  <meta name="description" content="MHA 即時供應量、錢包分類、BSC 區塊來源與平台 API 狀態。" />
+  <link rel="canonical" href="https://w3.magne.ai/tc/mha-supply.html" />
+  <link rel="alternate" hreflang="en" href="https://w3.magne.ai/mha-supply.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/mha-supply.html" />
+  <link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/mha-supply.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MHA 流通量證據 — W3.MAGNE.AI" />
+  <meta property="og:description" content="即時 BSC 供應量證據；先分類，再發布市值口徑。" />
+  <meta property="og:url" content="https://w3.magne.ai/tc/mha-supply.html" />
+  <meta property="og:image" content="https://w3.magne.ai/assets/images/og/w3-system-card.svg" />
+  <meta name="theme-color" content="#0a0a0c" />
+  <link rel="icon" href="../assets/images/brand/w3-mark.svg" type="image/svg+xml" />
+  <link rel="manifest" href="../manifest.webmanifest" />
+  <link rel="stylesheet" href="../assets/css/site.css?v=20260920-supply" />
+  <link rel="stylesheet" href="../assets/css/locale.css?v=20260821-3" />
+  <link rel="stylesheet" href="../assets/css/mha-market.css?v=20260922-1" />
+</head>
+<body data-page="trust" data-lang="zh-Hant" data-locale-peer="../mha-supply.html" data-asset-root="../" class="supply-page">
+  <header id="site-header"></header>
+  <main>
+    <section class="supply-hero">
+      <div class="wrap">
+        <p class="eyebrow"><span class="index">07.S</span> MHA / SUPPLY EVIDENCE</p>
+        <div class="supply-hero-grid">
+          <div>
+            <div class="supply-state" data-supply-state><i></i> 正在讀取鏈上狀態</div>
+            <h1>流通量。<br /><span>不是推測。</span></h1>
+            <p>每個數字均綁定 BSC 區塊與已披露錢包分類。資產離開分配錢包，不代表已自動進入公開流通。</p>
+          </div>
+          <aside>
+            <span>公開方法</span>
+            <strong>總供應量</strong>
+            <b>− 已披露非流通錢包</b>
+            <b>= 官方流通量</b>
+            <small>隨每個已驗證 BSC 區塊更新</small>
+          </aside>
+        </div>
+        <div class="supply-metrics" aria-live="polite">
+          <article><span>鏈上總供應量</span><strong data-metric="totalSupply">—</strong><small>MHA</small></article>
+          <article><span>已披露非流通量</span><strong data-metric="disclosedNonCirculating">—</strong><small>一級分配錢包</small></article>
+          <article><span>已離開一級錢包</span><strong data-metric="releasedFromPrimaryWallets">—</strong><small>官方方法的計算輸入</small></article>
+          <article><span>官方流通量</span><strong data-metric="circulatingSupply">—</strong><small>已驗證公開流通</small></article>
+        </div>
+        <div class="supply-proof"><span>區塊 <b data-field="blockNumber">—</b></span><span>更新 <b data-field="fetchedAt">—</b></span><span>合約 <a href="https://bscscan.com/token/0x37c563cdf4606d4302abb395cdb94e79d31233ed" target="_blank" rel="noopener noreferrer">0x37c5…33ed ↗</a></span></div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="section-label"><span class="index">SUP.01</span> 官方方法</p><h2 class="section-title">餘額可驗證。<br />分類已申報。</h2></div><p class="section-copy">官方流通量等於鏈上總供應量，扣除已披露非流通分配錢包的當前餘額；所有數字均在同一個已驗證 BSC 區塊計算。</p></div>
+        <div class="supply-equation reveal">
+          <div><span>10,000,000,000</span><small>總供應量</small></div><i>−</i>
+          <div><span data-metric="disclosedNonCirculating">—</span><small>已披露儲備</small></div><i>=</i>
+          <div><span data-metric="circulatingSupply">—</span><small>官方流通量</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section supply-register-section">
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="section-label"><span class="index">SUP.02</span> 分類登記冊</p><h2 class="section-title">一個餘額。<br />一個申報用途。</h2></div><p class="section-copy">以下目前持有正餘額的地址在同一 BSC 區塊讀取，並顯示其申報分類。歷史零餘額地址仍由後端監測，不進入公開登記冊。</p></div>
+        <div class="supply-wallet-head"><span>類別</span><span>地址</span><span>餘額</span><span>處理</span></div>
+        <div class="supply-wallets" data-wallets></div>
+      </div>
+    </section>
+
+    <section class="content-section supply-evidence-section">
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="section-label"><span class="index">SUP.03</span> 公開市場觀察</p><h2 class="section-title">託管地址可見。<br />不假設錢包歸屬。</h2></div><p class="section-copy">以下地址是已觀察到的交易所混合託管錢包，用於補充交易場所透明度；它們不能揭示交易所內部帳戶餘額，也不參與流通量公式。</p></div>
+        <div class="supply-evidence-block reveal">
+          <div class="supply-evidence-title"><div><span>03B</span><strong>交易所託管地址觀察</strong></div><p>這些是交易所混合託管錢包。完整餘額不代表 MAGNE.AI 持倉、做市庫存、已出售數量或可扣除錢包餘額。</p></div>
+          <div class="supply-path-head"><span>交易所</span><span>託管地址</span><span>錢包餘額</span><span>含義</span><span>角色</span></div>
+          <div class="supply-paths" data-custody-wallets></div>
+        </div>
+        <p class="mha-market-link"><a href="token.html">MHA 代幣披露</a> · 交易入口: <a href="https://www.mexc.com/exchange/MHA_USDT" target="_blank" rel="sponsored noopener noreferrer">MHA/USDT on MEXC ↗</a></p>
+      </div>
+    </section>
+
+    <section class="content-section supply-api-section" id="api">
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="section-label"><span class="index">SUP.04</span> 平台 API</p><h2 class="section-title">機器可讀。<br />綁定區塊。</h2></div><p class="section-copy">審計、CMC 與 CoinGecko 端點均發布最新已驗證 BSC 區塊下的同一官方流通量。若監測中的待分類地址重新出現正餘額，發布會自動暫停。</p></div>
+        <div class="supply-api-grid reveal">
+          <article><span>完整審計 JSON</span><code>/api/v1/mha/supply</code><b>即時</b><a href="https://w3.magne.ai/api/v1/mha/supply" target="_blank" rel="noopener noreferrer">開啟 ↗</a></article>
+          <article><span>CMC / 純數字</span><code>/api/v1/mha/supply/circulating</code><b>即時</b><a href="https://w3.magne.ai/api/v1/mha/supply/circulating" target="_blank" rel="noopener noreferrer">開啟 ↗</a></article>
+          <article><span>COINGECKO / JSON</span><code>/api/v1/mha/supply/coingecko</code><b>即時</b><a href="https://w3.magne.ai/api/v1/mha/supply/coingecko" target="_blank" rel="noopener noreferrer">開啟 ↗</a></article>
+          <article><span>健康狀態 / 來源</span><code>/api/v1/mha/supply/health</code><b>即時</b><a href="https://w3.magne.ai/api/v1/mha/supply/health" target="_blank" rel="noopener noreferrer">開啟 ↗</a></article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="../assets/js/site.js?v=20260923-mha"></script>
+  <script src="../assets/js/tc/mha-supply.js?v=20260922-live-1"></script>
+  <script src="../assets/js/season-status.js?v=20260821-4"></script>
+  <script src="../assets/js/analytics.js?v=20260821-3"></script>
+  <script src="../assets/js/locale-switch.js?v=20260821-3"></script>
+</body>
+</html>

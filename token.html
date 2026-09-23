@@ -20,6 +20,11 @@
   <link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/token.html" />
   <link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/token.html" />
   <link rel="stylesheet" href="assets/css/locale.css?v=20260821-3" />
+  <link rel="stylesheet" href="assets/css/mha-market.css?v=20260922-1" />
+  <link rel="stylesheet" href="assets/css/mha-quotes.css?v=20260923-1" />
+  <script defer src="assets/js/mha-market.js?v=20260923-1"></script>
+  <link rel="stylesheet" href="assets/css/mha-tickers.css?v=20260923-1" />
+  <script defer src="assets/js/mha-tickers.js?v=20260923-2"></script>
 </head>
   <body data-page="trust" class="system-page token-page" data-lang="en" data-locale-peer="tc/token.html">
     <header id="site-header"></header>
@@ -29,24 +34,55 @@
           <div class="system-hero-grid">
             <div class="system-hero-copy">
               <p class="eyebrow"><span class="index">07.T</span> MHA / TOKEN DISCLOSURE</p>
-              <div class="system-state"><span></span> PLANNED FRAMEWORK · CONTRACT NOT PUBLISHED</div>
+              <div class="system-state"><span></span> BSC TOKEN · PUBLIC CONTRACT & MARKET ACCESS</div>
               <h1 class="system-title">DISCLOSURE BEFORE<br /><span>DISTRIBUTION.</span></h1>
               <p class="system-lede">This page only lists the confirmed basic parameters, planned uses and public status. Unpublished contract addresses, audit reports, allocation executions and schedules are not packaged as fait accompli.</p>
             </div>
             <aside class="system-hero-aside" aria-label="Token file identity">
-              <span>W3 / TOKEN FILE</span><strong>MHA</strong><p>STATUS-BOUND<br />NO PRICE CLAIM</p><small>FILE: TKN-001<br />REV: 2026.08</small>
+              <span>W3 / TOKEN FILE</span><strong>MHA</strong><p>STATUS-BOUND<br />NO PRICE CLAIM</p><small>FILE: TKN-001<br />REV: 2026.09</small>
             </aside>
           </div>
           <dl class="system-ledger">
             <div><dt>SYMBOL</dt><dd>MHA</dd></div>
-            <div><dt>INITIAL STANDARD</dt><dd>BEP-20 / PLANNED</dd></div>
+            <div><dt>INITIAL STANDARD</dt><dd>BEP-20 / BSC</dd></div>
             <div><dt>TOTAL SUPPLY</dt><dd>10,000,000,000 MHA</dd></div>
             <div><dt>DECIMALS</dt><dd>18</dd></div>
           </dl>
           <div class="hero-actions">
+            <a class="btn primary" href="mha-supply.html">$ circulating supply & API →</a>
             <a class="btn primary" href="#status">$ inspect status →</a>
             <a class="btn" href="trust.html">$ return to trust →</a>
           </div>
+        </div>
+      </section>
+
+      <section class="content-section mha-market" id="market-access" aria-labelledby="market-access-title">
+        <div class="wrap">
+          <p class="section-label">MHA MARKET ACCESS</p>
+          <div class="mha-quotes" data-mha-market>
+            <a href="https://www.coingecko.com/en/coins/magic-hash" target="_blank" rel="noopener noreferrer">CoinGecko quotes & all markets ↗</a>
+            <dl><div><dt>PRICE / USD</dt><dd data-market-price>—</dd></div><div><dt>24H CHANGE</dt><dd data-market-change>—</dd></div><div><dt>24H VOLUME / USD</dt><dd data-market-volume>—</dd></div></dl>
+            <p data-market-time>Loading quotes…</p><p>Powered by <a href="https://www.coingecko.com/en/coins/magic-hash" target="_blank" rel="noopener noreferrer">CoinGecko</a> · <a href="mha-supply.html">Official circulating supply &amp; API →</a></p>
+          </div>
+          <div class="mha-market-card">
+            <div class="mha-market-brand"><img src="assets/images/brand/mexc-light.png" alt="MEXC" width="2264" height="904" loading="lazy" /></div>
+            <div class="mha-market-copy">
+              <h2 id="market-access-title">View and trade MHA on MEXC</h2>
+              <p>Check the live MHA price or access the MHA/USDT spot market.</p>
+              <div class="mha-market-actions">
+                <a class="btn primary" href="https://www.mexc.com/exchange/MHA_USDT" target="_blank" rel="sponsored noopener noreferrer">Trade MHA/USDT ↗</a>
+                <a class="btn" href="https://www.mexc.com/price/MHA" target="_blank" rel="sponsored noopener noreferrer">MHA Price ↗</a>
+                <a class="btn" href="https://www.mexc.com" target="_blank" rel="sponsored noopener noreferrer">Visit MEXC ↗</a>
+              </div>
+              <p class="mha-market-note">Links open a third-party trading platform in a new tab. MAGNE.AI does not control its prices, liquidity, accounts or services.</p>
+            </div>
+          </div>
+          <section class="mha-tickers" aria-labelledby="mha-tickers-title">
+            <h2 id="mha-tickers-title">MHA trading markets</h2>
+            <p>Markets tracked by CoinGecko, not a complete official listing register. Anomalous and stale pairs are excluded. MAGNE.AI does not control third-party prices, liquidity or services.</p>
+            <div data-mha-tickers></div>
+            <p>Powered by <a href="https://www.coingecko.com/en/coins/magic-hash#markets" target="_blank" rel="noopener noreferrer">CoinGecko ↗</a> · Sorted by 24h volume, up to the first 100 pairs.</p>
+          </section>
         </div>
       </section>
 
@@ -54,15 +90,15 @@
         <div class="wrap">
           <div class="section-head reveal">
             <div><p class="section-label"><span class="index">TKN.01</span> BASE PARAMETERS</p><h2 class="section-title">Parameters can be confirmed.<br />Execution remains conditional.</h2></div>
-            <p class="section-copy">The initial plan is based on BNB Smart Chain / BEP-20; future migration or expansion to MAGNE Network / M Hash L2 still depends on technology, governance and compliance review.</p>
+            <p class="section-copy">MHA is issued on BNB Smart Chain as a BEP-20 token; future migration or expansion to MAGNE Network / M Hash L2 still depends on technology, governance and compliance review.</p>
           </div>
           <div class="token-register reveal">
             <div><span>NAME</span><strong>MAGNE.AI</strong><small>Token name</small></div>
-            <div><span>SYMBOL</span><strong>MHA</strong><small>Planned ticker</small></div>
-            <div><span>INITIAL NETWORK</span><strong>BNB SMART CHAIN</strong><small>BEP-20 / planned</small></div>
+            <div><span>SYMBOL</span><strong>MHA</strong><small>MHA</small></div>
+            <div><span>INITIAL NETWORK</span><strong>BNB SMART CHAIN</strong><small>BEP-20 / BSC</small></div>
             <div><span>FUTURE NETWORK</span><strong>MAGNE / M HASH L2</strong><small>Subject to review</small></div>
             <div><span>SUPPLY</span><strong>10B</strong><small>10,000,000,000 MHA</small></div>
-            <div><span>DECIMALS</span><strong>18</strong><small>Planned parameter</small></div>
+            <div><span>DECIMALS</span><strong>18</strong><small>BEP-20 parameter</small></div>
           </div>
           <p class="token-note reveal"><span>BOUNDARY</span> This page does not publish unverified allocation charts, transaction prices, revenue expectations, online commitments or contract addresses.</p>
         </div>
@@ -89,13 +125,13 @@
         <div class="wrap">
           <div class="section-head reveal">
             <div><p class="section-label"><span class="index">TKN.03</span> RELEASE STATUS</p><h2 class="section-title">Address, audit and schedule.<br />All are required.</h2></div>
-            <p class="section-copy">The corresponding fields will be updated from unreleased status to verifiable status only after the technical verification, auditing, release preparation and compliance processes are completed.</p>
+            <p class="section-copy">The contract and market links below identify public sources. Audit disclosure and future network migration are tracked separately.</p>
           </div>
           <div class="table-scroll reveal"><table class="data-table token-status-table"><thead><tr><th>Item</th><th>Current public state</th><th>Publication condition</th></tr></thead><tbody>
-            <tr><td>CONTRACT ADDRESS</td><td>NOT PUBLISHED</td><td>Contract completed, confirmed online and through official release channels</td></tr>
+            <tr><td>CONTRACT ADDRESS</td><td><a href="https://bscscan.com/token/0x37c563cdf4606d4302abb395cdb94e79d31233ed" target="_blank" rel="noopener noreferrer">0x37c563…1233ed ↗</a></td><td>BNB Smart Chain / BEP-20</td></tr>
             <tr><td>SMART CONTRACT AUDIT</td><td><span class="amber">NOT DISCLOSED</span></td><td>The audit scope, version and report can correspond to the same contract</td></tr>
-            <tr><td>ALLOCATION EXECUTION</td><td>NOT ACTIVE</td><td>Complete allocation, lock-up, release and qualification rules released</td></tr>
-            <tr><td>TGE / LISTING</td><td>NO DATE PUBLISHED</td><td>Subject to official announcement, compliance review and implementation preparation</td></tr>
+            <tr><td>SUPPLY &amp; ALLOCATIONS</td><td><a href="mha-supply.html">VIEW LIVE DISCLOSURE →</a></td><td>Wallet classifications, on-chain balances and block provenance</td></tr>
+            <tr><td>TRADING MARKET</td><td><a href="#market-access">MEXC / MHA-USDT ↗</a></td><td>Market and price links are available above</td></tr>
             <tr><td>MIGRATION TO MAGNE NETWORK</td><td>FUTURE PLAN</td><td>Technology and governance assessment passed</td></tr>
           </tbody></table></div>
         </div>
@@ -118,7 +154,7 @@
       </section>
     </main>
     <footer id="site-footer"></footer>
-    <script src="assets/js/site.js?v=20260821-14"></script>
+    <script src="assets/js/site.js?v=20260923-mha"></script>
   <script src="assets/js/season-status.js?v=20260821-4"></script>
 <script src="assets/js/analytics.js?v=20260821-3"></script>
 <script src="assets/js/locale-switch.js?v=20260821-3"></script>

@@ -18,6 +18,7 @@ export const config = Object.freeze({
   host: process.env.HOST || "127.0.0.1",
   refreshMs: positiveInteger(process.env.W3_REFRESH_SECONDS, 60) * 1000,
   chainSyncMs: positiveInteger(process.env.W3_CHAIN_SYNC_SECONDS, 300) * 1000,
+  mhaSupplySyncMs: positiveInteger(process.env.W3_MHA_SUPPLY_SYNC_SECONDS, 60) * 1000,
   staleAfterMs: positiveInteger(process.env.W3_STALE_AFTER_SECONDS, 300) * 1000,
   paymentApiBase: (process.env.PAYMENT_API_BASE || "https://payment.magne.ai/api").replace(/\/$/, ""),
   rpcUrls: (process.env.BSC_RPC_URLS || "https://bsc-dataseed.bnbchain.org,https://rpc-bsc.48.club")
@@ -31,5 +32,7 @@ export const config = Object.freeze({
   historyFile: dataFile("season-2-history.json", "../assets/data/season-2-history.json"),
   evidenceFile: dataFile("season-2-chain-events.json", "../server-data/season-2-chain-events.json"),
   bootstrapFile: dataFile("season-2-bscscan-bootstrap.json", "../server-data/season-2-bscscan-bootstrap.json"),
-  flowAuditFile: dataFile("season-2-flow-audit.json", "../assets/data/season-2-flow-audit.json")
+  flowAuditFile: dataFile("season-2-flow-audit.json", "../assets/data/season-2-flow-audit.json"),
+  mhaSupplyFile: dataFile("mha-supply-snapshot.json", "../assets/data/mha-supply-snapshot.json"),
+  mhaPlatformReady: process.env.W3_MHA_PLATFORM_READY !== "false",
 });

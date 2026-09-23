@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MHA Circulating Supply — W3.MAGNE.AI</title>
+  <meta name="description" content="Live, source-bound MHA supply disclosure with wallet classifications, BSC block provenance and platform API status." />
+  <link rel="canonical" href="https://w3.magne.ai/mha-supply.html" />
+  <link rel="alternate" hreflang="en" href="https://w3.magne.ai/mha-supply.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/mha-supply.html" />
+  <link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/mha-supply.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MHA Circulating Supply — W3.MAGNE.AI" />
+  <meta property="og:description" content="Live BSC supply evidence. Classification before market-cap publication." />
+  <meta property="og:url" content="https://w3.magne.ai/mha-supply.html" />
+  <meta property="og:image" content="https://w3.magne.ai/assets/images/og/w3-system-card.svg" />
+  <meta name="theme-color" content="#0a0a0c" />
+  <link rel="icon" href="assets/images/brand/w3-mark.svg" type="image/svg+xml" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="assets/css/site.css?v=20260920-supply" />
+  <link rel="stylesheet" href="assets/css/locale.css?v=20260821-3" />
+  <link rel="stylesheet" href="assets/css/mha-market.css?v=20260922-1" />
+</head>
+<body data-page="trust" data-lang="en" data-locale-peer="tc/mha-supply.html" class="supply-page">
+  <header id="site-header"></header>
+  <main>
+    <section class="supply-hero">
+      <div class="wrap">
+        <p class="eyebrow"><span class="index">07.S</span> MHA / SUPPLY EVIDENCE</p>
+        <div class="supply-hero-grid">
+          <div>
+            <div class="supply-state" data-supply-state><i></i> LOADING CHAIN STATE</div>
+            <h1>CIRCULATION.<br /><span>NOT ASSUMPTION.</span></h1>
+            <p>Every number is tied to a BSC block and a disclosed wallet class. A transfer out of an allocation wallet is not automatically counted as public float.</p>
+          </div>
+          <aside>
+            <span>PUBLIC METHOD</span>
+            <strong>TOTAL SUPPLY</strong>
+            <b>− DISCLOSED NON-CIRCULATING</b>
+            <b>= OFFICIAL CIRCULATING SUPPLY</b>
+            <small>UPDATED AT EACH VERIFIED BSC BLOCK</small>
+          </aside>
+        </div>
+        <div class="supply-metrics" aria-live="polite">
+          <article><span>ON-CHAIN TOTAL</span><strong data-metric="totalSupply">—</strong><small>MHA</small></article>
+          <article><span>DISCLOSED NON-CIRCULATING</span><strong data-metric="disclosedNonCirculating">—</strong><small>PRIMARY ALLOCATION WALLETS</small></article>
+          <article><span>RELEASED FROM PRIMARY WALLETS</span><strong data-metric="releasedFromPrimaryWallets">—</strong><small>INPUT TO THE OFFICIAL METHOD</small></article>
+          <article><span>OFFICIAL CIRCULATING SUPPLY</span><strong data-metric="circulatingSupply">—</strong><small>VERIFIED PUBLIC FLOAT</small></article>
+        </div>
+        <div class="supply-proof"><span>BLOCK <b data-field="blockNumber">—</b></span><span>UPDATED <b data-field="fetchedAt">—</b></span><span>CONTRACT <a href="https://bscscan.com/token/0x37c563cdf4606d4302abb395cdb94e79d31233ed" target="_blank" rel="noopener noreferrer">0x37c5…33ed ↗</a></span></div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="section-label"><span class="index">SUP.01</span> OFFICIAL METHOD</p><h2 class="section-title">Verified balance.<br />Declared classification.</h2></div><p class="section-copy">Official circulating supply equals on-chain total supply minus the current balances of disclosed non-circulating allocation wallets, calculated at one verified BSC block.</p></div>
+        <div class="supply-equation reveal">
+          <div><span>10,000,000,000</span><small>TOTAL SUPPLY</small></div><i>−</i>
+          <div><span data-metric="disclosedNonCirculating">—</span><small>DISCLOSED RESERVES</small></div><i>=</i>
+          <div><span data-metric="circulatingSupply">—</span><small>OFFICIAL CIRCULATING SUPPLY</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section supply-register-section">
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="section-label"><span class="index">SUP.02</span> CLASSIFICATION REGISTER</p><h2 class="section-title">One balance.<br />One declared role.</h2></div><p class="section-copy">Current positive balances below are read at one BSC block and shown with their declared classification. Historical zero-balance addresses remain monitored outside this public register.</p></div>
+        <div class="supply-wallet-head"><span>CLASS</span><span>ADDRESS</span><span>BALANCE</span><span>TREATMENT</span></div>
+        <div class="supply-wallets" data-wallets></div>
+      </div>
+    </section>
+
+    <section class="content-section supply-evidence-section">
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="section-label"><span class="index">SUP.03</span> PUBLIC MARKET OBSERVATION</p><h2 class="section-title">Custody visible.<br />Ownership not assumed.</h2></div><p class="section-copy">These addresses are observed pooled exchange custody wallets. They support market-venue transparency but do not reveal exchange-internal account balances and do not participate in the circulating-supply formula.</p></div>
+        <div class="supply-evidence-block reveal">
+          <div class="supply-evidence-title"><div><span>03B</span><strong>EXCHANGE CUSTODY OBSERVATION</strong></div><p>These are pooled exchange wallets. Their full balances are not MAGNE.AI holdings, market-making inventory, sales proceeds or deductible-wallet balances.</p></div>
+          <div class="supply-path-head"><span>EXCHANGE</span><span>CUSTODY ADDRESS</span><span>WALLET BALANCE</span><span>MEANING</span><span>ROLE</span></div>
+          <div class="supply-paths" data-custody-wallets></div>
+        </div>
+        <p class="mha-market-link"><a href="token.html">MHA Token Disclosure</a> · Market access: <a href="https://www.mexc.com/exchange/MHA_USDT" target="_blank" rel="sponsored noopener noreferrer">MHA/USDT on MEXC ↗</a></p>
+      </div>
+    </section>
+
+    <section class="content-section supply-api-section" id="api">
+      <div class="wrap">
+        <div class="section-head reveal"><div><p class="section-label"><span class="index">SUP.04</span> PLATFORM API</p><h2 class="section-title">Machine-readable.<br />Block-bound.</h2></div><p class="section-copy">The audit, CMC and CoinGecko endpoints publish the same official circulating supply from the latest verified BSC block. If a monitored review address receives a positive balance, publication automatically pauses.</p></div>
+        <div class="supply-api-grid reveal">
+          <article><span>FULL AUDIT JSON</span><code>/api/v1/mha/supply</code><b>LIVE</b><a href="https://w3.magne.ai/api/v1/mha/supply" target="_blank" rel="noopener noreferrer">OPEN ↗</a></article>
+          <article><span>CMC / NUMERIC ONLY</span><code>/api/v1/mha/supply/circulating</code><b>LIVE</b><a href="https://w3.magne.ai/api/v1/mha/supply/circulating" target="_blank" rel="noopener noreferrer">OPEN ↗</a></article>
+          <article><span>COINGECKO / JSON</span><code>/api/v1/mha/supply/coingecko</code><b>LIVE</b><a href="https://w3.magne.ai/api/v1/mha/supply/coingecko" target="_blank" rel="noopener noreferrer">OPEN ↗</a></article>
+          <article><span>HEALTH / PROVENANCE</span><code>/api/v1/mha/supply/health</code><b>LIVE</b><a href="https://w3.magne.ai/api/v1/mha/supply/health" target="_blank" rel="noopener noreferrer">OPEN ↗</a></article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="assets/js/site.js?v=20260923-mha"></script>
+  <script src="assets/js/mha-supply.js?v=20260922-live-1"></script>
+  <script src="assets/js/season-status.js?v=20260821-4"></script>
+  <script src="assets/js/analytics.js?v=20260821-3"></script>
+  <script src="assets/js/locale-switch.js?v=20260821-3"></script>
+</body>
+</html>

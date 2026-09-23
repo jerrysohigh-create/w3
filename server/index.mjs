@@ -3,11 +3,14 @@ import { execFile } from "node:child_process";
 import { stat } from "node:fs/promises";
 import { promisify } from "node:util";
 import { createServer } from "node:http";
+import { readMhaMarket } from "./mha-market.mjs";
+import { readMhaTickers } from "./mha-tickers.mjs";
 import { extname, resolve, sep } from "node:path";
 import { ChainClient } from "./chain-client.mjs";
 import { config, projectRoot } from "./config.mjs";
 import { createServiceWallet, PaymentClient } from "./payment-client.mjs";
 import { readHistory } from "./history.mjs";
+import { collectMhaSupply, mhaSupplyWithFreshness, readMhaSupply, writeMhaSupply } from "./mha-supply.mjs";
 import { seedPersistentData } from "./seed-data.mjs";
 import { buildSnapshot, readSnapshot, snapshotWithFreshness, writeSnapshot } from "./snapshot.mjs";
 
@@ -35,10 +38,34 @@ if (seededFiles.length) console.log(`[data] seeded ${seededFiles.length} persist
 
 let snapshot = await readSnapshot(config.cacheFile);
 let history = await readHistory(config.historyFile);
+let mhaSupply = await readMhaSupply(config.mhaSupplyFile);
 let refreshInFlight = null;
 let chainSyncInFlight = null;
 let lastError = "";
 let lastChainError = "";
+let mhaSupplySyncInFlight = null;
+let lastMhaSupplyError = "";
+
+async function syncMhaSupply() {
+  if (mhaSupplySyncInFlight) return mhaSupplySyncInFlight;
+  mhaSupplySyncInFlight = (async () => {
+    try {
+      const next = await collectMhaSupply({ chain, platformReady: config.mhaPlatformReady });
+      await writeMhaSupply(config.mhaSupplyFile, next);
+      mhaSupply = next;
+      lastMhaSupplyError = "";
+      console.log(`[mha-supply] block ${next._meta.blockNumber}; released ${next.data.metrics.releasedFromPrimaryWallets} MHA`);
+      return next;
+    } catch (error) {
+      lastMhaSupplyError = error instanceof Error ? error.message : String(error);
+      console.error(`[mha-supply] failed: ${lastMhaSupplyError}`);
+      return mhaSupply;
+    } finally {
+      mhaSupplySyncInFlight = null;
+    }
+  })();
+  return mhaSupplySyncInFlight;
+}
 
 function securityHeaders(request) {
   const headers = {
@@ -129,9 +156,20 @@ function sendJson(request, response, status, payload) {
   response.writeHead(status, {
     ...securityHeaders(request),
     "content-type": "application/json; charset=utf-8",
-    "cache-control": "no-store"
+    "cache-control": "no-store",
+    "access-control-allow-origin": "*"
   });
   response.end(`${JSON.stringify(payload)}\n`);
+}
+
+function sendText(request, response, status, payload) {
+  response.writeHead(status, {
+    ...securityHeaders(request),
+    "content-type": "text/plain; charset=utf-8",
+    "cache-control": "no-store",
+    "access-control-allow-origin": "*"
+  });
+  response.end(`${payload}\n`);
 }
 
 async function sendStatic(request, response, pathname) {
@@ -214,6 +252,65 @@ const server = createServer(async (request, response) => {
     return sendJson(request, response, 200, history);
   }
 
+  if (request.method === "GET" && url.pathname === "/api/v1/mha/market") {
+    const market = await readMhaMarket();
+    return sendJson(request, response, market.data ? 200 : 503, market);
+  }
+
+  if (request.method === "GET" && url.pathname === "/api/v1/mha/markets") {
+    const markets = await readMhaTickers();
+    return sendJson(request, response, markets.data ? 200 : 503, markets);
+  }
+
+  if (request.method === "GET" && url.pathname === "/api/v1/mha/supply") {
+    if (!mhaSupply) return sendJson(request, response, 503, { code: 503, msg: "MHA supply snapshot unavailable", data: null });
+    const current = mhaSupplyWithFreshness(mhaSupply, config.mhaSupplySyncMs * 2);
+    current._meta.lastError = lastMhaSupplyError || null;
+    return sendJson(request, response, 200, current);
+  }
+
+  if (request.method === "GET" && url.pathname === "/api/v1/mha/supply/health") {
+    const current = mhaSupplyWithFreshness(mhaSupply, config.mhaSupplySyncMs * 2);
+    return sendJson(request, response, mhaSupply ? 200 : 503, {
+      code: mhaSupply ? 200 : 503,
+      data: {
+        status: current?._meta?.status || "unavailable",
+        platformReady: current?.data?.metrics?.platformReady || false,
+        fetchedAt: current?._meta?.fetchedAt || null,
+        blockNumber: current?._meta?.blockNumber || null,
+        ageSeconds: current?._meta?.ageSeconds ?? null,
+        lastError: lastMhaSupplyError || null
+      }
+    });
+  }
+
+  if (request.method === "GET" && url.pathname === "/api/v1/mha/supply/total") {
+    const value = mhaSupply?.data?.metrics?.totalSupply;
+    return value ? sendText(request, response, 200, value) : sendText(request, response, 503, "unavailable");
+  }
+
+  if (request.method === "GET" && url.pathname === "/api/v1/mha/supply/circulating") {
+    const value = mhaSupply?.data?.metrics?.circulatingSupply;
+    return value ? sendText(request, response, 200, value) : sendText(request, response, 503, "unavailable");
+  }
+
+  if (request.method === "GET" && url.pathname === "/api/v1/mha/supply/coingecko") {
+    const metrics = mhaSupply?.data?.metrics;
+    if (!metrics?.circulatingSupply) {
+      return sendJson(request, response, 503, {
+        status: "pending-classification",
+        message: "Official circulating supply is withheld until wallet classifications are approved."
+      });
+    }
+    return sendJson(request, response, 200, {
+      circulating_supply: Number(metrics.circulatingSupply),
+      total_supply: Number(metrics.totalSupply),
+      max_supply: Number(metrics.maxSupply),
+      updated_at: mhaSupply._meta.fetchedAt,
+      block_number: mhaSupply._meta.blockNumber
+    });
+  }
+
   if (request.method !== "GET" && request.method !== "HEAD") {
     return sendJson(request, response, 405, { code: 405, msg: "Method not allowed" });
   }
@@ -226,16 +323,20 @@ server.listen(config.port, config.host, () => {
   console.log(`[collector] auth mode: ${serviceWallet.mode}`);
   void refresh();
   void syncChainHistory();
+  void syncMhaSupply();
 });
 
 const timer = setInterval(() => void refresh(), config.refreshMs);
 timer.unref();
 const chainTimer = setInterval(() => void syncChainHistory(), config.chainSyncMs);
 chainTimer.unref();
+const mhaSupplyTimer = setInterval(() => void syncMhaSupply(), config.mhaSupplySyncMs);
+mhaSupplyTimer.unref();
 
 function shutdown() {
   clearInterval(timer);
   clearInterval(chainTimer);
+  clearInterval(mhaSupplyTimer);
   server.close(() => process.exit(0));
 }
 

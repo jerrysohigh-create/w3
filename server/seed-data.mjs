@@ -53,6 +53,10 @@ export async function seedPersistentData(config, projectRoot) {
     [resolve(projectRoot, "assets", "data", "season-2-flow-audit.json"), config.flowAuditFile, false],
   ];
 
+  if (config.mhaSupplyFile) {
+    seeds.push([resolve(projectRoot, "assets", "data", "mha-supply-snapshot.json"), config.mhaSupplyFile, false]);
+  }
+
   const copied = [];
   for (const [source, target, recoverRegression] of seeds) {
     await mkdir(dirname(target), { recursive: true });

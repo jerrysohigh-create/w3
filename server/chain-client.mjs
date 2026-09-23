@@ -54,8 +54,27 @@ export class ChainClient {
     throw lastError || new Error("No BSC RPC URL available");
   }
 
-  call(address, signature) {
-    return this.rpc("eth_call", [{ to: address, data: selector(signature) }, "latest"]);
+  call(address, signature, blockTag = "latest") {
+    return this.rpc("eth_call", [{ to: address, data: selector(signature) }, blockTag]);
+  }
+
+  rawCall(address, data, blockTag = "latest") {
+    return this.rpc("eth_call", [{ to: address, data }, blockTag]);
+  }
+
+  blockNumber() {
+    return this.rpc("eth_blockNumber", []).then((value) => Number(BigInt(value)));
+  }
+
+  async tokenBalance(token, account, decimals = 18, blockTag = "latest") {
+    const addressWord = account.toLowerCase().replace(/^0x/, "").padStart(64, "0");
+    const value = await this.rawCall(token, `${selector("balanceOf(address)")}${addressWord}`, blockTag);
+    return formatUnits(decodeUint(value), decimals);
+  }
+
+  async tokenTotalSupply(token, decimals = 18, blockTag = "latest") {
+    const value = await this.call(token, "totalSupply()", blockTag);
+    return formatUnits(decodeUint(value), decimals);
   }
 
   async safeCall(address, signature, decoder) {
