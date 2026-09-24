@@ -121,3 +121,57 @@ test("seedPersistentData restores regressed BSC history and preserves newer data
     await rm(root, { recursive: true, force: true });
   }
 });
+
+test("seedPersistentData restores a regressed OG count but never overwrites a higher server count", async () => {
+  const root = await mkdtemp(join(tmpdir(), "w3-og-seed-recovery-"));
+  const dataDir = join(root, "persistent");
+  const ogSeed = {
+    data: { participatingWallets: 1085, convertedWallets: 744 },
+    _meta: { lastScannedBlock: 121253346 },
+    _state: { incrementalUsers: [] },
+  };
+
+  try {
+    const seedFiles = {
+      "assets/data/season-2-snapshot.json": {},
+      "assets/data/season-2-history.json": {},
+      "server-data/season-2-chain-events.json": {},
+      "server-data/season-2-bscscan-bootstrap.json": {},
+      "assets/data/season-2-flow-audit.json": {},
+      "assets/data/public-sale-og-conversions.json": ogSeed,
+    };
+    for (const [relative, value] of Object.entries(seedFiles)) {
+      const file = join(root, relative);
+      await mkdir(dirname(file), { recursive: true });
+      await writeFile(file, JSON.stringify(value), "utf8");
+    }
+    const config = {
+      dataDir,
+      cacheFile: join(dataDir, "season-2-snapshot.json"),
+      historyFile: join(dataDir, "season-2-history.json"),
+      evidenceFile: join(dataDir, "season-2-chain-events.json"),
+      bootstrapFile: join(dataDir, "season-2-bscscan-bootstrap.json"),
+      flowAuditFile: join(dataDir, "season-2-flow-audit.json"),
+      ogConversionsFile: join(dataDir, "public-sale-og-conversions.json"),
+    };
+    await seedPersistentData(config, root);
+
+    await writeFile(config.ogConversionsFile, JSON.stringify({
+      data: { participatingWallets: 1085, convertedWallets: 700 },
+      _meta: { lastScannedBlock: 121253500 },
+    }), "utf8");
+    assert.equal((await seedPersistentData(config, root)).length, 1);
+    assert.equal(JSON.parse(await readFile(config.ogConversionsFile, "utf8")).data.convertedWallets, 744);
+
+    const serverAhead = {
+      data: { participatingWallets: 1085, convertedWallets: 751 },
+      _meta: { lastScannedBlock: 121253300 },
+      _state: { incrementalUsers: ["0x0000000000000000000000000000000000000001"] },
+    };
+    await writeFile(config.ogConversionsFile, JSON.stringify(serverAhead), "utf8");
+    assert.equal((await seedPersistentData(config, root)).length, 0);
+    assert.equal(JSON.parse(await readFile(config.ogConversionsFile, "utf8")).data.convertedWallets, 751);
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});

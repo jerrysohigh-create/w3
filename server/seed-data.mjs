@@ -33,6 +33,14 @@ function regressedAgainstSeed(seed, target) {
     || current.totalEntries < baseline.totalEntries;
 }
 
+function ogConversionRegressed(seed, target) {
+  const seedBlock = Number(seed?._meta?.lastScannedBlock || 0);
+  const targetBlock = Number(target?._meta?.lastScannedBlock || 0);
+  const seedCount = Number(seed?.data?.convertedWallets || 0);
+  const targetCount = Number(target?.data?.convertedWallets || 0);
+  return targetCount < seedCount || (targetCount === seedCount && targetBlock < seedBlock);
+}
+
 async function restoreRegressedSeed(source, target) {
   const [seed, current] = await Promise.all([readJson(source), readJson(target)]);
   if (!regressedAgainstSeed(seed, current)) return false;
@@ -42,18 +50,27 @@ async function restoreRegressedSeed(source, target) {
   return true;
 }
 
-export async function seedPersistentData(config, projectRoot) {
-  if (!config.dataDir) return [];
+async function restoreRegressedOgSeed(source, target) {
+  const [seed, current] = await Promise.all([readJson(source), readJson(target)]);
+  if (!seed || !current || !ogConversionRegressed(seed, current)) return false;
+  const temporary = `${target}.seed-recovery.tmp`;
+  await writeFile(temporary, await readFile(source, "utf8"), "utf8");
+  await rename(temporary, target);
+  return true;
+}
 
-  const seeds = [
+export async function seedPersistentData(config, projectRoot) {
+  const seeds = config.dataDir ? [
     [resolve(projectRoot, "assets", "data", "season-2-snapshot.json"), config.cacheFile, false],
     [resolve(projectRoot, "assets", "data", "season-2-history.json"), config.historyFile, true],
     [resolve(projectRoot, "server-data", "season-2-chain-events.json"), config.evidenceFile, true],
     [resolve(projectRoot, "server-data", "season-2-bscscan-bootstrap.json"), config.bootstrapFile, false],
     [resolve(projectRoot, "assets", "data", "season-2-flow-audit.json"), config.flowAuditFile, false],
-  ];
-
-  if (config.mhaSupplyFile) {
+  ] : [];
+  if (config.ogConversionsFile) {
+    seeds.push([resolve(projectRoot, "assets", "data", "public-sale-og-conversions.json"), config.ogConversionsFile, "og"]);
+  }
+  if (config.dataDir && config.mhaSupplyFile) {
     seeds.push([resolve(projectRoot, "assets", "data", "mha-supply-snapshot.json"), config.mhaSupplyFile, false]);
   }
 
@@ -64,8 +81,10 @@ export async function seedPersistentData(config, projectRoot) {
       await copyFile(source, target, constants.COPYFILE_EXCL);
       copied.push(target);
     } catch (error) {
+      if (error?.code === "ENOENT") continue;
       if (error?.code !== "EEXIST") throw error;
-      if (recoverRegression && await restoreRegressedSeed(source, target)) copied.push(target);
+      if (recoverRegression === "og" && await restoreRegressedOgSeed(source, target)) copied.push(target);
+      else if (recoverRegression && await restoreRegressedSeed(source, target)) copied.push(target);
     }
   }
   return copied;

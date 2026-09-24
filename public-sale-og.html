@@ -69,15 +69,15 @@
           </div>
           <div class="og-settlement-window reveal" id="provisional-window">
             <header class="og-settlement-window-head">
-              <div><span>PROVISIONAL MECHANISM / SUBJECT TO FINAL RULES</span><h3>Provisional 10-day conversion window. 40-day release. One final settlement.</h3></div>
+              <div><span>PROVISIONAL MECHANISM / SUBJECT TO FINAL RULES</span><h3>Conversion closes 2026.09.14 at 00:00 UTC+8. 40-day release. One final settlement.</h3></div>
               <dl class="og-window-dates" aria-label="Provisional conversion window dates">
                 <div><dt>START / UTC+8</dt><dd><time datetime="2026-09-08">2026.09.08</time></dd></div>
-                <div><dt>END / UTC+8</dt><dd><time datetime="2026-09-17T23:59:59+08:00">2026.09.17 · 23:59</time></dd></div>
-                <small>10 calendar days, counting both the start and end date. Final snapshot time and block will be published separately.</small>
+                <div><dt>END / UTC+8</dt><dd><time datetime="2026-09-14T00:00:00+08:00">2026.09.14 · 00:00</time></dd></div>
+                <small>The conversion window closes at 00:00 UTC+8 on 2026.09.14. Final snapshot time and block will be published separately.</small>
               </dl>
             </header>
             <ol class="og-settlement-timeline" aria-label="Provisional OG conversion and settlement timeline">
-              <li><b>01 / 2026.09.08–09.17</b><strong>Provisional 10-day OG conversion window</strong><span>Eligible OG users choose either to retain their original rights or confirm conversion through the authorized portal.</span></li>
+              <li><b>01 / 2026.09.08–09.14 00:00</b><strong>OG conversion closes at 00:00 UTC+8</strong><span>Eligible OG users choose either to retain their original rights or confirm conversion through the authorized portal before the deadline.</span></li>
               <li><b>02 / FROM CONFIRMATION</b><strong>40-day linear release</strong><span>Each confirmed conversion starts its applicable MS2 release schedule. Released MS2 may be claimed and staked under the published contract rules.</span></li>
               <li><b>03 / PHONE DRAW CLOSE</b><strong>New S2 participation stops</strong><span>After the final Phone Gen1 selection, no new Season 2 purchases or lottery entries are accepted.</span></li>
               <li><b>04 / FINAL SETTLEMENT</b><strong>Eligible rewards are locked</strong><span>Users already admitted to the OG or private-sale conversion process may finish release and staking, and continue generating eligible MS2 staking-mining rewards until the pre-announced final snapshot.</span></li>
@@ -116,9 +116,9 @@
             <p class="chart-source">SOURCE JSON REFRESH: 2026-07-13 15:21:30 UTC · VALUES SHOWN IN MHA · STATIC W3 REPRODUCTION</p>
           </div>
 
-          <div class="public-sale-operation reveal" aria-label="OG to MS2 conversion snapshot">
-            <div><span>[ OG → MS2 CONVERTED WALLETS ]</span><strong>465</strong><small>UNIQUE USER ADDRESSES · 465 CONVERTED EVENTS · BSC BLOCK 120,914,306</small></div>
-            <div><span>[ MS2 ALLOCATED BY CONVERSION CONTRACT ]</span><strong>1,849,581.087235 MS2</strong><small>ON-CHAIN TOTALALLOCATED() · SNAPSHOT 2026-09-10 00:59 UTC+8</small></div>
+          <div class="public-sale-operation reveal" aria-label="OG to MS2 conversion snapshot" aria-live="polite">
+            <div><span>[ OG → MS2 CONVERTED WALLETS ]</span><strong id="og-converted-wallets" data-baseline="850">850</strong><small id="og-conversion-meta">78.34% OF 1,085 OG WALLETS · BSC BLOCK 123,693,890</small></div>
+            <div><span>[ MS2 ALLOCATED BY CONVERSION CONTRACT ]</span><strong id="og-total-allocated">3,118,224.180974 MS2</strong><small id="og-allocation-meta">SNAPSHOT 2026-09-24 12:35 UTC+8 · LIVE UPDATE PENDING</small></div>
             <a class="btn secondary" href="https://bscscan.com/address/0x6bAa796a82dB3aBE94cb202c0A6796F0d046a4bC" target="_blank" rel="noopener noreferrer">VERIFY CONTRACT ↗</a>
           </div>
 
@@ -148,6 +148,7 @@
     <footer id="site-footer"></footer>
     <script src="assets/js/site.js?v=20260821-14"></script>
     <script src="assets/js/season-status.js?v=20260821-4"></script>
+    <script src="assets/js/public-sale-og.js?v=20260924-1"></script>
     <script src="assets/js/analytics.js?v=20260821-3"></script>
     <script src="assets/js/locale-switch.js?v=20260821-3"></script>
   </body>

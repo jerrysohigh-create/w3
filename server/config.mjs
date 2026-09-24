@@ -18,6 +18,7 @@ export const config = Object.freeze({
   host: process.env.HOST || "127.0.0.1",
   refreshMs: positiveInteger(process.env.W3_REFRESH_SECONDS, 60) * 1000,
   chainSyncMs: positiveInteger(process.env.W3_CHAIN_SYNC_SECONDS, 300) * 1000,
+  ogSyncMs: positiveInteger(process.env.W3_OG_SYNC_SECONDS, 15) * 1000,
   mhaSupplySyncMs: positiveInteger(process.env.W3_MHA_SUPPLY_SYNC_SECONDS, 60) * 1000,
   staleAfterMs: positiveInteger(process.env.W3_STALE_AFTER_SECONDS, 300) * 1000,
   paymentApiBase: (process.env.PAYMENT_API_BASE || "https://payment.magne.ai/api").replace(/\/$/, ""),
@@ -33,6 +34,9 @@ export const config = Object.freeze({
   evidenceFile: dataFile("season-2-chain-events.json", "../server-data/season-2-chain-events.json"),
   bootstrapFile: dataFile("season-2-bscscan-bootstrap.json", "../server-data/season-2-bscscan-bootstrap.json"),
   flowAuditFile: dataFile("season-2-flow-audit.json", "../assets/data/season-2-flow-audit.json"),
+  ogConversionsFile: dataFile("public-sale-og-conversions.json", "../server-data/public-sale-og-conversions.json"),
   mhaSupplyFile: dataFile("mha-supply-snapshot.json", "../assets/data/mha-supply-snapshot.json"),
   mhaPlatformReady: process.env.W3_MHA_PLATFORM_READY !== "false",
+  ogConfirmations: positiveInteger(process.env.W3_OG_CONFIRMATIONS, 3),
+  ogPortalUrl: process.env.W3_OG_PORTAL_URL || process.env.S2_HISTORY_PORTAL_URL || "https://portal.sqd.dev/datasets/binance-mainnet/finalized-stream"
 });

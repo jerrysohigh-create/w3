@@ -69,15 +69,15 @@
           </div>
           <div class="og-settlement-window reveal" id="provisional-window">
             <header class="og-settlement-window-head">
-              <div><span>暫定機制 / 以最終規則為準</span><h3>暫定 10 天兌換期限，40 天線性釋放，最後統一結算。</h3></div>
+              <div><span>暫定機制 / 以最終規則為準</span><h3>兌換截止至 2026.09.14 00:00（UTC+8），40 天線性釋放，最後統一結算。</h3></div>
               <dl class="og-window-dates" aria-label="暫定兌換期限日期">
                 <div><dt>開始 / UTC+8</dt><dd><time datetime="2026-09-08">2026.09.08</time></dd></div>
-                <div><dt>結束 / UTC+8</dt><dd><time datetime="2026-09-17T23:59:59+08:00">2026.09.17 · 23:59</time></dd></div>
-                <small>按自然日計算，開始日與結束日均計入，共暫定 10 天；最終快照時間及區塊另行公布。</small>
+                <div><dt>結束 / UTC+8</dt><dd><time datetime="2026-09-14T00:00:00+08:00">2026.09.14 · 00:00</time></dd></div>
+                <small>兌換期限於 2026.09.14 00:00（UTC+8）截止；最終快照時間及區塊另行公布。</small>
               </dl>
             </header>
             <ol class="og-settlement-timeline" aria-label="Public Sale OG 暫定兌換及結算時間軸">
-              <li><b>01 / 2026.09.08–09.17</b><strong>暫定 10 天 OG 兌換期限</strong><span>合資格 OG 使用者可選擇保留原權利，或在官方頁面確認兌換。</span></li>
+              <li><b>01 / 2026.09.08–09.14 00:00</b><strong>OG 兌換於 00:00（UTC+8）截止</strong><span>合資格 OG 使用者可在截止時間前選擇保留原權利，或在官方頁面確認兌換。</span></li>
               <li><b>02 / 確認後起算</b><strong>40 天線性釋放</strong><span>每筆已確認兌換按適用時點開始 MS2 釋放；已釋放 MS2 可依正式合約規則領取及質押。</span></li>
               <li><b>03 / 手機抽選結束</b><strong>停止新的 S2 參與</strong><span>最後一台 Phone Gen1 抽出後，不再接受新的 Season 2 購買或抽獎名額。</span></li>
               <li><b>04 / 最終統一結算</b><strong>鎖定合資格收益</strong><span>已進入 OG 或私募轉換流程的使用者，可繼續完成釋放與質押，並持續產生合資格 MS2 質押挖礦收益，直到預先公布的最終快照。</span></li>
@@ -116,9 +116,9 @@
             <p class="chart-source">來源 JSON 刷新：2026-07-13 15:21:30 UTC · 數值單位 MHA · W3 靜態重現</p>
           </div>
 
-          <div class="public-sale-operation reveal" aria-label="OG 兌換 MS2 鏈上快照">
-            <div><span>[ OG → MS2 已轉換錢包 ]</span><strong>465</strong><small>唯一 USER 地址 · 465 筆 CONVERTED 事件 · BSC 區塊 120,914,306</small></div>
-            <div><span>[ 轉換合約已分配 MS2 ]</span><strong>1,849,581.087235 MS2</strong><small>鏈上 TOTALALLOCATED() · 快照 2026-09-10 00:59 UTC+8</small></div>
+          <div class="public-sale-operation reveal" aria-label="OG 兌換 MS2 鏈上快照" aria-live="polite">
+            <div><span>[ OG → MS2 已轉換錢包 ]</span><strong id="og-converted-wallets" data-baseline="850">850</strong><small id="og-conversion-meta">78.34% / 1,085 個 OG 錢包 · BSC 區塊 123,693,890</small></div>
+            <div><span>[ 轉換合約已分配 MS2 ]</span><strong id="og-total-allocated">3,118,224.180974 MS2</strong><small id="og-allocation-meta">快照 2026-09-24 12:35 UTC+8 · 等待即時更新</small></div>
             <a class="btn secondary" href="https://bscscan.com/address/0x6bAa796a82dB3aBE94cb202c0A6796F0d046a4bC" target="_blank" rel="noopener noreferrer">核驗合約 ↗</a>
           </div>
 
@@ -148,6 +148,7 @@
     <footer id="site-footer"></footer>
     <script src="../assets/js/tc/site.js?v=20260821-15"></script>
     <script src="../assets/js/season-status.js?v=20260821-4"></script>
+    <script src="../assets/js/tc/public-sale-og.js?v=20260924-1"></script>
     <script src="../assets/js/tc/analytics.js?v=20260821-3"></script>
     <script src="../assets/js/locale-switch.js?v=20260821-3"></script>
   </body>

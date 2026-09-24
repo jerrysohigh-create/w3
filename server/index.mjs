@@ -11,6 +11,7 @@ import { config, projectRoot } from "./config.mjs";
 import { createServiceWallet, PaymentClient } from "./payment-client.mjs";
 import { readHistory } from "./history.mjs";
 import { collectMhaSupply, mhaSupplyWithFreshness, readMhaSupply, writeMhaSupply } from "./mha-supply.mjs";
+import { OgConversionCollector, publicOgConversions, readOgConversions } from "./og-conversions.mjs";
 import { seedPersistentData } from "./seed-data.mjs";
 import { buildSnapshot, readSnapshot, snapshotWithFreshness, writeSnapshot } from "./snapshot.mjs";
 
@@ -31,6 +32,12 @@ const serviceWallet = createServiceWallet({
 });
 const payment = new PaymentClient({ baseUrl: config.paymentApiBase, wallet: serviceWallet.wallet });
 const chain = new ChainClient(config.rpcUrls);
+const ogCollector = new OgConversionCollector({
+  file: config.ogConversionsFile,
+  chain,
+  confirmations: config.ogConfirmations,
+  streamUrl: config.ogPortalUrl
+});
 const execFileAsync = promisify(execFile);
 
 const seededFiles = await seedPersistentData(config, projectRoot);
@@ -38,11 +45,14 @@ if (seededFiles.length) console.log(`[data] seeded ${seededFiles.length} persist
 
 let snapshot = await readSnapshot(config.cacheFile);
 let history = await readHistory(config.historyFile);
+let ogConversions = await readOgConversions(config.ogConversionsFile);
 let mhaSupply = await readMhaSupply(config.mhaSupplyFile);
 let refreshInFlight = null;
 let chainSyncInFlight = null;
 let lastError = "";
 let lastChainError = "";
+let ogSyncInFlight = null;
+let lastOgError = "";
 let mhaSupplySyncInFlight = null;
 let lastMhaSupplyError = "";
 
@@ -65,6 +75,25 @@ async function syncMhaSupply() {
     }
   })();
   return mhaSupplySyncInFlight;
+}
+
+async function syncOgConversions() {
+  if (ogSyncInFlight) return ogSyncInFlight;
+  ogSyncInFlight = (async () => {
+    try {
+      ogConversions = await ogCollector.sync();
+      lastOgError = "";
+      console.log(`[og-sync] ${ogConversions.data.convertedWallets} converted wallets through block ${ogConversions._meta.lastScannedBlock}`);
+      return ogConversions;
+    } catch (error) {
+      lastOgError = error instanceof Error ? error.message : String(error);
+      console.error(`[og-sync] failed: ${lastOgError}`);
+      return ogConversions;
+    } finally {
+      ogSyncInFlight = null;
+    }
+  })();
+  return ogSyncInFlight;
 }
 
 function securityHeaders(request) {
@@ -175,6 +204,9 @@ function sendText(request, response, status, payload) {
 async function sendStatic(request, response, pathname) {
   let relative = pathname === "/" ? "index.html" : pathname.replace(/^\/+/, "");
   let file = resolve(projectRoot, relative);
+  if (file === resolve(config.ogConversionsFile)) {
+    return sendJson(request, response, 403, { code: 403, msg: "Private collector state" });
+  }
   const rootPrefix = projectRoot.endsWith(sep) ? projectRoot : `${projectRoot}${sep}`;
   if (file !== projectRoot && !file.startsWith(rootPrefix)) {
     sendJson(request, response, 403, { code: 403, msg: "Forbidden" });
@@ -252,6 +284,17 @@ const server = createServer(async (request, response) => {
     return sendJson(request, response, 200, history);
   }
 
+  if (request.method === "GET" && url.pathname === "/api/v1/public-sale-og/conversions") {
+    if (!ogConversions) return sendJson(request, response, 503, { code: 503, msg: "OG conversion snapshot unavailable", data: null });
+    return sendJson(request, response, 200, {
+      ...publicOgConversions(ogConversions),
+      _meta: {
+        ...publicOgConversions(ogConversions)._meta,
+        lastError: lastOgError || null
+      }
+    });
+  }
+
   if (request.method === "GET" && url.pathname === "/api/v1/mha/market") {
     const market = await readMhaMarket();
     return sendJson(request, response, market.data ? 200 : 503, market);
@@ -323,6 +366,7 @@ server.listen(config.port, config.host, () => {
   console.log(`[collector] auth mode: ${serviceWallet.mode}`);
   void refresh();
   void syncChainHistory();
+  void syncOgConversions();
   void syncMhaSupply();
 });
 
@@ -330,12 +374,15 @@ const timer = setInterval(() => void refresh(), config.refreshMs);
 timer.unref();
 const chainTimer = setInterval(() => void syncChainHistory(), config.chainSyncMs);
 chainTimer.unref();
+const ogTimer = setInterval(() => void syncOgConversions(), config.ogSyncMs);
+ogTimer.unref();
 const mhaSupplyTimer = setInterval(() => void syncMhaSupply(), config.mhaSupplySyncMs);
 mhaSupplyTimer.unref();
 
 function shutdown() {
   clearInterval(timer);
   clearInterval(chainTimer);
+  clearInterval(ogTimer);
   clearInterval(mhaSupplyTimer);
   server.close(() => process.exit(0));
 }

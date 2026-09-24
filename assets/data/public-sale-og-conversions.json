@@ -1,0 +1,24 @@
+{
+  "code": 200,
+  "msg": "OK",
+  "data": {
+    "participatingWallets": 1085,
+    "convertedWallets": 850,
+    "conversionRate": 78.3410138248848,
+    "convertedEvents": 850,
+    "totalAllocatedMs2": "3118224.18097414082675"
+  },
+  "_meta": {
+    "status": "verified",
+    "source": "SQD Portal finalized BSC stream",
+    "contract": "0x6bAa796a82dB3aBE94cb202c0A6796F0d046a4bC",
+    "eventTopic": "0x80aaefaf59d70d6ed6ecae25018f99e73b43f7dc60af403d422b060c6c1df02c",
+    "baselineConvertedWallets": 849,
+    "baselineBlock": 122986680,
+    "lastScannedBlock": 123693890,
+    "chainHead": 123693893,
+    "confirmations": 3,
+    "newConvertedWallets": 0,
+    "fetchedAt": "2026-09-24T04:35:58.171Z"
+  }
+}
