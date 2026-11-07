@@ -17,16 +17,46 @@ test("deployment bundle includes the verified Season 2 chain baseline", async ()
   assert.ok(Number(evidence?._meta?.toBlock) >= 117055101, "verified scan coverage must be preserved");
 });
 
-test("public snapshot keeps the verified MS2 supply and staking ratio", async () => {
-  const snapshotFile = join(dirname(fileURLToPath(import.meta.url)), "..", "assets", "data", "season-2-snapshot.json");
-  const snapshot = JSON.parse(await readFile(snapshotFile, "utf8"));
-  const supply = Number(snapshot?.data?.ms2Issued);
-  const staked = Number(snapshot?.data?.liquidityPrepared);
+function assertValidStakingSnapshot(snapshot) {
+  const supply = snapshot?.data?.ms2Issued;
+  const staked = snapshot?.data?.liquidityPrepared;
 
   assert.equal(supply, 6000000, "checked-in current supply must match MS2 totalSupply()");
   assert.equal(snapshot?.contracts?.ms2TotalSupply, "6000000.0");
   assert.equal(snapshot?.contracts?.contracts?.ms2Token, "0xC46A54BBD2716C436Aaaed6Ed2f555a9b054ebD1");
-  assert.equal(((staked / supply) * 100).toFixed(4), "4.6447");
+  // Staking is live data: validate its evidence and bounds, not a dated ratio.
+  assert.ok(Number.isFinite(staked), "public staked amount must be a finite number");
+  assert.ok(staked >= 0 && staked <= supply, "staked amount must be within total supply");
+  const chainStaked = snapshot?.contracts?.totalStaked;
+  assert.ok(typeof chainStaked === "string" && /^\d+(?:\.\d+)?$/.test(chainStaked), "chain staking evidence must be a decimal string");
+  assert.equal(staked, Number(chainStaked), "public staked amount must match chain evidence");
+  return (staked / supply) * 100;
+}
+
+test("public snapshot keeps verified MS2 supply and valid live staking evidence", async () => {
+  const snapshotFile = join(dirname(fileURLToPath(import.meta.url)), "..", "assets", "data", "season-2-snapshot.json");
+  assertValidStakingSnapshot(JSON.parse(await readFile(snapshotFile, "utf8")));
+});
+
+test("staking validation accepts changing ratios and rejects invalid evidence", () => {
+  const fixture = (staked) => ({
+    data: { ms2Issued: 6000000, liquidityPrepared: staked },
+    contracts: {
+      ms2TotalSupply: "6000000.0", totalStaked: String(staked),
+      contracts: { ms2Token: "0xC46A54BBD2716C436Aaaed6Ed2f555a9b054ebD1" }
+    }
+  });
+  for (const staked of [0, 278682, 3069918, 6000000]) {
+    assert.equal(assertValidStakingSnapshot(fixture(staked)), (staked / 6000000) * 100);
+  }
+  for (const staked of [null, undefined, "", "3069918", -1, 6000001, NaN, Infinity]) {
+    assert.throws(() => assertValidStakingSnapshot(fixture(staked)));
+  }
+  for (const evidence of [null, "", "invalid", "1"]) {
+    const snapshot = fixture(3069918);
+    snapshot.contracts.totalStaked = evidence;
+    assert.throws(() => assertValidStakingSnapshot(snapshot));
+  }
 });
 
 test("seedPersistentData initializes an empty persistent directory without overwriting it", async () => {
