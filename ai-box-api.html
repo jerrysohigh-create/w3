@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AI BOX Developer API Guide — W3.MAGNE.AI</title>
+    <meta name="description" content="AI BOX developer preview: local inference, knowledge retrieval and model management.">
+    <link rel="stylesheet" href="assets/css/site.css?v=20260821-23" />
+    <link rel="canonical" href="https://w3.magne.ai/ai-box-api.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AI BOX Developer API Guide — W3.MAGNE.AI">
+  <meta property="og:description" content="AI BOX developer preview: local inference, knowledge retrieval and model management.">
+  <meta property="og:image" content="https://w3.magne.ai/assets/images/og/w3-system-card.svg" />
+  <meta property="og:url" content="https://w3.magne.ai/ai-box-api.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0a0a0c" />
+  <link rel="icon" href="assets/images/brand/w3-mark.svg" type="image/svg+xml" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="alternate" hreflang="en" href="https://w3.magne.ai/ai-box-api.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/ai-box-api.html" />
+  <link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/ai-box-api.html" />
+  <link rel="stylesheet" href="assets/css/locale.css?v=20260821-3" />
+<link rel="stylesheet" href="assets/css/ai-box-docs.css?v=20261107">
+</head>
+  <body data-copy-success="Copied" data-copy-failure="Copy unavailable. Select the code and copy manually." data-page="ai-box" class="abx-doc-page" data-lang="en" data-locale-peer="tc/ai-box-api.html">
+    <a class="abx-skip" href="#api-guide">Skip to guide</a><header id="site-header"></header>
+    <main id="api-guide" class="wrap abx-doc-layout"><aside class="abx-doc-nav"><p class="section-label">AI BOX / LOCAL API</p><nav aria-label="Guide contents"><a href="#guide-1">Connection prerequisites</a>
+<a href="#guide-2">Discover a model and send a request</a>
+<a href="#guide-3">Embeddings and reranking</a>
+<a href="#guide-4">Files and knowledge retrieval</a>
+<a href="#guide-5">Administrator authentication and application tokens</a>
+<a href="#guide-6">Load or switch models</a>
+<a href="#guide-7">Health and troubleshooting</a>
+<a href="#guide-8">Recorded validation and revision</a></nav><a class="btn" href="ai-box.html#benchmark-202611">Product & benchmarks →</a><a class="btn" href="developers.html">Developer hub →</a></aside><article class="abx-doc-content"><p class="section-label">DEVELOPER PREVIEW · DEVICE ACCESS REQUIRED</p><h1>MAGNE.AI BOX Developer API Guide</h1>
+<p>Developer preview v0.1 · Content updated 2026-11-07</p>
+<p>This guide covers local inference, knowledge retrieval and model management on provisioned MAGNE.AI BOX preview devices. ROC is the software/service naming used in the current handoff materials. This guide does not establish MAG1 compatibility.</p>
+<p>Use a preview device with the documented interfaces and HTTPS administration enabled. Check the delivery record and <code>GET /v1/version</code> for the supported build. Requests use OpenAI-style structures; full API or arbitrary agent-tool compatibility is not implied.</p>
+<h2 id="guide-1">Connection prerequisites</h2>
+<p>Obtain a provisioned device, a USB data cable, ADB, the supplied administration trust certificate, administrator credentials and an application token through your device delivery process. Initialization and administrator recovery are separate maintenance procedures.</p>
+<p>Examples use POSIX shell syntax. On Windows, use a configured WSL or Git Bash environment.</p>
+<div class="abx-code"><div class="abx-code-bar"><span>SH</span><button type="button" class="abx-copy">Copy</button><span role="status"></span></div><pre tabindex="0" aria-label="Code example"><code>adb devices -l
+adb -s DEVICE_SERIAL forward --no-rebind tcp:8080 tcp:8080
+adb -s DEVICE_SERIAL forward --no-rebind tcp:18081 tcp:18081</code></pre></div>
+<p>Replace DEVICE_SERIAL with your actual device identifier. If a port is occupied, inspect <code>adb forward --list</code> before changing mappings.</p>
+<p>Business base URL: <code>http://127.0.0.1:8080/v1</code>. Administration base URL: <code>https://127.0.0.1:18081/admin/api</code>. Business HTTP is limited to loopback and controlled USB forwarding. Connecting Wi-Fi does not expose a LAN API. Access from other hosts requires a controlled connection configured by the deployment operator.</p>
+<p>Do not expose ADB or these ports directly to the Internet. This documentation website does not need your device secrets. Do not bypass certificate validation with <code>-k</code>. Older HTTP administration builds require their matching delivery instructions.</p>
+<h2 id="guide-2">Discover a model and send a request</h2>
+<p>Supply <code>ROC_API_TOKEN</code> through your local secure environment. This is an application token, not an administrator session. Never embed real credentials in website code, public examples or logs.</p>
+<div class="abx-code"><div class="abx-code-bar"><span>SH</span><button type="button" class="abx-copy">Copy</button><span role="status"></span></div><pre tabindex="0" aria-label="Code example"><code>BASE=http://127.0.0.1:8080/v1
+curl -sS &quot;$BASE/version&quot; -H &quot;Authorization: Bearer $ROC_API_TOKEN&quot;
+curl -sS &quot;$BASE/models&quot; -H &quot;Authorization: Bearer $ROC_API_TOKEN&quot;
+curl -sS &quot;$BASE/models/local%2Fqwen35-35b/health&quot; \
+  -H &quot;Authorization: Bearer $ROC_API_TOKEN&quot;
+curl -sS &quot;$BASE/chat/completions&quot; \
+  -H &quot;Authorization: Bearer $ROC_API_TOKEN&quot; \
+  -H 'Content-Type: application/json' \
+  -d '{&quot;model&quot;:&quot;local/qwen35-35b&quot;,&quot;messages&quot;:[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;What is 19 + 23? Reply only the integer.&quot;}],&quot;temperature&quot;:0,&quot;max_tokens&quot;:32,&quot;stream&quot;:false}'</code></pre></div>
+<p>Select the public model ID returned by your device. <code>local/qwen35-35b</code> is a delivery example and a service alias, not proof of an exact model revision or quantization. URL-encode slashes in path IDs. Wait for <code>model_ready=true</code>; an unloaded model must first be loaded by an administrator.</p>
+<p>Read the answer from <code>choices[0].message.content</code>. Include the required messages history for multi-turn conversations. For streaming chat, use <code>stream:true</code> and <code>curl -N</code>; read SSE until <code>[DONE]</code>. A disconnected stream is not a successful completion.</p>
+<h2 id="guide-3">Embeddings and reranking</h2>
+<div class="abx-code"><div class="abx-code-bar"><span>SH</span><button type="button" class="abx-copy">Copy</button><span role="status"></span></div><pre tabindex="0" aria-label="Code example"><code>curl -sS &quot;$BASE/embeddings&quot; \
+  -H &quot;Authorization: Bearer $ROC_API_TOKEN&quot; \
+  -H 'Content-Type: application/json' \
+  -d '{&quot;model&quot;:&quot;npu/embedding&quot;,&quot;input&quot;:&quot;Document text&quot;}'
+curl -sS &quot;$BASE/rerank&quot; \
+  -H &quot;Authorization: Bearer $ROC_API_TOKEN&quot; \
+  -H 'Content-Type: application/json' \
+  -d '{&quot;query&quot;:&quot;network&quot;,&quot;documents&quot;:[&quot;network setup&quot;,&quot;weather&quot;],&quot;top_n&quot;:2}'</code></pre></div>
+<p>The documented embedding configuration returns 1,024 dimensions in <code>data[0].embedding</code>. Reranking returns document indexes and relevance scores in <code>results</code>. Check the administration model catalog for <code>npu/embedding</code> and <code>npu/rerank</code>; their status is not available through <code>/models/{id}/health</code>. Startup readiness may temporarily cause HTTP 503.</p>
+<h2 id="guide-4">Files and knowledge retrieval</h2>
+<div class="abx-table" tabindex="0" role="region" aria-label="API reference table"><table><thead><tr><th scope="col">Step</th><th scope="col">Endpoint</th><th scope="col">Request or result</th></tr></thead><tbody><tr><td data-label="Step">Upload</td><td data-label="Endpoint">POST /v1/files</td><td data-label="Request or result">multipart purpose=assistants and file; save file_id</td></tr><tr><td data-label="Step">Create store</td><td data-label="Endpoint">POST /v1/vector_stores</td><td data-label="Request or result">JSON {&quot;name&quot;:&quot;customer-docs&quot;}; save returned id</td></tr><tr><td data-label="Step">Attach</td><td data-label="Endpoint">POST /v1/vector_stores/{id}/files</td><td data-label="Request or result">JSON {&quot;file_id&quot;:&quot;FILE_ID&quot;}</td></tr><tr><td data-label="Step">Wait</td><td data-label="Endpoint">GET /v1/vector_stores/{id}/files/{file_id}</td><td data-label="Request or result">Wait for status=completed; handle failed/cancelled</td></tr><tr><td data-label="Step">Search</td><td data-label="Endpoint">POST /v1/vector_stores/{id}/search</td><td data-label="Request or result">JSON {&quot;query&quot;:&quot;query text&quot;}</td></tr><tr><td data-label="Step">Answer</td><td data-label="Endpoint">POST /v1/responses</td><td data-label="Request or result">Use file_search as below</td></tr></tbody></table></div>
+<p>Save the following as <code>rag.json</code>, replacing the model and vector-store IDs:</p>
+<div class="abx-code"><div class="abx-code-bar"><span>JSON</span><button type="button" class="abx-copy">Copy</button><span role="status"></span></div><pre tabindex="0" aria-label="Code example"><code>{
+  &quot;model&quot;: &quot;local/qwen35-35b&quot;,
+  &quot;instructions&quot;: &quot;Answer briefly and cite the source.&quot;,
+  &quot;input&quot;: [{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;What is the verification keyword?&quot;}],
+  &quot;tools&quot;: [{&quot;type&quot;:&quot;file_search&quot;,&quot;vector_store_ids&quot;:[&quot;YOUR_VECTOR_STORE_ID&quot;]}],
+  &quot;max_output_tokens&quot;: 128,
+  &quot;stream&quot;: true
+}</code></pre></div>
+<div class="abx-code"><div class="abx-code-bar"><span>SH</span><button type="button" class="abx-copy">Copy</button><span role="status"></span></div><pre tabindex="0" aria-label="Code example"><code>curl -sS -N &quot;$BASE/responses&quot; \
+  -H &quot;Authorization: Bearer $ROC_API_TOKEN&quot; \
+  -H 'Content-Type: application/json' --data-binary @rag.json</code></pre></div>
+<p>Only <code>response.completed</code> indicates full success. For <code>response.failed</code>, inspect <code>response.last_error</code>. Treat <code>response.incomplete</code> and a connection closing before a terminal event as incomplete. Retain X-Request-ID; do not blindly retry after partial output.</p>
+<p>Display returned file citations with answers. OCR is part of document ingestion. Supported formats, sizes, page counts and complex layouts depend on the delivered configuration and testing. Successful ingestion does not guarantee correct extraction of every document.</p>
+<p>Delete a store with <code>DELETE /v1/vector_stores/{id}</code> and a file with <code>DELETE /v1/files/{file_id}</code> after checking ownership and purpose.</p>
+<h2 id="guide-5">Administrator authentication and application tokens</h2>
+<p>Log in through <code>POST /admin/api/login</code> with JSON username and password. Use the returned session as the Bearer credential for management requests and validate HTTPS against the delivered certificate. Log out through <code>POST /admin/api/logout</code>.</p>
+<p>Applications use separate tokens. Administrators issue, rotate and revoke them through the delivered management interface or approved tooling. Grant only required scopes: inference, embeddings, rerank and rag. Ordinary application-token plaintext is returned at issuance or rotation; rotation invalidates the old token. Replace lost tokens rather than trying to recover them. Device handoff and maintenance credentials follow a separate process.</p>
+<h2 id="guide-6">Load or switch models</h2>
+<p>Supply a valid <code>ADMIN_SESSION</code> through your secure local environment. Replace TARGET_ID and COPY_REVISION with values from the current administration catalog. Management IDs may differ from business model IDs.</p>
+<div class="abx-code"><div class="abx-code-bar"><span>SH</span><button type="button" class="abx-copy">Copy</button><span role="status"></span></div><pre tabindex="0" aria-label="Code example"><code>ADMIN=https://127.0.0.1:18081/admin/api
+curl -sS --cacert provider-admin-trust.pem &quot;$ADMIN/models&quot; \
+  -H &quot;Authorization: Bearer $ADMIN_SESSION&quot;
+curl -sS -i --cacert provider-admin-trust.pem &quot;$ADMIN/models/switch&quot; \
+  -H &quot;Authorization: Bearer $ADMIN_SESSION&quot; \
+  -H 'Content-Type: application/json' \
+  -d '{&quot;target&quot;:{&quot;id&quot;:&quot;TARGET_ID&quot;,&quot;revision&quot;:&quot;COPY_REVISION&quot;}}'
+curl -sS --cacert provider-admin-trust.pem &quot;$ADMIN/models/operations/OPERATION_ID&quot; \
+  -H &quot;Authorization: Bearer $ADMIN_SESSION&quot;</code></pre></div>
+<p>Use switch when another model is resident and load when none is resident. HTTP 202 means accepted, not completed. Save operation_id and poll the same operation until succeeded, failed or cancelled. Pause business requests during a switch. Resume after the operation succeeds, the target model is ready and a short inference request succeeds. Cold loading may take minutes.</p>
+<p>Read the boot policy with <code>GET /admin/api/models/policy</code>. PUT replaces the full policy with a version lock; preserve other fields and re-read on HTTP 409. Saving a boot policy does not switch the current resident model.</p>
+<h2 id="guide-7">Health and troubleshooting</h2>
+<p>Management routes include <code>GET /admin/api/status</code>, <code>/health</code>, <code>/system/health</code>, <code>/device/thermal</code>, <code>/device/thermal/history</code> and <code>/audit/export</code>. All require an administrator session and HTTPS certificate validation.</p>
+<div class="abx-table" tabindex="0" role="region" aria-label="API reference table"><table><thead><tr><th scope="col">HTTP</th><th scope="col">Action</th></tr></thead><tbody><tr><td data-label="HTTP">400</td><td data-label="Action">Check request fields, model and parameters</td></tr><tr><td data-label="HTTP">401/403</td><td data-label="Action">Check token, session and scope; log in again or rotate as appropriate</td></tr><tr><td data-label="HTTP">404</td><td data-label="Action">Check route, encoded model ID and feature availability</td></tr><tr><td data-label="HTTP">429</td><td data-label="Action">Reduce concurrency or wait for login lockout to expire</td></tr><tr><td data-label="HTTP">503</td><td data-label="Action">Check model readiness; retain error code and request ID</td></tr></tbody></table></div>
+<p>Report the time and timezone, version, model ID, request type, HTTP status and X-Request-ID. Remove credentials and sensitive business content before sharing logs.</p>
+<p>Re-establish forwarding after USB reconnection. Remove it after use:</p>
+<div class="abx-code"><div class="abx-code-bar"><span>SH</span><button type="button" class="abx-copy">Copy</button><span role="status"></span></div><pre tabindex="0" aria-label="Code example"><code>adb -s DEVICE_SERIAL forward --remove tcp:18081
+adb -s DEVICE_SERIAL forward --remove tcp:8080</code></pre></div>
+<h2 id="guide-8">Recorded validation and revision</h2>
+<p>The partner's 2026-11-03 first-board materials report validation of 35B chat, non-streaming and streaming file retrieval, OCR ingestion, VectorDB retrieval, embeddings and reranking. They record weight checks for 4B/8B, not fresh inference validation. ASR, TTS, image generation and web search had not completed that first-board acceptance. This does not establish validation across all firmware, documents or third-party agents.</p>
+<p>2026-11-07: Public preview draft v0.1, adapted from the customer API and first-board guides. The website will show its actual publication date when released. Model performance is documented separately on the product page; API aliases do not identify the GGUF or quantization used for a benchmark.</p>
+</article></main>
+<footer id="site-footer"></footer>
+    <script src="assets/js/site.js?v=20260821-14"></script>
+  <script src="assets/js/season-status.js?v=20260821-4"></script>
+<script src="assets/js/analytics.js?v=20260821-3"></script>
+<script src="assets/js/locale-switch.js?v=20260821-3"></script>
+<script src="assets/js/ai-box-docs.js?v=20261107"></script>
+</body>
+</html>

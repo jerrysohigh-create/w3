@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AI BOX 開發者 API 指南 — W3.MAGNE.AI</title>
+    <meta name="description" content="AI BOX 開發者預覽：本地推理、知識庫與模型管理。">
+    <link rel="stylesheet" href="../assets/css/site.css?v=20260821-23" />
+    <link rel="canonical" href="https://w3.magne.ai/tc/ai-box-api.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AI BOX Developer API Guide — W3.MAGNE.AI">
+  <meta property="og:description" content="AI BOX 開發者預覽：本地推理、知識庫與模型管理。">
+  <meta property="og:image" content="https://w3.magne.ai/assets/images/og/w3-system-card.svg" />
+  <meta property="og:url" content="https://w3.magne.ai/tc/ai-box-api.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0a0a0c" />
+  <link rel="icon" href="../assets/images/brand/w3-mark.svg" type="image/svg+xml" />
+  <link rel="manifest" href="../manifest.webmanifest" />
+  <link rel="alternate" hreflang="en" href="https://w3.magne.ai/ai-box-api.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://w3.magne.ai/tc/ai-box-api.html" />
+  <link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/ai-box-api.html" />
+  <link rel="stylesheet" href="../assets/css/locale.css?v=20260821-3" />
+<link rel="stylesheet" href="../assets/css/ai-box-docs.css?v=20261107">
+</head>
+  <body data-copy-success="已複製" data-copy-failure="複製未成功，請選取程式碼手動複製。" data-page="ai-box" class="abx-doc-page" data-lang="zh-Hant" data-locale-peer="../ai-box-api.html" data-asset-root="../">
+    <a class="abx-skip" href="#api-guide">跳至指南</a><header id="site-header"></header>
+    <main id="api-guide" class="wrap abx-doc-layout"><aside class="abx-doc-nav"><p class="section-label">AI BOX / LOCAL API</p><nav aria-label="指南目錄"><a href="#guide-1">連接與前置準備</a>
+<a href="#guide-2">模型查詢與第一個請求</a>
+<a href="#guide-3">Embedding與Rerank</a>
+<a href="#guide-4">文件與知識庫</a>
+<a href="#guide-5">管理員認證與應用令牌</a>
+<a href="#guide-6">模型載入與切換</a>
+<a href="#guide-7">健康與排障</a>
+<a href="#guide-8">已記錄驗證與版本</a></nav><a class="btn" href="ai-box.html#benchmark-202611">產品與性能記錄 →</a><a class="btn" href="developers.html">開發者中心 →</a></aside><article class="abx-doc-content"><p class="section-label">DEVELOPER PREVIEW · DEVICE ACCESS REQUIRED</p><h1>MAGNE.AI BOX 開發者API指南</h1>
+<p>開發者預覽版v0.1 · 內容更新：2026-11-07</p>
+<p>本指南供已取得MAGNE.AI BOX開發預覽設備的應用開發者使用，涵蓋本地推理、知識庫及模型管理。ROC是目前交付資料中的軟體服務與工具命名；本指南不聲明MAG1接口相容。</p>
+<p>適用於已配置本文接口及HTTPS管理口的預覽設備。具體支援韌體以交付記錄及<code>GET /v1/version</code>為準。以下接口沿用OpenAI風格的請求結構，不代表完整API或所有Agent工具相容。</p>
+<h2 id="guide-1">連接與前置準備</h2>
+<p>準備已交付設備、可傳輸資料的USB線、ADB，以及交付方提供的管理信任憑證、管理員帳戶和應用令牌。本文不包含設備初始化、管理員復原或維護權限取得流程。</p>
+<p>以下命令採用POSIX shell語法；Windows可在已配置工具的WSL或Git Bash執行。</p>
+<div class="abx-code"><div class="abx-code-bar"><span>SH</span><button type="button" class="abx-copy">複製</button><span role="status"></span></div><pre tabindex="0" aria-label="程式碼範例"><code>adb devices -l
+adb -s DEVICE_SERIAL forward --no-rebind tcp:8080 tcp:8080
+adb -s DEVICE_SERIAL forward --no-rebind tcp:18081 tcp:18081</code></pre></div>
+<p><code>DEVICE_SERIAL</code>替換為實際設備序列號。若端口被佔用，先檢查<code>adb forward --list</code>，不要覆蓋其他設備的轉發。</p>
+<p>業務Base URL為<code>http://127.0.0.1:8080/v1</code>；管理Base URL為<code>https://127.0.0.1:18081/admin/api</code>。業務HTTP僅用於本機回環及受控USB轉發。Wi-Fi連線不會自動開放LAN業務接口。其他主機接入需由部署方提供受控通道。</p>
+<p>不要將ADB或上述接口直接暴露至公網。網站本身不需要接收您的設備密碼或令牌。不要使用<code>-k</code>略過憑證驗證。舊HTTP管理韌體請使用交付方提供的對應指南。</p>
+<h2 id="guide-2">模型查詢與第一個請求</h2>
+<p>由本機安全環境提供<code>ROC_API_TOKEN</code>；它是應用令牌，不是管理員session。避免把真實憑據寫入網站程式、公開範例或日誌。</p>
+<div class="abx-code"><div class="abx-code-bar"><span>SH</span><button type="button" class="abx-copy">複製</button><span role="status"></span></div><pre tabindex="0" aria-label="程式碼範例"><code>BASE=http://127.0.0.1:8080/v1
+curl -sS &quot;$BASE/version&quot; -H &quot;Authorization: Bearer $ROC_API_TOKEN&quot;
+curl -sS &quot;$BASE/models&quot; -H &quot;Authorization: Bearer $ROC_API_TOKEN&quot;</code></pre></div>
+<p>從清單選擇公開模型ID。以下使用交付資料中的<code>local/qwen35-35b</code>示例；這是服務別名，不能單獨用來判定完整模型版本或量化。</p>
+<div class="abx-code"><div class="abx-code-bar"><span>SH</span><button type="button" class="abx-copy">複製</button><span role="status"></span></div><pre tabindex="0" aria-label="程式碼範例"><code>curl -sS &quot;$BASE/models/local%2Fqwen35-35b/health&quot; \
+  -H &quot;Authorization: Bearer $ROC_API_TOKEN&quot;
+
+curl -sS &quot;$BASE/chat/completions&quot; \
+  -H &quot;Authorization: Bearer $ROC_API_TOKEN&quot; \
+  -H 'Content-Type: application/json' \
+  -d '{&quot;model&quot;:&quot;local/qwen35-35b&quot;,&quot;messages&quot;:[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;What is 19 + 23? Reply only the integer.&quot;}],&quot;temperature&quot;:0,&quot;max_tokens&quot;:32,&quot;stream&quot;:false}'</code></pre></div>
+<p>模型<code>model_ready=true</code>後再送出推理請求。未載入模型需由管理員先執行load/switch。成功答案位於<code>choices[0].message.content</code>；多輪對話隨請求攜帶完整所需messages歷史。</p>
+<p>對話流式模式設<code>stream:true</code>並使用<code>curl -N</code>讀取SSE，收到<code>[DONE]</code>才視為正常結束。連線中斷不等同成功。</p>
+<h2 id="guide-3">Embedding與Rerank</h2>
+<div class="abx-code"><div class="abx-code-bar"><span>SH</span><button type="button" class="abx-copy">複製</button><span role="status"></span></div><pre tabindex="0" aria-label="程式碼範例"><code>curl -sS &quot;$BASE/embeddings&quot; \
+  -H &quot;Authorization: Bearer $ROC_API_TOKEN&quot; \
+  -H 'Content-Type: application/json' \
+  -d '{&quot;model&quot;:&quot;npu/embedding&quot;,&quot;input&quot;:&quot;Document text&quot;}'
+
+curl -sS &quot;$BASE/rerank&quot; \
+  -H &quot;Authorization: Bearer $ROC_API_TOKEN&quot; \
+  -H 'Content-Type: application/json' \
+  -d '{&quot;query&quot;:&quot;network&quot;,&quot;documents&quot;:[&quot;network setup&quot;,&quot;weather&quot;],&quot;top_n&quot;:2}'</code></pre></div>
+<p>交付配置的Embedding返回1024維向量，位置為<code>data[0].embedding</code>；Rerank的<code>results</code>包含文件索引與相關性分數。<code>npu/embedding</code>及<code>npu/rerank</code>不使用<code>/models/{id}/health</code>，狀態由管理接口<code>GET /admin/api/models</code>查詢。開機未就緒時可能返回503。</p>
+<h2 id="guide-4">文件與知識庫</h2>
+<div class="abx-table" tabindex="0" role="region" aria-label="接口參考表"><table><thead><tr><th scope="col">步驟</th><th scope="col">接口</th><th scope="col">請求及結果</th></tr></thead><tbody><tr><td data-label="步驟">上傳</td><td data-label="接口">POST /v1/files</td><td data-label="請求及結果">multipart：purpose=assistants及file；保存file_id</td></tr><tr><td data-label="步驟">建庫</td><td data-label="接口">POST /v1/vector_stores</td><td data-label="請求及結果">JSON：{&quot;name&quot;:&quot;customer-docs&quot;}；保存返回id</td></tr><tr><td data-label="步驟">掛接</td><td data-label="接口">POST /v1/vector_stores/{id}/files</td><td data-label="請求及結果">JSON：{&quot;file_id&quot;:&quot;FILE_ID&quot;}</td></tr><tr><td data-label="步驟">等待入庫</td><td data-label="接口">GET /v1/vector_stores/{id}/files/{file_id}</td><td data-label="請求及結果">等待status=completed；failed/cancelled需處理</td></tr><tr><td data-label="步驟">檢索</td><td data-label="接口">POST /v1/vector_stores/{id}/search</td><td data-label="請求及結果">JSON：{&quot;query&quot;:&quot;查詢詞&quot;}</td></tr><tr><td data-label="步驟">問答</td><td data-label="接口">POST /v1/responses</td><td data-label="請求及結果">使用下列file_search請求</td></tr></tbody></table></div>
+<p>將以下內容保存為<code>rag.json</code>，替換模型與知識庫ID：</p>
+<div class="abx-code"><div class="abx-code-bar"><span>JSON</span><button type="button" class="abx-copy">複製</button><span role="status"></span></div><pre tabindex="0" aria-label="程式碼範例"><code>{
+  &quot;model&quot;: &quot;local/qwen35-35b&quot;,
+  &quot;instructions&quot;: &quot;Answer briefly and cite the source.&quot;,
+  &quot;input&quot;: [{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;What is the verification keyword?&quot;}],
+  &quot;tools&quot;: [{&quot;type&quot;:&quot;file_search&quot;,&quot;vector_store_ids&quot;:[&quot;YOUR_VECTOR_STORE_ID&quot;]}],
+  &quot;max_output_tokens&quot;: 128,
+  &quot;stream&quot;: true
+}</code></pre></div>
+<div class="abx-code"><div class="abx-code-bar"><span>SH</span><button type="button" class="abx-copy">複製</button><span role="status"></span></div><pre tabindex="0" aria-label="程式碼範例"><code>curl -sS -N &quot;$BASE/responses&quot; \
+  -H &quot;Authorization: Bearer $ROC_API_TOKEN&quot; \
+  -H 'Content-Type: application/json' --data-binary @rag.json</code></pre></div>
+<p>只有收到<code>response.completed</code>才記為完整成功。<code>response.failed</code>讀取<code>response.last_error</code>；<code>response.incomplete</code>及終止事件前斷流均不算完整成功。保留<code>X-Request-ID</code>，不要在部分輸出後無條件重送。</p>
+<p>答案應展示返回的文件引用。OCR在文件入庫路徑中處理；格式、大小、頁數和複雜版面支援範圍以交付配置和實測為準。此指南不承諾所有文件均能正確解析。</p>
+<p>刪除知識庫用<code>DELETE /v1/vector_stores/{id}</code>，刪除文件用<code>DELETE /v1/files/{file_id}</code>；執行前確認歸屬和用途。</p>
+<h2 id="guide-5">管理員認證與應用令牌</h2>
+<p>管理員登入：<code>POST /admin/api/login</code>，JSON包含<code>username</code>與<code>password</code>，返回<code>session</code>。HTTPS請求需信任交付憑證，管理請求使用<code>Authorization: Bearer &lt;session&gt;</code>。登出用<code>POST /admin/api/logout</code>。</p>
+<p>業務請求使用獨立應用令牌。由管理員透過交付的管理介面或核准工具簽發、輪換和撤銷；能力範圍為<code>inference</code>、<code>embeddings</code>、<code>rerank</code>、<code>rag</code>，依實際需要授權。一般應用令牌明文僅在簽發/輪換時返回。輪換使舊令牌失效；遺失令牌應重新簽發或輪換。設備交付及維護憑據不屬於應用令牌流程。</p>
+<h2 id="guide-6">模型載入與切換</h2>
+<p>在已安全取得管理session後，由本機環境提供<code>ADMIN_SESSION</code>。下列<code>TARGET_ID</code>與<code>COPY_REVISION</code>須用管理清單的當次值替換；管理ID與業務ID可能不同。</p>
+<div class="abx-code"><div class="abx-code-bar"><span>SH</span><button type="button" class="abx-copy">複製</button><span role="status"></span></div><pre tabindex="0" aria-label="程式碼範例"><code>ADMIN=https://127.0.0.1:18081/admin/api
+curl -sS --cacert provider-admin-trust.pem &quot;$ADMIN/models&quot; \
+  -H &quot;Authorization: Bearer $ADMIN_SESSION&quot;
+
+curl -sS -i --cacert provider-admin-trust.pem &quot;$ADMIN/models/switch&quot; \
+  -H &quot;Authorization: Bearer $ADMIN_SESSION&quot; \
+  -H 'Content-Type: application/json' \
+  -d '{&quot;target&quot;:{&quot;id&quot;:&quot;TARGET_ID&quot;,&quot;revision&quot;:&quot;COPY_REVISION&quot;}}'
+
+curl -sS --cacert provider-admin-trust.pem &quot;$ADMIN/models/operations/OPERATION_ID&quot; \
+  -H &quot;Authorization: Bearer $ADMIN_SESSION&quot;</code></pre></div>
+<p>已有模型駐留使用switch，沒有模型駐留使用load。HTTP 202僅表示受理，保存operation_id並輪詢原操作至succeeded/failed/cancelled。切換期間暫停業務；同時確認操作成功、目標模型就緒及實際短問答成功後再恢復。冷載入可能需要數分鐘。</p>
+<p>開機預設策略使用<code>GET /admin/api/models/policy</code>讀取；PUT為整份替換且帶version鎖。必須保留其他欄位，409時重新讀取。保存策略不代表當前模型已切換。</p>
+<h2 id="guide-7">健康與排障</h2>
+<p>管理接口提供<code>GET /admin/api/status</code>、<code>/health</code>、<code>/system/health</code>、<code>/device/thermal</code>、<code>/device/thermal/history</code>及<code>/audit/export</code>。均需管理員session及HTTPS憑證驗證。</p>
+<div class="abx-table" tabindex="0" role="region" aria-label="接口參考表"><table><thead><tr><th scope="col">HTTP</th><th scope="col">處理</th></tr></thead><tbody><tr><td data-label="HTTP">400</td><td data-label="處理">核對請求欄位、模型及參數</td></tr><tr><td data-label="HTTP">401/403</td><td data-label="處理">檢查應用令牌、管理session或scope；按需重新登入或輪換</td></tr><tr><td data-label="HTTP">404</td><td data-label="處理">檢查路由、模型ID編碼及是否支援該接口</td></tr><tr><td data-label="HTTP">429</td><td data-label="處理">降低並發或等待登入鎖定解除</td></tr><tr><td data-label="HTTP">503</td><td data-label="處理">查模型就緒狀態，保留錯誤碼與請求ID</td></tr></tbody></table></div>
+<p>報障提供時間與時區、版本、模型ID、請求類型、HTTP狀態及X-Request-ID；分享日誌前移除秘密和業務敏感內容。</p>
+<p>USB重連後重新建立轉發。使用結束移除：</p>
+<div class="abx-code"><div class="abx-code-bar"><span>SH</span><button type="button" class="abx-copy">複製</button><span role="status"></span></div><pre tabindex="0" aria-label="程式碼範例"><code>adb -s DEVICE_SERIAL forward --remove tcp:18081
+adb -s DEVICE_SERIAL forward --remove tcp:8080</code></pre></div>
+<h2 id="guide-8">已記錄驗證與版本</h2>
+<p>合作方2026-11-03首板資料記錄了35B對話、普通及流式文件檢索、OCR入庫、VectorDB、Embedding和Rerank功能驗證。4B/8B僅記錄權重核對；ASR、TTS、圖像生成與聯網搜尋尚未完成該次首板驗收。這不等同於所有韌體、文件或第三方Agent均通過驗證。</p>
+<p>2026-11-07：公開預覽稿v0.1，依客戶API指南及首板資料整理；實際發布日期由網站上線時標示。模型性能另見產品頁測試記錄，不能以API別名推斷此次性能測試的GGUF或量化。</p>
+</article></main>
+<footer id="site-footer"></footer>
+    <script src="../assets/js/tc/site.js?v=20260821-15"></script>
+  <script src="../assets/js/season-status.js?v=20260821-4"></script>
+<script src="../assets/js/tc/analytics.js?v=20260821-3"></script>
+<script src="../assets/js/locale-switch.js?v=20260821-3"></script>
+<script src="../assets/js/ai-box-docs.js?v=20261107"></script>
+</body>
+</html>

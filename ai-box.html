@@ -21,6 +21,7 @@
   <link rel="alternate" hreflang="x-default" href="https://w3.magne.ai/ai-box.html" />
   <link rel="stylesheet" href="assets/css/locale.css?v=20260821-3" />
   <link rel="stylesheet" href="assets/css/ai-box-prototype.css?v=20260923-2">
+  <link rel="stylesheet" href="assets/css/ai-box-docs.css?v=20261107">
 </head>
 <body data-page="ai-box" data-lang="en" data-locale-peer="tc/ai-box.html">
   <header id="site-header"></header>
@@ -50,14 +51,15 @@
       </div>
       <div class="wrap">
         <dl class="ai-box-ledger">
-          <div><dt>CURRENT MODEL TARGET</dt><dd>QWEN3.6-35B-A3B <span class="tag target">ENGINEERING TARGET</span></dd></div>
-          <div><dt>MODEL ARTIFACT</dt><dd>Q4_K_M · NPU GGUF <span class="tag target">IN ENGINEERING</span></dd></div>
+          <div><dt>CURRENT MODEL</dt><dd>QWEN3.6-35B-A3B <span class="tag pending">TEAM-CONFIRMED</span></dd></div>
+          <div><dt>MODEL ARTIFACT</dt><dd>W4A16 <span class="tag pending">TEAM-CONFIRMED</span></dd></div>
           <div><dt>EDGE RUNTIME</dt><dd>PRIVATE RUNTIME · LLAMA.CPP-COMPATIBLE <span class="tag pending">POC ACTIVE</span></dd></div>
           <div><dt>ACCELERATION</dt><dd>MAGNE GGML BACKEND <span class="tag verified">ACTIVE</span></dd></div>
         </dl>
       </div>
     </section>
 
+<section class="wrap abx-summary" aria-label="Latest performance report"><div><p class="section-label">QWEN3.6-35B-A3B · W4A16</p><strong>≈41 tokens/s</strong></div><div><h2>Decode speed</h2><p>Partner-reported · Development build · Not independently reproduced by MAGNE</p><p>Two runs with approximately 1K and 2K input tokens. See the original results and available test conditions.</p><div class="hero-actions"><a class="btn" href="#benchmark-202611">View test results →</a><a class="btn" href="ai-box-api.html">Developer API guide →</a></div></div></section>
     <section class="content-section ai-box-manifesto">
       <div class="wrap">
         <div class="section-head reveal">
@@ -196,12 +198,13 @@
             <p class="section-label"><span class="index">03.5</span> CONTROLLED MODEL SUPPORT</p>
             <h2 class="section-title">35B total parameters.<br>3B active parameters.</h2>
           </div>
-          <p class="section-copy">Qwen3.6-35B-A3B is the current large-model engineering target for the MAGNE Custom NPU path. Its speed and delivery timing remain engineering targets and have not completed formal reproducible testing. Q4_K_M identifies a GGUF artifact format and must not be treated as equivalent to W4A16.</p>
+          <p class="section-copy">The team confirms that the current AI BOX runs Qwen3.6-35B-A3B · W4A16 and that both partner-reported runs below used this configuration. Model artifacts, hashes and runtime versions remain pending; formal reproducible acceptance is not complete.</p>
         </div>
 
+<section class="abx-benchmark" id="benchmark-202611" aria-labelledby="benchmark-title"><p class="section-label">NOVEMBER 2026 / PARTNER-REPORTED</p><h3 id="benchmark-title">Qwen3.6-35B-A3B development-build results</h3><p>November 2026 test update · Exact test date pending confirmation · Partner-reported · Two runs</p><div class="abx-table"><table><thead><tr><th scope="col">Input tokens</th><th scope="col">Actual output tokens</th><th scope="col">Prefill tokens/s</th><th scope="col">Decode tokens/s</th><th scope="col">ms/token</th></tr></thead><tbody><tr><td data-label="Input tokens">989</td><td data-label="Actual output tokens">825</td><td data-label="Prefill tokens/s">193.1</td><td data-label="Decode tokens/s">40.87</td><td data-label="ms/token">24.47</td></tr><tr><td data-label="Input tokens">1977</td><td data-label="Actual output tokens">713</td><td data-label="Prefill tokens/s">206.7</td><td data-label="Decode tokens/s">40.93</td><td data-label="ms/token">24.43</td></tr></tbody></table></div><p>Prefill measures input processing; Decode measures output generation. ms/token is output-token timing, not time to first token. Approximately 41 rounds these two Decode observations; it is not a third test or a sustained-load / concurrent-user guarantee.</p><p>Model and W4A16 quantization for both runs confirmed by the MAGNE.AI team. Model artifact, model hash, firmware/runtime, concurrency, cache settings, speculative decoding, execution placement, power and TTFT: not supplied. No same-condition M50 comparison is established.</p><p>Source: partner test screenshot supplied by MAGNE.AI. Not independently reproduced here; full configuration and reproducible logs pending. This record does not establish Gate 1 multi-device acceptance or production readiness.</p><a class="btn" href="ai-box-api.html">Connect your application: developer-preview API guide →</a></section>
         <div class="moe-dossier reveal">
           <div class="moe-identity">
-            <div class="moe-head"><span>MODEL / QWEN3.6-35B-A3B</span><span class="tag target">ENGINEERING TARGET</span></div>
+            <div class="moe-head"><span>MODEL / QWEN3.6-35B-A3B</span><span class="tag pending">TEAM-CONFIRMED</span></div>
             <p class="moe-kicker">SPARSE MIXTURE-OF-EXPERTS</p>
             <h3>CAPACITY WITHOUT<br><span>FULL ACTIVATION.</span></h3>
             <p>The total parameters affect model capacity and weight retention; each token only enables part of the expert path. MoE reduces the amount of active computation without eliminating the storage and memory requirements of full weights.</p>
@@ -209,8 +212,8 @@
           <dl class="moe-metrics">
             <div><dt>TOTAL PARAMETERS</dt><dd>35B</dd><small>MODEL CAPACITY</small></div>
             <div><dt>ACTIVE PARAMETERS</dt><dd>3B</dd><small>PER-TOKEN ACTIVE PATH</small></div>
-            <div><dt>QUANTIZATION</dt><dd>Q4_K_M</dd><small>GGUF ARTIFACT LABEL · NOT W4A16</small></div>
-            <div><dt>DEPLOYMENT ARTIFACT</dt><dd>NPU GGUF</dd><small>CUSTOMIZATION IN ENGINEERING</small></div>
+            <div><dt>QUANTIZATION</dt><dd>W4A16</dd><small>TEAM-CONFIRMED · BOTH TEST RUNS</small></div>
+            <div><dt>DEPLOYMENT ARTIFACT</dt><dd>PENDING</dd><small>FILE, FORMAT AND HASH NOT SUPPLIED</small></div>
           </dl>
           <div class="moe-memory-path">
             <span>WEIGHT RESIDENCY / MEMORY PATH</span>
@@ -218,14 +221,14 @@
             <small>ILLUSTRATIVE LAYERING · EXACT ADDRESSING, EXPERT RESIDENCY AND KV-CACHE PLACEMENT REQUIRE ENGINEERING DISCLOSURE</small>
           </div>
           <div class="model-validation-line">
-            <span><b>ENGINEERING TARGET</b> QWEN3.6-35B-A3B / Q4_K_M / NPU-CUSTOMIZED GGUF</span>
-            <span class="supplier-measured"><b>PERFORMANCE TARGET</b> 70 TOKENS/S · FORMAL REPRODUCIBLE TEST PENDING</span>
+            <span><b>TEAM-CONFIRMED</b> QWEN3.6-35B-A3B / W4A16</span>
+            <span class="supplier-measured"><b>PARTNER-REPORTED</b> ≈41 TOKENS/S · DEVELOPMENT BUILD, CONDITIONS INCOMPLETE</span>
             <span class="in-validation"><b>IN VALIDATION</b> GAMMA + OTHER LLM / VLM ARCHITECTURES</span>
           </div>
         </div>
 
         <div class="performance-register reveal" aria-label="Controlled AI BOX performance register">
-          <div><span>LOCAL DECODE</span><strong>70</strong><small>TOKENS/S · ENGINEERING TARGET · NOT YET FORMALLY TESTED</small></div>
+          <div><span>REPORTED DECODE</span><strong>≈41</strong><small>TOKENS/S · PARTNER DEVELOPMENT BUILD · SEE TEST RECORD</small></div>
           <div><span>CONTEXT ENVELOPE</span><strong>256K</strong><small>MAXIMUM CONTEXT CLAIM · POC VERIFICATION REQUIRED</small></div>
           <div><span>ACCELERATOR</span><strong>56</strong><small>TOPS INT8 · SUPPLIER CLAIM</small></div>
           <div><span>NPU NEAR MEMORY</span><strong>10GB</strong><small>3D DRAM · SUPPLIER CLAIM</small></div>
@@ -233,7 +236,7 @@
         </div>
 
         <div class="model-support-matrix reveal">
-          <div class="model-matrix-head"><span>CONTROLLED MODEL MATRIX / 2026.08</span><span>OPTIMIZED · TESTED · TARGET</span></div>
+          <div class="model-matrix-head"><span>CONTROLLED MODEL MATRIX / 2026.11 UPDATE</span><span>OPTIMIZED · TESTED · TARGET</span></div>
           <div class="table-scroll model-matrix-scroll">
             <table class="model-matrix-table">
               <caption class="sr-only">Controlled model optimization, test and target matrix for August 2026</caption>
@@ -242,14 +245,14 @@
                 <tr><td data-label="MODEL">Qwen2.5-3B</td><td data-label="STATUS"><span class="tag verified">OPTIMIZED</span></td><td data-label="PREFILL TOK/S">1000</td><td data-label="DECODE TOK/S">300</td><td data-label="DIRECTION">LOCAL LLM</td></tr>
                 <tr><td data-label="MODEL">Qwen2.5-Omni-3B</td><td data-label="STATUS"><span class="tag verified">OPTIMIZED</span></td><td data-label="PREFILL TOK/S">1000</td><td data-label="DECODE TOK/S">300</td><td data-label="DIRECTION">VOICE / MULTIMODAL</td></tr>
                 <tr><td data-label="MODEL">Qwen2.5-Omni-7B</td><td data-label="STATUS"><span class="tag target">SEP TARGET</span></td><td data-label="PREFILL TOK/S">500</td><td data-label="DECODE TOK/S">160</td><td data-label="DIRECTION">VOICE / MULTIMODAL</td></tr>
-                <tr class="model-primary"><td data-label="MODEL">Qwen3.6-35B-A3B · MoE</td><td data-label="STATUS"><span class="tag target">ENGINEERING TARGET</span></td><td data-label="PREFILL TOK/S">200 <small>TARGET</small></td><td data-label="DECODE TOK/S">70 <small>TARGET</small></td><td data-label="DIRECTION">AGENT APPLICATIONS</td></tr>
                 <tr><td data-label="MODEL">LLaMA2-13B</td><td data-label="STATUS"><span class="tag target">OCT TARGET</span></td><td data-label="PREFILL TOK/S">300</td><td data-label="DECODE TOK/S">80</td><td data-label="DIRECTION">LOCAL LLM</td></tr>
                 <tr><td data-label="MODEL">Qwen3-VL-4B · Qwen3.5-4B</td><td data-label="STATUS"><span class="tag target">OCT TARGET</span></td><td data-label="PREFILL TOK/S">500</td><td data-label="DECODE TOK/S">200</td><td data-label="DIRECTION">VISION AI</td></tr>
                 <tr><td data-label="MODEL">Qwen3-VL-8B · Qwen3.5-9B</td><td data-label="STATUS"><span class="tag target">OCT TARGET</span></td><td data-label="PREFILL TOK/S">350</td><td data-label="DECODE TOK/S">100</td><td data-label="DIRECTION">VISION AI</td></tr>
+                <tr class="model-primary"><td data-label="MODEL">Qwen3.6-35B-A3B · W4A16<br><small>MoE architecture · 35B total / 3B active parameters</small><br><small>Current device and both test configurations confirmed by the MAGNE.AI team</small></td><td data-label="STATUS"><a href="#benchmark-202611">PARTNER REPORT · 2026.11</a></td><td data-label="PREFILL TOK/S">193.1 / 206.7</td><td data-label="DECODE TOK/S">40.87 / 40.93</td><td data-label="DIRECTION">Agent</td></tr>
               </tbody>
             </table>
           </div>
-          <p>Qwen3.6-35B-A3B timing and the 70 tokens/s decode figure are engineering targets, not completed test results or unconditional product commitments. Final values remain subject to model hash, context, artifact format and repeatable prototype testing.</p>
+          <p>The Qwen3.6-35B-A3B row reflects the November 2026 partner report. Other rows retain the August 2026 engineering planning status, not current acceptance. Different records lack matched test conditions and are not speed comparisons.</p>
         </div>
       </div>
     </section>
@@ -364,8 +367,8 @@
               <tr><td>MEDIA / OS</td><td>4K@30fps · Ubuntu</td><td><span class="tag verified">PRODUCT BASELINE</span></td><td>Codec actual measurement, Ubuntu version and maintenance cycle</td></tr>
               <tr><td>AI POWER</td><td>8–15W</td><td><span class="tag pending">SCOPE UNDEFINED</span></td><td>It is necessary to confirm whether it is a customized NPU, computing board or complete machine, and do a socket power consumption test</td></tr>
               <tr><td>EDGE RUNTIME</td><td>Privately maintained llama.cpp-compatible runtime + MAGNE GGML backend</td><td><span class="tag verified">IMPLEMENTED</span></td><td>Version tracking, upstream synchronization and security patch records</td></tr>
-              <tr><td>MODEL TARGET</td><td>Qwen3.6-35B-A3B · Q4_K_M · NPU customization GGUF</td><td><span class="tag target">ENGINEERING TARGET</span></td><td>Freeze the model hash, conversion tool and artifact format before formal testing; Q4_K_M is not W4A16</td></tr>
-              <tr><td>MODEL DECODE</td><td>70 tokens/s</td><td><span class="tag target">ENGINEERING TARGET</span></td><td>Repeatable prototype benchmark, workload definition, context, power scope and raw logs required</td></tr>
+              <tr><td>CURRENT MODEL</td><td>Qwen3.6-35B-A3B · W4A16</td><td><span class="tag pending">TEAM-CONFIRMED</span></td><td>Team-confirmed current model and both test configurations; artifact, hash, runtime details and independent replication pending</td></tr>
+              <tr><td>MODEL DECODE</td><td>40.87 / 40.93 tokens/s</td><td><span class="tag pending">PARTNER-REPORTED</span></td><td>Development build; full configuration, reproducible logs and independent MAGNE replication pending</td></tr>
               <tr><td>MODEL EXPANSION</td><td>GAMMA and other LLM / VLM</td><td><span class="tag target">IN VALIDATION</span></td><td>Operator coverage, CPU fallback, TTFT, decode, long context, power consumption and quality regression</td></tr>
               <tr><td>SECURITY</td><td>Secure Boot · Encryption · Signature Upgrade · Rollback</td><td><span class="tag pending">SUPPLIER CONFIRMATION</span></td><td>Startup chain, attack testing and recovery records</td></tr>
               <tr><td>WEB3 TRUST LAYER</td><td>Device/Agent identity · Signature inference receipt · Audit summary anchoring</td><td><span class="tag target">ARCHITECTURE TARGET</span></td><td>Threat model, signature format, on-chain Schema, privacy review and security audit</td></tr>
@@ -373,7 +376,7 @@
             </tbody>
           </table>
         </div>
-        <p class="ai-box-disclaimer reveal"><span>CONTROL NOTE</span> Qwen3.6-35B-A3B, Q4_K_M NPU customization, delivery timing and 70 tokens/s remain engineering targets pending formal reproducible testing. Q4_K_M is not equivalent to W4A16. &gt;600GB/s, 56 TOPS and 8–15W remain supplier claims and require defined test boundaries and original evidence before becoming product commitments.</p>
+        <p class="ai-box-disclaimer reveal"><span>CONTROL NOTE</span> The team has confirmed Qwen3.6-35B-A3B · W4A16 for the current device and both reported runs. Delivery timing remains an engineering target. Approximately 41 tokens/s is a partner development-build report, pending independent reproducible MAGNE testing. &gt;600GB/s, 56 TOPS and 8–15W remain supplier claims and require defined test boundaries and original evidence before becoming product commitments.</p>
         <div class="section-head reveal ai-box-boundary-subhead">
           <div>
             <p class="section-label">ACCEPTANCE RULES / TRUST BOUNDARY</p>

@@ -1,0 +1,26 @@
+{
+  "record_id": "ai-box-qwen36-35b-a3b-202611",
+  "document_prepared_on": "2026-11-07",
+  "published_on": null,
+  "test_date": null,
+  "model_label": "Qwen3.6-35B-A3B",
+  "model_label_source": "user-provided",
+  "evidence_type": "partner-reported screenshot",
+  "independently_reproduced": false,
+  "display_decode_tokens_per_second_approx": 41,
+  "gguf_filename": null,
+  "quantization": "W4A16",
+  "quantization_source": "MAGNE.AI team confirmation",
+  "quantization_applies_to": "current device and both recorded runs",
+  "model_sha256": null,
+  "firmware_version": null,
+  "runtime_version": null,
+  "concurrency": null,
+  "cache_settings": null,
+  "speculative_decoding": null,
+  "execution_placement": null,
+  "runs": [
+    {"input_tokens": 989, "output_tokens": 825, "prefill_tokens_per_second": 193.1, "decode_tokens_per_second": 40.87, "ms_per_token": 24.47},
+    {"input_tokens": 1977, "output_tokens": 713, "prefill_tokens_per_second": 206.7, "decode_tokens_per_second": 40.93, "ms_per_token": 24.43}
+  ]
+}
